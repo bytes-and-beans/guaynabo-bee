@@ -1,7 +1,18 @@
 {
   "require": {
     "craftcms/cms": "^3.6.4",
-    "vlucas/phpdotenv": "^3.4.0"
+    "craftcms/contact-form": "^2.2",
+    "craftcms/contact-form-honeypot": "^1.0",
+    "craftcms/redactor": "^2.8",
+    "doublesecretagency/craft-cpcss": "^2.4",
+    "jalendport/craft-sidebarthemes": "^1.1",
+    "marionnewlevant/snitch": "3.0.4.1",
+    "sebastianlenz/linkfield": "^1.0",
+    "verbb/cp-nav": "^3.0",
+    "verbb/image-resizer": "^2.1",
+    "verbb/knock-knock": "^1.2",
+    "vlucas/phpdotenv": "^3.4.0",
+    "wbrowar/adminbar": "^3.1"
   },
   "require-dev": {
     "yiisoft/yii2-shell": "^2.0.3"

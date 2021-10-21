@@ -5,51 +5,16 @@
 {% set base_primarySectionElement = 'article' %}
 
 {% block base_supercontent %}
-    <section class="h-full bg-gray-200 border border-gray-300 f-full">
-        <p>This is the 'base_supercontent' block. As you can see, it's appears above the primary content of the page.</p>
-    </section>
 {% endblock %}
 
 {% block base_content %}
-    <article class="w-full h-full bg-blue-200 border border-blue-300">
-        <h1>Bytes and Boilerplates</h1>
-        <p>
-            Welcome to the default homepage of the Bytes And Beans Boilerplate.
-            You should definitely replace this content with something more appropriate to your project.
-        </p>
-        <p>For more in depth information, please see the ReadMe file that I will forget to include in the git repo.</p>
-
-        <h1>This template's layout.</h1>
-        <p>
-            Near the top of this page's source, you'll notice '&lbrace;&percnt; extends "_layouts/3-base" &percnt;&rbrace;'. 3-base is the primary layout
-            you will use for most pages. 3-base has 3 major blocks; all of which begin with the prefix 'base-', to make it 
-            easier to remember which block is found in what template.
-        </p>
-
-        <h2>base_content</h2>
-        <p>The base_content block containes the primary content of the page. In the case of this page, the primary content is this article you are reading right now</p>
-        
-        <h2>base_subcontent</h2>
-        <p>base_subcontent is an optional block. If you have content that should appear below the main content of the page, but should be kept seperate for whatever reason, it goes there.</p>
-
-        <h2>base_aside</h2>
-        <p>base_aside is another optional block. It will appear to the right of the content and subcontent and has a column layout by default.</p>
-        <p>It is primarily intended for sidebars</p>
-    </article>
+Stuff to come here later!!!
 {% endblock %}
 
 {% block base_subcontent %}
-    <section class="h-full bg-gray-200 border border-gray-300 f-full">
-        <p>I am the base_subcontent block. I'm good for related links, ads, bibliographies and other randome stuff you don't want clogging up the primary article's section</p>
-    </section>
+    {# logo billboard #}
+    <img src={{common.logoGiant.one().url}} alt="" class="w-full">
 {% endblock %}
 
 {% block base_sidebar %}
-    <aside class="w-full h-full bg-green-200 border border-green-300">
-        <ul>
-            <li>I am the base_aside block</li>
-            <li>I am a side-bar like object</li>
-            <li>If I am empty, or undefined, I dissappear</li>
-        </ul>
-    </aside>
 {% endblock %}

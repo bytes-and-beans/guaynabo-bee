@@ -1,0 +1,16 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: 44ddc33e-9319-4659-9841-2b0aa41b37a2 # Timeline
+handle: timeline
+instructions: ''
+name: TimeLine
+searchable: false
+settings:
+  contentTable: '{{%matrixcontent_timeline}}'
+  maxBlocks: ''
+  minBlocks: ''
+  propagationKeyFormat: null
+  propagationMethod: all
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

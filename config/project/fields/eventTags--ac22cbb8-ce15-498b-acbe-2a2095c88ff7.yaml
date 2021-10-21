@@ -1,0 +1,23 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: 2b4f04a0-9ec2-42f6-9d25-9801e2d1a3dd # Event Calendar Fields
+handle: eventTags
+instructions: ''
+name: 'Event Tags'
+searchable: false
+settings:
+  allowLimit: false
+  allowMultipleSources: false
+  allowSelfRelations: false
+  limit: null
+  localizeRelations: false
+  selectionLabel: ''
+  showSiteMenu: false
+  source: 'taggroup:9d774323-2d6e-4345-bfb9-2aa88066296c' # events
+  sources: '*'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Tags

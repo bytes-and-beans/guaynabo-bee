@@ -1,0 +1,51 @@
+fieldLayouts:
+  4abaec02-48cd-4aa6-b4a2-bf7fd71f1d93:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\EntryTitleField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+      -
+        elements:
+          -
+            fieldUid: 17c26a2d-b909-4d6f-9750-cbc118e6607b # TimeLine
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Timeline
+        sortOrder: 2
+handle: timeline
+hasTitleField: true
+name: TimeLine
+section: 5fe64dc7-0407-425d-bda1-cba3696644f8 # TimeLines
+sortOrder: 1
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

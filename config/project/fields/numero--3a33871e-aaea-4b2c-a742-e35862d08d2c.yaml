@@ -1,0 +1,20 @@
+columnSuffix: null
+contentColumnType: integer(10)
+fieldGroup: 539c5f06-f749-4542-8158-c06506a470fd # ordenanzas y resoluciones
+handle: numero
+instructions: ''
+name: Número/Fecha
+searchable: false
+settings:
+  decimals: 0
+  defaultValue: null
+  max: null
+  min: '1'
+  prefix: null
+  previewCurrency: ''
+  previewFormat: decimal
+  size: null
+  suffix: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Number

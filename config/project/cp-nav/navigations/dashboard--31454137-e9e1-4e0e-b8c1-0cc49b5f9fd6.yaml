@@ -1,0 +1,12 @@
+currLabel: Dashboard
+customIcon: null
+enabled: true
+handle: dashboard
+icon: gauge
+layout: bdaea7aa-95e5-4a75-99b6-7f50624ff2a1
+newWindow: false
+order: 0
+prevLabel: Dashboard
+prevUrl: dashboard
+type: ''
+url: dashboard

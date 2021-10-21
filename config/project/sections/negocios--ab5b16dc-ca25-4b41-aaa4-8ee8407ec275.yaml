@@ -1,0 +1,27 @@
+defaultPlacement: end
+enableVersioning: true
+handle: negocios
+name: Negocios
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  7c9b6118-cd72-41b6-9ba6-c4e529aa2772: # Guaynabo
+    enabledByDefault: true
+    hasUrls: true
+    template: negocios/_entry
+    uriFormat: 'negocios/{slug}'
+structure:
+  maxLevels: 3
+  uid: d63b3b2f-0658-4ed3-8d4a-58c774a89da0
+type: structure

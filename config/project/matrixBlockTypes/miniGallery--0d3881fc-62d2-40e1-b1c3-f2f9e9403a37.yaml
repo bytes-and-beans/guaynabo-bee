@@ -1,0 +1,55 @@
+field: 1305ee6d-61f8-4a68-89f1-41e1eca3d8ec # Super Content
+fieldLayouts:
+  aa4f0311-ee2d-4c55-a2ed-babec1eb2f58:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 73ca8bf2-5c8b-4c80-9aba-ef2f7c7b6906 # Photo Gallery
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  73ca8bf2-5c8b-4c80-9aba-ef2f7c7b6906: # Photo Gallery
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: miniGallery
+    instructions: 'Select photos to be included in this mini-gallery'
+    name: 'Photo Gallery'
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:da359c23-2092-4bbd-8eac-96b43b9c81e6' # Title Bars
+      defaultUploadLocationSubpath: ''
+      limit: ''
+      localizeRelations: false
+      previewMode: full
+      restrictFiles: '1'
+      selectionLabel: ''
+      showSiteMenu: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      singleUploadLocationSource: 'volume:da359c23-2092-4bbd-8eac-96b43b9c81e6' # Title Bars
+      singleUploadLocationSubpath: ''
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: false
+      validateRelatedElements: false
+      viewMode: list
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+handle: miniGallery
+name: 'Mini Gallery'
+sortOrder: 3

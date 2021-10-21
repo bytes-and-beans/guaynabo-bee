@@ -1,0 +1,51 @@
+fieldLayouts:
+  0d0060a7-0767-4293-8b56-324f3db96856:
+    tabs:
+      -
+        elements:
+          -
+            style: tip
+            tip: "This type is for creating links in the menus.\r\nIn the menu, this entry will be a direct link to the given URL.\r\n\r\nIf a user somehow reaches this page, they will be redirect to the given url."
+            type: craft\fieldlayoutelements\Tip
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\EntryTitleField
+            warning: null
+            width: 100
+          -
+            fieldUid: 30fa8201-ef58-4cef-ac25-50fedc8a0262 # Simple Url
+            instructions: ''
+            label: URL
+            required: '1'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+handle: comunidadDirectLink
+hasTitleField: true
+name: 'Direct Link'
+section: f4a18913-5edc-4251-8ba0-e110e6e7734f # Comunidad
+sortOrder: 4
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

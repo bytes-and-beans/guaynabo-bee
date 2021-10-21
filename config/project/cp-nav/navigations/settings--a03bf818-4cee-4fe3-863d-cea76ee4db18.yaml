@@ -1,0 +1,12 @@
+currLabel: Settings
+customIcon: ''
+enabled: '0'
+handle: settings
+icon: settings
+layout: 152d572e-0cb0-4442-b348-94bdfb341fba # legislatura
+newWindow: '0'
+order: '8'
+prevLabel: Settings
+prevUrl: settings
+type: ''
+url: settings

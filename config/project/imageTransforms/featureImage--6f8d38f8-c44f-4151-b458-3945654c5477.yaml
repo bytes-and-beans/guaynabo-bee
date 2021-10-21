@@ -1,0 +1,9 @@
+format: null
+handle: featureImage
+height: 500
+interlace: none
+mode: fit
+name: 'Feature Image'
+position: center-center
+quality: null
+width: 700

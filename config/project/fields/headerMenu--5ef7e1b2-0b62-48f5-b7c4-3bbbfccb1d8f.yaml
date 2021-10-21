@@ -1,0 +1,16 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: ce81df7e-4c52-471b-8a39-d574f7362812 # Header Fields
+handle: headerMenu
+instructions: ''
+name: 'Header Menu'
+searchable: false
+settings:
+  contentTable: '{{%matrixcontent_headermenu}}'
+  maxBlocks: ''
+  minBlocks: ''
+  propagationKeyFormat: null
+  propagationMethod: all
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

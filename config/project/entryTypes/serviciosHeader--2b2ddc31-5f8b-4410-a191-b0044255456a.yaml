@@ -1,0 +1,51 @@
+fieldLayouts:
+  bdc624c8-5261-4c49-b2ba-ddc0cdfaacc5:
+    tabs:
+      -
+        elements:
+          -
+            style: tip
+            tip: "This type is for sections headings that should appear in the menu, but not actualy be clicked.  \r\nThey will always list their child-pages."
+            type: craft\fieldlayoutelements\Tip
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\EntryTitleField
+            warning: null
+            width: 100
+          -
+            fieldUid: 1305ee6d-61f8-4a68-89f1-41e1eca3d8ec # Super Content
+            instructions: "This is optional. If you would like to include some content for this page, it will appear above a list of this pages sub-pages.\r\n"
+            label: Content
+            required: ''
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+handle: serviciosHeader
+hasTitleField: true
+name: Header
+section: 95c39e64-34de-4b73-ae4d-49e6f296abe5 # Servicios
+sortOrder: 3
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

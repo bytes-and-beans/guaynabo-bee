@@ -1,0 +1,35 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: 539c5f06-f749-4542-8158-c06506a470fd # ordenanzas y resoluciones
+handle: tipo
+instructions: ''
+name: 'Tipo de Documento'
+searchable: false
+settings:
+  optgroups: true
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - Ordenanza
+        -
+          - value
+          - ordenanza
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - Resolución
+        -
+          - value
+          - resolucion
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

@@ -1,0 +1,100 @@
+fieldLayouts:
+  8c72402c-5d1b-415c-8639-5c63b7d4dbb6:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\EntryTitleField
+            warning: null
+            width: 100
+          -
+            fieldUid: 1305ee6d-61f8-4a68-89f1-41e1eca3d8ec # Super Content
+            instructions: ''
+            label: Content
+            required: '1'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+      -
+        elements:
+          -
+            fieldUid: e20f17dc-2ec6-4575-9e9d-0df07e38e61a # Sidebar Logo
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 15e29b72-7ad9-4082-8957-72f2b0dea29c # Simple Sidebar
+            instructions: ''
+            label: Sidebar
+            required: '1'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Sidebar
+        sortOrder: 2
+      -
+        elements:
+          -
+            fieldUid: 4ec2e6a3-95e7-4312-b35e-5ae98f13d5ff # Title Bar
+            instructions: ''
+            label: 'Title bar image'
+            required: ''
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 7dbb92d0-96b5-440f-aa78-2ceadcf5f062 # Gradiente de Color
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 5a923be5-29f5-4dd3-923a-8f2b45ea9dce # Hide From Menu
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Appearance
+        sortOrder: 3
+handle: negocios
+hasTitleField: true
+name: 'Content and Sidebar'
+section: ab5b16dc-ca25-4b41-aaa4-8ee8407ec275 # Negocios
+sortOrder: 1
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

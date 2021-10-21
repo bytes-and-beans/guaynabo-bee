@@ -1,0 +1,16 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: 6f332f3d-aa11-44fb-abd3-3de9f272267f # Social Media Fields
+handle: socialButtonsMatrix
+instructions: ''
+name: 'Social Buttons Matrix'
+searchable: false
+settings:
+  contentTable: '{{%matrixcontent_socialbuttonsmatrix}}'
+  maxBlocks: ''
+  minBlocks: ''
+  propagationKeyFormat: null
+  propagationMethod: all
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

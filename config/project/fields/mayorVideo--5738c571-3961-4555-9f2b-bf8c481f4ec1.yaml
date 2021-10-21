@@ -1,0 +1,33 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: c89911ff-91ee-4214-952f-1fb86a9f4205 # Mayor's Office Post Fields
+handle: mayorVideo
+instructions: ''
+name: 'Mayor Video'
+searchable: false
+settings:
+  allowSelfRelations: false
+  allowUploads: true
+  allowedKinds:
+    - video
+  defaultUploadLocationSource: 'volume:da359c23-2092-4bbd-8eac-96b43b9c81e6' # Title Bars
+  defaultUploadLocationSubpath: ''
+  limit: '1'
+  localizeRelations: false
+  previewMode: full
+  restrictFiles: '1'
+  selectionLabel: ''
+  showSiteMenu: false
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: false
+  singleUploadLocationSource: 'volume:2147547a-eb6e-4100-843c-cd44969a694b' # Mayor Videos
+  singleUploadLocationSubpath: ''
+  source: null
+  sources: '*'
+  targetSiteId: null
+  useSingleFolder: true
+  validateRelatedElements: false
+  viewMode: list
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Assets

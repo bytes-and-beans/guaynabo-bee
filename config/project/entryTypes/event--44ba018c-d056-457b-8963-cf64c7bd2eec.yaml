@@ -1,0 +1,83 @@
+fieldLayouts:
+  f2bdf890-a058-41ff-aafb-488787a5d713:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: ''
+            label: 'Event Name'
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\EntryTitleField
+            warning: null
+            width: 100
+          -
+            fieldUid: 98fa04c0-b771-4956-b275-ba02d0f95594 # Start Time
+            instructions: ''
+            label: ''
+            required: '1'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 4e90f3bd-e5b4-40ad-bc5b-d376fdf64bdf # End Time
+            instructions: ''
+            label: ''
+            required: '1'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 30fa8201-ef58-4cef-ac25-50fedc8a0262 # Simple Url
+            instructions: "**Optional**  \r\nIf a link is provided here, clicking this event in a calendar will go to this link instead of the event's entry in the Calendar section."
+            label: Link
+            required: ''
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: fa143c3e-3c06-429f-b1d5-92d0be21cb35 # Simple Content
+            instructions: "A short description of the event.\r\nNot absolutely nessesary, if the Link field is filled, but this is used for search results."
+            label: Description
+            required: ''
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: ac22cbb8-ce15-498b-acbe-2a2095c88ff7 # Event Tags
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+handle: event
+hasTitleField: true
+name: Event
+section: 6f3c14fd-c48a-42f2-9aca-3315ed8d48ba # Events Calendar
+sortOrder: 2
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: language

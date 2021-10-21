@@ -1,0 +1,19 @@
+description: ''
+handle: legislatura
+name: Legislatura
+permissions:
+  - accesssitewhensystemisoff
+  - accesscp
+  - 'createentries:63dcf512-4f46-4ec5-a7f1-fa3e65deaabd' # Ordenanzas y Resoluciones
+  - 'publishentries:63dcf512-4f46-4ec5-a7f1-fa3e65deaabd' # Ordenanzas y Resoluciones
+  - 'deleteentries:63dcf512-4f46-4ec5-a7f1-fa3e65deaabd' # Ordenanzas y Resoluciones
+  - 'publishpeerentries:63dcf512-4f46-4ec5-a7f1-fa3e65deaabd' # Ordenanzas y Resoluciones
+  - 'deletepeerentries:63dcf512-4f46-4ec5-a7f1-fa3e65deaabd' # Ordenanzas y Resoluciones
+  - 'editpeerentries:63dcf512-4f46-4ec5-a7f1-fa3e65deaabd' # Ordenanzas y Resoluciones
+  - 'publishpeerentrydrafts:63dcf512-4f46-4ec5-a7f1-fa3e65deaabd' # Ordenanzas y Resoluciones
+  - 'deletepeerentrydrafts:63dcf512-4f46-4ec5-a7f1-fa3e65deaabd' # Ordenanzas y Resoluciones
+  - 'editpeerentrydrafts:63dcf512-4f46-4ec5-a7f1-fa3e65deaabd' # Ordenanzas y Resoluciones
+  - 'editentries:63dcf512-4f46-4ec5-a7f1-fa3e65deaabd' # Ordenanzas y Resoluciones
+  - 'saveassetinvolume:c1080c91-c3dc-4737-bbf9-c9a13b373e0d' # Ordenanzas y Resoluciones
+  - 'viewpeerfilesinvolume:c1080c91-c3dc-4737-bbf9-c9a13b373e0d' # Ordenanzas y Resoluciones
+  - 'viewvolume:c1080c91-c3dc-4737-bbf9-c9a13b373e0d' # Ordenanzas y Resoluciones

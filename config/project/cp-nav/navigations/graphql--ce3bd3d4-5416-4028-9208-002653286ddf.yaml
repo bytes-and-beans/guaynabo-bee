@@ -1,0 +1,12 @@
+currLabel: GraphQL
+customIcon: ''
+enabled: '0'
+handle: graphql
+icon: '@appicons/graphql.svg'
+layout: 152d572e-0cb0-4442-b348-94bdfb341fba # legislatura
+newWindow: '0'
+order: '6'
+prevLabel: GraphQL
+prevUrl: graphql
+type: ''
+url: graphql

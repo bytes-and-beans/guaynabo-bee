@@ -1,0 +1,83 @@
+fieldLayouts:
+  802e676b-960a-4e26-93d5-0934150456c3:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: 'Please enter a Title for this entry.'
+            label: Title
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\EntryTitleField
+            warning: null
+            width: 100
+          -
+            fieldUid: b4b4a385-0957-4c06-9940-9012f1f6ffd4 # Mayor Name
+            instructions: ''
+            label: ''
+            required: '1'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: bd0a400e-1c4c-41b3-9831-57c901799316 # Mayor Photo
+            instructions: ''
+            label: ''
+            required: '1'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: dcd73da8-1f1c-4fdb-b929-e2adaa7ed9b6 # Mayor Quote
+            instructions: ''
+            label: ''
+            required: '1'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: ab59bae7-f1a8-4b5d-bbf1-616011f3f0a3 # Mayor Signature
+            instructions: ''
+            label: ''
+            required: '1'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: ae766d7f-81cb-47fd-8911-362a19bd9485 # Embedded Video
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: 'Mayor''s Message Post'
+        sortOrder: 1
+handle: mayorsOffice
+hasTitleField: true
+name: 'Mayor''s Office'
+section: b905df78-0e1b-4ffe-b679-4e397b4e86a0 # Mayor's Office
+sortOrder: 1
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

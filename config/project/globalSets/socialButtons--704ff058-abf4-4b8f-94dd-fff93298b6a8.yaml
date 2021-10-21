@@ -1,0 +1,19 @@
+fieldLayouts:
+  bf595d2a-ed6b-406d-986a-1ffa095083cf:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: f5e0557c-8c7e-42c3-ab0a-cd00c86c6fa6 # Social Buttons Matrix
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: 'Social media buttons'
+        sortOrder: 1
+handle: socialButtons
+name: 'Social Media Buttons'
+sortOrder: 6

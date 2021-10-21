@@ -1,0 +1,12 @@
+currLabel: Entries
+customIcon: null
+enabled: '0'
+handle: entries
+icon: section
+layout: b317180f-95ec-4778-a9f4-8b88ba5b0ba0 # News
+newWindow: '0'
+order: '1'
+prevLabel: Entries
+prevUrl: entries
+type: ''
+url: entries

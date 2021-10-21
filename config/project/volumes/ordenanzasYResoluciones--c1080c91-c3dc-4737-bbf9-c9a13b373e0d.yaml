@@ -1,0 +1,85 @@
+fieldLayouts:
+  acb29d0b-9c41-4fe4-9046-f12414544813:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\AssetTitleField
+            warning: null
+            width: 100
+          -
+            fieldUid: c6d268b3-749c-4a40-9b00-67bb4ba932ea # Descripción
+            instructions: ''
+            label: ''
+            required: ''
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 1d09fcb8-0b06-41bd-af28-1fc612862060 # Comments
+            instructions: ''
+            label: ''
+            required: ''
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 0b4b3bbd-215c-4b25-8179-dfc630a5ee1a # Tipo de Documento
+            instructions: ''
+            label: ''
+            required: '1'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 3a33871e-aaea-4b2c-a742-e35862d08d2c # Número/Fecha
+            instructions: ''
+            label: ''
+            required: '1'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 022d31c2-6e60-4056-b8cd-d4b57d8fb7c9 # Serie/Año
+            instructions: ''
+            label: ''
+            required: '1'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+handle: ordenanzasYResoluciones
+hasUrls: true
+name: 'Ordenanzas y Resoluciones'
+settings:
+  path: '@webroot/assets/ordenanzas-resoluciones'
+sortOrder: 0
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+type: craft\volumes\Local
+url: '@web/assets/ordenanzas-resoluciones'

@@ -1,0 +1,57 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: ccaa1e02-761a-4951-99df-73a306ef75a1 # Common
+handle: colorGradient
+instructions: 'Escoja un color:'
+name: 'Gradiente de Color'
+searchable: false
+settings:
+  optgroups: true
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - 'Gobierno - Azul'
+        -
+          - value
+          - blue
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - 'Servicios - Violeta'
+        -
+          - value
+          - purple
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Negocios - Verde'
+        -
+          - value
+          - green
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - 'Comunidad - Naranja'
+        -
+          - value
+          - orange
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

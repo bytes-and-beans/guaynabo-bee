@@ -1,0 +1,17 @@
+columnSuffix: null
+contentColumnType: datetime
+fieldGroup: 2b4f04a0-9ec2-42f6-9d25-9801e2d1a3dd # Event Calendar Fields
+handle: startTime
+instructions: ''
+name: 'Start Time'
+searchable: false
+settings:
+  max: '2100-12-31T00:00:00-04:00'
+  min: '2000-01-01T00:00:00-04:00'
+  minuteIncrement: '30'
+  showDate: true
+  showTime: true
+  showTimeZone: false
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Date

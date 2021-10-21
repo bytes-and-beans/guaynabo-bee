@@ -1,0 +1,12 @@
+currLabel: Users
+customIcon: null
+enabled: '1'
+handle: users
+icon: users
+layout: 48daf189-e7f0-426c-8c8c-eeb4c7b4c755 # Default
+newWindow: '0'
+order: 9
+prevLabel: Users
+prevUrl: users
+type: ''
+url: users

@@ -1,0 +1,24 @@
+defaultPlacement: end
+enableVersioning: true
+handle: errorPages
+name: 'Error Pages'
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  7c9b6118-cd72-41b6-9ba6-c4e529aa2772: # Guaynabo
+    enabledByDefault: true
+    hasUrls: true
+    template: _errors/_entry
+    uriFormat: 'error-pages/{slug}'
+type: channel

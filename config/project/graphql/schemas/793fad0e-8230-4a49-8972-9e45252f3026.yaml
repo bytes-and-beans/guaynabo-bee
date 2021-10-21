@@ -1,0 +1,12 @@
+isPublic: true
+name: 'Public Schema'
+scope:
+  - 'sections.6f3c14fd-c48a-42f2-9aca-3315ed8d48ba:read' # Events Calendar
+  - 'entrytypes.44ba018c-d056-457b-8963-cf64c7bd2eec:read' # Event
+  - 'entrytypes.f48125f9-1509-49a6-a9ef-2b197c754529:read'
+  - 'sections.43edaa29-2dff-444b-b667-f3de8602f3bb:read' # News
+  - 'entrytypes.b60202a4-048b-42a5-b583-cbd8e8953fed:read' # News
+  - 'volumes.6b7c1600-5730-4260-9603-b5718fc754ec:read' # News
+  - 'elements.drafts:read'
+  - 'elements.revisions:read'
+  - 'elements.inactive:read'

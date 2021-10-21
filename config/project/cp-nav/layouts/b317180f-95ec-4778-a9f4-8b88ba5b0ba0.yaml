@@ -1,0 +1,4 @@
+isDefault: false
+name: News
+permissions: '["da13f404-928f-4505-afd8-23ef4c00b71c"]' # News
+sortOrder: 2

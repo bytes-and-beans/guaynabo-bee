@@ -1,0 +1,195 @@
+field: 5ef7e1b2-0b62-48f5-b7c4-3bbbfccb1d8f # Header Menu
+fieldLayouts:
+  6ddc9ab2-0714-4aef-853e-a77959595a94:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: a63c339f-a34a-4ce3-8b75-fc035d0ac18f # Menu Title
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 478d984b-1e00-421b-b261-1e09893573d3 # Links
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 08b0d12c-3ba1-4c87-b2ea-1dc549f6e90a # button Color
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  08b0d12c-3ba1-4c87-b2ea-1dc549f6e90a: # button Color
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: buttonColor
+    instructions: 'Select the color that this button will have'
+    name: 'button Color'
+    searchable: false
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - blue
+            -
+              - value
+              - blue
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - purple
+            -
+              - value
+              - purple
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - green
+            -
+              - value
+              - green
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - orange
+            -
+              - value
+              - orange
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  478d984b-1e00-421b-b261-1e09893573d3: # Links
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: links
+    instructions: ''
+    name: Links
+    searchable: false
+    settings:
+      addRowLabel: 'Add a row'
+      columnType: text
+      columns:
+        __assoc__:
+          -
+            - col1
+            -
+              __assoc__:
+                -
+                  - heading
+                  - 'Link Text'
+                -
+                  - handle
+                  - linkText
+                -
+                  - width
+                  - ''
+                -
+                  - type
+                  - singleline
+          -
+            - col2
+            -
+              __assoc__:
+                -
+                  - heading
+                  - 'Link Url'
+                -
+                  - handle
+                  - linkUrl
+                -
+                  - width
+                  - ''
+                -
+                  - type
+                  - singleline
+          -
+            - col3
+            -
+              __assoc__:
+                -
+                  - heading
+                  - 'Is Heading'
+                -
+                  - handle
+                  - isHeading
+                -
+                  - width
+                  - ''
+                -
+                  - type
+                  - checkbox
+      defaults:
+        -
+          __assoc__:
+            -
+              - col1
+              - ''
+            -
+              - col2
+              - ''
+            -
+              - col3
+              - ''
+      maxRows: ''
+      minRows: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Table
+  a63c339f-a34a-4ce3-8b75-fc035d0ac18f: # Menu Title
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: menuTitle
+    instructions: 'The text that will appear on the button.'
+    name: 'Menu Title'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: submenu
+name: Submenu
+sortOrder: 1

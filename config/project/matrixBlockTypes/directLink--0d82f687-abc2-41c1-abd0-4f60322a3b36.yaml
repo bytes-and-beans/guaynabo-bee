@@ -1,0 +1,137 @@
+field: 5ef7e1b2-0b62-48f5-b7c4-3bbbfccb1d8f # Header Menu
+fieldLayouts:
+  81fa3281-f5b5-4d7d-9c8b-de15cf86d97c:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 4eab5d72-cdf7-4030-accd-c2b53c6791c4 # linkText
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 302ce92a-52e6-40fd-b6e1-034beaf73113 # Link Url
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: b8be571c-6b78-43b1-9f84-236fb53e4b8b # button color
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  4eab5d72-cdf7-4030-accd-c2b53c6791c4: # linkText
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: linkText
+    instructions: ''
+    name: linkText
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  302ce92a-52e6-40fd-b6e1-034beaf73113: # Link Url
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: linkUrl
+    instructions: ''
+    name: 'Link Url'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  b8be571c-6b78-43b1-9f84-236fb53e4b8b: # button color
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: buttonColor
+    instructions: 'Select the color this button will have'
+    name: 'button color'
+    searchable: false
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - blue
+            -
+              - value
+              - blue
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - purple
+            -
+              - value
+              - purple
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - green
+            -
+              - value
+              - green
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - orange
+            -
+              - value
+              - orange
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+handle: directLink
+name: 'Direct Link'
+sortOrder: 2

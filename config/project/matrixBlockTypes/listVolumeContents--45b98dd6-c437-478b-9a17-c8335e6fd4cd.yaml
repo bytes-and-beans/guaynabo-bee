@@ -1,0 +1,68 @@
+field: 1305ee6d-61f8-4a68-89f1-41e1eca3d8ec # Super Content
+fieldLayouts:
+  24f4428d-6655-4530-8733-a3027de3733a:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 7b3320a2-8f40-4206-8bde-b183bdf4c6cd # Volume
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  7b3320a2-8f40-4206-8bde-b183bdf4c6cd: # Volume
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: volumeHandle
+    instructions: "Select the volume who's contents you would like to display.\r\nThis will create an unordered list of the contents of the volume\r\n"
+    name: Volume
+    searchable: false
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - 'Ordenanzas y Resoluciones'
+            -
+              - value
+              - ordenanzasYResoluciones
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Formularios
+            -
+              - value
+              - formularios
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Transperencia
+            -
+              - value
+              - transperencia
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+handle: listVolumeContents
+name: 'List Volume Contents'
+sortOrder: 5

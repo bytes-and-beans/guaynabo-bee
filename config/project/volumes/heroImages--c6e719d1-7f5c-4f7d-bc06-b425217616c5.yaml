@@ -1,0 +1,49 @@
+fieldLayouts:
+  c73f5162-30bd-4e1b-acec-ea8df5fc3947:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\AssetTitleField
+            warning: null
+            width: 100
+          -
+            fieldUid: 6d6d9517-bc02-4f20-8db2-0f970fc015b5 # Credit
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+handle: heroImages
+hasUrls: true
+name: 'Hero Images'
+settings:
+  path: '@webroot/assets/heroImages'
+sortOrder: 0
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+type: craft\volumes\Local
+url: '@web/assets/heroImages'

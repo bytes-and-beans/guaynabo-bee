@@ -1,0 +1,16 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: ccaa1e02-761a-4951-99df-73a306ef75a1 # Common
+handle: superContent
+instructions: ''
+name: 'Super Content'
+searchable: false
+settings:
+  contentTable: '{{%matrixcontent_supercontent}}'
+  maxBlocks: ''
+  minBlocks: '0'
+  propagationKeyFormat: null
+  propagationMethod: all
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

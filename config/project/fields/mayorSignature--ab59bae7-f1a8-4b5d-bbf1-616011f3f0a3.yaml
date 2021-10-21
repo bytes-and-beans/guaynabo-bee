@@ -1,0 +1,33 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: c89911ff-91ee-4214-952f-1fb86a9f4205 # Mayor's Office Post Fields
+handle: mayorSignature
+instructions: 'The image of the mayor''s signature.'
+name: 'Mayor Signature'
+searchable: false
+settings:
+  allowSelfRelations: false
+  allowUploads: true
+  allowedKinds:
+    - image
+  defaultUploadLocationSource: 'volume:875d5ba6-8e40-44df-b806-254d38709399' # Mayor's Office
+  defaultUploadLocationSubpath: ''
+  limit: '1'
+  localizeRelations: false
+  previewMode: full
+  restrictFiles: '1'
+  selectionLabel: ''
+  showSiteMenu: false
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: false
+  singleUploadLocationSource: 'volume:875d5ba6-8e40-44df-b806-254d38709399' # Mayor's Office
+  singleUploadLocationSubpath: signatures
+  source: null
+  sources: '*'
+  targetSiteId: null
+  useSingleFolder: true
+  validateRelatedElements: false
+  viewMode: list
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Assets

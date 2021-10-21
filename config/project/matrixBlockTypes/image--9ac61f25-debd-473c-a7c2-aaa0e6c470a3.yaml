@@ -1,0 +1,107 @@
+field: f5e0557c-8c7e-42c3-ab0a-cd00c86c6fa6 # Social Buttons Matrix
+fieldLayouts:
+  5abd1c60-8b30-4d85-b037-49d5156f7183:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 59fc9f08-7b80-4fd1-973d-abb9a1bdc07b # siteName
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: b0c5da96-b662-4e9a-bb42-0296a52e658c # siteUrl
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: e740828c-6609-45a1-aa23-c531c1876a47 # Image
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  59fc9f08-7b80-4fd1-973d-abb9a1bdc07b: # siteName
+    columnSuffix: null
+    contentColumnType: string(200)
+    fieldGroup: null
+    handle: siteName
+    instructions: 'The name of the Social Media Site being linked too.'
+    name: siteName
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: 50
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  b0c5da96-b662-4e9a-bb42-0296a52e658c: # siteUrl
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: siteUrl
+    instructions: 'The URL this button should link to.'
+    name: siteUrl
+    searchable: false
+    settings:
+      errorMessage: 'Unable to find component class ''typedlinkfield\fields\LinkField''.'
+      expectedType: typedlinkfield\fields\LinkField
+      settings: '{"allowCustomText":"1","allowTarget":"1","allowedLinkNames":{"9":"url"},"autoNoReferrer":"","defaultLinkName":"url","defaultText":"","enableAriaLabel":"","enableTitle":"","typeSettings":{"asset":{"sources":"*","allowCustomQuery":""},"category":{"sources":"*","allowCustomQuery":""},"entry":{"sources":"*","allowCustomQuery":""},"site":{"sites":"*"},"user":{"sources":"*","allowCustomQuery":""},"custom":{"disableValidation":"","allowAliases":""},"email":{"disableValidation":"","allowAliases":""},"tel":{"disableValidation":"","allowAliases":""},"url":{"disableValidation":"","allowAliases":""}}}'
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\MissingField
+  e740828c-6609-45a1-aa23-c531c1876a47: # Image
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: buttonImage
+    instructions: 'The small icon that should be shown on this button.'
+    name: Image
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds: null
+      defaultUploadLocationSource: 'volume:875d5ba6-8e40-44df-b806-254d38709399' # Mayor's Office
+      defaultUploadLocationSubpath: ''
+      limit: '1'
+      localizeRelations: false
+      previewMode: full
+      restrictFiles: ''
+      selectionLabel: ''
+      showSiteMenu: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      singleUploadLocationSource: 'volume:817fdbb8-816c-4180-8a96-d0ad7808dec9' # Common Images
+      singleUploadLocationSubpath: socialmedia
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: true
+      validateRelatedElements: false
+      viewMode: list
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+handle: image
+name: 'Image Based'
+sortOrder: 1

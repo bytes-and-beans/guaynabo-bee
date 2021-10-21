@@ -1,0 +1,36 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: 9b66bf3b-99ef-4f61-b95b-487c92ef5c71 # Simple Fields
+handle: multipleImages
+instructions: 'Select as many images as you like.'
+name: 'Multiple Images'
+searchable: false
+settings:
+  allowSelfRelations: false
+  allowUploads: true
+  allowedKinds: null
+  defaultUploadLocationSource: 'volume:c1080c91-c3dc-4737-bbf9-c9a13b373e0d' # Ordenanzas y Resoluciones
+  defaultUploadLocationSubpath: ''
+  limit: ''
+  localizeRelations: false
+  previewMode: full
+  restrictFiles: ''
+  selectionLabel: ''
+  showSiteMenu: false
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: false
+  singleUploadLocationSource: 'volume:da359c23-2092-4bbd-8eac-96b43b9c81e6' # Title Bars
+  singleUploadLocationSubpath: ''
+  source: null
+  sources:
+    - 'volume:c1080c91-c3dc-4737-bbf9-c9a13b373e0d' # Ordenanzas y Resoluciones
+    - 'volume:875d5ba6-8e40-44df-b806-254d38709399' # Mayor's Office
+    - 'volume:6b7c1600-5730-4260-9603-b5718fc754ec' # News
+    - 'volume:13ef6cd4-27fa-4993-9c41-b09fd0e788d0' # Comunidad
+  targetSiteId: null
+  useSingleFolder: false
+  validateRelatedElements: false
+  viewMode: large
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Assets

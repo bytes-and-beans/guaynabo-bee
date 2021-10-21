@@ -1,0 +1,12 @@
+currLabel: 'Plugin Store'
+customIcon: ''
+enabled: '0'
+handle: plugin-store
+icon: plugin
+layout: 152d572e-0cb0-4442-b348-94bdfb341fba # legislatura
+newWindow: '0'
+order: '9'
+prevLabel: 'Plugin Store'
+prevUrl: plugin-store
+type: ''
+url: plugin-store

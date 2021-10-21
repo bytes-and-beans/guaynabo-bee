@@ -1,0 +1,12 @@
+currLabel: 'Create New News Article'
+customIcon: null
+enabled: true
+handle: createNewNewsArticle
+icon: plus
+layout: b317180f-95ec-4778-a9f4-8b88ba5b0ba0 # News
+newWindow: false
+order: 99
+prevLabel: 'Create New News Article'
+prevUrl: '/admin/entries/news/new?site=default'
+type: manual
+url: '/admin/entries/news/new?site=default'

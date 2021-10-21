@@ -1,0 +1,16 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: fd1b751a-76d8-4482-944d-35a1911aefe0 # Emergency message Fields
+handle: messageMatrix
+instructions: 'This is the container that holds the individual messages to be displayed. To remove a message entirely, click the gear icon in the upper-right corner, and choose ''delete''.'
+name: 'Message Matrix'
+searchable: false
+settings:
+  contentTable: '{{%matrixcontent_messagematrix}}'
+  maxBlocks: '10'
+  minBlocks: ''
+  propagationKeyFormat: null
+  propagationMethod: all
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

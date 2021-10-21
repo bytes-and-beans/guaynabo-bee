@@ -1,0 +1,19 @@
+columnSuffix: null
+contentColumnType: text
+fieldGroup: c89911ff-91ee-4214-952f-1fb86a9f4205 # Mayor's Office Post Fields
+handle: mayorName
+instructions: 'The name of the Mayor'
+name: 'Mayor Name'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '4'
+  multiline: ''
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

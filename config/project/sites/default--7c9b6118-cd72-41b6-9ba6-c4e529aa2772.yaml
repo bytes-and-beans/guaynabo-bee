@@ -1,0 +1,9 @@
+baseUrl: '@web'
+enabled: true
+handle: default
+hasUrls: true
+language: es-PR
+name: Guaynabo
+primary: true
+siteGroup: 5b91c76d-3f61-4b81-8124-e8cf26b431e1 # Under Development
+sortOrder: 1

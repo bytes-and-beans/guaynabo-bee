@@ -1,0 +1,14 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: 72594698-759c-415b-b779-35434559e175 # News Fields
+handle: newsStory
+instructions: 'The full text of a news article.'
+name: 'News Story'
+searchable: true
+settings:
+  errorMessage: 'Unable to find component class ''craft\redactor\Field''.'
+  expectedType: craft\redactor\Field
+  settings: '{"availableTransforms":"*","availableVolumes":["6b7c1600-5730-4260-9603-b5718fc754ec"],"cleanupHtml":true,"columnType":"text","configSelectionMode":"choose","defaultTransform":"42cc13c0-be07-41ef-85fc-893f9676f8ce","manualConfig":"","purifierConfig":"","purifyHtml":"1","redactorConfig":"","removeEmptyTags":"1","removeInlineStyles":"1","removeNbsp":"1","showHtmlButtonForNonAdmins":"","showUnpermittedFiles":false,"showUnpermittedVolumes":false,"uiMode":"enlarged"}' # News Photo # News
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\MissingField

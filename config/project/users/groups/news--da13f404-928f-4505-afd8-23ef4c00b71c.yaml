@@ -1,0 +1,28 @@
+description: 'Users in this group will only have access to the News Section'
+handle: news
+name: News
+permissions:
+  - accesssitewhensystemisoff
+  - accesscp
+  - 'createentries:43edaa29-2dff-444b-b667-f3de8602f3bb' # News
+  - 'publishentries:43edaa29-2dff-444b-b667-f3de8602f3bb' # News
+  - 'deleteentries:43edaa29-2dff-444b-b667-f3de8602f3bb' # News
+  - 'publishpeerentries:43edaa29-2dff-444b-b667-f3de8602f3bb' # News
+  - 'deletepeerentries:43edaa29-2dff-444b-b667-f3de8602f3bb' # News
+  - 'editpeerentries:43edaa29-2dff-444b-b667-f3de8602f3bb' # News
+  - 'publishpeerentrydrafts:43edaa29-2dff-444b-b667-f3de8602f3bb' # News
+  - 'deletepeerentrydrafts:43edaa29-2dff-444b-b667-f3de8602f3bb' # News
+  - 'editpeerentrydrafts:43edaa29-2dff-444b-b667-f3de8602f3bb' # News
+  - 'editentries:43edaa29-2dff-444b-b667-f3de8602f3bb' # News
+  - 'editglobalset:1d2135f7-595c-468a-be14-09ae0e9834c8' # Emergency Message
+  - 'saveassetinvolume:6b7c1600-5730-4260-9603-b5718fc754ec' # News
+  - 'createfoldersinvolume:6b7c1600-5730-4260-9603-b5718fc754ec' # News
+  - 'deletefilesandfoldersinvolume:6b7c1600-5730-4260-9603-b5718fc754ec' # News
+  - 'replacefilesinvolume:6b7c1600-5730-4260-9603-b5718fc754ec' # News
+  - 'editimagesinvolume:6b7c1600-5730-4260-9603-b5718fc754ec' # News
+  - 'editpeerfilesinvolume:6b7c1600-5730-4260-9603-b5718fc754ec' # News
+  - 'replacepeerfilesinvolume:6b7c1600-5730-4260-9603-b5718fc754ec' # News
+  - 'deletepeerfilesinvolume:6b7c1600-5730-4260-9603-b5718fc754ec' # News
+  - 'editpeerimagesinvolume:6b7c1600-5730-4260-9603-b5718fc754ec' # News
+  - 'viewpeerfilesinvolume:6b7c1600-5730-4260-9603-b5718fc754ec' # News
+  - 'viewvolume:6b7c1600-5730-4260-9603-b5718fc754ec' # News

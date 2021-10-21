@@ -1,0 +1,51 @@
+fieldLayouts:
+  204231e2-b566-4161-97ad-62db1624a671:
+    tabs:
+      -
+        elements:
+          -
+            style: tip
+            tip: "This type is for sections headings that should appear in the menu, but not actualy be clicked.  \r\nThey will always list their child-pages."
+            type: craft\fieldlayoutelements\Tip
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\EntryTitleField
+            warning: null
+            width: 100
+          -
+            fieldUid: 1305ee6d-61f8-4a68-89f1-41e1eca3d8ec # Super Content
+            instructions: "This is optional. If you would like to include some content for this page, it will appear above a list of this pages sub-pages.\r\n"
+            label: Content
+            required: ''
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+handle: gobiernoHeader
+hasTitleField: true
+name: 'Header Only'
+section: 6d199544-d7ae-4c26-8d92-ded1eba879fa # Gobierno
+sortOrder: 3
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

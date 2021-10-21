@@ -1,0 +1,24 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: fd1b751a-76d8-4482-944d-35a1911aefe0 # Emergency message Fields
+handle: show
+instructions: 'This checkbox controls whether or not the ''Emergency Message is shown'''
+name: Show
+searchable: false
+settings:
+  multi: true
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - 'Enable Emergency Message'
+        -
+          - value
+          - isActive
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Checkboxes

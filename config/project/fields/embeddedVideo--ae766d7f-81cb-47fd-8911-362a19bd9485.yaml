@@ -1,0 +1,19 @@
+columnSuffix: null
+contentColumnType: text
+fieldGroup: ccaa1e02-761a-4951-99df-73a306ef75a1 # Common
+handle: embeddedVideo
+instructions: 'Enter the video ID of the YouTube vidoe to embed in this field.'
+name: 'Embedded Video'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '4'
+  multiline: ''
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

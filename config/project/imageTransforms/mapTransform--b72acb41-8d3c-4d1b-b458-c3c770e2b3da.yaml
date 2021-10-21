@@ -1,0 +1,9 @@
+format: null
+handle: mapTransform
+height: 200
+interlace: none
+mode: fit
+name: 'Map Transform'
+position: center-center
+quality: null
+width: 200

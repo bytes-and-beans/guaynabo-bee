@@ -1,0 +1,38 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: 9b66bf3b-99ef-4f61-b95b-487c92ef5c71 # Simple Fields
+handle: sidebarLogo
+instructions: "This image will appear above the sidebar.\r\nIt is optional"
+name: 'Sidebar Logo'
+searchable: false
+settings:
+  allowSelfRelations: false
+  allowUploads: true
+  allowedKinds:
+    - image
+  defaultUploadLocationSource: 'volume:817fdbb8-816c-4180-8a96-d0ad7808dec9' # Common Images
+  defaultUploadLocationSubpath: ''
+  limit: '1'
+  localizeRelations: false
+  previewMode: full
+  restrictFiles: '1'
+  selectionLabel: ''
+  showSiteMenu: true
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: false
+  singleUploadLocationSource: 'volume:da359c23-2092-4bbd-8eac-96b43b9c81e6' # Title Bars
+  singleUploadLocationSubpath: ''
+  source: null
+  sources:
+    - 'volume:13ef6cd4-27fa-4993-9c41-b09fd0e788d0' # Comunidad
+    - 'volume:817fdbb8-816c-4180-8a96-d0ad7808dec9' # Common Images
+    - 'volume:e823d103-105b-4636-a457-64e56bcbf12b' # Gobierno
+    - 'volume:41dea3d8-588b-4e96-82b2-82157cf3f818' # Servicios
+    - 'volume:9461960f-553b-4018-a4cb-b9046751d7ac' # Dependencias
+  targetSiteId: null
+  useSingleFolder: false
+  validateRelatedElements: false
+  viewMode: list
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Assets

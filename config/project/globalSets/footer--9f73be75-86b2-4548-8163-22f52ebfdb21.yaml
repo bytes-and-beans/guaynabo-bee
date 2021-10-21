@@ -1,0 +1,46 @@
+fieldLayouts:
+  3f1a176b-6a21-4258-9110-3fe81b5813ef:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: ad84678b-0e92-4a82-bab1-cbfd291810c8 # Address
+            instructions: ''
+            label: ''
+            required: ''
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: f0c99bc9-55dd-4831-b8a3-e717dbed4e39 # Seal of Guaynabo
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 725fa577-54b1-4886-a69e-1b302686917c # map
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 10846436-c4b7-4a94-8ee5-1de9ece598f0 # Simple Multi-line Text no search
+            instructions: ''
+            label: Copyright
+            required: ''
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Footer
+        sortOrder: 1
+handle: footer
+name: Footer
+sortOrder: 4

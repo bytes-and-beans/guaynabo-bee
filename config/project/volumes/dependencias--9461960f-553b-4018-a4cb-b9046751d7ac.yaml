@@ -1,0 +1,40 @@
+fieldLayouts:
+  6a55e3ff-d0dd-44c0-8d85-c4df78d3e0ba:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\AssetTitleField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+handle: dependencias
+hasUrls: true
+name: Dependencias
+settings:
+  path: '@webroot/assets/dependencias'
+sortOrder: 10
+titleTranslationKeyFormat: null
+titleTranslationMethod: site
+type: craft\volumes\Local
+url: '@web/assets/dependencias'

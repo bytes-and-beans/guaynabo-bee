@@ -1,0 +1,576 @@
+dateModified: 1634836319
+email:
+  fromEmail: wesley@bytesandbeans.com
+  fromName: Guaynabo
+  replyToEmail: null
+  template: null
+  transportSettings:
+    command: ''
+  transportType: craft\mail\transportadapters\Sendmail
+meta:
+  __names__:
+    0b4b3bbd-215c-4b25-8179-dfc630a5ee1a: 'Tipo de Documento' # Tipo de Documento
+    0b6a421d-d1be-4564-8982-c3f10cba5f3f: 'Footer Fields' # Footer Fields
+    0c001730-8dd2-44e9-9133-99126ac5c4c9: TitleBar # TitleBar
+    0c778942-0dda-485d-af46-b201116b1148: 'End Year' # End Year
+    0d82f687-abc2-41c1-abd0-4f60322a3b36: 'Direct Link' # Direct Link
+    0d856a69-1d2b-4450-ab4f-500e5d361407: 'Direct Link' # Direct Link
+    0d3881fc-62d2-40e1-b1c3-f2f9e9403a37: 'Mini Gallery' # Mini Gallery
+    01bf0912-44d2-4323-a4ac-88295f2b0cdb: 'Message Matrix' # Message Matrix
+    1c251faa-ce32-45eb-8313-a00acf3fd1be: 'Start Date' # Start Date
+    1d09fcb8-0b06-41bd-af28-1fc612862060: Comments # Comments
+    1d2135f7-595c-468a-be14-09ae0e9834c8: 'Emergency Message' # Emergency Message
+    2b2ddc31-5f8b-4410-a191-b0044255456a: Header # Header
+    2b4f04a0-9ec2-42f6-9d25-9801e2d1a3dd: 'Event Calendar Fields' # Event Calendar Fields
+    02ee3f82-d903-4873-9106-030bc6823445: 'Content Sidebar' # Content Sidebar
+    03a84b54-1534-4d28-ada1-8da3aac4ffc8: '700 px wide' # 700 px wide
+    3a33871e-aaea-4b2c-a742-e35862d08d2c: Número/Fecha # Número/Fecha
+    3bac2e95-8157-4d1e-85bd-8be90f5683fc: 'News Tags' # News Tags
+    3d463739-ba8a-4526-9cfc-4ba69f269c2c: 'Feature Image' # Feature Image
+    4d86a291-4418-4b00-9dcf-337ac94faabe: Carousel # Carousel
+    4d61664d-dd61-416f-8874-11495d698bea: Headline # Headline
+    4e90f3bd-e5b4-40ad-bc5b-d376fdf64bdf: 'End Time' # End Time
+    4eab5d72-cdf7-4030-accd-c2b53c6791c4: linkText # linkText
+    4ec2e6a3-95e7-4312-b35e-5ae98f13d5ff: 'Title Bar' # Title Bar
+    4f5f5abe-ded9-4608-96d6-9d61da3d7b6f: 'Logo Full' # Logo Full
+    4f995c30-7417-498f-b1c9-e6dee87b8d17: Text # Text
+    5a923be5-29f5-4dd3-923a-8f2b45ea9dce: 'Hide From Menu' # Hide From Menu
+    5b03960f-6b1d-4f18-a545-2fe57993259d: giantFlower # giantFlower
+    5b91c76d-3f61-4b81-8124-e8cf26b431e1: 'Under Development' # Under Development
+    5d669300-a32c-45b5-ad03-db0fbda39bfe: TimeLine # TimeLine
+    5ef7e1b2-0b62-48f5-b7c4-3bbbfccb1d8f: 'Header Menu' # Header Menu
+    5fe64dc7-0407-425d-bda1-cba3696644f8: TimeLines # TimeLines
+    6b7c1600-5730-4260-9603-b5718fc754ec: News # News
+    6d6d9517-bc02-4f20-8db2-0f970fc015b5: Credit # Credit
+    6d199544-d7ae-4c26-8d92-ded1eba879fa: Gobierno # Gobierno
+    6f3c14fd-c48a-42f2-9aca-3315ed8d48ba: 'Events Calendar' # Events Calendar
+    6f8d38f8-c44f-4151-b458-3945654c5477: 'Feature Image' # Feature Image
+    6f332f3d-aa11-44fb-abd3-3de9f272267f: 'Social Media Fields' # Social Media Fields
+    7b3320a2-8f40-4206-8bde-b183bdf4c6cd: Volume # Volume
+    7c9b6118-cd72-41b6-9ba6-c4e529aa2772: Guaynabo # Guaynabo
+    7dbb92d0-96b5-440f-aa78-2ceadcf5f062: 'Gradiente de Color' # Gradiente de Color
+    08b0d12c-3ba1-4c87-b2ea-1dc549f6e90a: 'button Color' # button Color
+    9ac61f25-debd-473c-a7c2-aaa0e6c470a3: 'Image Based' # Image Based
+    9b6c361a-0640-4ed7-bdbb-7671caee668c: Transperencia # Transperencia
+    9b66bf3b-99ef-4f61-b95b-487c92ef5c71: 'Simple Fields' # Simple Fields
+    9d774323-2d6e-4345-bfb9-2aa88066296c: events # events
+    9f73be75-86b2-4548-8163-22f52ebfdb21: Footer # Footer
+    13ef6cd4-27fa-4993-9c41-b09fd0e788d0: Comunidad # Comunidad
+    15e29b72-7ad9-4082-8957-72f2b0dea29c: 'Simple Sidebar' # Simple Sidebar
+    16ff460a-0642-40d4-a7ea-ff413e65e350: 'No sidebar' # No sidebar
+    17c26a2d-b909-4d6f-9750-cbc118e6607b: TimeLine # TimeLine
+    022d31c2-6e60-4056-b8cd-d4b57d8fb7c9: Serie/Año # Serie/Año
+    23b6123d-13af-4fc0-a411-00bc416e4a27: 'News Categories' # News Categories
+    29df145c-57d9-4dae-956f-161352f223c3: Selection # Selection
+    30b85a44-0416-42aa-b4d8-e6f5e8d37aac: 'Paragraph and Gallery' # Paragraph and Gallery
+    30fa8201-ef58-4cef-ac25-50fedc8a0262: 'Simple Url' # Simple Url
+    41dea3d8-588b-4e96-82b2-82157cf3f818: Servicios # Servicios
+    42cc13c0-be07-41ef-85fc-893f9676f8ce: 'News Photo' # News Photo
+    43edaa29-2dff-444b-b667-f3de8602f3bb: News # News
+    44ba018c-d056-457b-8963-cf64c7bd2eec: Event # Event
+    44ddc33e-9319-4659-9841-2b0aa41b37a2: Timeline # Timeline
+    45b98dd6-c437-478b-9a17-c8335e6fd4cd: 'List Volume Contents' # List Volume Contents
+    46abed2b-b62a-4578-ba99-fa23ecb2683c: 'Direct Link' # Direct Link
+    48daf189-e7f0-426c-8c8c-eeb4c7b4c755: Default # Default
+    51a40116-613d-4bd8-960f-9bf097b876f6: Serie # Serie
+    57a91d4e-b3d6-4b92-9670-a1c810597baa: 'Redactor Content' # Redactor Content
+    59d0f0ff-f82f-4325-b6c8-e9a4f721309d: 'End Date' # End Date
+    59fc9f08-7b80-4fd1-973d-abb9a1bdc07b: siteName # siteName
+    62b06634-9290-4c9a-b4c4-aca9fc247651: 'Column 3' # Column 3
+    63dcf512-4f46-4ec5-a7f1-fa3e65deaabd: 'Ordenanzas y Resoluciones' # Ordenanzas y Resoluciones
+    067e9094-a186-4708-b60f-a04cc8bd71ab: 'Hero Image' # Hero Image
+    73bd6b11-d4ba-402d-9f55-3d4f39d8fa4a: 'Selected Timeline' # Selected Timeline
+    73ca8bf2-5c8b-4c80-9aba-ef2f7c7b6906: 'Photo Gallery' # Photo Gallery
+    74fbe651-9c76-41b9-a3bd-0b5d59b0472a: 'List Children' # List Children
+    83f38208-e130-47cb-a64d-8e6218ccb56d: 'Content and Sidebar' # Content and Sidebar
+    85de9344-f560-4595-8460-0a239b90cfb0: 'Start Month' # Start Month
+    87c2ef93-d3e7-44e7-a8e6-4c27080c2439: 'Column 1' # Column 1
+    90e7f6a3-05bf-4e3a-9e17-5ef340e339a8: special # special
+    91a865a8-700e-4c4a-8f8c-66d632456e68: Tabulator # Tabulator
+    91ecb078-3c87-4856-9ddd-36b414a010a3: 'Font Awesome Based' # Font Awesome Based
+    95c39e64-34de-4b73-ae4d-49e6f296abe5: Servicios # Servicios
+    98fa04c0-b771-4956-b275-ba02d0f95594: 'Start Time' # Start Time
+    119cb18e-13d4-4af8-8454-939c36202c93: images # images
+    152d572e-0cb0-4442-b348-94bdfb341fba: legislatura # legislatura
+    302ce92a-52e6-40fd-b6e1-034beaf73113: 'Link Url' # Link Url
+    385a029d-217d-4bba-8b3b-295aaa1f8fbe: 'Mayor''s Office' # Mayor's Office
+    440da69d-2ad5-4af6-a6c8-db29f1aac763: Text # Text
+    478d984b-1e00-421b-b261-1e09893573d3: Links # Links
+    539c5f06-f749-4542-8158-c06506a470fd: 'ordenanzas y resoluciones' # ordenanzas y resoluciones
+    634fc665-65d4-4398-8826-480b7b549b8c: 'Embed Pdf' # Embed Pdf
+    704ff058-abf4-4b8f-94dd-fff93298b6a8: 'Social Media Buttons' # Social Media Buttons
+    719cd6b0-bd14-4fd0-9b29-7028eb00f129: Summary # Summary
+    724c7e3d-24f9-4594-a72a-1685f021350a: 'Redactor Content' # Redactor Content
+    725fa577-54b1-4886-a69e-1b302686917c: map # map
+    793fad0e-8230-4a49-8972-9e45252f3026: 'Public Schema' # Public Schema
+    805f3dd9-7c58-4f11-a4e4-8f9509266cd0: 'Direct Link' # Direct Link
+    817fdbb8-816c-4180-8a96-d0ad7808dec9: 'Common Images' # Common Images
+    838f8780-2127-446b-8f8d-ad0b1b3b7e39: 'Error Pages' # Error Pages
+    875d5ba6-8e40-44df-b806-254d38709399: 'Mayor''s Office' # Mayor's Office
+    891e4fc4-dab5-4532-8875-fc0d21c5bb3e: slide # slide
+    959a2491-8454-4f8d-83f7-64420105cb2e: 'Mayor''s Office Categories' # Mayor's Office Categories
+    1305ee6d-61f8-4a68-89f1-41e1eca3d8ec: 'Super Content' # Super Content
+    5127d69b-3ed0-4f54-84a3-43d9b52f9fe3: 'Content and Sidebar' # Content and Sidebar
+    5462d529-c3da-4bc1-bef4-afddf86ccaed: news # news
+    5501d8c5-b595-4968-980e-41b96b94e1ea: Timeline # Timeline
+    5630fe58-54ec-411c-8fcd-f5b656427b42: 'Footer Seal Transform' # Footer Seal Transform
+    5738c571-3961-4555-9f2b-bf8c481f4ec1: 'Mayor Video' # Mayor Video
+    5900a9ca-9a7c-4821-8c7b-e820900f5fc3: Production # Production
+    7854ec95-0657-4098-90aa-6f3df91f48c3: 'Start Year' # Start Year
+    9625cd2a-f553-4677-a2c1-5f90d04581d0: columns # columns
+    13194ad1-9fa0-4c83-8e0f-ee49b19abba7: 'Column 2' # Column 2
+    17844c2e-1456-4840-aed4-b72de4a7b62a: 'time to display' # time to display
+    905040c6-3c99-4312-8262-9ac0ed535dcf: Timelines # Timelines
+    2147547a-eb6e-4100-843c-cd44969a694b: 'Mayor Videos' # Mayor Videos
+    9461960f-553b-4018-a4cb-b9046751d7ac: Dependencias # Dependencias
+    10846436-c4b7-4a94-8ee5-1de9ece598f0: 'Simple Multi-line Text no search' # Simple Multi-line Text no search
+    72594698-759c-415b-b779-35434559e175: 'News Fields' # News Fields
+    95959585-c417-49be-99f2-645ad1acbdd7: 'Site Name' # Site Name
+    a0687692-c241-4866-b206-49ee4ae683d8: Formularios # Formularios
+    a9f4f4fc-b13d-4fe6-a675-81e33dec3ff3: 'News Story' # News Story
+    a63c339f-a34a-4ce3-8b75-fc035d0ac18f: 'Menu Title' # Menu Title
+    ab5b16dc-ca25-4b41-aaa4-8ee8407ec275: Negocios # Negocios
+    ab59bae7-f1a8-4b5d-bbf1-616011f3f0a3: 'Mayor Signature' # Mayor Signature
+    ac22cbb8-ce15-498b-acbe-2a2095c88ff7: 'Event Tags' # Event Tags
+    acdcf6ba-c408-485c-a0b7-4272857cee5a: tableData # tableData
+    ad84678b-0e92-4a82-bab1-cbfd291810c8: Address # Address
+    adf30507-9677-4baa-bce4-f12b2b7ed478: Message # Message
+    ae766d7f-81cb-47fd-8911-362a19bd9485: 'Embedded Video' # Embedded Video
+    aea3bdd1-38cd-4517-ba8f-51ecea59c64d: Default # Default
+    aecf681d-35f7-4c12-97d9-ad30519dbffd: Show # Show
+    b0c5da96-b662-4e9a-bb42-0296a52e658c: siteUrl # siteUrl
+    b4b4a385-0957-4c06-9940-9012f1f6ffd4: 'Mayor Name' # Mayor Name
+    b8be571c-6b78-43b1-9f84-236fb53e4b8b: 'button color' # button color
+    b72acb41-8d3c-4d1b-b458-c3c770e2b3da: 'Map Transform' # Map Transform
+    b230f1b4-36f1-4d87-af42-faba93578d29: Common # Common
+    b905df78-0e1b-4ffe-b679-4e397b4e86a0: 'Mayor''s Office' # Mayor's Office
+    b60202a4-048b-42a5-b583-cbd8e8953fed: News # News
+    b317180f-95ec-4778-a9f4-8b88ba5b0ba0: News # News
+    ba1b0045-efcc-4c10-bbc5-9a83a9cf8fb1: 'End Date' # End Date
+    bd0a400e-1c4c-41b3-9831-57c901799316: 'Mayor Photo' # Mayor Photo
+    bd9914c0-b6b6-4ff5-9403-816eec1654db: 'News Categories' # News Categories
+    bdbc1af2-4a37-457b-9f63-0719161df3f5: 'Simple Text no search' # Simple Text no search
+    bef4cf25-d6c3-4c81-ad4e-3a283f0ca30a: Submenu # Submenu
+    c6a4038c-8b47-4fa5-9b7c-47d8cdc37723: Header # Header
+    c6d268b3-749c-4a40-9b00-67bb4ba932ea: Descripción # Descripción
+    c6e719d1-7f5c-4f7d-bc06-b425217616c5: 'Hero Images' # Hero Images
+    c909e108-dbba-45be-b6f3-1ab01fb9dfa4: '230 px wide' # 230 px wide
+    c1080c91-c3dc-4737-bbf9-c9a13b373e0d: 'Ordenanzas y Resoluciones' # Ordenanzas y Resoluciones
+    c89911ff-91ee-4214-952f-1fb86a9f4205: 'Mayor''s Office Post Fields' # Mayor's Office Post Fields
+    ccaa1e02-761a-4951-99df-73a306ef75a1: Common # Common
+    cd76d94d-de2a-46cf-bd0d-6bc3f9922794: Heading # Heading
+    ce81df7e-4c52-471b-8a39-d574f7362812: 'Header Fields' # Header Fields
+    ce557d65-4022-43ac-84af-b25c12301041: 'Message Text' # Message Text
+    cfcc3c3f-c3fc-4326-beb6-0f6a3e13f833: 'End Month' # End Month
+    d6b4a5dd-963f-4aee-bf03-ec731a6eea05: Video # Video
+    d8cbceab-6a16-43a2-8034-79fdce9293b2: '3 Column' # 3 Column
+    d31a8857-a89d-4964-be5f-ddebabb23427: 'Error Pages' # Error Pages
+    d44b5772-9ec4-4cb2-b53d-677e327b2073: 'Content and Sidebar' # Content and Sidebar
+    d372ccf3-a023-4eb6-9e41-6ac4bc318eed: 'No Sidebar' # No Sidebar
+    d2056181-b4e6-4131-88e9-38f4a3823376: 'Header Only' # Header Only
+    da13f404-928f-4505-afd8-23ef4c00b71c: News # News
+    da359c23-2092-4bbd-8eac-96b43b9c81e6: 'Title Bars' # Title Bars
+    db1ea912-a5b6-4b74-a87b-a77e495825bc: 'Logo - Giant' # Logo - Giant
+    dc371266-34c7-492d-8eb8-49316fc5cf9a: 'Direct Link' # Direct Link
+    dca6deb1-46a4-4a46-838d-b375b3b04ca9: PDF # PDF
+    dcd73da8-1f1c-4fdb-b929-e2adaa7ed9b6: 'Mayor Quote' # Mayor Quote
+    df655ac2-92b6-43b6-a53d-c0fed2776ec1: 'No sidebar' # No sidebar
+    df595969-0ff4-4ea6-9d4b-f89539d11343: Legislatura # Legislatura
+    e2af913a-d6ff-4573-a246-d4ade283bc6c: Header # Header
+    e2ef7e37-8d69-4683-840b-08f1d4622e70: 'start date' # start date
+    e20f17dc-2ec6-4575-9e9d-0df07e38e61a: 'Sidebar Logo' # Sidebar Logo
+    e823d103-105b-4636-a457-64e56bcbf12b: Gobierno # Gobierno
+    e88537d5-65c8-49d9-87f1-f891f3fb2aa2: 'Selected Timeline' # Selected Timeline
+    e740828c-6609-45a1-aa23-c531c1876a47: Image # Image
+    ed995c29-9e87-49a6-aa47-d2638d854d06: '350 px wide' # 350 px wide
+    f0c99bc9-55dd-4831-b8a3-e717dbed4e39: 'Seal of Guaynabo' # Seal of Guaynabo
+    f1c5eef1-20f5-4812-9192-28cd53eb4b17: 'Multiple Images' # Multiple Images
+    f3fd9e56-bd84-48e3-a03a-76361879d144: 'Site Url' # Site Url
+    f4a18913-5edc-4251-8ba0-e110e6e7734f: Comunidad # Comunidad
+    f5e0557c-8c7e-42c3-ab0a-cd00c86c6fa6: 'Social Buttons Matrix' # Social Buttons Matrix
+    f8bda247-58f5-4bc5-8765-581ad9c42f7d: media # media
+    f4326f2a-1789-4851-866b-c8b296d5b7df: 'No Sidebar' # No Sidebar
+    fa143c3e-3c06-429f-b1d5-92d0be21cb35: 'Simple Content' # Simple Content
+    fce351f4-e339-44f7-b207-2e398af6231c: 'Font Awesome Code' # Font Awesome Code
+    fd1b751a-76d8-4482-944d-35a1911aefe0: 'Emergency message Fields' # Emergency message Fields
+    fd1257a1-7aaf-497e-9a2c-cd50b211ba31: 'pdf asset' # pdf asset
+plugins:
+  admin-bar:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.1.0
+  calendar-links:
+    schemaVersion: 1.0.0
+  contact-form:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+    settings:
+      allowAttachments: '1'
+      prependSender: 'On behalf of'
+      prependSubject: 'New message from the interwebs'
+      successFlashMessage: 'Your message has been sent.'
+      toEmail: letstalk@bytesandbeans.com
+  contact-form-honeypot:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  cp-css:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.0.0
+    settings:
+      additionalCss: "#poweredby,\r\n#edition-logo {\r\n    display: none;\r\n}"
+      cssFile: ''
+  cp-nav:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.0.7
+    settings:
+      originalNavHash:
+        __assoc__:
+          -
+            - 2bbd8e40-3777-4499-a9fd-d90143576fec
+            - W3sibGFiZWwiOiJEYXNoYm9hcmQiLCJ1cmwiOiJkYXNoYm9hcmQiLCJmb250SWNvbiI6ImdhdWdlIn0seyJsYWJlbCI6IkVudHJpZXMiLCJ1cmwiOiJlbnRyaWVzIiwiZm9udEljb24iOiJzZWN0aW9uIn0seyJsYWJlbCI6Ikdsb2JhbHMiLCJ1cmwiOiJnbG9iYWxzIiwiZm9udEljb24iOiJnbG9iZSJ9LHsibGFiZWwiOiJDYXRlZ29yaWVzIiwidXJsIjoiY2F0ZWdvcmllcyIsImZvbnRJY29uIjoiY2F0ZWdvcmllcyJ9LHsibGFiZWwiOiJBc3NldHMiLCJ1cmwiOiJhc3NldHMiLCJmb250SWNvbiI6ImFzc2V0cyJ9LHsibGFiZWwiOiJVc2VycyIsInVybCI6InVzZXJzIiwiZm9udEljb24iOiJ1c2VycyJ9LHsibGFiZWwiOiJHcmFwaFFMIiwidXJsIjoiZ3JhcGhxbCIsImljb24iOiJAYXBwaWNvbnMvZ3JhcGhxbC5zdmciLCJzdWJuYXYiOnsic2NoZW1hcyI6eyJsYWJlbCI6IlNjaGVtYXMiLCJ1cmwiOiJncmFwaHFsL3NjaGVtYXMifSwidG9rZW5zIjp7ImxhYmVsIjoiVG9rZW5zIiwidXJsIjoiZ3JhcGhxbC90b2tlbnMifSwiZ3JhcGhpcWwiOnsibGFiZWwiOiJHcmFwaGlRTCIsInVybCI6ImdyYXBoaXFsIiwiZXh0ZXJuYWwiOnRydWV9fX0seyJ1cmwiOiJ1dGlsaXRpZXMiLCJsYWJlbCI6IlV0aWxpdGllcyIsImZvbnRJY29uIjoidG9vbCIsImJhZGdlQ291bnQiOjIxfSx7InVybCI6InNldHRpbmdzIiwibGFiZWwiOiJTZXR0aW5ncyIsImZvbnRJY29uIjoic2V0dGluZ3MifSx7InVybCI6InBsdWdpbi1zdG9yZSIsImxhYmVsIjoiUGx1Z2luIFN0b3JlIiwiZm9udEljb24iOiJwbHVnaW4ifV0=
+          -
+            - 45b07518-534b-4836-8265-557c53011465
+            - W3sibGFiZWwiOiJEYXNoYm9hcmQiLCJ1cmwiOiJkYXNoYm9hcmQiLCJmb250SWNvbiI6ImdhdWdlIn0seyJsYWJlbCI6IkVudHJpZXMiLCJ1cmwiOiJlbnRyaWVzIiwiZm9udEljb24iOiJzZWN0aW9uIn0seyJsYWJlbCI6Ikdsb2JhbHMiLCJ1cmwiOiJnbG9iYWxzIiwiZm9udEljb24iOiJnbG9iZSJ9LHsibGFiZWwiOiJDYXRlZ29yaWVzIiwidXJsIjoiY2F0ZWdvcmllcyIsImZvbnRJY29uIjoiY2F0ZWdvcmllcyJ9LHsibGFiZWwiOiJBc3NldHMiLCJ1cmwiOiJhc3NldHMiLCJmb250SWNvbiI6ImFzc2V0cyJ9XQ==
+          -
+            - 02ccf45c-603d-4763-82d1-41a01876345d
+            - W3sibGFiZWwiOiJEYXNoYm9hcmQiLCJ1cmwiOiJkYXNoYm9hcmQiLCJmb250SWNvbiI6ImdhdWdlIn0seyJsYWJlbCI6IkVudHJpZXMiLCJ1cmwiOiJlbnRyaWVzIiwiZm9udEljb24iOiJzZWN0aW9uIn0seyJsYWJlbCI6Ikdsb2JhbHMiLCJ1cmwiOiJnbG9iYWxzIiwiZm9udEljb24iOiJnbG9iZSJ9LHsibGFiZWwiOiJBc3NldHMiLCJ1cmwiOiJhc3NldHMiLCJmb250SWNvbiI6ImFzc2V0cyJ9XQ==
+          -
+            - a8a084c6-690e-4d68-a5e7-fadf3a51f204
+            - W3sibGFiZWwiOiJEYXNoYm9hcmQiLCJ1cmwiOiJkYXNoYm9hcmQiLCJmb250SWNvbiI6ImdhdWdlIn0seyJsYWJlbCI6IkVudHJpZXMiLCJ1cmwiOiJlbnRyaWVzIiwiZm9udEljb24iOiJzZWN0aW9uIn0seyJsYWJlbCI6Ikdsb2JhbHMiLCJ1cmwiOiJnbG9iYWxzIiwiZm9udEljb24iOiJnbG9iZSJ9LHsibGFiZWwiOiJDYXRlZ29yaWVzIiwidXJsIjoiY2F0ZWdvcmllcyIsImZvbnRJY29uIjoiY2F0ZWdvcmllcyJ9LHsibGFiZWwiOiJBc3NldHMiLCJ1cmwiOiJhc3NldHMiLCJmb250SWNvbiI6ImFzc2V0cyJ9LHsibGFiZWwiOiJVc2VycyIsInVybCI6InVzZXJzIiwiZm9udEljb24iOiJ1c2VycyJ9LHsibGFiZWwiOiJHcmFwaFFMIiwidXJsIjoiZ3JhcGhxbCIsImljb24iOiJAYXBwaWNvbnMvZ3JhcGhxbC5zdmciLCJzdWJuYXYiOnsic2NoZW1hcyI6eyJsYWJlbCI6IlNjaGVtYXMiLCJ1cmwiOiJncmFwaHFsL3NjaGVtYXMifSwidG9rZW5zIjp7ImxhYmVsIjoiVG9rZW5zIiwidXJsIjoiZ3JhcGhxbC90b2tlbnMifSwiZ3JhcGhpcWwiOnsibGFiZWwiOiJHcmFwaGlRTCIsInVybCI6ImdyYXBoaXFsIiwiZXh0ZXJuYWwiOnRydWV9fX0seyJ1cmwiOiJ1dGlsaXRpZXMiLCJsYWJlbCI6IlV0aWxpdGllcyIsImZvbnRJY29uIjoidG9vbCIsImJhZGdlQ291bnQiOjJ9LHsidXJsIjoic2V0dGluZ3MiLCJsYWJlbCI6IlNldHRpbmdzIiwiZm9udEljb24iOiJzZXR0aW5ncyJ9LHsidXJsIjoicGx1Z2luLXN0b3JlIiwibGFiZWwiOiJQbHVnaW4gU3RvcmUiLCJmb250SWNvbiI6InBsdWdpbiJ9XQ==
+          -
+            - 34adf986-c7f0-448a-930b-1aad6bf2b33c
+            - W3sibGFiZWwiOiJEYXNoYm9hcmQiLCJ1cmwiOiJkYXNoYm9hcmQiLCJmb250SWNvbiI6ImdhdWdlIn0seyJsYWJlbCI6IkVudHJpZXMiLCJ1cmwiOiJlbnRyaWVzIiwiZm9udEljb24iOiJzZWN0aW9uIn0seyJsYWJlbCI6IkFzc2V0cyIsInVybCI6ImFzc2V0cyIsImZvbnRJY29uIjoiYXNzZXRzIn1d
+          -
+            - c4cc4855-c763-4988-ba9e-b651839ffdc4
+            - W3sibGFiZWwiOiJEYXNoYm9hcmQiLCJ1cmwiOiJkYXNoYm9hcmQiLCJmb250SWNvbiI6ImdhdWdlIn0seyJsYWJlbCI6IkVudHJpZXMiLCJ1cmwiOiJlbnRyaWVzIiwiZm9udEljb24iOiJzZWN0aW9uIn0seyJsYWJlbCI6Ikdsb2JhbHMiLCJ1cmwiOiJnbG9iYWxzIiwiZm9udEljb24iOiJnbG9iZSJ9LHsibGFiZWwiOiJDYXRlZ29yaWVzIiwidXJsIjoiY2F0ZWdvcmllcyIsImZvbnRJY29uIjoiY2F0ZWdvcmllcyJ9LHsibGFiZWwiOiJBc3NldHMiLCJ1cmwiOiJhc3NldHMiLCJmb250SWNvbiI6ImFzc2V0cyJ9LHsibGFiZWwiOiJVc2VycyIsInVybCI6InVzZXJzIiwiZm9udEljb24iOiJ1c2VycyJ9LHsibGFiZWwiOiJHcmFwaFFMIiwidXJsIjoiZ3JhcGhxbCIsImljb24iOiJAYXBwaWNvbnMvZ3JhcGhxbC5zdmciLCJzdWJuYXYiOnsic2NoZW1hcyI6eyJsYWJlbCI6IlNjaGVtYXMiLCJ1cmwiOiJncmFwaHFsL3NjaGVtYXMifSwidG9rZW5zIjp7ImxhYmVsIjoiVG9rZW5zIiwidXJsIjoiZ3JhcGhxbC90b2tlbnMifSwiZ3JhcGhpcWwiOnsibGFiZWwiOiJHcmFwaGlRTCIsInVybCI6ImdyYXBoaXFsIiwiZXh0ZXJuYWwiOnRydWV9fX0seyJ1cmwiOiJ1dGlsaXRpZXMiLCJsYWJlbCI6IlV0aWxpdGllcyIsImZvbnRJY29uIjoidG9vbCIsImJhZGdlQ291bnQiOjI5fSx7InVybCI6InNldHRpbmdzIiwibGFiZWwiOiJTZXR0aW5ncyIsImZvbnRJY29uIjoic2V0dGluZ3MifSx7InVybCI6InBsdWdpbi1zdG9yZSIsImxhYmVsIjoiUGx1Z2luIFN0b3JlIiwiZm9udEljb24iOiJwbHVnaW4ifV0=
+          -
+            - dce5eb50-0757-427d-b4e2-235f89a73a85
+            - W3sibGFiZWwiOiJEYXNoYm9hcmQiLCJ1cmwiOiJkYXNoYm9hcmQiLCJmb250SWNvbiI6ImdhdWdlIn0seyJsYWJlbCI6IkVudHJpZXMiLCJ1cmwiOiJlbnRyaWVzIiwiZm9udEljb24iOiJzZWN0aW9uIn0seyJsYWJlbCI6IkFzc2V0cyIsInVybCI6ImFzc2V0cyIsImZvbnRJY29uIjoiYXNzZXRzIn1d
+  download-assets:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.1
+  email-validator:
+    enabled: true
+    schemaVersion: 1.1.0
+    settings:
+      allowCatchAll: true
+      allowDisposable: false
+      allowFree: true
+      allowNoMX: false
+      allowRoles: true
+      cfValidation: false
+      cf_allowCatchAll: true
+      cf_allowDisposable: false
+      cf_allowFree: true
+      cf_allowNoMX: false
+      cf_allowRoles: true
+      providersLastUpdated: '2021-02-10 01:32:49'
+      typoCheck: true
+  embeddedassets:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  guaynabo-data-migration:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  image-resizer:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.0.0
+    settings:
+      assetSourceSettings:
+        __assoc__:
+          -
+            - 5
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - '1'
+                -
+                  - imageWidth
+                  - ''
+                -
+                  - imageHeight
+                  - ''
+                -
+                  - imageQuality
+                  - ''
+          -
+            - 7
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - '1'
+                -
+                  - imageWidth
+                  - ''
+                -
+                  - imageHeight
+                  - ''
+                -
+                  - imageQuality
+                  - ''
+          -
+            - 9
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - '1'
+                -
+                  - imageWidth
+                  - ''
+                -
+                  - imageHeight
+                  - ''
+                -
+                  - imageQuality
+                  - ''
+          -
+            - 13
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - '1'
+                -
+                  - imageWidth
+                  - ''
+                -
+                  - imageHeight
+                  - ''
+                -
+                  - imageQuality
+                  - ''
+          -
+            - 1
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - '1'
+                -
+                  - imageWidth
+                  - ''
+                -
+                  - imageHeight
+                  - ''
+                -
+                  - imageQuality
+                  - ''
+          -
+            - 2
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - '1'
+                -
+                  - imageWidth
+                  - ''
+                -
+                  - imageHeight
+                  - ''
+                -
+                  - imageQuality
+                  - ''
+          -
+            - 3
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - '1'
+                -
+                  - imageWidth
+                  - ''
+                -
+                  - imageHeight
+                  - ''
+                -
+                  - imageQuality
+                  - ''
+          -
+            - 4
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - '1'
+                -
+                  - imageWidth
+                  - ''
+                -
+                  - imageHeight
+                  - ''
+                -
+                  - imageQuality
+                  - ''
+          -
+            - 8
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - '1'
+                -
+                  - imageWidth
+                  - ''
+                -
+                  - imageHeight
+                  - ''
+                -
+                  - imageQuality
+                  - ''
+          -
+            - 10
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - '1'
+                -
+                  - imageWidth
+                  - ''
+                -
+                  - imageHeight
+                  - ''
+                -
+                  - imageQuality
+                  - ''
+          -
+            - 11
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - '1'
+                -
+                  - imageWidth
+                  - ''
+                -
+                  - imageHeight
+                  - ''
+                -
+                  - imageQuality
+                  - ''
+          -
+            - 12
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - '1'
+                -
+                  - imageWidth
+                  - ''
+                -
+                  - imageHeight
+                  - ''
+                -
+                  - imageQuality
+                  - ''
+      enabled: '1'
+      imageHeight: '2048'
+      imageQuality: '100'
+      imageWidth: '2048'
+      nonDestructiveCrop: false
+      nonDestructiveResize: '1'
+      skipLarger: '1'
+  image-toolbox:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  knock-knock:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.1.1
+    settings:
+      allowIps: ''
+      checkInvalidLogins: ''
+      denyIps: ''
+      enabled: '1'
+      forcedRedirect: null
+      invalidLoginWindowDuration: '3600'
+      loginPath: ''
+      maxInvalidLogins: '10'
+      password: turkeywalnuthash
+      protectedUrls: ''
+      siteSettings:
+        __assoc__:
+          -
+            - default
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - ''
+                -
+                  - password
+                  - ''
+                -
+                  - template
+                  - ''
+      template: ''
+      unprotectedUrls: "/timelines/\r\n/news/boosterpack"
+      useRemoteIp: ''
+  oembed:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.1
+    settings:
+      enableCache: '1'
+      enableGdpr: '1'
+      enableNotifications: ''
+      facebookKey: ''
+      notificationEmail: ''
+      previewHidden: ''
+  redactor:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.3.0
+  sidebar-themes:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+    settings:
+      theme: codemash
+  simplesheet:
+    edition: standard
+    enabled: true
+    schemaVersion: '1'
+  smartdown:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  snitch:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.1.0
+  typedlinkfield:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  video-embedder:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  wordsmith:
+    edition: standard
+    enabled: true
+    schemaVersion: 0.0.0.0
+system:
+  edition: pro
+  live: true
+  name: 'Guaynabo City Web'
+  retryDuration: null
+  schemaVersion: 3.7.8
+  timeZone: America/Puerto_Rico

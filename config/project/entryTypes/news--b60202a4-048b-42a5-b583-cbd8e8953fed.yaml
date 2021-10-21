@@ -1,0 +1,83 @@
+fieldLayouts:
+  d70f82be-ea77-41c9-8632-8618e5dd3dc9:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: 'The ''title'' of this news article.'
+            label: Headline
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\EntryTitleField
+            warning: null
+            width: 100
+          -
+            fieldUid: 3d463739-ba8a-4526-9cfc-4ba69f269c2c # Feature Image
+            instructions: ''
+            label: ''
+            required: '1'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 719cd6b0-bd14-4fd0-9b29-7028eb00f129 # Summary
+            instructions: ''
+            label: ''
+            required: '1'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 1305ee6d-61f8-4a68-89f1-41e1eca3d8ec # Super Content
+            instructions: ''
+            label: 'New Story'
+            required: '1'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: bd9914c0-b6b6-4ff5-9403-816eec1654db # News Categories
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 3bac2e95-8157-4d1e-85bd-8be90f5683fc # News Tags
+            instructions: ''
+            label: Tags
+            required: ''
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+handle: news
+hasTitleField: true
+name: News
+section: 43edaa29-2dff-444b-b667-f3de8602f3bb # News
+sortOrder: 1
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

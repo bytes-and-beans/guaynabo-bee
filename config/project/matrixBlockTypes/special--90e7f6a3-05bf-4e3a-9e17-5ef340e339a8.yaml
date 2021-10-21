@@ -1,0 +1,68 @@
+field: 1305ee6d-61f8-4a68-89f1-41e1eca3d8ec # Super Content
+fieldLayouts:
+  6ea94c96-e814-4553-8b4c-e265517995bd:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 29df145c-57d9-4dae-956f-161352f223c3 # Selection
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  29df145c-57d9-4dae-956f-161352f223c3: # Selection
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: specialSelection
+    instructions: "The Special Block handles a number of functions that are useful, but not used so often that they deserve their own block type.\r\n\r\n- List Children : If this page has any child entries under it. This will make an unordered list of those child entries. If there are none, nothing will be added to the page.\r\n- Sibling Links: If this page is a child of another page, and has at least one brother/sister page; This will create a link to the 'next' and 'previous' sibling pages.\r\n- Ordenanzas y Resoluciones: This includes the search page for the Ordenanzas Y Resolutions"
+    name: Selection
+    searchable: false
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - 'List Children'
+            -
+              - value
+              - listChildren
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 'Sibling Links'
+            -
+              - value
+              - siblingLinks
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 'Ordenanzas y Resoluciones'
+            -
+              - value
+              - ordenanzasYResolutiones
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+handle: special
+name: special
+sortOrder: 8

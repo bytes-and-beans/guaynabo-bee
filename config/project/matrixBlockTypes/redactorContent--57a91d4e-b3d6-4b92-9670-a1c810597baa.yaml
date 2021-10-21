@@ -1,0 +1,36 @@
+field: 1305ee6d-61f8-4a68-89f1-41e1eca3d8ec # Super Content
+fieldLayouts:
+  f2a31730-a788-4b4e-9a45-216684fb34fa:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 724c7e3d-24f9-4594-a72a-1685f021350a # Redactor Content
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  724c7e3d-24f9-4594-a72a-1685f021350a: # Redactor Content
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: redactorContent
+    instructions: ''
+    name: 'Redactor Content'
+    searchable: true
+    settings:
+      errorMessage: 'Unable to find component class ''craft\redactor\Field''.'
+      expectedType: craft\redactor\Field
+      settings: '{"availableTransforms":["c909e108-dbba-45be-b6f3-1ab01fb9dfa4","ed995c29-9e87-49a6-aa47-d2638d854d06","03a84b54-1534-4d28-ada1-8da3aac4ffc8","42cc13c0-be07-41ef-85fc-893f9676f8ce"],"availableVolumes":"*","cleanupHtml":true,"columnType":"text","configSelectionMode":"choose","defaultTransform":"","manualConfig":"","purifierConfig":"","purifyHtml":"1","redactorConfig":"","removeEmptyTags":"1","removeInlineStyles":"1","removeNbsp":"1","showHtmlButtonForNonAdmins":"","showUnpermittedFiles":false,"showUnpermittedVolumes":false,"uiMode":"enlarged"}' # 700 px wide # 230 px wide # 350 px wide # News Photo
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\MissingField
+handle: redactorContent
+name: 'Redactor Content'
+sortOrder: 1

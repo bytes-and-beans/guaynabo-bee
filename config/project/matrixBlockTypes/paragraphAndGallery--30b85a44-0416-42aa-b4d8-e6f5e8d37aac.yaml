@@ -1,0 +1,85 @@
+field: 1305ee6d-61f8-4a68-89f1-41e1eca3d8ec # Super Content
+fieldLayouts:
+  9a9fd4af-3226-4738-ac7f-3ce41265329c:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 4f995c30-7417-498f-b1c9-e6dee87b8d17 # Text
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 119cb18e-13d4-4af8-8454-939c36202c93 # images
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  4f995c30-7417-498f-b1c9-e6dee87b8d17: # Text
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: redactorText
+    instructions: 'Put your text here.'
+    name: Text
+    searchable: false
+    settings:
+      errorMessage: 'Unable to find component class ''craft\redactor\Field''.'
+      expectedType: craft\redactor\Field
+      settings: '{"availableTransforms":["c909e108-dbba-45be-b6f3-1ab01fb9dfa4","ed995c29-9e87-49a6-aa47-d2638d854d06","03a84b54-1534-4d28-ada1-8da3aac4ffc8","42cc13c0-be07-41ef-85fc-893f9676f8ce"],"availableVolumes":["c1080c91-c3dc-4737-bbf9-c9a13b373e0d","13ef6cd4-27fa-4993-9c41-b09fd0e788d0","9b6c361a-0640-4ed7-bdbb-7671caee668c","817fdbb8-816c-4180-8a96-d0ad7808dec9","6b7c1600-5730-4260-9603-b5718fc754ec","e823d103-105b-4636-a457-64e56bcbf12b","41dea3d8-588b-4e96-82b2-82157cf3f818"],"cleanupHtml":true,"columnType":"text","configSelectionMode":"choose","defaultTransform":"","manualConfig":"","purifierConfig":"","purifyHtml":"1","redactorConfig":"3column.json","removeEmptyTags":"1","removeInlineStyles":"1","removeNbsp":"1","showHtmlButtonForNonAdmins":"","showUnpermittedFiles":false,"showUnpermittedVolumes":false,"uiMode":"enlarged"}' # 700 px wide # Transperencia # Servicios # 230 px wide # Ordenanzas y Resoluciones # Gobierno # 350 px wide # News Photo # News # Comunidad # Common Images
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\MissingField
+  119cb18e-13d4-4af8-8454-939c36202c93: # images
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: images
+    instructions: "Select one or more images. \r\nIf more than one image is selected, they will all be shown in a single, carousel gallery"
+    name: images
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:41dea3d8-588b-4e96-82b2-82157cf3f818' # Servicios
+      defaultUploadLocationSubpath: ''
+      limit: ''
+      localizeRelations: false
+      previewMode: full
+      restrictFiles: '1'
+      selectionLabel: ''
+      showSiteMenu: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      singleUploadLocationSource: 'volume:da359c23-2092-4bbd-8eac-96b43b9c81e6' # Title Bars
+      singleUploadLocationSubpath: ''
+      source: null
+      sources:
+        - 'volume:13ef6cd4-27fa-4993-9c41-b09fd0e788d0' # Comunidad
+        - 'volume:9b6c361a-0640-4ed7-bdbb-7671caee668c' # Transperencia
+        - 'volume:817fdbb8-816c-4180-8a96-d0ad7808dec9' # Common Images
+        - 'volume:6b7c1600-5730-4260-9603-b5718fc754ec' # News
+        - 'volume:e823d103-105b-4636-a457-64e56bcbf12b' # Gobierno
+        - 'volume:41dea3d8-588b-4e96-82b2-82157cf3f818' # Servicios
+      targetSiteId: null
+      useSingleFolder: false
+      validateRelatedElements: true
+      viewMode: list
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+handle: paragraphAndGallery
+name: 'Paragraph and Gallery'
+sortOrder: 4

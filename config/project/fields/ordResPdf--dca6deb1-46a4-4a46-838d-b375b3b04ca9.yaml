@@ -1,0 +1,34 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: 539c5f06-f749-4542-8158-c06506a470fd # ordenanzas y resoluciones
+handle: ordResPdf
+instructions: "PDF goes here. \r\nAfter uploading the document, you must then set it's other fields."
+name: PDF
+searchable: false
+settings:
+  allowSelfRelations: false
+  allowUploads: true
+  allowedKinds:
+    - pdf
+  defaultUploadLocationSource: 'volume:c1080c91-c3dc-4737-bbf9-c9a13b373e0d' # Ordenanzas y Resoluciones
+  defaultUploadLocationSubpath: ''
+  limit: '1'
+  localizeRelations: false
+  previewMode: full
+  restrictFiles: '1'
+  selectionLabel: 'Don''t use this button.'
+  showSiteMenu: true
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: false
+  singleUploadLocationSource: 'volume:c1080c91-c3dc-4737-bbf9-c9a13b373e0d' # Ordenanzas y Resoluciones
+  singleUploadLocationSubpath: ''
+  source: null
+  sources:
+    - 'volume:c1080c91-c3dc-4737-bbf9-c9a13b373e0d' # Ordenanzas y Resoluciones
+  targetSiteId: null
+  useSingleFolder: false
+  validateRelatedElements: false
+  viewMode: list
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Assets

@@ -1,0 +1,12 @@
+currLabel: Settings
+customIcon: null
+enabled: true
+handle: settings
+icon: settings
+layout: bdaea7aa-95e5-4a75-99b6-7f50624ff2a1
+newWindow: false
+order: 8
+prevLabel: Settings
+prevUrl: settings
+type: ''
+url: settings

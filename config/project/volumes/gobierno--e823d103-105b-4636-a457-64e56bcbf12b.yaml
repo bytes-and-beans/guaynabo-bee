@@ -1,0 +1,40 @@
+fieldLayouts:
+  d729babe-46b7-4623-97ea-3bef8585095b:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\AssetTitleField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+handle: gobierno
+hasUrls: true
+name: Gobierno
+settings:
+  path: '@webroot/assets/gobierno'
+sortOrder: 7
+titleTranslationKeyFormat: null
+titleTranslationMethod: none
+type: craft\volumes\Local
+url: '@web/assets/gobierno'

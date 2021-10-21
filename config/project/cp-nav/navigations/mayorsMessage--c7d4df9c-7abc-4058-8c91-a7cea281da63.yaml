@@ -1,0 +1,12 @@
+currLabel: 'Mayor''s Message'
+customIcon: null
+enabled: '1'
+handle: mayorsMessage
+icon: user
+layout: 48daf189-e7f0-426c-8c8c-eeb4c7b4c755 # Default
+newWindow: '0'
+order: 12
+prevLabel: 'Mayor''s Message'
+prevUrl: 'http://149.28.248.164/admin/entries/mayorsOffice'
+type: manual
+url: /admin/entries/mayorsOffice

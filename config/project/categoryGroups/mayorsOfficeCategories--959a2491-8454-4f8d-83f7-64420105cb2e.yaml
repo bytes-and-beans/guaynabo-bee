@@ -1,0 +1,41 @@
+defaultPlacement: end
+fieldLayouts:
+  330663b8-7fd4-4e81-ada0-fdd4dbb206e8:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\TitleField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+handle: mayorsOfficeCategories
+name: 'Mayor''s Office Categories'
+siteSettings:
+  7c9b6118-cd72-41b6-9ba6-c4e529aa2772: # Guaynabo
+    hasUrls: true
+    template: mayors-office/_category
+    uriFormat: 'mayors-office-category/{slug}'
+structure:
+  maxLevels: 1
+  uid: e50fa600-6df8-4379-84bc-ff222309d2e1

@@ -1,0 +1,57 @@
+field: 1305ee6d-61f8-4a68-89f1-41e1eca3d8ec # Super Content
+fieldLayouts:
+  723b3dd8-f2f9-4590-8da9-aae2b6e166f6:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: e88537d5-65c8-49d9-87f1-f891f3fb2aa2 # Selected Timeline
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  e88537d5-65c8-49d9-87f1-f891f3fb2aa2: # Selected Timeline
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: selectedTimeline
+    instructions: "Please select a timeline from the list below.\r\n"
+    name: 'Selected Timeline'
+    searchable: false
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - 'Línea De Tiempo'
+            -
+              - value
+              - linea-de-tiempo
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 'Alcaldes de Guaynabo'
+            -
+              - value
+              - alcaldes-de-guaynabo
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+handle: timeline
+name: Timeline
+sortOrder: 7

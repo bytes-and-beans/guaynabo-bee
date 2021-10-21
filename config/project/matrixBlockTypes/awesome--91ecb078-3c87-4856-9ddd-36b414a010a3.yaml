@@ -1,0 +1,94 @@
+field: f5e0557c-8c7e-42c3-ab0a-cd00c86c6fa6 # Social Buttons Matrix
+fieldLayouts:
+  263c8010-4992-4788-851c-359d457cc3aa:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 95959585-c417-49be-99f2-645ad1acbdd7 # Site Name
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: f3fd9e56-bd84-48e3-a03a-76361879d144 # Site Url
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: fce351f4-e339-44f7-b207-2e398af6231c # Font Awesome Code
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  95959585-c417-49be-99f2-645ad1acbdd7: # Site Name
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: siteName
+    instructions: ''
+    name: 'Site Name'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  f3fd9e56-bd84-48e3-a03a-76361879d144: # Site Url
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: siteUrl
+    instructions: 'The URL of this social media profile.'
+    name: 'Site Url'
+    searchable: false
+    settings:
+      errorMessage: 'Unable to find component class ''typedlinkfield\fields\LinkField''.'
+      expectedType: typedlinkfield\fields\LinkField
+      settings: '{"allowCustomText":"","allowTarget":"1","allowedLinkNames":{"9":"url"},"autoNoReferrer":"","defaultLinkName":"url","defaultText":"","enableAriaLabel":"","enableTitle":"","typeSettings":{"asset":{"sources":"*","allowCustomQuery":""},"category":{"sources":"*","allowCustomQuery":""},"entry":{"sources":"*","allowCustomQuery":""},"site":{"sites":"*"},"user":{"sources":"*","allowCustomQuery":""},"custom":{"disableValidation":"","allowAliases":""},"email":{"disableValidation":"","allowAliases":""},"tel":{"disableValidation":"","allowAliases":""},"url":{"disableValidation":"","allowAliases":""}}}'
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\MissingField
+  fce351f4-e339-44f7-b207-2e398af6231c: # Font Awesome Code
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: buttonCode
+    instructions: "The <i> tag for the icon to be used.\r\nFor example: <i class=\"fab fa-instagram\"></i>, for the instagram icon"
+    name: 'Font Awesome Code'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: awesome
+name: 'Font Awesome Based'
+sortOrder: 2

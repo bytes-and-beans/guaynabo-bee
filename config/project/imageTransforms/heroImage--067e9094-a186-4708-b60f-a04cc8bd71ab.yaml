@@ -1,0 +1,9 @@
+format: null
+handle: heroImage
+height: 600
+interlace: none
+mode: crop
+name: 'Hero Image'
+position: center-center
+quality: null
+width: 1340

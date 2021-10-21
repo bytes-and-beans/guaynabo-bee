@@ -1,0 +1,19 @@
+columnSuffix: null
+contentColumnType: string(48)
+fieldGroup: 539c5f06-f749-4542-8158-c06506a470fd # ordenanzas y resoluciones
+handle: serie
+instructions: ''
+name: Serie/Año
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: 12
+  code: ''
+  columnType: null
+  initialRows: '4'
+  multiline: ''
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

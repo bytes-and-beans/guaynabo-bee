@@ -1,11 +1,11 @@
 currLabel: 'Ordenanzas y Resoluciones'
-customIcon: null
-enabled: true
+customIcon: ''
+enabled: '1'
 handle: ordenanzasYResoluciones
 icon: draft
 layout: 48daf189-e7f0-426c-8c8c-eeb4c7b4c755 # Default
-newWindow: false
-order: 99
+newWindow: '0'
+order: 15
 prevLabel: 'Ordenanzas y Resoluciones'
 prevUrl: /admin/entries/ordenanzasYResolutiones
 type: manual

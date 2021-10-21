@@ -4,8 +4,8 @@ enabled: '1'
 handle: divider
 icon: null
 layout: 48daf189-e7f0-426c-8c8c-eeb4c7b4c755 # Default
-newWindow: false
-order: '10'
+newWindow: '0'
+order: 10
 prevLabel: Divider
 prevUrl: null
 type: divider

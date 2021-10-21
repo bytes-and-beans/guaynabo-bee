@@ -27,7 +27,7 @@ fields:
     settings:
       errorMessage: 'Unable to find component class ''craft\redactor\Field''.'
       expectedType: craft\redactor\Field
-      settings: '{"availableTransforms":["c909e108-dbba-45be-b6f3-1ab01fb9dfa4","ed995c29-9e87-49a6-aa47-d2638d854d06","03a84b54-1534-4d28-ada1-8da3aac4ffc8","42cc13c0-be07-41ef-85fc-893f9676f8ce"],"availableVolumes":"*","cleanupHtml":true,"columnType":"text","configSelectionMode":"choose","defaultTransform":"","manualConfig":"","purifierConfig":"","purifyHtml":"1","redactorConfig":"","removeEmptyTags":"1","removeInlineStyles":"1","removeNbsp":"1","showHtmlButtonForNonAdmins":"","showUnpermittedFiles":false,"showUnpermittedVolumes":false,"uiMode":"enlarged"}' # 700 px wide # 230 px wide # 350 px wide # News Photo
+      settings: '{"availableTransforms":["c909e108-dbba-45be-b6f3-1ab01fb9dfa4","ed995c29-9e87-49a6-aa47-d2638d854d06","03a84b54-1534-4d28-ada1-8da3aac4ffc8","42cc13c0-be07-41ef-85fc-893f9676f8ce"],"availableVolumes":"*","cleanupHtml":true,"columnType":"text","configSelectionMode":"choose","defaultTransform":"","manualConfig":"","purifierConfig":"","purifyHtml":"1","redactorConfig":"","removeEmptyTags":"1","removeInlineStyles":"1","removeNbsp":"1","showHtmlButtonForNonAdmins":"","showUnpermittedFiles":false,"showUnpermittedVolumes":false,"uiMode":"enlarged"}' # 700 px wide # News Photo # 230 px wide # 350 px wide
     translationKeyFormat: null
     translationMethod: none
     type: craft\fields\MissingField

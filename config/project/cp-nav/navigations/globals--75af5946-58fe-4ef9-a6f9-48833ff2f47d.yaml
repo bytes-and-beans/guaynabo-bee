@@ -1,0 +1,12 @@
+currLabel: Globals
+customIcon: ''
+enabled: '1'
+handle: globals
+icon: globe
+layout: 48daf189-e7f0-426c-8c8c-eeb4c7b4c755 # Default
+newWindow: '0'
+order: 2
+prevLabel: Globals
+prevUrl: /admin/settings/globals
+type: manual
+url: /admin/settings/globals

@@ -1,0 +1,46 @@
+{#  Header-Main-Footer
+    Provides and defines the site's header and footer, and the <main> tag
+
+    Required Blocks
+        hmf_main: The contents of the <main> tag.
+    Optional Blocks
+        hmf_body_tag: A override for the <body> tag.
+        hmf_header: An override for the site header.
+        hmf_main_tag:  override for the <main> tag. 
+        hmf_footer: override the site footer.
+        hmf_outsiders: A block for adding content that should exist outside the normal
+            flow of the document. For example, a modal could be placed here, and given 
+            `position: fixed`
+#}
+
+{% extends "_layouts/1-html" %}
+
+{% block html_body %}
+{% block hmf_body_tag %}
+<body id="hmf_body" class="flex flex-col h-screen">
+{% endblock %}
+    {# The header #}
+    {% block hmf_header %}
+        {% include "_partials/header" %}
+    {% endblock %}
+    
+    {# Main block #}
+    {% block hmf_main_tag %}
+    <main id="hmf_main" class="flex flex-col flex-grow sm:flex-row">
+    {% endblock %}
+    {% block hmf_main %}
+        <h1>Missing Content</h1>
+        <p>No content was passed to hmf_main in 2-hmf.twig</p>
+    {% endblock %}
+    </main>
+    
+    {# The footer #}
+    {% block hmf_footer %}
+        <footer id="hmf_footer">&copy;{{now | date('Y')}} Bytes and Beans</footer>
+    {% endblock %}
+
+    {% block hmf_outsiders %}{% endblock %}
+
+</body>
+{# end html_body #}
+{% endblock %} 

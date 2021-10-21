@@ -1,0 +1,15 @@
+{#  Any global values, or global defaults that are used by all other pages should be set here
+    
+    Required blocks
+        globals_content: Everything that is.
+    Preset Vars, required for the boilerplate, change at your whim.
+        page_title
+#}
+
+{#  #}
+{% set page_title = page_title ?? siteName %}
+
+{% block globals_content %}
+<h1>Content Missing</h1>
+<p>No content was passed to globals_content block in 0-globals.twig.</p>
+{% endblock %}

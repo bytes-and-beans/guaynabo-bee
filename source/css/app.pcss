@@ -1,0 +1,50 @@
+/**
+ * This injects Tailwind's base styles, which is a combination of
+ * Normalize.css and some additional base styles.
+ */
+@import "tailwindcss/base";
+
+/**
+ * Here we add custom base styles, applied after the tailwind-base
+ * classes
+ *
+ */
+
+/**
+ * This injects any component classes registered by plugins.
+ *
+ */
+ @import 'tailwindcss/components';
+
+/**
+ * Here we add custom component classes; stuff we want loaded
+ * *before* the utilities so that the utilities can still
+ * override them.
+ *
+ */
+@import './components/global.pcss';
+
+/**
+ * This injects all of Tailwind's utility classes, generated based on your
+ * config file.
+ *
+ */
+ @import 'tailwindcss/utilities';
+
+/**
+* This adds new utility classes to tailwind
+*/
+@layer utilities {
+
+}
+
+/** 
+* Here we add any css that is required by the javascript
+*/
+/* CSS used by AlpineJS */
+[x-cloak] {
+    /* x-cloak, used to hide an element until AlpineJS has fully loaded,
+       https://alpinejs.dev/directives/cloak
+     */
+    display: none !important;
+}

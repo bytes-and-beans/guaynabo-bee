@@ -1,0 +1,35 @@
+{#  The base HTML for every page. 
+     
+     Provides the <head> with basic information already entered and sensible defaults built in
+     and a block to enter the <body> tag
+    
+    Required blocks
+        html_body: The <body> tag and it's contents.
+#}
+
+{% extends "_layouts/0-globals" %}
+
+{# Including the mix-generated css and javascript #}
+{% css "/dist/css/app.css" %}
+{% js "/dist/js/app.js" %}
+
+{% block globals_content %}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{ page_title | default("Untitled Document") }}</title>
+        {# Including Alpine #}
+        <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    </head>
+    {% block html_body %}
+        <body>
+            <h1>Missing content</h1>
+            <p>No content was passed to html_body in 1-html.twig</p>
+        </body>
+    {% endblock %}
+    </html>
+
+{% endblock %}

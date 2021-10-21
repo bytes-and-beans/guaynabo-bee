@@ -1,0 +1,73 @@
+{#  Provides the basic layout of the content of the page. 
+
+    This is the layout that will be used by most pages on the site.
+
+    Blocks Required
+        base_content: The primary content of the pages, In a <div> element by default,
+            see the optional vars below if you want to change this.
+            Note that the default content for this block is &nbsp;, a single non-breaking space.
+            If a child template overwrites this with an empty base_content block, the <element>
+            will be omitted entirely.  Dunno why you would want to do this, but the option is there.
+    Blocks: kinda optional
+    There is no default content for these blocks, and if they are left 
+    empty ther associated <element> simply will not render.
+        base_supercontent: Any sub content that 'goes with' the content above, but isn't /really/ part of it.
+            Appears above the primary content. 
+            Maybe a bibliography for an article, 
+        base_subcontent: Any sub content that 'goes with' the content above, but isn't /really/ part of it.
+            That you wish to have appear below the primary content. 
+            Maybe a bibliography for an article, 
+        base_sidebar: Any 'sidebar' content. By default this will appear to the right of content and subcontent
+
+    Optional Vars
+        base_primarySectionElement: string, the <tagname> of the primary content element.
+            Defaults' to 'div'. Primaryly used to change this to 'article', or section
+        base_sidebarSectionElement: the <tagname> of the sidebar element.
+            Defaults' to 'div'. Primaryly used to change this to 'aside' or 'section'
+        base_supercontentSectionElement: the <tagname> of the suber-content element.
+            Defaults' to 'div'.
+        base_subcontentSectionElement: the <tagname> of the primary content element.
+            Defaults' to 'div'. 
+#}
+
+{% extends "_layouts/2-hmf" %}
+
+{% set base_primarySectionElement = base_primarySectionElement ?? 'div' %}
+{% set base_sidebarSectionElement = base_sidebarSectionElement ?? 'div' %}
+{% set base_supercontentSectionElement = base_supercontentSectionElement ?? 'div' %}
+{% set base_subcontentSectionElement = base_subcontentSectionElement ?? 'div' %}
+
+
+{% block hmf_main %}
+    {# The content section #}
+    {% if block('base_content') is not empty or block('base_supercontent') is not empty or block('base_subcontent') is not empty %}
+        <div id="base_content_container" class="w-full h-full">
+            {% if block('base_supercontent') is not empty %}
+            <{{base_supercontentSectionElement}} id="base_supercontent" class="">
+                {% block base_supercontent %}{% endblock %}
+            </{{base_supercontentSectionElement}}>
+            {% endif %}
+
+            {# primary content of the thing #}
+            {% if block('base_content') is not empty %}
+            <{{base_primarySectionElement}} id="base_content" class="flex-grow">
+                {% block base_content %}&nbp;{% endblock %}
+            </{{base_primarySectionElement}}>
+            {% endif %}
+
+            {% if block('base_subcontent') is not empty %}
+            <{{base_subcontentSectionElement}} id="base_subcontent" class="">
+                {% block base_subcontent %}{% endblock %}
+            </{{base_subcontentSectionElement}}>
+            {% endif %}
+        </div>
+    {% endif %}
+
+    {# for sidebars and suchlike #}
+    {% if block('base_sidebar') is not empty %}
+        <{{base_sidebarSectionElement}} id="base_sidebar" class="w-full sm:w-3/12 sm:max-w-52 ">
+            {% block base_sidebar %}{% endblock %}
+        </{{base_sidebarSectionElement}}>
+    {% endif %}
+{# end hmf_main #}
+{% endblock %}

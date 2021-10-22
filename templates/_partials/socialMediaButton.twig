@@ -1,0 +1,36 @@
+{#  Renders a small, clickable, social media icon.
+
+    Required Variables
+        socialBlock: A Matrix block of one of the following types
+            list: For when a locally hosted image is used for the icon, uses fontawesome icons
+                siteName: dropdown, Name of the site being linked too.
+                siteUrl: Link Field, url the icon should link too.
+                buttonImage: Image Asset, limit one, Icon representing the social media site being linked too.
+            image: For when a locally hosted image is used for the icon, when the site isn't in the dropdown list.
+                siteName: plain text, single line, Name of the site being linked too.
+                siteUrl: Link Field, url the icon should link too.
+                buttonImage: Image Asset, limit one, Icon representing the social media site being linked too.
+
+#}
+
+{% switch socialBlock.type %}
+    {% case "list" %}
+        {# set fontawesome code for the possible dropdown choices #}
+        {% switch socialBlock %}
+            {% case "Facebook" %}
+                {% set iconCode = "f09a" %}
+            {% case "Twitter" %}
+                {% set iconCode = "f099" %}
+            {% case "GooglePlus" %}
+                {% set iconCode = "f0d5" %}
+            {% case "TiKTok" %}
+                {% set iconCode = "e07b" %}
+            {% default %}
+                {% set iconCode = "f059" %}
+        {% endswitch %}
+        <a href="socialBlock.siteUrl.url">&#{{iconCode}};</a>
+
+    {% case "image" %}
+        <div>image for {{socialBlock.siteName}}</div>
+
+{% endswitch %}

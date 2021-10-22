@@ -45,7 +45,7 @@
         {# lower footer #}
         <div class="flex flex-col flex-wrap justify-center pt-4 space-y-4 bg-guaynabo-blue-dark">
             {# socialmedia buttons #}
-            <div class="flex justify-center space-x-4">
+            <div class="flex items-center justify-center space-x-4">
                 {% for socialBlock in socialButtons.socialButtonsMatrix %}
                     {% include "/_partials/socialMediaButton.twig/" | raw %}
                 {% endfor %}

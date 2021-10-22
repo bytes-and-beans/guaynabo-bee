@@ -43,7 +43,11 @@
             <p class="text-center">{{footer.address | nl2br}}</p>
         </div>
         {# lower footer #}
-        <div class="flex flex-col flex-wrap justify-center pt-4 space-y-4 bg-guaynabo-blue-dark">
+        <div class="flex flex-wrap justify-around pt-4 space-y-4 bg-guaynabo-blue-dark">
+
+            {# copyright #}
+            <p class="text-xs text-center">{{footer.simpleMultiTextNoSearch | nl2br}}</p>
+
             {# socialmedia buttons #}
             <div class="flex items-center justify-center space-x-4">
                 {% for socialBlock in socialButtons.socialButtonsMatrix %}
@@ -51,11 +55,11 @@
                 {% endfor %}
             </div>
 
-            {# copyright #}
-            <p class="text-center">{{footer.simpleMultiTextNoSearch | nl2br}}</p>
-
             {# our claim to fame #}
-            <a href="https://bytesandbeans.com/" class="text-xs text-center text-white text-opacity-20">Powered byt Bytes and Beans</a>
+            <a href="https://bytesandbeans.com/" class="w-full text-xs text-center text-white text-opacity-20">Powered byt Bytes and Beans</a>
+
+            {# Back To Top #}
+
         </div>
     </footer>
     {% endblock %}

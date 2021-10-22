@@ -36,7 +36,42 @@
     
     {# The footer #}
     {% block hmf_footer %}
-        <footer id="hmf_footer">&copy;{{now | date('Y')}} Bytes and Beans</footer>
+    <footer class="text-white">
+        {# upper footer #}
+        <div class="flex flex-col items-center justify-center py-8 space-y-8 bg-guaynabo-blue">
+            <img src={{footer.seal.one().url}} alt="" class="min-w-[100px] w-1/4 max-w-[175px]">
+            <p class="text-center">{{footer.address | nl2br}}</p>
+        </div>
+        {# lower footer #}
+        <div class="relative flex flex-wrap justify-around items-center pt-4 bg-guaynabo-blue-dark">
+
+            {# copyright #}
+            <p class="text-xs text-center">{{footer.simpleMultiTextNoSearch | nl2br}}</p>
+
+            {# socialmedia buttons #}
+            <div class="flex items-center justify-center space-x-4">
+                {% for socialBlock in socialButtons.socialButtonsMatrix %}
+                    {% include "/_partials/socialMediaButton.twig/" | raw %}
+                {% endfor %}
+            </div>
+
+            {# our claim to fame #}
+            <a href="https://bytesandbeans.com/" class="w-full text-xs text-center text-white text-opacity-20">Powered byt Bytes and Beans</a>
+
+            {# Back To Top. When clicked it scrolls the window back to the top of the page #}
+            <button 
+                title="Back to Top" 
+                class="bg-gradient-to-b from-guaynabo-orange-end to-guaynabo-orange-start  opacity-70
+                    w-8 h-8 rounded-md 
+                    absolute -top-6 right-6
+                " 
+                x-data=""
+                @click.prevent="document.body.scrollTop = 0; document.documentElement.scrollTop = 0;"
+            >
+                <i class="fas fa-chevron-up text-guaynabo-blue"></i>
+            </button>
+        </div>
+    </footer>
     {% endblock %}
 
     {% block hmf_outsiders %}{% endblock %}

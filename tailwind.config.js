@@ -8,7 +8,32 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
-      
+      colors: {
+        guaynabo: {
+          "gray": '#929496',
+          blue: {
+            DEFAULT: '#275B72',
+            dark: '#212B36',
+            start: '#5fc4be',
+            end: '#275b72',
+          },
+          purple: {
+            DEFAULT: '#eb0072',
+            start: '#eb0072',
+            end: '#862367',
+          },
+          green: {
+            DEFAULT: '#8dc54d',
+            start: '#8dc54d',
+            end: '#016d3b',
+          },
+          orange: {
+            DEFAULT: '#fdc265',
+            start: '#fdc265',
+            end: '#ee5bd2',
+          },
+        },
+      },
     },
   },
   variants: {

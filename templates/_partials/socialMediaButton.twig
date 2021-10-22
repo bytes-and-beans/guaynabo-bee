@@ -1,0 +1,40 @@
+{#  Renders a small, clickable, social media icon.
+
+    Required Variables
+        socialBlock: A Matrix block of one of the following types
+            list: For when a locally hosted image is used for the icon, uses fontawesome icons
+                siteName: dropdown, Name of the site being linked too.
+                siteUrl: Link Field, url the icon should link too.
+                buttonImage: Image Asset, limit one, Icon representing the social media site being linked too.
+            image: For when a locally hosted image is used for the icon, when the site isn't in the dropdown list.
+                siteName: plain text, single line, Name of the site being linked too.
+                siteUrl: Link Field, url the icon should link too.
+                buttonImage: Image Asset, limit one, Icon representing the social media site being linked too.
+
+#}
+
+{% switch socialBlock.type %}
+    {% case "list" %}
+        {# set fontawesome code for the possible dropdown choices #}
+        {% switch socialBlock.siteName %}
+            {% case "Facebook" %}
+                {% set iconCode = "<i class=\"fab fa-facebook\"></i>" %}
+            {% case "Twitter" %}
+                {% set iconCode = "<i class=\"fab fa-twitter\"></i>" %}
+            {% case "GooglePlus" %}
+                {% set iconCode = "<i class=\"fab fa-google-plus-g\"></i>" %}
+            {% case "TiKTok" %}
+                {% set iconCode = "<i class=\"fab fa-tiktok\"></i>" %}
+            {% case "Instagram" %}
+                {% set iconCode = "<i class=\"fab fa-instagram\"></i>" %}
+            {% default %}
+                {% set iconCode = "<i class=\"far fa-question-circle\"></i>" %}
+        {% endswitch %}
+        <a href={{socialBlock.siteUrl.url}}>{{iconCode | raw}}</a>
+
+    {% case "image" %}
+        <a href={{socialBlock.siteUrl.url}} class="h-4">
+            <img class="h-full" src={{socialBlock.buttonImage.one().url}} alt={{socialBlock.siteName}}>
+        </a>
+
+{% endswitch %}

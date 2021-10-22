@@ -16,19 +16,21 @@
 {% switch socialBlock.type %}
     {% case "list" %}
         {# set fontawesome code for the possible dropdown choices #}
-        {% switch socialBlock %}
+        {% switch socialBlock.siteName %}
             {% case "Facebook" %}
-                {% set iconCode = "f09a" %}
+                {% set iconCode = "<i class=\"fab fa-facebook\"></i>" %}
             {% case "Twitter" %}
-                {% set iconCode = "f099" %}
+                {% set iconCode = "<i class=\"fab fa-twitter\"></i>" %}
             {% case "GooglePlus" %}
-                {% set iconCode = "f0d5" %}
+                {% set iconCode = "<i class=\"fab fa-google-plus-g\"></i>" %}
             {% case "TiKTok" %}
-                {% set iconCode = "e07b" %}
+                {% set iconCode = "<i class=\"fab fa-tiktok\"></i>" %}
+            {% case "Instagram" %}
+                {% set iconCode = "<i class=\"fab fa-instagram\"></i>" %}
             {% default %}
-                {% set iconCode = "f059" %}
+                {% set iconCode = "<i class=\"far fa-question-circle\"></i>" %}
         {% endswitch %}
-        <a href="socialBlock.siteUrl.url">&#{{iconCode}};</a>
+        <a href={{socialBlock.siteUrl.url}}>{{iconCode | raw}}</a>
 
     {% case "image" %}
         <div>image for {{socialBlock.siteName}}</div>

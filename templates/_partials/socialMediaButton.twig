@@ -33,6 +33,8 @@
         <a href={{socialBlock.siteUrl.url}}>{{iconCode | raw}}</a>
 
     {% case "image" %}
-        <div>image for {{socialBlock.siteName}}</div>
+        <a href={{socialBlock.siteUrl.url}} class="h-4">
+            <img class="h-full" src={{socialBlock.buttonImage.one().url}} alt={{socialBlock.siteName}}>
+        </a>
 
 {% endswitch %}

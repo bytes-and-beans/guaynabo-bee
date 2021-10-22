@@ -1,4 +1,4 @@
-dateModified: 1634845257
+dateModified: 1634927298
 email:
   fromEmail: wesley@bytesandbeans.com
   fromName: Guaynabo
@@ -50,7 +50,7 @@ meta:
     7c9b6118-cd72-41b6-9ba6-c4e529aa2772: Guaynabo # Guaynabo
     7dbb92d0-96b5-440f-aa78-2ceadcf5f062: 'Gradiente de Color' # Gradiente de Color
     08b0d12c-3ba1-4c87-b2ea-1dc549f6e90a: 'button Color' # button Color
-    9ac61f25-debd-473c-a7c2-aaa0e6c470a3: 'Image Based' # Image Based
+    9ac61f25-debd-473c-a7c2-aaa0e6c470a3: 'Not on the list' # Not on the list
     9b6c361a-0640-4ed7-bdbb-7671caee668c: Transperencia # Transperencia
     9b66bf3b-99ef-4f61-b95b-487c92ef5c71: 'Simple Fields' # Simple Fields
     9d774323-2d6e-4345-bfb9-2aa88066296c: events # events
@@ -87,7 +87,7 @@ meta:
     87c2ef93-d3e7-44e7-a8e6-4c27080c2439: 'Column 1' # Column 1
     90e7f6a3-05bf-4e3a-9e17-5ef340e339a8: special # special
     91a865a8-700e-4c4a-8f8c-66d632456e68: Tabulator # Tabulator
-    91ecb078-3c87-4856-9ddd-36b414a010a3: 'Font Awesome Based' # Font Awesome Based
+    91ecb078-3c87-4856-9ddd-36b414a010a3: 'Select From List' # Select From List
     95c39e64-34de-4b73-ae4d-49e6f296abe5: Servicios # Servicios
     98fa04c0-b771-4956-b275-ba02d0f95594: 'Start Time' # Start Time
     119cb18e-13d4-4af8-8454-939c36202c93: images # images

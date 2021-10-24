@@ -1,4 +1,4 @@
-dateModified: 1634927298
+dateModified: 1635079671
 email:
   fromEmail: wesley@bytesandbeans.com
   fromName: Guaynabo
@@ -497,7 +497,7 @@ plugins:
       allowIps: ''
       checkInvalidLogins: ''
       denyIps: ''
-      enabled: '1'
+      enabled: ''
       forcedRedirect: null
       invalidLoginWindowDuration: '3600'
       loginPath: ''

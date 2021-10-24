@@ -16,25 +16,20 @@
                         isHeading: checkbox, is this item a top-level heading for the sub menu?
                     buttonColor: dropdown with following options: blue, purple, green, orange.
 #}
+{# The standard and mobile versions of the navigation menu are so different from one another that 
+   I haven't been able to combine them into a single file. I would like to, but... yea. First make
+   it work, then make is elegant.
+ #}
 
 <header class="relative flex justify-center mx-4 sm:justify-between " x-data="{open: false}">
+
+    {% include "/_partials/navMenu_mobile.twig" %}
+
     {# logo #}
-    <img src={{header.logoFull.one().url}} alt="Guyanabo" class="max-w-[300px]">
-    
-    <nav 
-        class="absolute left-0 right-0 flex flex-col items-center justify-around flex-grow bg-gray-500 top-full align-center bg-opacity-90 sm:flex sm:top-0 sm:bg-transparent sm:relative sm:flex-row"
-        x-bind:class="{'hidden': !open}"
-    >
-        <div>Nav-item</div>
-        <a href="#">Nav_item</a>
-        <a href="#">NAvITem</a>
-    </nav>
-    
-    {# The mobile 'open menu' button #}
-    <div 
-        class="absolute right-0 flex items-center inline h-full cursor-pointer md:hidden"
-        x-on:click="open = ! open;"
-    >
-        ☰
-    </div>
+    <a href="/">
+        <img src={{header.logoFull.one().url}} alt="Guyanabo" class="max-w-[300px]">
+    </a>
+
+    {% include "/_partials/navMenu.twig" %}
+
 </header>

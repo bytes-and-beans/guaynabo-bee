@@ -5,16 +5,7 @@ fieldLayouts:
       -
         elements:
           -
-            fieldUid: 4eab5d72-cdf7-4030-accd-c2b53c6791c4 # linkText
-            instructions: null
-            label: null
-            required: true
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 100
-          -
-            fieldUid: 302ce92a-52e6-40fd-b6e1-034beaf73113 # Link Url
+            fieldUid: 0f5f6cf1-061d-43ab-9cd6-69bcd5ec3f8c # Link
             instructions: null
             label: null
             required: true
@@ -34,46 +25,115 @@ fieldLayouts:
         name: Content
         sortOrder: 1
 fields:
-  4eab5d72-cdf7-4030-accd-c2b53c6791c4: # linkText
-    columnSuffix: null
+  0f5f6cf1-061d-43ab-9cd6-69bcd5ec3f8c: # Link
+    columnSuffix: gkwjffhb
     contentColumnType: text
     fieldGroup: null
-    handle: linkText
-    instructions: ''
-    name: linkText
+    handle: headerDirectLink
+    instructions: 'The link for this button.'
+    name: Link
     searchable: false
     settings:
-      byteLimit: null
-      charLimit: null
-      code: ''
-      columnType: null
-      initialRows: '4'
-      multiline: ''
-      placeholder: null
-      uiMode: normal
+      allowCustomText: '1'
+      allowTarget: '1'
+      allowedLinkNames: '*'
+      autoNoReferrer: ''
+      defaultLinkName: asset
+      defaultText: ''
+      enableAriaLabel: ''
+      enableTitle: ''
+      typeSettings:
+        __assoc__:
+          -
+            - asset
+            -
+              __assoc__:
+                -
+                  - sources
+                  - '*'
+                -
+                  - allowCustomQuery
+                  - ''
+          -
+            - category
+            -
+              __assoc__:
+                -
+                  - sources
+                  - '*'
+                -
+                  - allowCustomQuery
+                  - ''
+          -
+            - entry
+            -
+              __assoc__:
+                -
+                  - sources
+                  - '*'
+                -
+                  - allowCustomQuery
+                  - ''
+          -
+            - site
+            -
+              __assoc__:
+                -
+                  - sites
+                  - '*'
+          -
+            - user
+            -
+              __assoc__:
+                -
+                  - sources
+                  - '*'
+                -
+                  - allowCustomQuery
+                  - ''
+          -
+            - custom
+            -
+              __assoc__:
+                -
+                  - disableValidation
+                  - ''
+                -
+                  - allowAliases
+                  - ''
+          -
+            - email
+            -
+              __assoc__:
+                -
+                  - disableValidation
+                  - ''
+                -
+                  - allowAliases
+                  - ''
+          -
+            - tel
+            -
+              __assoc__:
+                -
+                  - disableValidation
+                  - ''
+                -
+                  - allowAliases
+                  - ''
+          -
+            - url
+            -
+              __assoc__:
+                -
+                  - disableValidation
+                  - ''
+                -
+                  - allowAliases
+                  - ''
     translationKeyFormat: null
     translationMethod: none
-    type: craft\fields\PlainText
-  302ce92a-52e6-40fd-b6e1-034beaf73113: # Link Url
-    columnSuffix: null
-    contentColumnType: text
-    fieldGroup: null
-    handle: linkUrl
-    instructions: ''
-    name: 'Link Url'
-    searchable: false
-    settings:
-      byteLimit: null
-      charLimit: null
-      code: ''
-      columnType: null
-      initialRows: '4'
-      multiline: ''
-      placeholder: null
-      uiMode: normal
-    translationKeyFormat: null
-    translationMethod: none
-    type: craft\fields\PlainText
+    type: typedlinkfield\fields\LinkField
   b8be571c-6b78-43b1-9f84-236fb53e4b8b: # button color
     columnSuffix: null
     contentColumnType: string

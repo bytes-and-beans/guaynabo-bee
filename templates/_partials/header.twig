@@ -19,7 +19,7 @@
 
 <header class="relative flex justify-center mx-4 sm:justify-between " x-data="{open: false}">
     {# logo #}
-    <div class="text-3xl">{{siteName | default('Untitled')}}</div>
+    <img src={{header.logoFull.one().url}} alt="Guyanabo" class="max-w-[300px]">
     
     <nav 
         class="absolute left-0 right-0 flex flex-col items-center justify-around flex-grow bg-gray-500 top-full align-center bg-opacity-90 sm:flex sm:top-0 sm:bg-transparent sm:relative sm:flex-row"

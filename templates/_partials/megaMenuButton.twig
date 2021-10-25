@@ -1,0 +1,29 @@
+{# Buttons and submenus used in the mega menu
+    required variables
+        buttonBlock: matrix block of one of the following types
+            directLink: Block with no submenu, it just is a link.
+                HeaderDirectLink: Typed link field, the link for this button
+                buttonColor: dropdown with following options: blue, purple, green, orange.
+            submenu: Block that opens the mega-menu when tapped or scrolled over.
+                menuTitle: plain text, thex that will appear on the button
+                links: table with the following columns, This is the links of the submenu
+                    linkText: single-line text, the text of this link or heading.
+                    linkUrl: single-line text, The url this link links too
+                    isHeading: checkbox, is this item a top-level heading for the sub menu?
+                buttonColor: dropdown with following options: blue, purple, green, orange
+#}
+{# The button itself #}
+<div 
+    style="flex-basis:177px"
+    class=" flex justify-center items-center cursor-pointer 
+        flex-shrink border
+        hover:transition-to-ur from-guaynabo-blue-start to-guaynabo-blue-end
+    "
+>
+    {% if buttonBlock.type == 'directLink' %} 
+        <a href={{buttonBlock.directLink.getUrl()}}>{{buttonBlock.directLink.getText()}}</a> 
+    {% else %}
+        {{buttonBlock.menuTitle}}
+    {% endif %}
+    
+</div>

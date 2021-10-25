@@ -3,7 +3,7 @@
     headerMenu: Matrix, The navigation menu at the top of the page
         The blocks will become the top level buttons that open submenues when scrolled over or tapped.
         directLink: Block with no submenu, it just is a link.
-            directLinkLink: Typed link field, the link for this button
+            HeaderDirectLink: Typed link field, the link for this button
             buttonColor: dropdown with following options: blue, purple, green, orange.
         submenu: Block that opens the mega-menue when tapped or scrolled over.
             menuTitle: plain text, thex that will appear on the button
@@ -15,14 +15,8 @@
 #}
 
 {# The mobile 'open menu' button #}
-<nav class="hidden sm:flex">
+<nav class="hidden sm:flex border-red-800 border flex-grow max-w-full">
     {% for buttonBlock in header.headerMenu.all() %}
-        {% switch buttonBlock.type %}
-            {% case "directLink" %}
-
-            {% case "submenu" %}
-            {% default %}
-        {% endswitch %}
-        
+        {% include "/_partials/megaMenuButton" %}
     {% endfor %}
 </nav>

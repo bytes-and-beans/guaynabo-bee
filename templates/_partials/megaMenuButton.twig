@@ -58,10 +58,9 @@
         <div class="absolute top-full left-0 right-0 p-4 bg-white bg-opacity-90 "
             x-cloak
             x-show="open"
-            x-on:click=""
+            x-on:click.stop=""
         >
             I AM THE {{buttonBlock.menuTitle | upper}} SUBMENU!
-            <a href="#">Click here to do nothing</a>
         </div>
     {% endif %}
 

@@ -1,4 +1,6 @@
 {# Buttons and submenus used in the mega menu
+    Buttons that have a submenu also contain and generate that submenu.
+
     required variables
         buttonBlock: matrix block of one of the following types
             directLink: Block with no submenu, it just is a link.
@@ -42,11 +44,21 @@
     class=" flex justify-center items-center cursor-pointer flex-shrink
         hover:bg-gradient-to-tr {{gradient_start}} {{gradient_end}}
     "
+    x-data="{open:false}"
+    x-on:click="open = !open"
+    x-on:click.outside = "open = false"
 >
     {% if buttonBlock.type == 'directLink' %} 
         <a href={{buttonBlock.directLink.getUrl()}}>{{buttonBlock.directLink.getText()}}</a> 
     {% else %}
         {{buttonBlock.menuTitle}}
+        {# The mega-menu submenu for this button #}
+        <div class="absolute top-full left-0 right-0 p-4 bg-white bg-opacity-90 "
+            x-cloak
+            x-show="open"
+        >
+            I AM THE {{buttonBlock.menuTitle | upper}} SUBMENU!
+        </div>
     {% endif %}
-    
+
 </div>

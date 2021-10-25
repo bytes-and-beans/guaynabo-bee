@@ -14,13 +14,13 @@ module.exports = {
           blue: {
             DEFAULT: '#275B72',
             dark: '#212B36',
-            start: '#5fc4be',
-            end: '#275b72',
+            start: '#275b72',
+            end: '#5fc4be',
           },
           purple: {
             DEFAULT: '#eb0072',
-            start: '#eb0072',
-            end: '#862367',
+            start: '#862367',
+            end: '#eb0072',
           },
           green: {
             DEFAULT: '#8dc54d',
@@ -29,15 +29,17 @@ module.exports = {
           },
           orange: {
             DEFAULT: '#fdc265',
-            start: '#fdc265',
-            end: '#ee5bd2',
+            start: '#ee4b2d',
+            end: '#fdc265',
           },
         },
       },
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      backgroundImage: ['hover', 'focus'],
+    },
   },
   plugins: [
     require('@tailwindcss/typography'),

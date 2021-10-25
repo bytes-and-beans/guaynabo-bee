@@ -12,12 +12,38 @@
                     isHeading: checkbox, is this item a top-level heading for the sub menu?
                 buttonColor: dropdown with following options: blue, purple, green, orange
 #}
+
+{# set a safe default for the buttons gradient color
+    Note that the start/stop values are set to the full tailwind classname,
+    If this is not done, tailwind will not know to include them in the 
+    compiled CSS.
+#}
+{% switch buttonBlock.buttonColor %}
+    {% case "blue" %}
+        {% set gradient_start = "from-guaynabo-blue-start" %}
+        {% set gradient_end   = "to-guaynabo-blue-end" %}
+    {% case "purple" %}
+        {% set gradient_start = "from-guaynabo-purple-start" %}
+        {% set gradient_end   = "to-guaynabo-purple-end" %}
+    {% case "green" %}
+        {% set gradient_start = "from-guaynabo-green-start" %}
+        {% set gradient_end   = "to-guaynabo-green-end" %}
+    {% case "orange" %}
+        {% set gradient_start = "from-guaynabo-orange-start" %}
+        {% set gradient_end   = "to-guaynabo-orange-end" %}
+    {% default %}
+        {% set gradient_start = "from-guaynabo-blue-start" %}
+        {% set gradient_end   = "to-guaynabo-blue-end" %}
+{% endswitch %}
+
+
+
 {# The button itself #}
 <div 
     style="flex-basis:177px"
     class=" flex justify-center items-center cursor-pointer 
         flex-shrink border
-        hover:transition-to-ur from-guaynabo-blue-start to-guaynabo-blue-end
+        hover:bg-gradient-to-tr {{gradient_start}} {{gradient_end}}
     "
 >
     {% if buttonBlock.type == 'directLink' %} 

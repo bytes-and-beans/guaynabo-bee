@@ -24,8 +24,8 @@ module.exports = {
           },
           green: {
             DEFAULT: '#8dc54d',
-            start: '#8dc54d',
-            end: '#016d3b',
+            start: '#016d3b',
+            end: '#8dc54d',
           },
           orange: {
             DEFAULT: '#fdc265',

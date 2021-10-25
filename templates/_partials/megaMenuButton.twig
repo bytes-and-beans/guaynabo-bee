@@ -47,6 +47,8 @@
     x-data="{open:false}"
     x-on:click="open = !open"
     x-on:click.outside = "open = false"
+    x-on:mouseover="open = true"
+    x-on:mouseout = "open = false"
 >
     {% if buttonBlock.type == 'directLink' %} 
         <a href={{buttonBlock.directLink.getUrl()}}>{{buttonBlock.directLink.getText()}}</a> 
@@ -56,8 +58,10 @@
         <div class="absolute top-full left-0 right-0 p-4 bg-white bg-opacity-90 "
             x-cloak
             x-show="open"
+            x-on:click=""
         >
             I AM THE {{buttonBlock.menuTitle | upper}} SUBMENU!
+            <a href="#">Click here to do nothing</a>
         </div>
     {% endif %}
 

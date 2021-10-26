@@ -86,7 +86,7 @@
             {# This get's a little hard to follow so let me explain. 
                 The menu of each list. The menu stored in the database is a flat
                 flat table, with some entries flagges as 'isHeader'.
-                
+
                 So, what I am doing is putting each list in it's own div and 
                 closing the previous list's div and opening a new one each time 
                 I hit a new heading entry.
@@ -108,7 +108,13 @@
                     </div>
                     <div class={{listDivClasses}}>
                 {% endif %}
-                <div class={{listHeadingClasses}}>{{link.linkText}}</div>
+                <div class={{listHeadingClasses}}>
+                    {% if link.linkUrl is not empty %}
+                        <a href={{link.linkUrl}}>{{link.linkText}}</a>
+                    {% else %}
+                        {{link.linkText}}
+                    {% endif %}
+                </div>
             {% else %}
                 <div class={{listItemClasses}}>{{link.linkText}}</div>
             {% endif %}

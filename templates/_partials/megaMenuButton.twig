@@ -59,9 +59,14 @@
        {{buttonBlock.headerDirectLink.getLink()}}
     {% else %}
         {{buttonBlock.menuTitle}}
+
+        {# -_-_- THE MENU DIV -_-_- #}
         {# The mega-menu submenu for this button #}
         <div 
-            class="flex absolute top-full left-0 right-0 p-4 bg-white bg-opacity-90 border {{submenu_border_color}} "
+            class="flex absolute top-full left-0 right-0 p-4 
+                bg-white bg-opacity-90 border {{submenu_border_color}} 
+                cursor-auto
+            "
             x-cloak
             {# TODO: set x-show="open" and remove if-else #}
             {% if loop.first %}

@@ -72,6 +72,7 @@
             x-on:click.stop=""
         >
         
+        {# set some classes that will be reused in multiple places below #}
         {% set listDivClasses = "border" %}
         {% set listHeadingClasses = "font-bold" %}
         {% set listItemClasses = "" %}
@@ -95,7 +96,9 @@
             
             {% if link.isHeading %}
                 {% if not loop.first %}
-                    {# end previous list and start a new one #}
+                    {# end previous list and start a new one.  
+                       The div for the first list is already opened.
+                    #}
                     </div>
                     <div class={{listDivClasses}}>
                 {% endif %}

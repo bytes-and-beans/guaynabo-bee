@@ -17,10 +17,11 @@
 {# The mobile 'open menu' button #}
 <div class="sm:hidden" x-data="{open: false}">
     <div 
-        class="absolute left-0 flex items-center inline h-full cursor-pointer sm:hidden"
-        x-on:click="open = ! open;"
+        class="absolute flex left-4 items-center inline text-3xl h-full cursor-pointer sm:hidden"
+        x-on:click="open = !open;"
     >
-        ☰
+        <i class="fas fa-bars" x-show="!open"></i>
+        <i class="fas fa-times" x-show="open"></i>
     </div>
 
     <nav 

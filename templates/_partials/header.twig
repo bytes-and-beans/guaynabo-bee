@@ -1,31 +1,35 @@
-{# Provides a super-basic header for the site.
-    Feel free to edit or replace this file as you need.
+{# Header used at the top of each page
 
-    It is very common to have the header switch to a 'push to open' menu
-    on mobile, so this file provides that functionality so you don't have to rebuild it.
-
-    This template just puts the logo on the left and spreads the contents of the <nav> menu across the top
-    of the page. And on mobile switches over to a 'push button to open' menu, with the logo in the middle.
+    Requred globals
+        header
+            logoFull: asset, image, one item only, The logo to appear in the upper-left corner
+            headerMenu: Matrix, The navigation menu at the top of the page
+                The blocks will become the top level buttons that open submenues when scrolled over or tapped.
+                directLink: Block with no submenu, it just is a link.
+                    directLinkLink: Typed link field, the link for this button
+                    buttonColor: dropdown with following options: blue, purple, green, orange.
+                submenu: Block that opens the mega-menue when tapped or scrolled over.
+                    menuTitle: plain text, thex that will appear on the button
+                    links: table with the following columns, This is the links of the submenu
+                        linkText: single-line text, the text of this link or heading.
+                        linkUrl: single-line text, The url this link links too
+                        isHeading: checkbox, is this item a top-level heading for the sub menu?
+                    buttonColor: dropdown with following options: blue, purple, green, orange.
 #}
+{# The standard and mobile versions of the navigation menu are so different from one another that 
+   I haven't been able to combine them into a single file. I would like to, but... yea. First make
+   it work, then make is elegant.
+ #}
 
-<header class="relative flex justify-center mx-4 sm:justify-between " x-data="{open: false}">
+<header class="relative flex justify-center px-4 sm:justify-between">
+
+    {% include "/_partials/navMenu_mobile.twig" %}
+
     {# logo #}
-    <div class="text-3xl">{{siteName | default('Untitled')}}</div>
-    
-    <nav 
-        class="absolute left-0 right-0 flex flex-col items-center justify-around flex-grow bg-gray-500 top-full align-center bg-opacity-90 sm:flex sm:top-0 sm:bg-transparent sm:relative sm:flex-row"
-        x-bind:class="{'hidden': !open}"
-    >
-        <div>Nav-item</div>
-        <a href="#">Nav_item</a>
-        <a href="#">NAvITem</a>
-    </nav>
-    
-    {# The mobile 'open menu' button #}
-    <div 
-        class="absolute right-0 flex items-center inline h-full cursor-pointer md:hidden"
-        x-on:click="open = ! open;"
-    >
-        ☰
-    </div>
+    <a href="/">
+        <img src={{header.logoFull.one().url}} alt="Guyanabo" class="max-w-[300px]">
+    </a>
+
+    {% include "/_partials/navMenu.twig" %}
+
 </header>

@@ -1,4 +1,4 @@
-dateModified: 1634927298
+dateModified: 1635085420
 email:
   fromEmail: wesley@bytesandbeans.com
   fromName: Guaynabo
@@ -16,6 +16,7 @@ meta:
     0d82f687-abc2-41c1-abd0-4f60322a3b36: 'Direct Link' # Direct Link
     0d856a69-1d2b-4450-ab4f-500e5d361407: 'Direct Link' # Direct Link
     0d3881fc-62d2-40e1-b1c3-f2f9e9403a37: 'Mini Gallery' # Mini Gallery
+    0f5f6cf1-061d-43ab-9cd6-69bcd5ec3f8c: Link # Link
     01bf0912-44d2-4323-a4ac-88295f2b0cdb: 'Message Matrix' # Message Matrix
     1c251faa-ce32-45eb-8313-a00acf3fd1be: 'Start Date' # Start Date
     1d09fcb8-0b06-41bd-af28-1fc612862060: Comments # Comments
@@ -497,7 +498,7 @@ plugins:
       allowIps: ''
       checkInvalidLogins: ''
       denyIps: ''
-      enabled: '1'
+      enabled: ''
       forcedRedirect: null
       invalidLoginWindowDuration: '3600'
       loginPath: ''

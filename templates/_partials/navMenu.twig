@@ -1,0 +1,22 @@
+{# The navigation menu shown on standard screens.
+    Required variable
+    headerMenu: Matrix, The navigation menu at the top of the page
+        The blocks will become the top level buttons that open submenues when scrolled over or tapped.
+        directLink: Block with no submenu, it just is a link.
+            HeaderDirectLink: Typed link field, the link for this button
+            buttonColor: dropdown with following options: blue, purple, green, orange.
+        submenu: Block that opens the mega-menue when tapped or scrolled over.
+            menuTitle: plain text, thex that will appear on the button
+            links: table with the following columns, This is the links of the submenu
+                linkText: single-line text, the text of this link or heading.
+                linkUrl: single-line text, The url this link links too
+                isHeading: checkbox, is this item a top-level heading for the sub menu?
+            buttonColor: dropdown with following options: blue, purple, green, orange
+#}
+
+{# The mobile 'open menu' button #}
+<nav class="hidden sm:flex flex-grow max-w-full text-guaynabo-blue">
+    {% for buttonBlock in header.headerMenu.all() %}
+        {% include "/_partials/megaMenuButton" %}
+    {% endfor %}
+</nav>

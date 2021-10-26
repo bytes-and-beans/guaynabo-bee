@@ -116,7 +116,13 @@
                     {% endif %}
                 </div>
             {% else %}
-                <div class={{listItemClasses}}>{{link.linkText}}</div>
+                <div class={{listItemClasses}}>
+                    {% if link.linkUrl is not empty %}
+                        <a href={{link.linkUrl}}>{{link.linkText}}</a>
+                    {% else %}
+                        {{link.linkText}}
+                    {% endif %}
+                </div>
             {% endif %}
 
             {% if loop.last %}

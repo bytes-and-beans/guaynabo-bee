@@ -26,15 +26,27 @@
 
     <nav 
         class="absolute left-0 right-0 top-full 
-            sm:flex flex flex-col items-center justify-around flex-grow  align-center
-            bg-gray-500 bg-opacity-90 sm:top-0 sm:bg-transparent 
-            "
+            flex flex-col items-start justify-around flex-grow 
+            bg-white bg-opacity-90 sm:top-0 
+        "
         {# TODO: set x-show="open". true is just for development #}
         x-show="true"
         {# x-show="open" #}
     >
-        <div>Nav-item</div>
-        <a href="#">Nav_item</a>
-        <a href="#">NAvITem</a>
+
+    {# settign some classes that will apper in multiple places below #}
+    {% set sectionTitleClasses = "text-xl font-bold text-guaynabo-blue" %}
+    {# Making each section #}
+    {% for section in headerMenu | default(header.headerMenu) %}
+        {# The Div containing a section #}
+        <div class="ml-8">
+        {% if section.type == "directLink" %}
+            {{section.directLinkLink.getLink({class:sectionTitleClasses})}}
+        {% else %}
+            <div class="{{sectionTitleClasses}}">{{section.menuTitle}}</div>
+        {% endif %}
+        </div>
+    {% endfor %}
+
     </nav>
 </div>

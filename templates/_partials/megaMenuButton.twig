@@ -69,12 +69,7 @@
                 cursor-auto
             "
             x-cloak
-            {# TODO: set x-show="open" and remove if-else #}
-            {% if loop.first %}
-            x-show="true"
-            {% else %}
             x-show="open"
-            {% endif %}
             x-on:click.stop=""
         >
         

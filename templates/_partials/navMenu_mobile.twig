@@ -64,7 +64,7 @@
                 {% if loop.first %}
                     {# Don't close the <details> #}
                     {# First one is always a <summary> #}
-                    <summary class="{{summaryClasses}}">
+                    <summary class="{{summaryClasses}} hide-expand-if-alone">
                         {% if link.linkUrl is not empty %}
                             <a href={{link.linkUrl}}>{{link.linkText}}</a>
                         {% else %}
@@ -76,7 +76,7 @@
                         {# close previous <details> and open the next one #}
                         </details>
                         <details class="{{detailsClasses}}">
-                        <summary class="{{summaryClasses}}">
+                        <summary class="{{summaryClasses}} hide-expand-if-alone">
                             {% if link.linkUrl is not empty %}
                                 <a href={{link.linkUrl}}>{{link.linkText}}</a>
                             {% else %}

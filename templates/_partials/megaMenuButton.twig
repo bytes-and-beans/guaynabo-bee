@@ -63,7 +63,8 @@
         {# -_-_- THE MENU DIV -_-_- #}
         {# The mega-menu submenu for this button #}
         <div 
-            class="flex absolute top-full left-0 right-0 p-4 
+            class="absolute top-full left-0 right-0 p-4 
+                flex space-x-4
                 bg-white bg-opacity-90 border {{submenu_border_color}} 
                 cursor-auto
             "
@@ -78,7 +79,7 @@
         >
         
         {# set some classes that will be reused in multiple places below #}
-        {% set listDivClasses = "border" %}
+        {% set listDivClasses = "" %}
         {% set listHeadingClasses = "font-bold" %}
         {% set listItemClasses = "pl-4" %}
 

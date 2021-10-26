@@ -51,7 +51,7 @@
     x-on:mouseout = "open = false"
 >
     {% if buttonBlock.type == 'directLink' %} 
-        <a href={{buttonBlock.directLink.getUrl()}}>{{buttonBlock.directLink.getText()}}</a> 
+       {{buttonBlock.headerDirectLink.getLink()}}
     {% else %}
         {{buttonBlock.menuTitle}}
         {# The mega-menu submenu for this button #}

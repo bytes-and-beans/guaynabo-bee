@@ -61,7 +61,7 @@
         {{buttonBlock.menuTitle}}
         {# The mega-menu submenu for this button #}
         <div 
-            class="absolute top-full left-0 right-0 p-4 bg-white bg-opacity-90 border {{submenu_border_color}} "
+            class="flex absolute top-full left-0 right-0 p-4 bg-white bg-opacity-90 border {{submenu_border_color}} "
             x-cloak
             {# TODO: set x-show="open" and remove if-else #}
             {% if loop.first %}
@@ -72,6 +72,35 @@
             x-on:click.stop=""
         >
         
+        {% set listDivClasses = "border" %}
+        {% set listHeadingClasses = "font-bold" %}
+        {% set listItemClasses = "" %}
+        {% for link in buttonBlock.links %}
+            {# This get's a little hard to follow so let me explain. 
+                
+            #}
+            {% if loop.first %}
+                {# open the first list #}
+                <div class={{listDivClasses}}>
+            {% endif %}
+            
+            {% if link.isHeading %}
+                {% if not loop.first %}
+                    {# end previous list and start a new one #}
+                    </div>
+                    <div class={{listDivClasses}}>
+                {% endif %}
+                <div class={{listHeadingClasses}}>{{link.linkText}}</div>
+            {% else %}
+                <div class={{listItemClasses}}>{{link.linkText}}</div>
+            {% endif %}
+
+            {% if loop.last %}
+                {# close the last list #}
+                </div>
+            {% endif %}
+        {% endfor %}
+
         </div>
     {% endif %}
 

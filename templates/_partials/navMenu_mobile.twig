@@ -28,7 +28,9 @@
             sm:flex flex flex-col items-center justify-around flex-grow  align-center
             bg-gray-500 bg-opacity-90 sm:top-0 sm:bg-transparent 
             "
-        x-bind:class="{'hidden': !open}"
+        {# TODO: set x-show="open". true is just for development #}
+        x-show="true"
+        {# x-show="open" #}
     >
         <div>Nav-item</div>
         <a href="#">Nav_item</a>

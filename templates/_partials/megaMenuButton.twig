@@ -57,7 +57,12 @@
         {# The mega-menu submenu for this button #}
         <div class="absolute top-full left-0 right-0 p-4 bg-white bg-opacity-90 "
             x-cloak
+            {# TODO: set x-show="open" and remove if-else #}
+            {% if loop.first %}
+            x-show="true"
+            {% else %}
             x-show="open"
+            {% endif %}
             x-on:click.stop=""
         >
             I AM THE {{buttonBlock.menuTitle | upper}} SUBMENU!

@@ -15,7 +15,7 @@
                 buttonColor: dropdown with following options: blue, purple, green, orange
 #}
 
-{# set a safe default for the buttons gradient color
+{# set a safe default for the buttons gradient color and submenu border color
     Note that the start/stop values are set to the full tailwind classname,
     If this is not done, tailwind will not know to include them in the 
     compiled CSS.
@@ -24,18 +24,23 @@
     {% case "blue" %}
         {% set gradient_start = "from-guaynabo-blue-start" %}
         {% set gradient_end   = "to-guaynabo-blue-end" %}
+        {% set submenu_border_color   = "border-guaynabo-blue-end" %}
     {% case "purple" %}
         {% set gradient_start = "from-guaynabo-purple-start" %}
         {% set gradient_end   = "to-guaynabo-purple-end" %}
+        {% set submenu_border_color   = "border-guaynabo-purple-end" %}
     {% case "green" %}
         {% set gradient_start = "from-guaynabo-green-start" %}
         {% set gradient_end   = "to-guaynabo-green-end" %}
+        {% set submenu_border_color   = "border-guaynabo-green-end" %}
     {% case "orange" %}
         {% set gradient_start = "from-guaynabo-orange-start" %}
         {% set gradient_end   = "to-guaynabo-orange-end" %}
+        {% set submenu_border_color   = "border-guaynabo-orange-end" %}
     {% default %}
         {% set gradient_start = "from-guaynabo-blue-start" %}
         {% set gradient_end   = "to-guaynabo-blue-end" %}
+        {% set submenu_border_color   = "border-guaynabo-blue-end" %}
 {% endswitch %}
 
 {# The button itself #}
@@ -55,7 +60,8 @@
     {% else %}
         {{buttonBlock.menuTitle}}
         {# The mega-menu submenu for this button #}
-        <div class="absolute top-full left-0 right-0 p-4 bg-white bg-opacity-90 "
+        <div 
+            class="absolute top-full left-0 right-0 p-4 bg-white bg-opacity-90 border {{submenu_border_color}} "
             x-cloak
             {# TODO: set x-show="open" and remove if-else #}
             {% if loop.first %}
@@ -65,7 +71,7 @@
             {% endif %}
             x-on:click.stop=""
         >
-            I AM THE {{buttonBlock.menuTitle | upper}} SUBMENU!
+        
         </div>
     {% endif %}
 

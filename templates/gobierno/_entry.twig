@@ -2,15 +2,13 @@
    based on the entry type.
 #}
 
-{# select which template to extend into #}
-
 {% switch entry.type %}
     {% case "contentAndSidebar" %}
-        {% set selectedLayout = "_layouts/content-and-sidebar" %}
+        {% include "_layouts/content-and-sidebar" %}
     {% case "value2" %}
-        
+
     {% default %}
-        {% set selectedLayout = "_layouts/3-base" %}
+        {% include"_layouts/3-base" %}
 {% endswitch %}
 
-{% extends selectedLayout %}
+

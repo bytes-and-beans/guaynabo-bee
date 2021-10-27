@@ -17,21 +17,90 @@
 {# The mobile 'open menu' button #}
 <div class="sm:hidden" x-data="{open: false}">
     <div 
-        class="absolute left-0 flex items-center inline h-full cursor-pointer sm:hidden"
-        x-on:click="open = ! open;"
+        class="absolute flex left-4 items-center inline text-3xl h-full cursor-pointer sm:hidden"
+        x-on:click="open = !open;"
     >
-        ☰
+        <i class="fas fa-bars" x-show="!open"></i>
+        <i class="fas fa-times" x-show="open"></i>
     </div>
 
     <nav 
         class="absolute left-0 right-0 top-full 
-            sm:flex flex flex-col items-center justify-around flex-grow  align-center
-            bg-gray-500 bg-opacity-90 sm:top-0 sm:bg-transparent 
-            "
-        x-bind:class="{'hidden': !open}"
+            flex flex-col items-start justify-around flex-grow 
+            bg-white bg-opacity-90 sm:top-0 
+        "
+        x-show="open"
     >
-        <div>Nav-item</div>
-        <a href="#">Nav_item</a>
-        <a href="#">NAvITem</a>
+
+    {# settign some classes that will apper in multiple places below #}
+    {% set sectionTitleClasses = "text-xl font-bold text-guaynabo-blue" %}
+    {% set detailsClasses = "" %}
+    {% set summaryClasses = "" %}
+    {% set listItemClasses = "ml-4" %}
+
+    {# Making each section #}
+    {% for section in headerMenu | default(header.headerMenu) %}
+        {# The Div containing a section #}
+        <div class="ml-8">
+        {% if section.type == "directLink" %}
+            {{section.directLinkLink.getLink({class:sectionTitleClasses})}}
+        {% else %} {# It's a submenu #}
+            <div class="{{sectionTitleClasses}}">{{section.menuTitle}}</div>
+            {# Now put the submenus under it. 
+                each submenu is a <details> with the first item being used as
+                the contents of the <summary>
+                Each new entry for which isHeading is tru will close the 
+                previous <details> and open a new <details>.
+                the final itteration closes the final <details> tag.
+            #}
+            {% for link in section.links %}
+                {% if loop.first %} 
+                    {# Open the first <details> #}
+                    <details class="{{detailsClasses}}">
+                {% endif %}
+
+                {% if loop.first %}
+                    {# Don't close the <details> #}
+                    {# First one is always a <summary> #}
+                    <summary class="{{summaryClasses}} hide-expand-if-alone">
+                        {% if link.linkUrl is not empty %}
+                            <a href={{link.linkUrl}}>{{link.linkText}}</a>
+                        {% else %}
+                            {{link.linkText}}
+                        {% endif %}
+                    </summary>
+                {% else %}
+                    {% if link.isHeading %}
+                        {# close previous <details> and open the next one #}
+                        </details>
+                        <details class="{{detailsClasses}}">
+                        <summary class="{{summaryClasses}} hide-expand-if-alone">
+                            {% if link.linkUrl is not empty %}
+                                <a href={{link.linkUrl}}>{{link.linkText}}</a>
+                            {% else %}
+                                {{link.linkText}}
+                            {% endif %}
+                        </summary>
+                    {% else %}
+                        <div class="{{listItemClasses}}">
+                            {% if link.linkUrl is not empty %}
+                                <a href={{link.linkUrl}}>{{link.linkText}}</a>
+                            {% else %}
+                                {{link.linkText}}
+                            {% endif %}
+                            
+                        </div>
+                    {% endif %}
+                {% endif %}
+
+                {% if loop.last %}
+                    {# close the final <details> #}
+                    </details>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+        </div>
+    {% endfor %}
+
     </nav>
 </div>

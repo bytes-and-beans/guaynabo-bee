@@ -23,7 +23,6 @@
 {# mediodía #}{% if bannerHour >= 12 and bannerHour <  20 %} {% set bannerSubfolder = 23 %} {% endif %}
 
 {% set heroBannerAsset = craft.assets().volume('heroImages').folderId(bannerSubfolder).order('RAND()').one() %}
-{% set heroBannerAsset = craft.assets().volume('heroImages').one() %}
 {% set heroBannerUrl = heroBannerAsset.url %}
 
 <section 
@@ -32,10 +31,11 @@
         background-position: {{heroBannerAsset.focalPoint['x'] * 100}}% {{heroBannerAsset.focalPoint['y'] * 100}}%;
     "
     class="bg-cover bg-no-repeat 
+        flex justify-center items-center
         w-full h-[350px] lg:h-[680px]
     "
 >
-
+    <h1 class="text-4xl lg:text-5xl font-bold text-center text-guaynabo-blue-dark text-shadow-pop-light">Bienvenido a Guaynabo</h1>
 </section>
 
 {% endblock %}

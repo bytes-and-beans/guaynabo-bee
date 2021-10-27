@@ -35,6 +35,16 @@
 * This adds new utility classes to tailwind
 */
 @layer utilities {
+  /* .text-shadow-pop Adds a text shadow, either white or black, to make
+     text more legible when it's background may be of a similar color/shade
+  */
+  .text-shadow-pop-light {
+    text-shadow: 0px 0px 4px #FFF;
+  }
+  .text-shadow-pop-dark {
+    text-shadow: 0px 0px 4px #000;
+  }
+
   /* .hide-expand-if-alone, is used in the mobile header
 
      A <summary> with this class, which is the only child of a <details> will

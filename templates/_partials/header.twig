@@ -20,6 +20,7 @@
    I haven't been able to combine them into a single file. I would like to, but... yea. First make
    it work, then make is elegant.
  #}
+{% cache globally %}
 
 <header class="relative flex justify-center px-4 sm:justify-between">
 
@@ -33,3 +34,5 @@
     {% include "/_partials/navMenu.twig" %}
 
 </header>
+
+{% endcache %}

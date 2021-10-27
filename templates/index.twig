@@ -5,11 +5,40 @@
 {% set base_primarySectionElement = 'article' %}
 
 {% block base_supercontent %}
-{% endblock %}
+{% endblock %} {# end base_supercontent #}
 
 {% block base_content %}
-Stuff to come here later!!!
-{% endblock %}
+
+{# The hero banner
+
+    The idea here is that the hero banner pulls a random image from a bucket of
+    options on each page load. Which bucket it pulls from depends on the time of
+    day.
+#}
+{# Get current hour in military time #}
+{% set bannerHour = now | date('H') %}
+{# set the subfolder to pull from based on the time #}
+{# Noche #}   {% if bannerHour <  6  or  bannerHour >= 20 %} {% set bannerSubfolder = 24 %} {% endif %}
+{# Mañana #}  {% if bannerHour >= 6  and bannerHour <  12 %} {% set bannerSubfolder = 22 %} {% endif %}
+{# mediodía #}{% if bannerHour >= 12 and bannerHour <  20 %} {% set bannerSubfolder = 23 %} {% endif %}
+
+{% set heroBannerAsset = craft.assets().volume('heroImages').folderId(bannerSubfolder).order('RAND()').one() %}
+{% set heroBannerUrl = heroBannerAsset.url %}
+
+<section 
+    style="
+        background-image:url({{heroBannerUrl}});
+        background-position: {{heroBannerAsset.focalPoint['x'] * 100}}% {{heroBannerAsset.focalPoint['y'] * 100}}%;
+    "
+    class="bg-cover bg-no-repeat 
+        flex justify-center items-center
+        w-full h-[350px] lg:h-[680px]
+    "
+>
+    <h1 class="text-4xl lg:text-5xl font-bold text-center text-guaynabo-blue-dark text-shadow-pop-light">Bienvenido a Guaynabo</h1>
+</section>
+
+{% endblock %} {# end base_content #}
 
 {% block base_subcontent %}
     {# logo billboard #}
@@ -17,4 +46,4 @@ Stuff to come here later!!!
 {% endblock %}
 
 {% block base_sidebar %}
-{% endblock %}
+{% endblock %} {# end base_sidebar #}

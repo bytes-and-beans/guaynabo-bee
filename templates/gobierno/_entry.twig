@@ -1,0 +1,20 @@
+{# Handles the entries for Gobierno section, pulling in the appropriate layout 
+   based on the entry type.
+#}
+
+{# select which template to extend into #}
+
+{% switch entry.type %}
+    {% case "contentAndSidebar" %}
+        {% set selectedLayout = "_layouts/content-and-sidebar" %}
+        {% block dummy %}swith don't work w./o something,{% endblock %}
+    {% case "value2" %}
+
+    {% default %}
+        {% set selectedLayout = "_layouts/3-base" %}
+        {% block base_content %}
+            <p>The entry type "{{entry.type}}" is not yet associated with a layout</p>
+        {% endblock %}
+{% endswitch %}
+
+{% extends selectedLayout %}

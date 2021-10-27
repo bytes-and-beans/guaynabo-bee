@@ -39,7 +39,7 @@
     {% set listItemClasses = "ml-4" %}
 
     {# Making each section #}
-    {% for section in headerMenu | default(header.headerMenu) %}
+    {% for section in headerMenu.all() | default(header.headerMenu.all()) %}
         {# The Div containing a section #}
         <div class="ml-8">
         {% if section.type == "directLink" %}

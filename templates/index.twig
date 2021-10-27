@@ -8,7 +8,25 @@
 {% endblock %}
 
 {% block base_content %}
-Stuff to come here later!!!
+
+{# The hero banner
+
+    The idea here is that the hero banner pulls a random image from a bucket of
+    options on each page load. Which bucket it pulls from depends on the time of
+    day.
+#}
+{# Get current hour in military time #}
+{% set bannerHour = now | date('H') %}
+{% set heroBannerUrl = craft.assets().volume('heroImages').one().url %}
+
+<section 
+    style="background-image:url({{heroBannerUrl}})"
+    class=""
+>
+time: {{now | date('H')}}<br>
+wooooooooooooooooooot
+</section>
+
 {% endblock %}
 
 {% block base_subcontent %}

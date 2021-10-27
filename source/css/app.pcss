@@ -35,7 +35,11 @@
 * This adds new utility classes to tailwind
 */
 @layer utilities {
+  /* .hide-expand-if-alone, is used in the mobile header
 
+     A <summary> with this class, which is the only child of a <details> will
+     not display the open/close icon next to it.
+   */
   .hide-expand-if-alone:only-child {
     list-style-type: none;
     padding-left: 1rem;

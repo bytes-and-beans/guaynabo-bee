@@ -15,9 +15,14 @@
 
 {% extends "_layouts/3-base" %}
 
+{% block base_supercontent %}
+    dummy supercontent conttent
+{% endblock %}
+
 {% block base_content %}
-    Thing
+    {% include "_partials/superContent" with {superContent: entry.superContent} only %}
 {% endblock %} {# end base_content #}
 
 {% block base_sidebar %}
+    Dummy sidebar content
 {% endblock %} {# end base_sidebar #}

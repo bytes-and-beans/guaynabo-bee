@@ -18,10 +18,14 @@
 
 <div>
     <p>I am the placeholder for a SuperContent template.</p>
-    <p>
-        SuperContent is gonna be a bear to get fully working, so let's get the 
-        basic layouts running, then we come back to this on it's own
-    </p>
+    
+    <p>This SuperContent field has {{superContent.count()}} blocks of the following types:</p>
+    <ul>
+        {% for superBlock in superContent.all() %}
+            <li>{{superBlock.type}}</li>
+        {% endfor %}
+    </ul>
+
     <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati 
         architecto amet doloremque similique sit odit rem numquam sint 

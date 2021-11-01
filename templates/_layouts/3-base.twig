@@ -36,6 +36,7 @@
 {% set base_sidebarSectionElement = base_sidebarSectionElement ?? 'div' %}
 {% set base_supercontentSectionElement = base_supercontentSectionElement ?? 'div' %}
 {% set base_subcontentSectionElement = base_subcontentSectionElement ?? 'div' %}
+{% set base_sidebar_background = "bg-green-400" %}
 
 
 {% block hmf_main %}
@@ -51,7 +52,9 @@
 
         {# for sidebars and suchlike #}
         {% if block('base_sidebar') is not empty %}
-        <{{base_sidebarSectionElement}} id="base_sidebar" class="bg-green-400 float-right">
+        <{{base_sidebarSectionElement}} id="base_sidebar" 
+            class="{{base_sidebar_background}} float-right max-w-[26%]"
+        >
             {% block base_sidebar %}{% endblock %}
         </{{base_sidebarSectionElement}}>
         {% endif %}

@@ -50,13 +50,11 @@
         {% set sidebarLogo = entry.sidebarLogo.one() %}
         <img src={{sidebarLogo.url}} alt={{sidebarLogo.title}} class="w-full max-w-full">
     {% endif %}
-    
     <div 
         class=" w-full bg-gradient-to-tr {{sidebar_bg_gradient_start}} {{sidebar_bg_gradient_end}} 
             {{sidebar_text_color}} p-2
         "
     >
-        <p>Dummy sidebar content</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati est totam voluptates numquam nostrum cupiditate adipisci suscipit natus impedit quas harum debitis nemo porro rerum, reprehenderit fugit error nulla sapiente.</p>
+        {{entry.simpleSidebar}}
     </div>
 {% endblock %} {# end base_sidebar #}

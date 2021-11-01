@@ -9,14 +9,31 @@
     optional vars
         sidebarLogo: asset, image, single; image above the sidebar
         titleBar: asset, imagle, single; Fullpage titlebar for the entry
-        colorGradien: dropdown, which color gradient we should use.
+        colorGradient: dropdown, which color gradient we should use.
             values: blue, purple, green, orange
 #}
 
 {% set base_sidebarSectionElement = "aside" %}
-{% set sidebar_bg_gradient_start = "from-guaynabo-blue-start" %}
-{% set sidebar_bg_gradient_end = "to-guaynabo-blue-end" %}
 {% set sidebar_text_color = "text-white" %}
+{# Set the color gradient #}
+{% switch entry.colorGradient %}
+    {% case "blue" %}
+        {% set sidebar_bg_gradient_start = "from-guaynabo-blue-start" %}
+        {% set sidebar_bg_gradient_end   =   "to-guaynabo-blue-end" %}
+    {% case "purple" %}
+        {% set sidebar_bg_gradient_start = "from-guaynabo-purple-start" %}
+        {% set sidebar_bg_gradient_end   =   "to-guaynabo-purple-end" %}
+    {% case "green" %}
+        {% set sidebar_bg_gradient_start = "from-guaynabo-green-start" %}
+        {% set sidebar_bg_gradient_end   =   "to-guaynabo-green-end" %}
+    {% case "orange" %}
+        {% set sidebar_bg_gradient_start = "from-guaynabo-orange-start" %}
+        {% set sidebar_bg_gradient_end   =   "to-guaynabo-orange-end" %}
+    {% default %}
+        {% set sidebar_bg_gradient_start = "from-guaynabo-blue-start" %}
+        {% set sidebar_bg_gradient_end   =   "to-guaynabo-blue-end" %}
+{% endswitch %}
+
 
 {% extends "_layouts/3-base" %}
 
@@ -29,7 +46,11 @@
 {% endblock %} {# end base_content #}
 
 {% block base_sidebar %}
-    <div class="w-full bg-gradient-to-tr {{sidebar_bg_gradient_start}} {{sidebar_bg_gradient_end}} {{sidebar_text_color}}">
+    <div 
+        class=" w-full bg-gradient-to-tr {{sidebar_bg_gradient_start}} {{sidebar_bg_gradient_end}} 
+            {{sidebar_text_color}} p-2
+        "
+    >
         <p>Dummy sidebar content</p>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati est totam voluptates numquam nostrum cupiditate adipisci suscipit natus impedit quas harum debitis nemo porro rerum, reprehenderit fugit error nulla sapiente.</p>
     </div>

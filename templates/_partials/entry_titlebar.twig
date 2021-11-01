@@ -1,0 +1,37 @@
+{#  The titlebar that appears at the top of most content pages in the site.
+
+    optional vars: 
+        entry.colorGradient: dropdown, which color gradient we should use.
+            values: blue, purple, green, orange
+        entry.titleBare: asset, image, one(); Image that should be used for the titlebar
+#}
+{# Set the color gradient #}
+{% switch entry.colorGradient %}
+    {% case "blue" %}
+        {% set titlebar_bg_gradient_start = "from-guaynabo-blue-start" %}
+        {% set titlebar_bg_gradient_end   =   "to-guaynabo-blue-end" %}
+    {% case "purple" %}
+        {% set titlebar_bg_gradient_start = "from-guaynabo-purple-start" %}
+        {% set titlebar_bg_gradient_end   =   "to-guaynabo-purple-end" %}
+    {% case "green" %}
+        {% set titlebar_bg_gradient_start = "from-guaynabo-green-start" %}
+        {% set titlebar_bg_gradient_end   =   "to-guaynabo-green-end" %}
+    {% case "orange" %}
+        {% set titlebar_bg_gradient_start = "from-guaynabo-orange-start" %}
+        {% set titlebar_bg_gradient_end   =   "to-guaynabo-orange-end" %}
+    {% default %}
+        {% set titlebar_bg_gradient_start = "from-guaynabo-blue-start" %}
+        {% set titlebar_bg_gradient_end   =   "to-guaynabo-blue-end" %}
+{% endswitch %}
+
+<div 
+    {% if entry.titleBar.exists() %}
+        style="background-image:url({{entry.titleBar.one().url}})"
+        class= " h-[140px] w-full"
+    {% else %}
+        class="bg-gradient-to-tr {{titlebar_bg_gradient_start}} {{titlebar_bg_gradient_end}} h-[140px] w-full" 
+    {% endif %}
+>
+    {% if not entry.titleBar.exists() %} <h1>{{entry.title}}</h1> {% endif %}
+    
+</div>

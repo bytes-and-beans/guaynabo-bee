@@ -39,14 +39,14 @@
 
 {% block hmf_main %}
     {% if block('base_supercontent') is not empty %}
-    <{{base_supercontentSectionElement}} id="base_supercontent" class="bg-blue-300">
+    <{{base_supercontentSectionElement}} id="base_supercontent" class="">
         {% block base_supercontent %}{% endblock %}
     </{{base_supercontentSectionElement}}>
     {% endif %}
     
     {# primary content of the thing #}
     {% if block('base_content') is not empty or block('base_sidebar') is not empty %}
-    <{{base_primarySectionElement}} id="base_content" class="bg-blue-400">
+    <{{base_primarySectionElement}} id="base_content" class="mx-16">
 
         {# for sidebars and suchlike #}
         {% if block('base_sidebar') is not empty %}
@@ -64,7 +64,7 @@
     {% endif %}
 
     {% if block('base_subcontent') is not empty %}
-    <{{base_subcontentSectionElement}} id="base_subcontent" class="bg-blue-500">
+    <{{base_subcontentSectionElement}} id="base_subcontent" class="">
         {% block base_subcontent %}{% endblock %}
     </{{base_subcontentSectionElement}}>
     {% endif %}

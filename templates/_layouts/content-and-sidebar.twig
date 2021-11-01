@@ -1,0 +1,60 @@
+
+{# Layout used by entries with both a main content and sidebar.
+
+    required vars
+        title: Plaintext, title of the entry
+        superContent: Matrix, the primary content of the entry
+                    supercontent is basicaly featureCreep.twig
+        simpleSidebar: redactor; The content of the sidebar
+    optional vars
+        sidebarLogo: asset, image, single; image above the sidebar
+        titleBar: asset, imagle, single; Fullpage titlebar for the entry
+        colorGradient: dropdown, which color gradient we should use.
+            values: blue, purple, green, orange
+#}
+
+{% set base_sidebarSectionElement = "aside" %}
+{% set sidebar_text_color = "text-white" %}
+{# Set the color gradient #}
+{% switch entry.colorGradient %}
+    {% case "blue" %}
+        {% set sidebar_bg_gradient_start = "from-guaynabo-blue-start" %}
+        {% set sidebar_bg_gradient_end   =   "to-guaynabo-blue-end" %}
+    {% case "purple" %}
+        {% set sidebar_bg_gradient_start = "from-guaynabo-purple-start" %}
+        {% set sidebar_bg_gradient_end   =   "to-guaynabo-purple-end" %}
+    {% case "green" %}
+        {% set sidebar_bg_gradient_start = "from-guaynabo-green-start" %}
+        {% set sidebar_bg_gradient_end   =   "to-guaynabo-green-end" %}
+    {% case "orange" %}
+        {% set sidebar_bg_gradient_start = "from-guaynabo-orange-start" %}
+        {% set sidebar_bg_gradient_end   =   "to-guaynabo-orange-end" %}
+    {% default %}
+        {% set sidebar_bg_gradient_start = "from-guaynabo-blue-start" %}
+        {% set sidebar_bg_gradient_end   =   "to-guaynabo-blue-end" %}
+{% endswitch %}
+
+
+{% extends "_layouts/3-base" %}
+
+{% block base_supercontent %}
+    {% include "_partials/entry_titlebar" %}
+{% endblock %}
+
+{% block base_content %}
+    {% include "_partials/superContent" with {superContent: entry.superContent} only %}
+{% endblock %} {# end base_content #}
+
+{% block base_sidebar %}
+    {% if entry.sidebarLogo.exists() %}
+        {% set sidebarLogo = entry.sidebarLogo.one() %}
+        <img src={{sidebarLogo.url}} alt={{sidebarLogo.title}} class="w-full max-w-full">
+    {% endif %}
+    <div 
+        class=" w-full bg-gradient-to-tr {{sidebar_bg_gradient_start}} {{sidebar_bg_gradient_end}} 
+            {{sidebar_text_color}} p-2
+        "
+    >
+        {{entry.simpleSidebar}}
+    </div>
+{% endblock %} {# end base_sidebar #}

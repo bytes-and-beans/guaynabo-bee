@@ -17,7 +17,11 @@
 
 {% block html_body %}
 {% block hmf_body_tag %}
-<body id="hmf_body" class="flex flex-col h-screen">
+<body 
+    id="hmf_body" 
+    class="h-screen max-w-screen-xl mx-auto flex flex-col bg-white"
+    style="box-shadow:3px 4px 4px dimgray"
+>
 {% endblock %}
     {# The header #}
     {% block hmf_header %}
@@ -26,7 +30,7 @@
     
     {# Main block #}
     {% block hmf_main_tag %}
-    <main id="hmf_main" class="flex flex-col flex-grow sm:flex-row">
+    <main id="hmf_main" class="flex flex-col">
     {% endblock %}
     {% block hmf_main %}
         <h1>Missing Content</h1>

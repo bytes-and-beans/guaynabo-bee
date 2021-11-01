@@ -1,0 +1,18 @@
+{# Handles the entries for Negocios section, pulling in the appropriate layout 
+   based on the entry type.
+#}
+
+{% switch entry.type %}
+    {% case "negocios" %}
+        {% include "_layouts/content-and-sidebar" %}
+    {% case "noSidebar" %}
+        {% include "_layouts/content-no-sidebar" %}
+    {% case "negociosHeader" %}
+        {% include "_layouts/content-no-sidebar" %}
+    {% case "negociosDirectLink" %}
+        {% include "_layouts/direct-link" %}
+    {% default %}
+        {% include"_layouts/3-base" %}
+{% endswitch %}
+
+

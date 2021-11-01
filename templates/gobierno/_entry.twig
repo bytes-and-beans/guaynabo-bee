@@ -1,0 +1,18 @@
+{# Handles the entries for Gobierno section, pulling in the appropriate layout 
+   based on the entry type.
+#}
+
+{% switch entry.type %}
+    {% case "contentAndSidebar" %}
+        {% include "_layouts/content-and-sidebar" %}
+    {% case "gobiernoNoSidebar" %}
+        {% include "_layouts/content-no-sidebar" %}
+    {% case "gobiernoHeader" %}
+        {% include "_layouts/content-no-sidebar" %}
+    {% case "gobiernoDirectLink" %}
+        {% include "_layouts/direct-link" %}
+    {% default %}
+        {% include"_layouts/3-base" %}
+{% endswitch %}
+
+

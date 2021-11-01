@@ -51,7 +51,7 @@
         {# for sidebars and suchlike #}
         {% if block('base_sidebar') is not empty %}
         <{{base_sidebarSectionElement}} id="base_sidebar" 
-            class="w-full sm:float-right sm:max-w-[26%]"
+            class="w-full sm:float-right sm:max-w-[26%] mr-0 mt-0 ml-[13px] mb-[13px]"
         >
             {% block base_sidebar %}{% endblock %}
         </{{base_sidebarSectionElement}}>

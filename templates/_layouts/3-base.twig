@@ -39,35 +39,35 @@
 
 
 {% block hmf_main %}
-    {# The content section #}
-    {% if block('base_content') is not empty or block('base_supercontent') is not empty or block('base_subcontent') is not empty %}
-        <div id="base_content_container" class="w-full h-full">
-            {% if block('base_supercontent') is not empty %}
-            <{{base_supercontentSectionElement}} id="base_supercontent" class="">
-                {% block base_supercontent %}{% endblock %}
-            </{{base_supercontentSectionElement}}>
-            {% endif %}
-
-            {# primary content of the thing #}
-            {% if block('base_content') is not empty %}
-            <{{base_primarySectionElement}} id="base_content" class="flex-grow">
-                {% block base_content %}&nbp;{% endblock %}
-            </{{base_primarySectionElement}}>
-            {% endif %}
-
-            {% if block('base_subcontent') is not empty %}
-            <{{base_subcontentSectionElement}} id="base_subcontent" class="">
-                {% block base_subcontent %}{% endblock %}
-            </{{base_subcontentSectionElement}}>
-            {% endif %}
-        </div>
+    {% if block('base_supercontent') is not empty %}
+    <{{base_supercontentSectionElement}} id="base_supercontent" class="bg-blue-300">
+        {% block base_supercontent %}{% endblock %}
+    </{{base_supercontentSectionElement}}>
     {% endif %}
+    
+    {# primary content of the thing #}
+    {% if block('base_content') is not empty or block('base_sidebar') is not empty %}
+    <{{base_primarySectionElement}} id="base_content" class="bg-blue-400">
 
-    {# for sidebars and suchlike #}
-    {% if block('base_sidebar') is not empty %}
-        <{{base_sidebarSectionElement}} id="base_sidebar" class="w-full sm:w-3/12 sm:max-w-52 ">
+        {# for sidebars and suchlike #}
+        {% if block('base_sidebar') is not empty %}
+        <{{base_sidebarSectionElement}} id="base_sidebar" class="bg-green-400 float-right">
             {% block base_sidebar %}{% endblock %}
         </{{base_sidebarSectionElement}}>
+        {% endif %}
+
+        {# The actual content goes here #}
+        {% block base_content %}&nbp;{% endblock %}
+
+    </{{base_primarySectionElement}}>
     {% endif %}
-{# end hmf_main #}
-{% endblock %}
+
+    {% if block('base_subcontent') is not empty %}
+    <{{base_subcontentSectionElement}} id="base_subcontent" class="bg-blue-500">
+        {% block base_subcontent %}{% endblock %}
+    </{{base_subcontentSectionElement}}>
+    {% endif %}
+
+
+
+{% endblock %} {# end block hmf_main #}

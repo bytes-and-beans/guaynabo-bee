@@ -1,0 +1,18 @@
+{# Handles the entries for Servicios section, pulling in the appropriate layout 
+   based on the entry type.
+#}
+
+{% switch entry.type %}
+    {% case "servicios" %}
+        {% include "_layouts/content-and-sidebar" %}
+    {% case "serviciosNoSidebar" %}
+        {% include "_layouts/content-no-sidebar" %}
+    {% case "serviciosHeader" %}
+        {% include "_layouts/content-no-sidebar" %}
+    {% case "directLink" %}
+        {% include "_layouts/direct-link" %}
+    {% default %}
+        {% include"_layouts/3-base" %}
+{% endswitch %}
+
+

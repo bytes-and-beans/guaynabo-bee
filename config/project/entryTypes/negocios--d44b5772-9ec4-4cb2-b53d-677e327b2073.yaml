@@ -80,7 +80,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 5a923be5-29f5-4dd3-923a-8f2b45ea9dce # Hide From Menu
+            fieldUid: 5a923be5-29f5-4dd3-923a-8f2b45ea9dce
             instructions: null
             label: null
             required: false

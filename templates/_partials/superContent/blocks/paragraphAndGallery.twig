@@ -5,3 +5,16 @@
         superblock.redactorText: Redactor field
         superblock.images: assets, images, multiple selections allowed
 #}
+
+<div class="">
+    {# The galery, only shown if there are some images to show. #}
+    {% if superblock.images.exists() %}
+    <div class="">
+        {% for image in superblock.images.all() %}
+            <img src="{{image.url}}" alt="{{image.title}}" class="">
+        {% endfor %}
+    </div>
+    {% endif %}
+    
+    {{superblock.redactorText}}
+</div>

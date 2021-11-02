@@ -9,7 +9,7 @@
 <div class="flex flex-wrap gap-2">
 
     {% for image in superblock.miniGallery.all() %}
-        <img src="{{image.url}}" alt="{{image.title}}" class="w-1/4 min-w-80 flex-grow">
+        <img src="{{image.url}}" alt="{{image.title}}" class="w-1/4 min-w-[250px] flex-grow">
     {% endfor %}
 
 </div>

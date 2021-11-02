@@ -18,7 +18,6 @@
                 class="object-cover"
                 x-data="{myNumber:{{loop.index}}}"
                 x-show="myNumber === currentImage"
-                x-text="myNumber"
                 {% if not loop.first %}x-cloak{% endif %}
             >
         {% endfor %}

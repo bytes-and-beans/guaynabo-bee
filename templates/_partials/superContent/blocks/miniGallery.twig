@@ -1,0 +1,16 @@
+{#  Handler for the 'miniGallery' block type of the superContent matrix
+    a photo gallery, will attempt to have each image be 25% wide, with a minimum width of ... something.
+
+    block fields 
+        superblock.miniGallery: Assets, multiple, images only
+#}
+{% if superblock.miniGallery.exists() %}
+{# only render if the gallery has some assets selected. #}
+<div class="flex flex-wrap gap-2">
+
+    {% for image in superblock.miniGallery.all() %}
+        
+    {% endfor %}
+
+</div>
+{% endif %}

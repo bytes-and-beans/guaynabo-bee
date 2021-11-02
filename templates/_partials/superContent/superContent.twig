@@ -61,5 +61,18 @@
                     Ordenanzas Y Resolutions
 #}
 {% for superblock in superField %}
+    {% switch superblock.type %}
+        {# {% case "redactorContent" %} #}
+        {# {% case "column3" %} #}
+        {# {% case "miniGallery" %} #}
+        {# {% case "paragraphAndGallery" %} #}
+        {# {% case "listVolumeContents" %} #}
+        {# {% case "embedPf" %} #}
+        {# {% case "timeLine" %} #}
+        {# {% case "entries" %} #}
+        {# {% case "special" %} #}
+        {% default %}
+            <div>Block type "{{superblock.type}}" not yet supported.</div>
+    {% endswitch %}
     
 {% endfor %}

@@ -59,6 +59,12 @@
                     the 'next' and 'previous' sibling pages.
                 Ordenanzas y Resoluciones: This includes the search page for the
                     Ordenanzas Y Resolutions
+                tabulator: third party thing for making tables, 
+                see: http://www.tabulator.info/docs/4.9/data#array-initial
+                Find a better way to do this.
+                    columns: plaintext
+                    tableData: plaintext
+
 #}
 {% for superblock in superField %}
     {% switch superblock.type %}

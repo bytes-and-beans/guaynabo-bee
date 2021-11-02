@@ -9,9 +9,17 @@
 <div class="">
     {# The galery, only shown if there are some images to show. #}
     {% if superblock.images.exists() %}
-    <div class="">
+    <div 
+        class="relative float-right"
+        x-data="{currentImage: 1}"
+    >
         {% for image in superblock.images.all() %}
-            <img src="{{image.url}}" alt="{{image.title}}" class="">
+            <img src="{{image.url}}" alt="{{image.title}}" 
+                class="object-cover"
+                x-data="{myNumber:{{loop.index}}}"
+                x-show="myNumber === currentImage"
+                x-text="myNumber"
+            >
         {% endfor %}
     </div>
     {% endif %}

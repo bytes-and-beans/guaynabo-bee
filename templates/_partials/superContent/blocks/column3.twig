@@ -9,8 +9,15 @@
         column3: Redactor field
 #}
 
-<div class="flex">
-    <div class="flex-auto min-w-30">{{superblock.column1}}</div>
-    <div class="flex-auto min-w-30">{{superblock.column2}}</div>
-    <div class="flex-auto min-w-30">{{superblock.column3}}</div>
+{# storing a class that will be repeated below #}
+{% set columnClasses = "flex-shrink-0 flex-grow w-60" %}
+
+<div class="flex flex-wrap gap-4">
+    <div class="{{columnClasses}}">{{superblock.column1}}</div>
+    {% if superblock.column2 is not empty %}
+        <div class="{{columnClasses}}">{{superblock.column2}}</div>
+    {% endif %}
+    {% if superblock.column3 is not empty %}
+        <div class="{{columnClasses}}">{{superblock.column3}}</div>
+    {% endif %}
 </div>

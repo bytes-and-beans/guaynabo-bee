@@ -72,13 +72,12 @@
             {# {% include "_partials/superContent/blocks/paragraphAndGallery.twig" %} #}
         {# {% case "listVolumeContents" %} #}
             {# {% include "_partials/superContent/blocks/listVolumeContents.twig" %} #}
-        {# {% case "embedPf" %} #}
-            {# {% include "_partials/superContent/blocks/embedPf.twig" %} #}
+        {# {% case "embedPdf" %} #}
+            {# {% include "_partials/superContent/blocks/embedPdf.twig" %} #}
         {# {% case "timeLine" %} #}
             {# {% include "_partials/superContent/blocks/timeLine.twig" %} #}
-        {# {% case "entries" %} #}
-            {# {% include "_partials/superContent/blocks/entries.twig" %} #}
         {# {% case "special" %} #}
+            {# {% include "_partials/superContent/blocks/special.twig" %} #}
         {% default %}
             <div>Block type "{{superblock.type}}" not yet supported.</div>
     {% endswitch %}

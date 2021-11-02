@@ -63,13 +63,21 @@
 {% for superblock in superField %}
     {% switch superblock.type %}
         {# {% case "redactorContent" %} #}
+            {# {% include "_partials/superContent/blocks/redactorContent.twig" %} #}
         {# {% case "column3" %} #}
+            {# {% include "_partials/superContent/blocks/column3.twig" %} #}
         {# {% case "miniGallery" %} #}
+            {# {% include "_partials/superContent/blocks/miniGallery.twig" %} #}
         {# {% case "paragraphAndGallery" %} #}
+            {# {% include "_partials/superContent/blocks/paragraphAndGallery.twig" %} #}
         {# {% case "listVolumeContents" %} #}
+            {# {% include "_partials/superContent/blocks/listVolumeContents.twig" %} #}
         {# {% case "embedPf" %} #}
+            {# {% include "_partials/superContent/blocks/embedPf.twig" %} #}
         {# {% case "timeLine" %} #}
+            {# {% include "_partials/superContent/blocks/timeLine.twig" %} #}
         {# {% case "entries" %} #}
+            {# {% include "_partials/superContent/blocks/entries.twig" %} #}
         {# {% case "special" %} #}
         {% default %}
             <div>Block type "{{superblock.type}}" not yet supported.</div>

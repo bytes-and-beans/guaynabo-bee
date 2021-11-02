@@ -12,7 +12,7 @@
     <div 
         class="relative float-right w-1/3"
         x-data="{currentImage: 1, maxImage:1}"
-        x-init="setInterval(()=>{currentImage++; if(currentImage > {{loop.length}}) currentImage = 1},1000)"
+        x-init="setInterval(()=>{currentImage++; if(currentImage > maxImage) currentImage = 1},1000)"
     >
         {% for image in superblock.images.all() %}
             <img src="{{image.url}}" alt="{{image.title}}" 
@@ -20,6 +20,7 @@
                 x-data="{myNumber:{{loop.index}}}"
                 x-show="myNumber === currentImage"
                 {% if not loop.first %}x-cloak{% endif %}
+                {% if loop.last %}x-init="maxImage = {{loop.index}}"{% endif %}
             >
         {% endfor %}
     </div>

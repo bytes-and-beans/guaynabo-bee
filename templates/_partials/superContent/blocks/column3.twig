@@ -1,0 +1,16 @@
+{#  Handler for the superContent block type 'column 3'
+    .
+        Renders as a set of three column (at full size) and should scale down
+        well reactively.
+
+    Block Fields
+        column1: Redactor field
+        column2: Redactor field
+        column3: Redactor field
+#}
+
+<div class="flex">
+    <div class="flex-auto min-w-30">{{superblock.column1}}</div>
+    <div class="flex-auto min-w-30">{{superblock.column2}}</div>
+    <div class="flex-auto min-w-30">{{superblock.column3}}</div>
+</div>

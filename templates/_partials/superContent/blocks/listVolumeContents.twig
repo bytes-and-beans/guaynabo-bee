@@ -9,15 +9,21 @@
                 ordenanzasYResoluciones
                 formularios
                 transperencia
+    Optional Vars
+        itemMarker: String, Symbol or whatever that will be prefixed before each item in the list
+            defaults to null.
  #}
 
 {% set volumeHandle = volumeHandle ?? superblock.volumeHandle ?? null %}
 {% set assetQuery = craft.assets().volume(volumeHandle) %}
 
+{% set itemMarker = null %}
+
 {% if assetQuery.exists() %}
     <ul class="">
         {% for item in assetQuery.all() %}
             {% apply spaceless %}
+            <li> {{itemMarker | striptags('<i>')}}
             {% if item.hasUrls %}
                 <a href="{{item.url}}" class="">{{item.title}}</a>
             {% else %}

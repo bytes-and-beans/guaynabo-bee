@@ -11,13 +11,13 @@
     {% if superblock.images.exists() %}
     <div class="float-right w-1/3 border border-green-500"> {#aspect ratio padding trick wrapper#}
         <div 
-            class="relative grid w-full h-0 pt-[100%] border border-solid border-red-800"
+            class="relative grid w-full h-0 pb-[100%] border border-solid"
             x-data="{currentImage: 1, maxImage:1}"
             x-init="setInterval(()=>{currentImage++; if(currentImage > maxImage) currentImage = 1},1000)"
         >
             {% for image in superblock.images.all() %}
                 <img src="{{image.url}}" alt="{{image.title}}" 
-                    class="object-cover transition-transform absolute"
+                    class="object-cover transition-transform absolute h-full w-full"
                     x-data="{myNumber:{{loop.index}}}"
                     x-show="myNumber === currentImage"
                     {% if not loop.first %}x-cloak{% endif %}

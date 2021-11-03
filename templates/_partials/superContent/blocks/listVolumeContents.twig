@@ -19,7 +19,7 @@
 {% set volumeHandle = volumeHandle ?? superblock.volumeHandle ?? null %}
 {% set assetQuery = craft.assets().volume(volumeHandle) %}
 
-{% set itemMarker = null %}
+{% set itemMarker = itemMarker ?? null %}
 
 {% if assetQuery.exists() %}
     <ul class="">

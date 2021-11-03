@@ -11,7 +11,7 @@
     {% if superblock.images.exists() %}
     <div class="w-full sm:float-right sm:w-1/3 "> {#aspect ratio padding trick wrapper#}
         <div 
-            class="relative grid w-full h-0 pb-[100%]"
+            class="relative grid w-full h-0 pb-[100%] overflow-hidden"
             x-data="{currentImage: 1, maxImage:1}"
             {# the x-init handles moving to the next image.
                 The setInterval()'s interval (last arg, Number) is the time each
@@ -21,11 +21,17 @@
         >
             {% for image in superblock.images.all() %}
                 <img src="{{image.url}}" alt="{{image.title}}" 
-                    class="object-cover transition-transform absolute h-full w-full"
+                    class="object-cover absolute h-full w-full"
                     x-data="{myNumber:{{loop.index}}}"
                     x-show="myNumber === currentImage"
                     {% if not loop.first %}x-cloak{% endif %}
                     {% if loop.last %}x-init="maxImage = {{loop.index}}"{% endif %}
+                    x-transition:enter="transition duration-[.85s]"
+                    x-transition:enter-start="transform translate-x-full"
+                    x-transition:enter-end="transform translate-x-0"
+                    x-transition:leave="transition duration-[.80s]"
+                    x-transition:leave-start="transform translate-x-0"
+                    x-transition:leave-end="transform -translate-x-full"
                 >
             {% endfor %}
         </div>

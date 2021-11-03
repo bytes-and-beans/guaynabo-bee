@@ -9,7 +9,7 @@
 <div class="">
     {# The galery, only shown if there are some images to show. #}
     {% if superblock.images.exists() %}
-    <div class="float-right w-1/3 "> {#aspect ratio padding trick wrapper#}
+    <div class="w-full sm:float-right sm:w-1/3 "> {#aspect ratio padding trick wrapper#}
         <div 
             class="relative grid w-full h-0 pb-[100%]"
             x-data="{currentImage: 1, maxImage:1}"

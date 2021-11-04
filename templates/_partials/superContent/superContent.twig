@@ -69,21 +69,21 @@
 {% for superblock in superField %}
     {% switch superblock.type %}
         {% case "redactorContent" %}
-            {% include "_partials/superContent/blocks/redactorContent.twig" %}
+            {% include "_partials/superContent/blocks/redactorContent" %}
         {% case "column3" %}
-            {% include "_partials/superContent/blocks/column3.twig" %}
+            {% include "_partials/superContent/blocks/column3" %}
         {% case "miniGallery" %}
-            {% include "_partials/superContent/blocks/miniGallery.twig" %}
+            {% include "_partials/superContent/blocks/miniGallery" %}
         {% case "paragraphAndGallery" %}
-            {% include "_partials/superContent/blocks/paragraphAndGallery.twig" %}
+            {% include "_partials/superContent/blocks/paragraphAndGallery" %}
         {% case "listVolumeContents" %}
-            {% include "_partials/superContent/blocks/listVolumeContents.twig" with {itemMarker: "•"}%}
+            {% include "_partials/superContent/blocks/listVolumeContents" with {itemMarker: "•"}%}
         {% case "embedPdf" %}
-            {% include "_partials/superContent/blocks/embedPdf.twig" %}
+            {% include "_partials/superContent/blocks/embedPdf" %}
         {# {% case "timeLine" %} #}
-            {# {% include "_partials/superContent/blocks/timeLine.twig" %} #}
+            {# {% include "_partials/superContent/blocks/timeLine" %} #}
         {% case "special" %}
-            {% include "_partials/superContent/blocks/special.twig" %}
+            {% include "_partials/superContent/blocks/special" %}
         {% default %}
             <div>Block type "{{superblock.type}}" not yet supported.</div>
     {% endswitch %}

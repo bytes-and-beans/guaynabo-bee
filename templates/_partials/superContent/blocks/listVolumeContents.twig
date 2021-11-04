@@ -1,0 +1,38 @@
+{# listVolumeContents: given the handle of a volume, Present links to the contents
+    of that volume in an unordered list.
+
+    Required vars
+        superblock.volumeHandle: dropdown; The handle of the selected volume. Admin can
+            add new volumes to the dropdown by adding them and their handle to 
+            the list. 
+            Currently the list is:
+                ordenanzasYResoluciones
+                formularios
+                transperencia
+    Optional Vars
+        itemMarker: String,defaults to null Symbol or whatever that will be 
+        prefixed before each item in the list. <i> tags are allowed, so you can
+        put a font-awesome thing in here.
+            .
+ #}
+
+{% set volumeHandle = volumeHandle ?? superblock.volumeHandle ?? null %}
+{% set assetQuery = craft.assets().volume(volumeHandle) %}
+
+{% set itemMarker = itemMarker ?? null %}
+
+{% if assetQuery.exists() %}
+    <ul class="">
+        {% for item in assetQuery.all() %}
+            {% apply spaceless %}
+            <li> {{itemMarker | striptags('<i>')}}
+            {% if item.hasUrls %}
+                <a href="{{item.url}}" class="">{{item.title}}</a>
+            {% else %}
+                {{item.title}}
+            {% endif %}
+            </li>
+            {% endapply %}
+        {% endfor %}
+     </ul>
+{% endif %}

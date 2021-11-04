@@ -1,0 +1,16 @@
+ {# List the child entries of this entry.
+    A function of the Supercontend field
+
+    required vars
+        entry: a craft cms entry; Seems obvious, but I figured I should include it
+  #}
+
+{% set children = entry.getChildren %}
+
+<ul class="">
+{% for child in children %}
+    <li class="">
+        <a href="{{child.url}}" class="">{{child.title}}</a>
+    </li>
+{% endfor %}
+</ul>

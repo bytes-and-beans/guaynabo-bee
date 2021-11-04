@@ -42,7 +42,7 @@
 {% endblock %}
 
 {% block base_content %}
-    {% include "_partials/superContent" with {superContent: entry.superContent} only %}
+    {% include "_partials/superContent" with {superField: entry.superContent}  %}
 {% endblock %} {# end base_content #}
 
 {% block base_sidebar %}

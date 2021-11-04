@@ -1,0 +1,23 @@
+{#  Handler for the superContent block type 'column 3'
+    .
+        Renders as a set of three column (at full size) and should scale down
+        well reactively.
+
+    Block Fields
+        column1: Redactor field
+        column2: Redactor field
+        column3: Redactor field
+#}
+
+{# storing a class that will be repeated below #}
+{% set columnClasses = "flex-shrink-0 flex-grow w-60" %}
+
+<div class="flex flex-wrap gap-4">
+    <div class="{{columnClasses}}">{{superblock.column1}}</div>
+    {% if superblock.column2 is not empty %}
+        <div class="{{columnClasses}}">{{superblock.column2}}</div>
+    {% endif %}
+    {% if superblock.column3 is not empty %}
+        <div class="{{columnClasses}}">{{superblock.column3}}</div>
+    {% endif %}
+</div>

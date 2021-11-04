@@ -1,0 +1,27 @@
+{#  Handler for 'special' block type of the supercontent matrix field.
+    This block selects from a number of functions that are used rarely, and
+    don't require any additional input from the users.
+
+    Block fields (the block itself will be passed as 'superblock')
+        specialSelection: dropdown, the function to run.
+            listChildren : If this page has any child entries under it. 
+                This will make an unordered list of those child entries. If 
+                there are none, nothing will be added to the page.
+            siblingLinks: If this page is a child of another page, and has 
+                at least one brother/sister page; This will create a link to
+                the 'next' and 'previous' sibling pages.
+            ordenanzasYResolutiones: This includes the search page for the
+                Ordenanzas Y Resolutions
+ #}
+
+ {% switch (specialSelection ?? superblock.specialSelection) %}
+     {% case "listChildren" %}
+        {% include "_partials/superContent/blocks/special/listChildren.twig" %}
+     {% case "siblingLinks" %}
+        {% include "_partials/superContent/blocks/special/siblingLinks.twig" %}
+     {% case "ordenanzasYResolutiones" %}
+        {% include "_partials/superContent/blocks/special/ordenanzasYResolutiones.twig" %}
+     {% default %}
+
+ {% endswitch %}
+ 

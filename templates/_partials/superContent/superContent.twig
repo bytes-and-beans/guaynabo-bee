@@ -1,59 +1,91 @@
 {#  SuperContent is a all purpose content type used in most of the entries and 
     pages on the site.
-    
-    superContent started as just a Matrix with a couple of blocks as an
-    attempt to get around some of Redactor's limitiations.
-    Now it's become "featureCreep.twig".
-    I would nuke the whole thing and start from scratch with this, but it is 
-    already in and kinda needs to be supported, if I don't plan on re-porting 
-    whole site again.
 
-    Matrix field with the following block types
+        FYI: The 'Retcon' plugin may be very usefull to decorate the various tags
+        produced by Redactor fields.
+        
+        superContent started as just a Matrix with a couple of blocks as an
+        attempt to get around some of Redactor's limitiations.  
+        Now it's become "featureCreep.twig".  
+        I would nuke the whole thing and start from scratch with this, but it is 
+        already in and kinda needs to be supported, if I don't plan on re-porting 
+        whole site again.
 
-    .... Whew, this is gonna be it's whole sub-project.
-    There are nine blocks, some of which are wierd sub-behaviors and pull in 
-    third party libraries that I'll need to install..
+        Matrix field with the following block types
+
+        .... Whew, this is gonna be it's whole sub-project.
+        There are nine blocks, some of which are wierd sub-behaviors and pull in 
+        third party libraries that I'll need to install..
+
+    requred Vars
+        superfield: the matrix field being rendered.
+            you may want to explicity pass this via with {superField: the field here}
+            to be absoulute sure there will be no conflicts.
+
+    Block Types
+        redactorContent: Just a redactor field
+            redactorContent: The redactor field
+        column3: A columnar layout, can have 1,2,3 columns
+            column1: Redactor field
+            column1: Redactor field
+            column2: Redactor field
+            column3: Redactor field
+        miniGallery: a photo gallery, will attempt to have each image be 25% wide, with a minimum width of ... something.
+            miniGallery: Assets, multiple, images only
+        paragraphAndGallery: A paragraph that wraps around an image. The image is a slideshow of multiple images
+            redactorText: Redactor field
+            images: assets, images, multiple selections allowed
+        listVolumeContents: Lists the contents of a selected volume
+            volumeHandle: dropdown; The handle of the selected volume. Admin can
+            add new volumes to the dropdown by adding them and their handle to 
+            the list. Currently the list is:
+                ordenanzasYResoluciones
+                formularios
+                transperencia
+        embedPf: Embed a pdf viewer in the page.
+            pdfAsset: asset, single only, PDF only; The pdf to display.
+        timeLine: Display a timeline built using... some third party thingy and 
+        entries from the 'timelines' section
+            selectedTimeline: the handle of the entry in "timelines" to build 
+            the timeline from
+        special: handles a number of functions that are useful, but not used so 
+        often that they deserve their own block type.
+            specialSelection: dropdown, the function to run.
+                List Children : If this page has any child entries under it. 
+                    This will make an unordered list of those child entries. If 
+                    there are none, nothing will be added to the page.
+                Sibling Links: If this page is a child of another page, and has 
+                    at least one brother/sister page; This will create a link to
+                    the 'next' and 'previous' sibling pages.
+                Ordenanzas y Resoluciones: This includes the search page for the
+                    Ordenanzas Y Resolutions
+            tabulator: third party thing for making tables, 
+            see: http://www.tabulator.info/docs/4.9/data#array-initial
+            Find a better way to do this.
+                columns: plaintext
+                tableData: plaintext
 
 #}
-
-<div>
-    <p>I am the placeholder for a SuperContent template.</p>
+{% for superblock in superField %}
+    {% switch superblock.type %}
+        {% case "redactorContent" %}
+            {% include "_partials/superContent/blocks/redactorContent" %}
+        {% case "column3" %}
+            {% include "_partials/superContent/blocks/column3" %}
+        {% case "miniGallery" %}
+            {% include "_partials/superContent/blocks/miniGallery" %}
+        {% case "paragraphAndGallery" %}
+            {% include "_partials/superContent/blocks/paragraphAndGallery" %}
+        {% case "listVolumeContents" %}
+            {% include "_partials/superContent/blocks/listVolumeContents" with {itemMarker: "•"}%}
+        {% case "embedPdf" %}
+            {% include "_partials/superContent/blocks/embedPdf" %}
+        {# {% case "timeLine" %} #}
+            {# {% include "_partials/superContent/blocks/timeLine" %} #}
+        {% case "special" %}
+            {% include "_partials/superContent/blocks/special/special.twig" %}
+        {% default %}
+            <div>Block type "{{superblock.type}}" not yet supported.</div>
+    {% endswitch %}
     
-    <p>This SuperContent field has {{superContent.count()}} blocks of the following types:</p>
-    <ul>
-        {% for superBlock in superContent.all() %}
-            <li>{{superBlock.type}}</li>
-        {% endfor %}
-    </ul>
-
-    <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati 
-        architecto amet doloremque similique sit odit rem numquam sint 
-        repudiandae exercitationem, laborum neque facilis sed cupiditate iste, 
-        adipisci pariatur ullam! Aspernatur.
-    </p>
-    <p>
-        Ipsa, neque sunt blanditiis temporibus delectus accusantium nisi alias 
-        dolores. Ipsam culpa voluptates laborum corporis repudiandae hic facere, 
-        consequatur odio atque reprehenderit nostrum facilis! Enim iure suscipit 
-        sed fuga similique.
-    </p>
-    <p>
-        Consectetur adipisci beatae laborum sequi voluptates, cupiditate, 
-        magnam quisquam rem corporis nulla natus nesciunt, minus aut dolorem. 
-        Culpa quis fugiat fuga et architecto ab reiciendis nemo similique, magni 
-        dignissimos aliquid.
-    </p>
-    <p>
-        Pariatur asperiores minima sequi esse vitae eligendi. Dolorum nostrum 
-        reiciendis eaque dolores consequuntur odit porro neque? Fugit cupiditate 
-        deleniti explicabo placeat. Officia deserunt eius est, voluptates quas 
-        sapiente similique reprehenderit?
-    </p>
-    <p>
-        Quas vel eos reprehenderit, temporibus libero ab? Eveniet at ex 
-        deleniti, tempora porro perferendis expedita! Ratione architecto 
-        doloremque quibusdam! Numquam dignissimos voluptatibus veniam. Magni iure 
-        iusto impedit est obcaecati. Eveniet!
-    </p>
-</div>
+{% endfor %}

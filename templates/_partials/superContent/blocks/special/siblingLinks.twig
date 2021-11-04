@@ -1,0 +1,44 @@
+{#  If this page is a child of another page, and has at least one sister page; 
+    This will create a link to the 'next' and 'previous' sibling pages.
+
+    If there are no siblings then the component will not render.
+
+    If the there is at least one sibling, and this entry is the first/last in 
+    the list; the next/previous button will instead point to the entry at the 
+    other end of the list. IE: If you follow 'next' all the way to the last 
+    entry, the last 'next' will wrap you around to the first entry.
+ #}
+
+ {% set nextSibling = entry.getNextSibling() %}
+ {% set prevSibling = entry.getPrevSibling() %}
+ {% if nextSibling or prevSibling %}
+
+    <div class="flex justify-between">
+        {# Previous Sibling button #}
+        {% if prevSibling %}
+            <a href="{{prevSibling.url}}" class=""><i class="fas fa-angle-double-left"></i> {{prevSibling.title}}</a>
+        {% else %}
+            {% set lastSibling = entry.siblings.last() %}
+            {% if lastSibling.id != nextSibling.id%}
+                <a href="{{lastSibling.url}}" class=""><i class="fas fa-angle-double-left"></i> {{lastSibling.title}}</a>
+            {% endif %}
+        {% endif %}
+
+        {# Spacer div  
+            this pushes next/prev into the correct position even when there is
+            only one link.
+            #}
+        <div>&nbsp;</div>
+        
+        {# Next Sibling button #}
+        {% if nextSibling %}
+            <a href="{{nextSibling.url}}" class="">{{nextSibling.title}} <i class="fas fa-angle-double-right"></i></a>
+        {% else %}
+            {% set firstSibling = entry.siblings.first() %}
+            {% if firstSibling.id != prevSibling.id %}
+                <a href="{{firstSibling.url}}" class=""><i class="fas fa-angle-double-left"></i> {{lastSibling.title}}</a>
+            {% endif %}
+        {% endif %}
+    </div>
+ {% endif %}
+ 

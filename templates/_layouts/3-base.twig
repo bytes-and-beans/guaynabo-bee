@@ -46,13 +46,14 @@
     
     {# primary content of the thing #}
     {% if block('base_content') is not empty or block('base_sidebar') is not empty %}
-    <{{base_primarySectionElement}} id="base_content" class="mx-[5%] my-16">
+    <{{base_primarySectionElement}} id="base_content" class="flex flex-col sm:block mx-[5%] my-16">
 
         {# for sidebars and suchlike #}
         {% if block('base_sidebar') is not empty %}
         <{{base_sidebarSectionElement}} id="base_sidebar" 
             class=" w-full sm:float-right sm:max-w-[26%] 
                 sm:mr-0 sm:mt-0 sm:ml-[13px] sm:mb-[13px]
+                order-last sm:order-first
             "
         >
             {% block base_sidebar %}{% endblock %}

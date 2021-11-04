@@ -42,13 +42,18 @@
 {% endblock %}
 
 {% block base_content %}
+    {% if entry.sidebarLogo.exists() %}
+        {% set sidebarLogo = entry.sidebarLogo.one() %}
+        <img src={{sidebarLogo.url}} alt={{sidebarLogo.title}} class="w-full max-w-[500px] sm:hidden">
+    {% endif %}
+    
     {% include "_partials/superContent" with {superField: entry.superContent}  %}
 {% endblock %} {# end base_content #}
 
 {% block base_sidebar %}
     {% if entry.sidebarLogo.exists() %}
         {% set sidebarLogo = entry.sidebarLogo.one() %}
-        <img src={{sidebarLogo.url}} alt={{sidebarLogo.title}} class="w-full max-w-full">
+        <img src={{sidebarLogo.url}} alt={{sidebarLogo.title}} class="w-full max-w-full hidden sm:block">
     {% endif %}
     <div 
         class=" w-full bg-gradient-to-tr {{sidebar_bg_gradient_start}} {{sidebar_bg_gradient_end}} 

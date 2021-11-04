@@ -13,3 +13,15 @@
             ordenanzasYResolutiones: This includes the search page for the
                 Ordenanzas Y Resolutions
  #}
+
+ {% switch (specialSelection ?? superblock.specialSelection) %}
+     {% case "listChildren" %}
+
+     {% case "siblingLinks" %}
+
+     {% case "ordenanzasYResolutiones" %}
+
+     {% default %}
+
+ {% endswitch %}
+ 

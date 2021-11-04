@@ -7,9 +7,15 @@
          pdfAsset: asset, single only, PDF only; The pdf to display.
  #}
 
-<div class="relative overflow-hidden w-[800px] max-w-full pt-[100%]">
-    <iframe
-        src="https://drive.google.com/viewerng/viewer?embedded=true&url=http://infolab.stanford.edu/pub/papers/google.pdf#toolbar=0&scrollbar=0"
-        class="absolute top-0 bottom-0 left-0 right-0 h-full w-full"
-    ></iframe>
-</div>
+{% if superblock.pdfAsset.exists() %}
+    {% set asset = superblock.pdfAsset.one() %}
+    {% if asset.kind == "pdf" %}
+    {% set pdfUrl = asset.url %}
+        <div class="relative overflow-hidden w-[800px] max-w-full pt-[100%]">
+            <iframe
+                src="https://drive.google.com/viewerng/viewer?embedded=true&url={{pdfUrl}}&toolbar=0&scrollbar=0"
+                class="absolute top-0 bottom-0 left-0 right-0 h-full w-full"
+            ></iframe>
+        </div>
+    {% endif %}
+{% endif %}

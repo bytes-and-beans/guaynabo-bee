@@ -16,11 +16,11 @@
 
  {% switch (specialSelection ?? superblock.specialSelection) %}
      {% case "listChildren" %}
-        {% include "templates/_partials/superContent/blocks/special/listChildren.twig" %}
+        {% include "_partials/superContent/blocks/special/listChildren.twig" %}
      {% case "siblingLinks" %}
-        {% include "templates/_partials/superContent/blocks/special/siblingLinks.twig" %}
+        {% include "_partials/superContent/blocks/special/siblingLinks.twig" %}
      {% case "ordenanzasYResolutiones" %}
-        {% include "templates/_partials/superContent/blocks/special/ordenanzasYResolutiones.twig" %}
+        {% include "_partials/superContent/blocks/special/ordenanzasYResolutiones.twig" %}
      {% default %}
 
  {% endswitch %}

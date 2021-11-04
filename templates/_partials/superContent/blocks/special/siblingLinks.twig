@@ -36,7 +36,7 @@
         {% else %}
             {% set firstSibling = entry.siblings.first() %}
             {% if firstSibling.id != prevSibling.id %}
-                <a href="{{firstSibling.url}}" class=""><i class="fas fa-angle-double-left"></i> {{lastSibling.title}}</a>
+                <a href="{{firstSibling.url}}" class="">{{firstSibling.title}} <i class="fas fa-angle-double-right"></i></a>
             {% endif %}
         {% endif %}
     </div>

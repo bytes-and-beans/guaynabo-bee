@@ -19,7 +19,7 @@
             <a href="{{prevSibling.url}}" class=""><i class="fas fa-angle-double-left"></i> {{prevSibling.title}}</a>
         {% else %}
             {% set lastSibling = entry.siblings.last() %}
-            {% if entry.id != lastSibling.id %}
+            {% if lastSibling.id != nextSibling.id%}
                 <a href="{{lastSibling.url}}" class=""><i class="fas fa-angle-double-left"></i> {{lastSibling.title}}</a>
             {% endif %}
         {% endif %}
@@ -34,9 +34,9 @@
         {% if nextSibling %}
             <a href="{{nextSibling.url}}" class="">{{nextSibling.title}} <i class="fas fa-angle-double-right"></i></a>
         {% else %}
-            {% set lastSibling = entry.siblings.first() %}
-            {% if entry.id != lastSibling.id %}
-                <a href="{{lastSibling.url}}" class=""><i class="fas fa-angle-double-left"></i> {{lastSibling.title}}</a>
+            {% set firstSibling = entry.siblings.first() %}
+            {% if firstSibling.id != prevSibling.id %}
+                <a href="{{firstSibling.url}}" class=""><i class="fas fa-angle-double-left"></i> {{lastSibling.title}}</a>
             {% endif %}
         {% endif %}
     </div>

@@ -1,3 +1,16 @@
 {#  Handler for 'special' block type of the supercontent matrix field.
+    This block selects from a number of functions that are used rarely, and
+    don't require any additional input from the users.
+
+    Block field (the block itself will be passed as 'superblock')
+        specialSelection: dropdown, the function to run.
+            List Children : If this page has any child entries under it. 
+                This will make an unordered list of those child entries. If 
+                there are none, nothing will be added to the page.
+            Sibling Links: If this page is a child of another page, and has 
+                at least one brother/sister page; This will create a link to
+                the 'next' and 'previous' sibling pages.
+            Ordenanzas y Resoluciones: This includes the search page for the
+                Ordenanzas Y Resolutions
 
  #}

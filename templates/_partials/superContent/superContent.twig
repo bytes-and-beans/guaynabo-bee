@@ -59,11 +59,11 @@
                     the 'next' and 'previous' sibling pages.
                 Ordenanzas y Resoluciones: This includes the search page for the
                     Ordenanzas Y Resolutions
-                tabulator: third party thing for making tables, 
-                see: http://www.tabulator.info/docs/4.9/data#array-initial
-                Find a better way to do this.
-                    columns: plaintext
-                    tableData: plaintext
+            tabulator: third party thing for making tables, 
+            see: http://www.tabulator.info/docs/4.9/data#array-initial
+            Find a better way to do this.
+                columns: plaintext
+                tableData: plaintext
 
 #}
 {% for superblock in superField %}
@@ -82,8 +82,8 @@
             {% include "_partials/superContent/blocks/embedPdf.twig" %}
         {# {% case "timeLine" %} #}
             {# {% include "_partials/superContent/blocks/timeLine.twig" %} #}
-        {# {% case "special" %} #}
-            {# {% include "_partials/superContent/blocks/special.twig" %} #}
+        {% case "special" %}
+            {% include "_partials/superContent/blocks/special.twig" %}
         {% default %}
             <div>Block type "{{superblock.type}}" not yet supported.</div>
     {% endswitch %}

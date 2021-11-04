@@ -1,0 +1,15 @@
+{# handler for 'embedPdf' block type of the upercontent matric field
+
+    Uses the google docs pdf viewer. It is a little slower to load than the 
+    native <embed> tag, but it is more reliable and consistant on mobile.
+
+    Required vars
+         pdfAsset: asset, single only, PDF only; The pdf to display.
+ #}
+
+<div class="relative overflow-hidden w-[800px] pt-[100%]">
+    <iframe
+        src="https://drive.google.com/viewerng/viewer?embedded=true&url=http://infolab.stanford.edu/pub/papers/google.pdf#toolbar=0&scrollbar=0"
+        class="absolute top-0 bottom-0 left-0 right-0 h-full w-full"
+    ></iframe>
+</div>

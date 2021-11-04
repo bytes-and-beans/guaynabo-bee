@@ -16,14 +16,20 @@
     <div class="flex justify-between">
         {# Previous Sibling button #}
         {% if prevSibling %}
-            <a href="{{prevSibling.url}}" class="">{{prevSibling.title}}</a>
+            <a href="{{prevSibling.url}}" class=""><i class="fas fa-angle-double-left"></i> {{prevSibling.title}}</a>
         {% else %}
-        
+
         {% endif %}
 
+        {# Spacer div  
+            this pushes next/prev into the correct position even when there is
+            only one link.
+            #}
+        <div>&nbsp;</div>
+        
         {# Next Sibling button #}
         {% if nextSibling %}
-            <a href="{{nextSibling.url}}" class="">{{nextSibling.title}}</a>
+            <a href="{{nextSibling.url}}" class="">{{nextSibling.title}} <i class="fas fa-angle-double-right"></i></a>
         {% else %}
             
         {% endif %}

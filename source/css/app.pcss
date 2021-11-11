@@ -23,7 +23,32 @@
  *
  */
  @import './components/global.pcss';
- @import './components/projectoverrides.pcss';
+ /**
+  * Any base styling for our project that we want overridden by utilities
+  * Tailwind is ovveriding them with it's own base styles if we include them via 
+  * @import
+  */
+  body {
+    @apply font-sans;
+    }
+
+  h1,h2,h3,h4,h5,h6 {
+    @apply font-advantage;
+  }
+  h1 {
+    @apply text-3xl;
+  }
+  h2 {
+    @apply text-2xl;
+  }
+  h3 {
+  }
+  h4 {
+  }
+  h5 {
+  }
+  h6 {
+  }
 
 /**
  * This injects all of Tailwind's utility classes, generated based on your

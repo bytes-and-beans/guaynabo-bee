@@ -52,8 +52,8 @@
     x-data="{open:false}"
     x-on:click="open = !open"
     x-on:click.outside = "open = false"
-    x-on:mouseover="open = true"
-    x-on:mouseout = "open = false"
+    x-on:mouseenter="open = true"
+    x-on:mouseleave = "open = false"
 >
     {% if buttonBlock.type == 'directLink' %} 
        {{buttonBlock.headerDirectLink.getLink()}}

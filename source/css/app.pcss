@@ -15,6 +15,10 @@
  *
  */
  @import 'tailwindcss/components';
+ /* the default font-stack tailwindcss/components applies to body* ignores our changes in the config */
+ body {
+   @apply font-sans;
+ }
 
 /**
  * Here we add custom component classes; stuff we want loaded

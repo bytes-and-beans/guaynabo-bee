@@ -15,18 +15,15 @@
  *
  */
  @import 'tailwindcss/components';
- /* the default font-stack tailwindcss/components applies to body* ignores our changes in the config */
- body {
-   @apply font-sans;
- }
-
-/**
+ 
+ /**
  * Here we add custom component classes; stuff we want loaded
  * *before* the utilities so that the utilities can still
  * override them.
  *
  */
-@import './components/global.pcss';
+ @import './components/global.pcss';
+ @import './components/projectoverrides.pcss';
 
 /**
  * This injects all of Tailwind's utility classes, generated based on your

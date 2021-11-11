@@ -9,28 +9,10 @@
  * classes
  *
  */
-
-/**
- * This injects any component classes registered by plugins.
- *
- */
- @import 'tailwindcss/components';
- 
- /**
- * Here we add custom component classes; stuff we want loaded
- * *before* the utilities so that the utilities can still
- * override them.
- *
- */
- @import './components/global.pcss';
- /**
-  * Any base styling for our project that we want overridden by utilities
-  * Tailwind is ovveriding them with it's own base styles if we include them via 
-  * @import
-  */
+@layer base {
   body {
     @apply font-sans;
-    }
+  }
 
   h1,h2,h3,h4,h5,h6 {
     @apply font-advantage;
@@ -49,6 +31,22 @@
   }
   h6 {
   }
+}
+/**
+ * This injects any component classes registered by plugins.
+ *
+ */
+ @import 'tailwindcss/components';
+ 
+ /**
+ * Here we add custom component classes; stuff we want loaded
+ * *before* the utilities so that the utilities can still
+ * override them.
+ *
+ */
+ @import './components/global.pcss';
+
+
 
 /**
  * This injects all of Tailwind's utility classes, generated based on your

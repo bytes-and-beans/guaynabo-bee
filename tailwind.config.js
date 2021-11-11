@@ -7,6 +7,12 @@ module.exports = {
   ],
   darkMode: false, // or 'media' or 'class'
   theme: {
+    fontFamily: {
+      'sans': ['twcentury', ...defaultTheme.fontFamily.sans],
+      'advantage': ['advantage', ...defaultTheme.fontFamily.sans],
+      'serif': [...defaultTheme.fontFamily.serif],
+      'mono': [...defaultTheme.fontFamily.mono]
+    },
     extend: {
       colors: {
         guaynabo: {

@@ -59,9 +59,10 @@
     {# Sidebar Content #}
     <div 
         class=" w-full bg-gradient-to-tr {{sidebar_bg_gradient_start}} {{sidebar_bg_gradient_end}} 
-            {{sidebar_text_color}} p-2
+            {{sidebar_text_color}} p-2 
         "
     >
-        {{entry.simpleSidebar}}
+        {# set links in sidebar to white via recton #}
+        {{entry.simpleSidebar | retconAttr('a',{'class': 'text-white'}, false)}}
     </div>
 {% endblock %} {# end base_sidebar #}

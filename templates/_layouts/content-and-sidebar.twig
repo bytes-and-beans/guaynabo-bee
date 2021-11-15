@@ -62,7 +62,7 @@
             {{sidebar_text_color}} p-2 
         "
     >
-        {# set links in sidebar to white via recton #}
-        {{entry.simpleSidebar | retconAttr('a',{'class': 'text-white'}, false)}}
+        {# set links in sidebar opacity so they take on a little of the background color #}
+        {{entry.simpleSidebar | retconAttr('a',{'class': "#{sidebar_text_color} text-opacity-80"}, false)}}
     </div>
 {% endblock %} {# end base_sidebar #}

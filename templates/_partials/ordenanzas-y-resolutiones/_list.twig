@@ -1,0 +1,30 @@
+{#  This will provide the pile of pdfs you can download!
+
+    Looks for these URL params
+    - resultsPerPage : integer
+      Note thaty the limit() function returns all for values < 0;
+#}
+
+{% set search_tipo = craft.app.request.getParam('tipo') %}
+{% set search_numero = craft.app.request.getParam('numero') %}
+{% set search_serie = craft.app.request.getParam('serie') %}
+{% set search_descripcion = craft.app.request.getParam('descripcion') %}
+
+<div class="ordenanzas_y_resolutiones__list">
+  {% include "_components/ordenanzas-y-resolutiones/_list_entry.twig" with {result: {
+    serie: "Serie",
+    numero: "Numero",
+    tipo: "Tipo",
+  }} only %}
+
+  {% for result in pdf_query_Entries %}
+    {% set ordResPdf_url = result.ordResPdf.one().url %}
+    {% include "_components/ordenanzas-y-resolutiones/_list_entry.twig" with {result: {
+      serie: result.serieDropdown,
+      numero: result.numero,
+      tipo: result.tipo,
+      url: ordResPdf_url,
+      descripcion: result.descripcion,
+    }} only %}
+  {% endfor %}
+</div>

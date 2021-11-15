@@ -1,0 +1,15 @@
+<div class="ordenanzas_y_resolutiones__result">
+
+  <div class="ordenanzas_y_resolutiones__result__serie"> {{result.serie}} </div>
+  <div class="ordenanzas_y_resolutiones__result__numero"> {{result.numero}} </div>
+  <div class="ordenanzas_y_resolutiones__result__tipo"> {{result.tipo}} </div>
+  {% if result.url is defined %}
+  <a class="ordenanzas_y_resolutiones__result__link" target="_blank" href={{result.url}}> Descargar </a>
+  {% endif %}
+  {% if result.descripcion is defined %}
+  <details class="ordenanzas_y_resolutiones__result__desc">
+    <summary>Detalle</summary>
+    {{result.descripcion}}
+  </details>
+  {% endif %}
+</div>

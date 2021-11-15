@@ -1,0 +1,44 @@
+{# This page provides a searchable list of the Ordinanzas y Resolutiones
+
+  Files to be included in this list should be uploaded to the 'Ordenanzas y Resoluciones' assets volume.
+  When you upload a file, be sure to click into it and fill out all it's required fields.
+
+  Requirements
+    A Section with the handle "ordenanzasYResolutiones": This is where the 
+    user's will be entering the 
+#}
+
+
+{# get results per page, final item in null-chain is default #}
+{% set results_per_page = craft.app.request.getParam('resultsPerPage') ?? null %}
+{# It's a cascading ternary statment #}
+{% set results_per_page = results_per_page == 'all' or results_per_page is not defined ? null : results_per_page matches '/[0-9]{1,3}/' ? results_per_page : 10 %}
+
+{# Getting search params #}
+{% set search_tipo = craft.app.request.getParam('tipo') %}
+{% set search_numero = craft.app.request.getParam('numero') %}
+{% set search_serie = craft.app.request.getParam('serie') %}
+{% set search_descripcion = craft.app.request.getParam('descripcion') %}
+
+{# Performing the search #}
+
+{% set entry_query = craft.entries({
+    section: 'ordenanzasYResolutiones',
+    tipo: search_tipo,
+    numero: search_numero,
+    serieDropdown: search_serie,
+  })
+  .search(search_descripcion)
+  .orderBy('serie desc, numero desc')
+%}
+
+{% paginate entry_query.limit(results_per_page) as pdf_query_Info, pdf_query_Entries %}
+<div class="ordenanzas_y_resolutiones">
+  <div class="ordenanzas_y_resolutiones__top">
+    {% include "_components/ordenanzas-y-resolutiones/_selectors" %}
+    {% include "_components/ordenanzas-y-resolutiones/_pagination" %}
+  </div>
+  {% include "_components/ordenanzas-y-resolutiones/_list" %}  
+  {% include "_components/ordenanzas-y-resolutiones/_script" %}
+</div>
+ 

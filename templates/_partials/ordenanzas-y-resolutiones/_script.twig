@@ -1,0 +1,38 @@
+{#  This script handles sending people to search results when they change
+    the search parameters in _selectors.twig.
+
+    Pretty straightforward, it just pulls the relevant information from the
+    selector elements and puts the requests into the correct URL paramaters.
+#}
+
+<script>
+  (function(){
+    const thisThing = document.currentScript.parentElement;
+    const tipo_element = thisThing.querySelector('#tipo');
+    const serie_element = thisThing.querySelector('#serie');
+    const descripcion_element = thisThing.querySelector('#descripcion');
+    const numero_element = thisThing.querySelector('#numero');
+    const results_per_page_element = thisThing.querySelector('#ordenanzas_y_resolutiones__pagination__results_per_page');
+
+    tipo_element.addEventListener('change', search);
+    numero_element.addEventListener('change', search);
+    serie_element.addEventListener('change', search);
+    descripcion_element.addEventListener('change', search);
+    results_per_page_element.addEventListener('change', search);
+
+    function goPage(tipo, numero, serie, descripcion, page, resultsPerPage) {
+      const goto_href = `/{{entry.uri}}?tipo=${tipo}&numero=${numero}&serie=${serie}&descripcion=${descripcion}&page=${page}&resultsPerPage=${resultsPerPage}`;
+      window.location.href = goto_href;
+    }
+    function search(event){
+      const tipo = tipo_element.value;
+      const numero = numero_element.value;
+      const serie = serie_element.value;
+      const descripcion = descripcion_element.value;
+      const page = 1;
+      const resultsPerPage = results_per_page_element.value;
+
+      goPage(tipo,numero,serie,descripcion,page,resultsPerPage);
+    }
+  })()
+</script>

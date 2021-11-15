@@ -1,0 +1,19 @@
+{#  This will provide the pile of links to paginated results!
+
+#}
+
+
+
+<div class="ordenanzas_y_resolutiones__pagination">
+  {% if pdf_query_Info.prevUrl %}
+    <a class="ordenanzas_y_resolutiones__pagination__scrollie ordenanzas_y_resolutiones__pagination__scrollie--left" href="{{ pdf_query_Info.prevUrl }}">
+      <i class="fas fa-chevron-left"></i>
+    </a>
+  {% endif %}
+    página {{pdf_query_Info.currentPage}} de {{pdf_query_Info.totalPages}}
+  {% if pdf_query_Info.nextUrl %}
+    <a class="ordenanzas_y_resolutiones__pagination__scrollie ordenanzas_y_resolutiones__pagination__scrollie--right" href="{{ pdf_query_Info.nextUrl }}">
+      <i class="fas fa-chevron-right"></i>
+    </a>
+  {% endif %}
+</div>

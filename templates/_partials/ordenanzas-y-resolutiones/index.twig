@@ -32,9 +32,30 @@
   .orderBy('serie desc, numero desc')
 %}
 
+{% switch entry.colorGradient %}
+    {% case "blue" %}
+        {% set selectors_bg_gradient_start = "from-guaynabo-blue-start" %}
+        {% set selectors_bg_gradient_end   =   "to-guaynabo-blue-end" %}
+    {% case "purple" %}
+        {% set selectors_bg_gradient_start = "from-guaynabo-purple-start" %}
+        {% set selectors_bg_gradient_end   =   "to-guaynabo-purple-end" %}
+    {% case "green" %}
+        {% set selectors_bg_gradient_start = "from-guaynabo-green-start" %}
+        {% set selectors_bg_gradient_end   =   "to-guaynabo-green-end" %}
+    {% case "orange" %}
+        {% set selectors_bg_gradient_start = "from-guaynabo-orange-start" %}
+        {% set selectors_bg_gradient_end   =   "to-guaynabo-orange-end" %}
+    {% default %}
+        {% set selectors_bg_gradient_start = "from-guaynabo-blue-start" %}
+        {% set selectors_bg_gradient_end   =   "to-guaynabo-blue-end" %}
+{% endswitch %}
+
 {% paginate entry_query.limit(results_per_page) as pdf_query_Info, pdf_query_Entries %}
 <div class="ordenanzas_y_resolutiones">
-  <div class="ordenanzas_y_resolutiones__top">
+  <div class="ordenanzas_y_resolutiones__top 
+      bg-gradient-to-tr {{selectors_bg_gradient_start}} {{selectors_bg_gradient_end}}
+    "
+  >
     {% include "_partials/ordenanzas-y-resolutiones/_selectors" %}
     {% include "_partials/ordenanzas-y-resolutiones/_pagination" %}
   </div>

@@ -1,4 +1,4 @@
-dateModified: 1635798476
+dateModified: 1636997602
 email:
   fromEmail: wesley@bytesandbeans.com
   fromName: Guaynabo
@@ -537,6 +537,10 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 2.3.0
+  retcon:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
   sidebar-themes:
     edition: standard
     enabled: true

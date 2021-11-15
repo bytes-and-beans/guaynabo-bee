@@ -29,9 +29,16 @@
         style="background-image:url({{entry.titleBar.one().url}})"
         class= " h-[140px] w-full"
     {% else %}
-        class="bg-gradient-to-tr {{titlebar_bg_gradient_start}} {{titlebar_bg_gradient_end}} h-[140px] w-full" 
+        class="bg-gradient-to-tr {{titlebar_bg_gradient_start}} {{titlebar_bg_gradient_end}} 
+            h-[140px] w-full text-center flex justify-center items-center 
+            md:justify-start md:px-24
+        " 
     {% endif %}
 >
-    {% if not entry.titleBar.exists() %} <h1>{{entry.title}}</h1> {% endif %}
+    {% if not entry.titleBar.exists() %}
+        <h1 class="text-white ">
+            {{entry.title}}
+        </h1> 
+    {% endif %}
     
 </div>

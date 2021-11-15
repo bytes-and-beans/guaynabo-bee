@@ -51,15 +51,18 @@
 {% endblock %} {# end base_content #}
 
 {% block base_sidebar %}
+    {# Sidebar Logo #}
     {% if entry.sidebarLogo.exists() %}
         {% set sidebarLogo = entry.sidebarLogo.one() %}
         <img src={{sidebarLogo.url}} alt={{sidebarLogo.title}} class="w-full max-w-full hidden sm:block">
     {% endif %}
+    {# Sidebar Content #}
     <div 
         class=" w-full bg-gradient-to-tr {{sidebar_bg_gradient_start}} {{sidebar_bg_gradient_end}} 
-            {{sidebar_text_color}} p-2
+            {{sidebar_text_color}} p-2 
         "
     >
-        {{entry.simpleSidebar}}
+        {# set links in sidebar opacity so they take on a little of the background color #}
+        {{entry.simpleSidebar | retconAttr('a',{'class': "#{sidebar_text_color} text-opacity-80"}, false)}}
     </div>
 {% endblock %} {# end base_sidebar #}

@@ -6,23 +6,60 @@
 
 /**
  * Here we add custom base styles, applied after the tailwind-base
- * classes
+ * classes.
+ * Using an @import to pull these from another file doesn't work.
  *
  */
-
+@layer base {
+  body {
+    @apply font-sans text-guaynabo-blue-dark;
+  }
+  a {
+    @apply text-guaynabo-blue;
+  }
+  h1,h2,h3,h4,h5,h6 {
+    @apply font-advantage;
+  }
+  h1 {
+    font-weight: 800;
+    @apply text-3xl;
+  }
+  h2 {
+    font-weight: 800;
+    @apply text-2xl;
+  }
+  h3 {
+    font-weight: 800;
+    @apply text-xl;
+  }
+  h4 {
+    font-weight: 800;
+    @apply text-base;
+  }
+  h5 {
+    font-weight: 800;
+    @apply text-sm;
+  }
+  h6 {
+    font-weight: 800;
+    @apply text-xs;
+  }
+}
 /**
  * This injects any component classes registered by plugins.
  *
  */
  @import 'tailwindcss/components';
-
-/**
+ 
+ /**
  * Here we add custom component classes; stuff we want loaded
  * *before* the utilities so that the utilities can still
  * override them.
  *
  */
-@import './components/global.pcss';
+ @import './components/global.pcss';
+
+
 
 /**
  * This injects all of Tailwind's utility classes, generated based on your

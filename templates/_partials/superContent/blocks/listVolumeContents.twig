@@ -19,13 +19,59 @@
 {% set volumeHandle = volumeHandle ?? superblock.volumeHandle ?? null %}
 {% set assetQuery = craft.assets().volume(volumeHandle) %}
 
-{% set itemMarker = itemMarker ?? null %}
-
 {% if assetQuery.exists() %}
     <ul class="">
         {% for item in assetQuery.all() %}
+
+            {# set the item marker for this item  #}
+            {% switch item.kind %}
+            
+                {% case "audio" %}
+                    {% set itemMarker = '<i class="far fa-file-audio"></i>&nbsp;' %}
+                {% case "compressed" %}
+                    {% set itemMarker = '<i class="far fa-file-archive"></i>&nbsp;' %}
+                {% case "excel" %}
+                    {% set itemMarker = '<i class="far fa-file-excel"></i>&nbsp;' %}
+                {% case "html" %}
+                    {% set itemMarker = '<i class="far fa-file-code"></i>&nbsp;' %}
+                {% case "image" %}
+                    {% set itemMarker = '<i class="far fa-file-image"></i>&nbsp;' %}
+                {% case "javascript" %}
+                    {% set itemMarker = '<i class="far fa-file-code"></i>&nbsp;' %}
+                {% case "json" %}
+                    {% set itemMarker = '<i class="far fa-file-code"></i>&nbsp;' %}
+                {% case "pdf" %}
+                    {% set itemMarker = '<i class="far fa-file-pdf"></i>&nbsp;' %}
+                {% case "photoshop" %}
+                    {% set itemMarker = '<i class="far fa-file-image"></i>&nbsp;' %}
+                {% case "php" %}
+                    {% set itemMarker = '<i class="far fa-file-code"></i>&nbsp;' %}
+                {% case "powerpoint" %}
+                    {% set itemMarker = '<i class="far fa-file-powerpoint"></i>&nbsp;' %}
+                {% case "text" %}
+                    {% set itemMarker = '<i class="far fa-file-alt"></i>&nbsp;' %}
+                {% case "video" %}
+                    {% set itemMarker = '<i class="far fa-file-video"></i>&nbsp;' %}
+                {% case "word" %}
+                    {% set itemMarker = '<i class="far fa-file-word"></i>&nbsp;' %}
+                {% case "xml" %}
+                    {% set itemMarker = '<i class="far fa-file-code"></i>&nbsp;' %}
+
+                {% case "unknown" %}
+                    {% set itemMarker = '<i class="far fa-file"></i>&nbsp;' %}
+                {% case "access" %}
+                    {% set itemMarker = '<i class="far fa-file"></i>&nbsp;' %}
+                {% case "illustrator" %}
+                    {% set itemMarker = '<i class="far fa-file"></i>&nbsp;' %}
+                {% case "flash" %}
+                    {% set itemMarker = '<i class="far fa-file"></i>&nbsp;' %}
+                {% default %}
+                    {% set itemMarker = '<i class="far fa-file"></i>&nbsp;' %}
+                
+            {% endswitch %}
+
             {% apply spaceless %}
-            <li> {{itemMarker | striptags('<i>')}}
+            <li> {{itemMarker | raw }}
             {% if item.hasUrls %}
                 <a href="{{item.url}}" class="">{{item.title}}</a>
             {% else %}

@@ -19,13 +19,45 @@
 {% set volumeHandle = volumeHandle ?? superblock.volumeHandle ?? null %}
 {% set assetQuery = craft.assets().volume(volumeHandle) %}
 
-{% set itemMarker = itemMarker ?? null %}
-
 {% if assetQuery.exists() %}
     <ul class="">
         {% for item in assetQuery.all() %}
+
+            {# set the item marker for this item  #}
+            {% switch item.kind %}
+            
+                {% case "image" %}
+                    {% set itemMarker = '<i class="far fa-file-image"></i>&nbsp;' %}
+                {% case "pdf" %}
+                    {% set itemMarker = '<i class="far fa-file-pdf"></i>&nbsp;' %}
+                {% case "audio" %}
+                    {% set itemMarker = '<i class="far fa-file-audio"></i>&nbsp;' %}
+                {% case "compressed" %}
+                    {% set itemMarker = '<i class="far fa-file-archive"></i>&nbsp;' %}
+                {% case "excel" %}
+                    {% set itemMarker = '<i class="far fa-file-excel"></i>&nbsp;' %}
+                {% case "flash" %}
+                {% case "html" %}
+                {% case "illustrator" %}
+                {% case "javascript" %}
+                {% case "json" %}
+                {% case "photoshop" %}
+                {% case "php" %}
+                {% case "powerpoint" %}
+                {% case "text" %}
+                {% case "video" %}
+                {% case "word" %}
+                {% case "xml" %}
+                {% case "unknown" %}
+
+                {% case "access" %}
+                {% default %}
+                    {% set itemMarker = '<i class="far fa-file"></i>&nbsp;' %}
+                
+            {% endswitch %}
+            
             {% apply spaceless %}
-            <li> {{itemMarker | striptags('<i>')}}
+            <li> {{itemMarker | raw }}
             {% if item.hasUrls %}
                 <a href="{{item.url}}" class="">{{item.title}}</a>
             {% else %}

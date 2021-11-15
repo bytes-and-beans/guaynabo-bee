@@ -6,14 +6,17 @@
 
 /**
  * Here we add custom base styles, applied after the tailwind-base
- * classes
+ * classes.
+ * Using an @import to pull these from another file doesn't work.
  *
  */
 @layer base {
   body {
-    @apply font-sans;
+    @apply font-sans text-guaynabo-blue-dark;
   }
-
+  a {
+    @apply text-guaynabo-blue;
+  }
   h1,h2,h3,h4,h5,h6 {
     @apply font-advantage;
   }

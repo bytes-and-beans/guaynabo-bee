@@ -11,7 +11,7 @@
 {% set search_descripcion = craft.app.request.getParam('descripcion') %}
 
 <div class="ordenanzas_y_resolutiones__list">
-  {% include "_components/ordenanzas-y-resolutiones/_list_entry.twig" with {result: {
+  {% include "_partials/ordenanzas-y-resolutiones/_list_entry.twig" with {result: {
     serie: "Serie",
     numero: "Numero",
     tipo: "Tipo",
@@ -19,7 +19,7 @@
 
   {% for result in pdf_query_Entries %}
     {% set ordResPdf_url = result.ordResPdf.one().url %}
-    {% include "_components/ordenanzas-y-resolutiones/_list_entry.twig" with {result: {
+    {% include "_partials/ordenanzas-y-resolutiones/_list_entry.twig" with {result: {
       serie: result.serieDropdown,
       numero: result.numero,
       tipo: result.tipo,

@@ -35,10 +35,10 @@
 {% paginate entry_query.limit(results_per_page) as pdf_query_Info, pdf_query_Entries %}
 <div class="ordenanzas_y_resolutiones">
   <div class="ordenanzas_y_resolutiones__top">
-    {% include "_components/ordenanzas-y-resolutiones/_selectors" %}
-    {% include "_components/ordenanzas-y-resolutiones/_pagination" %}
+    {% include "_partials/ordenanzas-y-resolutiones/_selectors" %}
+    {% include "_partials/ordenanzas-y-resolutiones/_pagination" %}
   </div>
-  {% include "_components/ordenanzas-y-resolutiones/_list" %}  
-  {% include "_components/ordenanzas-y-resolutiones/_script" %}
+  {% include "_partials/ordenanzas-y-resolutiones/_list" %}  
+  {% include "_partials/ordenanzas-y-resolutiones/_script" %}
 </div>
  

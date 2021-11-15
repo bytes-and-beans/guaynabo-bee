@@ -56,9 +56,9 @@
     x-on:mouseleave = "open = false"
 >
     {% if buttonBlock.type == 'directLink' %} 
-       {{buttonBlock.headerDirectLink.getLink()}}
+       <span class="text-lg font-advantage"> {{buttonBlock.headerDirectLink.getLink()}} </span>
     {% else %}
-        {{buttonBlock.menuTitle}}
+        <span class="text-lg font-advantage"> {{buttonBlock.menuTitle}} </span>
 
         {# -_-_- THE MENU DIV -_-_- #}
         {# The mega-menu submenu for this button #}

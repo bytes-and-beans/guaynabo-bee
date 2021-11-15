@@ -52,14 +52,19 @@
 
 {% paginate entry_query.limit(results_per_page) as pdf_query_Info, pdf_query_Entries %}
 <div class="ordenanzas_y_resolutiones">
-  <div class="ordenanzas_y_resolutiones__top 
+  {# The top-bar #}
+  <div class="ordenanzas_y_resolutiones__top  px-8 py-6
       bg-gradient-to-tr {{selectors_bg_gradient_start}} {{selectors_bg_gradient_end}}
     "
   >
+    {# search controls #}
     {% include "_partials/ordenanzas-y-resolutiones/_selectors" %}
+    {# pagination #}
     {% include "_partials/ordenanzas-y-resolutiones/_pagination" %}
   </div>
+  {# The list itself #}
   {% include "_partials/ordenanzas-y-resolutiones/_list" %}  
+    {# pagination #}
   {% include "_partials/ordenanzas-y-resolutiones/_script" %}
 </div>
  

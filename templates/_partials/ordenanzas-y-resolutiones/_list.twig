@@ -10,7 +10,7 @@
 {% set search_serie = craft.app.request.getParam('serie') %}
 {% set search_descripcion = craft.app.request.getParam('descripcion') %}
 
-<div class="ordenanzas_y_resolutiones__list">
+<div class="my-8">
   {% include "_partials/ordenanzas-y-resolutiones/_list_entry.twig" with {result: {
     serie: "Serie",
     numero: "Numero",

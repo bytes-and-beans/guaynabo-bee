@@ -1,5 +1,13 @@
 {# An individual entry in the list of results for a search for the ordinance and 
    resoulutions listings
+
+    Required Vars
+      serie: Text, the year range of the document. ie: 2001 - 2002
+      tipo: integer, the number of the document.
+      tipo: the type of document. Either 'resolution' or 'ordinance'
+     Optional Vars - if not present the following will just not render.
+      ordResPdf: Asset, PDF, one(), the document itself.
+      descripcion: plaintext, multiline; the document's description.
  #}
 
 <div class="grid grid-cols-3 sm:grid-cols-4 

@@ -1,14 +1,8 @@
-{#  This will provide the pile of pdfs you can download!
+{#  Buids the list of Resolutions and Ordinances
 
-    Looks for these URL params
-    - resultsPerPage : integer
-      Note thaty the limit() function returns all for values < 0;
+    Required Vars
+    
 #}
-
-{% set search_tipo = craft.app.request.getParam('tipo') %}
-{% set search_numero = craft.app.request.getParam('numero') %}
-{% set search_serie = craft.app.request.getParam('serie') %}
-{% set search_descripcion = craft.app.request.getParam('descripcion') %}
 
 <div class="my-8">
   {% include "_partials/ordenanzas-y-resolutiones/_list_entry.twig" with {result: {

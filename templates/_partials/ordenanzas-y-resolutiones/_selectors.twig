@@ -32,6 +32,7 @@
       {% endfor %}
     </select>
   </div>
+  
   {# numero selector #}
   <div class="{{selector_container_styling}}">
     {% set numero_options = selectors_query.orderBy('numero')|map(entry=>"#{entry.numero}")|unique %}
@@ -44,6 +45,7 @@
       {% endfor %}
     </select>
   </div>
+
   {# serie selector #}
   <div class="{{selector_container_styling}}">
     {% set serie_options = selectors_query.orderBy('serieDropdown')|map(entry=>"#{entry.serieDropdown}")|unique %}

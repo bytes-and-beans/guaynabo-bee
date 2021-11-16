@@ -1,15 +1,29 @@
-<div class="ordenanzas_y_resolutiones__result">
+{# An individual entry in the list of results for a search for the ordinance and 
+   resoulutions listings
+ #}
 
-  <div class="ordenanzas_y_resolutiones__result__serie"> {{result.serie}} </div>
-  <div class="ordenanzas_y_resolutiones__result__numero"> {{result.numero}} </div>
-  <div class="ordenanzas_y_resolutiones__result__tipo"> {{result.tipo}} </div>
+<div class="grid grid-cols-4 pb-2 mb-4 border-b border-guaynabo-gray">
+
+  
+  {# The serie #}
+  <div class=""> {{result.serie}} </div>
+  
+  {# The numero #}
+  <div class=""> {{result.numero}} </div>
+  
+  {# The tipo #}
+  <div class=""> {{result.tipo}} </div>
+
+  {# Download link #}
   {% if result.url is defined %}
-  <a class="ordenanzas_y_resolutiones__result__link" target="_blank" href={{result.url}}> Descargar </a>
+  <a class="" target="_blank" href={{result.url}}> Descargar </a>
   {% endif %}
+
+  {# Description  #}
   {% if result.descripcion is defined %}
-  <details class="ordenanzas_y_resolutiones__result__desc">
-    <summary>Detalle</summary>
-    {{result.descripcion}}
-  </details>
+    <details class="col-span-full">
+      <summary>Detalle</summary>
+      {{result.descripcion}}
+    </details>
   {% endif %}
 </div>

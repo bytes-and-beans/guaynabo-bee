@@ -57,7 +57,9 @@
 {% endswitch %}
 
 {% paginate entry_query.limit(results_per_page) as pdf_query_Info, pdf_query_Entries %}
-<div class="ordenanzas_y_resolutiones">
+{# The search and results div itself #}
+<div class="relative"
+>
   {# The top-bar #}
   <div class="ordenanzas_y_resolutiones__top  px-8 py-6
       bg-gradient-to-tr {{selectors_bg_gradient_start}} {{selectors_bg_gradient_end}}
@@ -72,5 +74,12 @@
   {% include "_partials/ordenanzas-y-resolutiones/_list" %}  
   {# Inline JS! TODO: get rid of the inline JS #}
   {% include "_partials/ordenanzas-y-resolutiones/_script" %}
+
+  {# Overlay for when the page is 'working' #}
+  <div class="absolute inset-0 overflow-hidden
+      bg-white bg-opacity-70
+    "
+  ></div>
+
 </div>
  

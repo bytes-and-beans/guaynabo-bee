@@ -14,7 +14,7 @@
     bg-white bg-opacity-80 border-0 
   " 
 %}
-{% set dropdown_width = "max-w-[6em]" %}
+{% set dropdown_width = "max-w-[7em]" %}
 {# styles applied to all the individual selection containers #}
 {% set selector_container_styling = "flex flex-col" %}
 
@@ -65,7 +65,7 @@
   {# descripcion search box #}
   <div class="{{selector_container_styling}}">
     <label for="descripcion">Descripción:</label>
-    <input type="text" name="descripcion" id="descripcion" value="{{search_descripcion}}" class="{{entry_styles}} max-w-[13em]">
+    <input type="text" name="descripcion" id="descripcion" value="{{search_descripcion}}" class="{{entry_styles}} max-w-[13em]" x-on:change="working = true">
   </div>
 
   {# Results per page selector #}

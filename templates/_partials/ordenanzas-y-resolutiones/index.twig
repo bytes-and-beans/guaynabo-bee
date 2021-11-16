@@ -59,11 +59,11 @@
 {% paginate entry_query.limit(results_per_page) as pdf_query_Info, pdf_query_Entries %}
 {# The search and results div itself #}
 <div class="relative"
+     x-data="{working : false}"
 >
   {# The top-bar #}
   <div 
     {# working: has the user entered/changed a selection and caused the page to reload? #}
-    x-data="{working = false}"
     class="ordenanzas_y_resolutiones__top  px-8 py-6
       bg-gradient-to-tr {{selectors_bg_gradient_start}} {{selectors_bg_gradient_end}}
     "
@@ -82,7 +82,7 @@
   <div 
     x-show="working"
     class="absolute inset-0 overflow-hidden
-      bg-white bg-opacity-70
+      bg-white bg-opacity-80
     "
   >
     {# The message container #}

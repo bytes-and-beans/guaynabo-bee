@@ -32,7 +32,7 @@
       {% endfor %}
     </select>
   </div>
-  
+
   {# numero selector #}
   <div class="{{selector_container_styling}}">
     {% set numero_options = selectors_query.orderBy('numero')|map(entry=>"#{entry.numero}")|unique %}
@@ -58,6 +58,9 @@
       {% endfor %}
     </select>
   </div>
+
+  {# break up the layout at certain screen sizes #}
+  <div class="w-full h-px opacity-0 hidden sm:block md:hidden"></div>
 
   {# descripcion search box #}
   <div class="{{selector_container_styling}}">

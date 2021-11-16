@@ -1,0 +1,26 @@
+{#  This will provide the pile of links to paginated results!
+
+#}
+
+{# styles used for both chevrons below #}
+{% set pagination_chevron_styles = "text-white text-opacity-80" %}
+
+<div class="flex justify-center items center pt-4">
+  {% if pdf_query_Info.prevUrl %}
+    <a 
+      class="{{pagination_chevron_styles}}" 
+      href="{{ pdf_query_Info.prevUrl }}"
+    >
+      <i class="fas fa-chevron-left"></i>
+    </a>
+  {% endif %}
+    <span class="text-white mx-4">página {{pdf_query_Info.currentPage}} de {{pdf_query_Info.totalPages}}</span>
+  {% if pdf_query_Info.nextUrl %}
+    <a 
+      class="{{pagination_chevron_styles}}" 
+      href="{{ pdf_query_Info.nextUrl }}"
+    >
+      <i class="fas fa-chevron-right"></i>
+    </a>
+  {% endif %}
+</div>

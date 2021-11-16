@@ -1,0 +1,49 @@
+{# An individual entry in the list of results for a search for the ordinance and 
+   resoulutions listings
+
+    Required Vars
+      serie: Text, the year range of the document. ie: 2001 - 2002
+      tipo: integer, the number of the document.
+      tipo: the type of document. Either 'resolution' or 'ordinance'
+     Optional Vars - if not present the following will just not render.
+      ordResPdf: Asset, PDF, one(), the document itself.
+      descripcion: plaintext, multiline; the document's description.
+ #}
+
+<div class="grid grid-cols-3 sm:grid-cols-4 
+    pb-2 mb-4 
+    border-b border-guaynabo-gray border-opacity-70
+  "
+>
+
+  
+  {# The serie #}
+  <div class=""> {{result.serie}} </div>
+  
+  {# The numero #}
+  <div class="text-center"> {{result.numero}} </div>
+  
+  {# The tipo #}
+  <div class=""> {{result.tipo}} </div>
+
+  {# Download link #}
+  {% if result.url is defined %}
+    <a class="col-span-full sm:col-span-1 col-start-3 sm:col-start-auto" 
+      target="_blank" 
+      href={{result.url}}
+    > 
+      Descargar 
+    </a>
+  {% else %}
+    {# placeholder so the grids stay lined up #}
+    <div class="hidden sm:display-block">&nbsp</div>
+  {% endif %}
+
+  {# Description  #}
+  {% if result.descripcion is defined %}
+    <details class="col-span-full ml-4">
+      <summary>Detalle</summary>
+      {{result.descripcion}}
+    </details>
+  {% endif %}
+</div>

@@ -1,0 +1,31 @@
+{#  Buids the list of Resolutions and Ordinances
+
+    Required Vars
+    pdf_query_Entries: Results of an entry query. Entries have these fields:
+      -required
+      serie: Text, the year range of the document. ie: 2001 - 2002
+      tipo: integer, the number of the document.
+      tipo: the type of document. Either 'resolution' or 'ordinance'
+      -optional, if not present the following will just not render.
+      ordResPdf: Asset, PDF, one(), the document itself.
+      descripcion: plaintext, multiline; the document's description.
+#}
+
+<div class="my-8">
+  {% include "_partials/ordenanzas-y-resolutiones/_list_entry.twig" with {result: {
+    serie: "Serie",
+    numero: "Numero",
+    tipo: "Tipo",
+  }} only %}
+
+  {% for result in pdf_query_Entries %}
+    {% set ordResPdf_url = result.ordResPdf.one().url %}
+    {% include "_partials/ordenanzas-y-resolutiones/_list_entry.twig" with {result: {
+      serie: result.serieDropdown,
+      numero: result.numero,
+      tipo: result.tipo,
+      url: ordResPdf_url,
+      descripcion: result.descripcion,
+    }} only %}
+  {% endfor %}
+</div>

@@ -66,7 +66,7 @@
                 tableData: plaintext
 
 #}
-{% for superblock in superField %}
+{% for superblock in superField.all() %}
     {% switch superblock.type %}
         {% case "redactorContent" %}
             {% include "_partials/superContent/blocks/redactorContent" %}
@@ -77,7 +77,7 @@
         {% case "paragraphAndGallery" %}
             {% include "_partials/superContent/blocks/paragraphAndGallery" %}
         {% case "listVolumeContents" %}
-            {% include "_partials/superContent/blocks/listVolumeContents" with {itemMarker: "•"}%}
+            {% include "_partials/superContent/blocks/listVolumeContents" %}
         {% case "embedPdf" %}
             {% include "_partials/superContent/blocks/embedPdf" %}
         {# {% case "timeLine" %} #}

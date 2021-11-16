@@ -1,0 +1,75 @@
+{#  This will provide the pile of things you use to search the 
+#}
+
+{% set search_tipo = craft.app.request.getParam('tipo') %}
+{% set search_numero = craft.app.request.getParam('numero') %}
+{% set search_serie = craft.app.request.getParam('serie') %}
+{% set search_descripcion = craft.app.request.getParam('descripcion') %}
+
+{% set selectors_query = craft.entries.section('ordenanzasYResolutiones')%}
+
+{# styling of the user entry fields #}
+{% set entry_styles = "text-guaynabo-blue-dark
+    bg-white bg-opacity-90 border-0 
+  " 
+%}
+
+<div class="ordenanzas_y_resolutiones__selectors flex text-white">
+
+  {# tipo selector #}
+  <div class="ordenanzas_y_resolutiones__selectors__container">
+    {% set tipo_options = ['ordenanza', 'resolucion'] %}
+
+    <label for="tipo">Tipo de Documento:</label>
+    <select name="tipo" id="tipo" class="{{entry_styles}}">
+      <option value="">todos</option>
+      {% for option in tipo_options %}
+        <option {{option == search_tipo ? 'selected'}} value="{{option}}">{{option}}</option>
+      {% endfor %}
+    </select>
+  </div>
+  {# numero selector #}
+  <div class="ordenanzas_y_resolutiones__selectors__container">
+    {% set numero_options = selectors_query.orderBy('numero')|map(entry=>"#{entry.numero}")|unique %}
+
+    <label for="numero">Numero&sol;Fecha:</label>
+    <select name="numero" id="numero" class="{{entry_styles}}">
+      <option value="">todos</option>
+      {% for option in numero_options %}
+        <option {{option == search_numero ? 'selected'}} value="{{option}}">{{option}}</option>
+      {% endfor %}
+    </select>
+  </div>
+  {# serie selector #}
+  <div class="ordenanzas_y_resolutiones__selectors__container">
+    {% set serie_options = selectors_query.orderBy('serieDropdown')|map(entry=>"#{entry.serieDropdown}")|unique %}
+
+    <label for="serie">Serie&sol;Año:</label>
+    <select name="serie" id="serie" class="{{entry_styles}}">
+      <option value="">todos</option>
+      {% for option in serie_options %}
+        <option  {{option == search_serie ? 'selected'}} value="{{option}}">{{option}}</option>
+      {% endfor %}
+    </select>
+  </div>
+  {# descripcion search box #}
+  <div class="ordenanzas_y_resolutiones__selectors__container">
+    <label for="descripcion">Descripción:</label>
+    <input type="text" name="descripcion" id="descripcion" value="{{search_descripcion}}" class="{{entry_styles}}">
+  </div>
+
+  {# Results per page selector #}
+  <div class="ordenanzas_y_resolutiones__selectors__container">
+    <label for="ordenanzas_y_resolutiones__pagination__results_per_page">Resultados por página</label>
+    <select name="ordenanzas_y_resolutiones__pagination__results_per_page" id="ordenanzas_y_resolutiones__pagination__results_per_page" class="{{entry_styles}}">
+      <option {{results_per_page == 10 ? "selected"}} value="10">10</option>
+      <option {{results_per_page == 50 ? "selected"}} value="50">50</option>
+      <option {{results_per_page == 100 ? "selected"}} value="100">100</option>
+      <option {{results_per_page == -1 ? "selected"}} value="all">all</option>
+      {% if results_per_page not in [10, 50, 100, -1] %}
+      <option value="{{results_per_page}}" selected>{{results_per_page}}</option>
+      {% endif %}
+    </select>
+  </div>
+
+</div>

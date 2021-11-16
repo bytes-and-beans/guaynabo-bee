@@ -2,21 +2,33 @@
    resoulutions listings
  #}
 
-<div class="grid grid-cols-4 pb-2 mb-4 border-b border-guaynabo-gray">
+<div class="grid grid-cols-3 sm:grid-cols-4 
+    pb-2 mb-4 
+    border-b border-guaynabo-gray
+  "
+>
 
   
   {# The serie #}
   <div class=""> {{result.serie}} </div>
   
   {# The numero #}
-  <div class=""> {{result.numero}} </div>
+  <div class="text-center"> {{result.numero}} </div>
   
   {# The tipo #}
   <div class=""> {{result.tipo}} </div>
 
   {# Download link #}
   {% if result.url is defined %}
-  <a class="" target="_blank" href={{result.url}}> Descargar </a>
+    <a class="col-span-full sm:col-span-1 col-start-3 sm:col-start-auto" 
+      target="_blank" 
+      href={{result.url}}
+    > 
+      Descargar 
+    </a>
+  {% else %}
+    {# placeholder so the grids stay lined up #}
+    <div class="hidden sm:display-block">&nbsp</div>
   {% endif %}
 
   {# Description  #}

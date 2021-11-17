@@ -7,9 +7,9 @@
 {% set search_descripcion = craft.app.request.getParam('descripcion') %}
 
 
-{% set serie_options = craft.entries.section('ordenanzasYResolutiones').orderBy('serieDropdown').cache()|map(entry=>"#{entry.serieDropdown}")|unique %} 
+{# {% set serie_options = craft.entries.section('ordenanzasYResolutiones').orderBy('serieDropdown').cache()|map(entry=>"#{entry.serieDropdown}")|unique %}  #}
+{% set serie_options = [] %} 
 
-{% set numero_options = craft.entries.section('ordenanzasYResolutiones').orderBy('numero').cache()|map(entry=>"#{entry.numero}")|unique %} 
 
 {# styling of the user entry fields #}
 {% set entry_styles = "ml-4 sm:ml-0
@@ -40,11 +40,7 @@
   <div class="{{selector_container_styling}}">
     
     <label for="numero">Numero&sol;Fecha:</label>
-    <select name="numero" id="numero" class="{{entry_styles}} {{dropdown_width}}" x-on:change="working=true;">
-      <option value="">todos</option>
-      {% for option in numero_options %}
-        <option {{option == search_numero ? 'selected'}} value="{{option}}">{{option}}</option>
-      {% endfor %}
+    <input type="text" pattern="\d*" name="numero" id="numero" value="{{search_numero}}" class="{{entry_styles}} {{dropdown_width}}" x-on:change="working = true">
     </select>
   </div>
 

@@ -7,7 +7,7 @@
 {% set search_descripcion = craft.app.request.getParam('descripcion') %}
 
 
-{% set serie_options = craft.app.fields.getFieldByHandle('serieDropdown').options %} 
+{% set serie_options = craft.app.fields.getFieldByHandle('serieDropdown').options | map(option => option.value)%} 
 
 {# styling of the user entry fields #}
 {% set entry_styles = "ml-4 sm:ml-0

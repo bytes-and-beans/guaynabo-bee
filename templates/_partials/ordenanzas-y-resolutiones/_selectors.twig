@@ -6,7 +6,10 @@
 {% set search_serie = craft.app.request.getParam('serie') %}
 {% set search_descripcion = craft.app.request.getParam('descripcion') %}
 
-{% set selectors_query = craft.entries.section('ordenanzasYResolutiones')%}
+
+{% set serie_options = craft.entries.section('ordenanzasYResolutiones').orderBy('serieDropdown').cache()|map(entry=>"#{entry.serieDropdown}")|unique %} 
+
+{% set numero_options = craft.entries.section('ordenanzasYResolutiones').orderBy('numero').cache()|map(entry=>"#{entry.numero}")|unique %} 
 
 {# styling of the user entry fields #}
 {% set entry_styles = "ml-4 sm:ml-0
@@ -35,8 +38,7 @@
 
   {# numero selector #}
   <div class="{{selector_container_styling}}">
-    {% set numero_options = selectors_query.orderBy('numero')|map(entry=>"#{entry.numero}")|unique %}
-
+    
     <label for="numero">Numero&sol;Fecha:</label>
     <select name="numero" id="numero" class="{{entry_styles}} {{dropdown_width}}" x-on:change="working=true;">
       <option value="">todos</option>
@@ -48,7 +50,6 @@
 
   {# serie selector #}
   <div class="{{selector_container_styling}}">
-    {% set serie_options = selectors_query.orderBy('serieDropdown')|map(entry=>"#{entry.serieDropdown}")|unique %}
 
     <label for="serie">Serie&sol;Año:</label>
     <select name="serie" id="serie" class="{{entry_styles}} {{dropdown_width}}" x-on:change="working=true;">

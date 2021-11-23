@@ -1,4 +1,4 @@
-dateModified: 1636997602
+dateModified: 1637684938
 email:
   fromEmail: wesley@bytesandbeans.com
   fromName: Guaynabo
@@ -49,6 +49,7 @@ meta:
     7b3320a2-8f40-4206-8bde-b183bdf4c6cd: Volume # Volume
     7c9b6118-cd72-41b6-9ba6-c4e529aa2772: Guaynabo # Guaynabo
     7dbb92d0-96b5-440f-aa78-2ceadcf5f062: 'Gradiente de Color' # Gradiente de Color
+    8a604221-50cb-4b74-b3f1-d383801f852e: 'Emergency Message' # Emergency Message
     08b0d12c-3ba1-4c87-b2ea-1dc549f6e90a: 'button Color' # button Color
     9ac61f25-debd-473c-a7c2-aaa0e6c470a3: 'Not on the list' # Not on the list
     9b6c361a-0640-4ed7-bdbb-7671caee668c: Transperencia # Transperencia
@@ -79,6 +80,7 @@ meta:
     62b06634-9290-4c9a-b4c4-aca9fc247651: 'Column 3' # Column 3
     63dcf512-4f46-4ec5-a7f1-fa3e65deaabd: 'Ordenanzas y Resoluciones' # Ordenanzas y Resoluciones
     067e9094-a186-4708-b60f-a04cc8bd71ab: 'Hero Image' # Hero Image
+    71f0a525-e28f-47a6-bc56-db74d303221b: 'Emergency Message Time' # Emergency Message Time
     73bd6b11-d4ba-402d-9f55-3d4f39d8fa4a: 'Selected Timeline' # Selected Timeline
     73ca8bf2-5c8b-4c80-9aba-ef2f7c7b6906: 'Photo Gallery' # Photo Gallery
     74fbe651-9c76-41b9-a3bd-0b5d59b0472a: 'List Children' # List Children
@@ -146,6 +148,7 @@ meta:
     b905df78-0e1b-4ffe-b679-4e397b4e86a0: 'Mayor''s Office' # Mayor's Office
     b60202a4-048b-42a5-b583-cbd8e8953fed: News # News
     b317180f-95ec-4778-a9f4-8b88ba5b0ba0: News # News
+    b642378a-26e5-4a37-a328-651b94240364: 'Emergency Message' # Emergency Message
     ba1b0045-efcc-4c10-bbc5-9a83a9cf8fb1: 'End Date' # End Date
     bd0a400e-1c4c-41b3-9831-57c901799316: 'Mayor Photo' # Mayor Photo
     bd9914c0-b6b6-4ff5-9403-816eec1654db: 'News Categories' # News Categories
@@ -182,6 +185,7 @@ meta:
     e823d103-105b-4636-a457-64e56bcbf12b: Gobierno # Gobierno
     e88537d5-65c8-49d9-87f1-f891f3fb2aa2: 'Selected Timeline' # Selected Timeline
     e740828c-6609-45a1-aa23-c531c1876a47: Image # Image
+    ebd55252-3c0e-45e1-8b76-aad26cad65b6: 'Emergency Message Link' # Emergency Message Link
     ed995c29-9e87-49a6-aa47-d2638d854d06: '350 px wide' # 350 px wide
     f0c99bc9-55dd-4831-b8a3-e717dbed4e39: 'Seal of Guaynabo' # Seal of Guaynabo
     f1c5eef1-20f5-4812-9192-28cd53eb4b17: 'Multiple Images' # Multiple Images

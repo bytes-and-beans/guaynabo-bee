@@ -6,15 +6,15 @@ instructions: 'Where this message should take the user when clicked. If anywhere
 name: 'Emergency Message Link'
 searchable: false
 settings:
-  allowCustomText: '1'
-  allowTarget: ''
+  allowCustomText: ''
+  allowTarget: '1'
   allowedLinkNames:
     1: asset
     2: category
     3: entry
     9: url
   autoNoReferrer: ''
-  defaultLinkName: asset
+  defaultLinkName: entry
   defaultText: ''
   enableAriaLabel: ''
   enableTitle: ''

@@ -1,4 +1,4 @@
-dateModified: 1637684938
+dateModified: 1637685497
 email:
   fromEmail: wesley@bytesandbeans.com
   fromName: Guaynabo
@@ -165,6 +165,7 @@ meta:
     ce81df7e-4c52-471b-8a39-d574f7362812: 'Header Fields' # Header Fields
     ce557d65-4022-43ac-84af-b25c12301041: 'Message Text' # Message Text
     cfcc3c3f-c3fc-4326-beb6-0f6a3e13f833: 'End Month' # End Month
+    d6a4fd36-c3d6-47d1-b790-34a5914d5583: 'Emergency Message' # Emergency Message
     d6b4a5dd-963f-4aee-bf03-ec731a6eea05: Video # Video
     d8cbceab-6a16-43a2-8034-79fdce9293b2: '3 Column' # 3 Column
     d31a8857-a89d-4964-be5f-ddebabb23427: 'Error Pages' # Error Pages

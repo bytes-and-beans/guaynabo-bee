@@ -1,0 +1,65 @@
+fieldLayouts:
+  c8a64a59-06f9-4cd0-a57c-0d43aeafa718:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: 'Not shown on the site. Used to easily find this entry in the list of emergency messages.'
+            label: ''
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\EntryTitleField
+            warning: null
+            width: 100
+          -
+            fieldUid: b642378a-26e5-4a37-a328-651b94240364 # Emergency Message
+            instructions: ''
+            label: Message
+            required: '1'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 71f0a525-e28f-47a6-bc56-db74d303221b # Emergency Message Time
+            instructions: ''
+            label: 'Display Time'
+            required: '1'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: ebd55252-3c0e-45e1-8b76-aad26cad65b6 # Emergency Message Link
+            instructions: ''
+            label: Link
+            required: ''
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Message
+        sortOrder: 1
+handle: emergencyMessage
+hasTitleField: true
+name: 'Emergency Message'
+section: 8a604221-50cb-4b74-b3f1-d383801f852e # Emergency Message
+sortOrder: 2
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

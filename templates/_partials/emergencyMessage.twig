@@ -12,7 +12,7 @@
  #      eMsgLink: Link Field, If not empty, the message will be a link to location
  #}
 
-{% set message_query = craft.entries().section('emergencyMessage' %}
+{% set message_query = craft.entries().section('emergencyMessage') %}
 
 {% if message_query.exists() %}
 <div 

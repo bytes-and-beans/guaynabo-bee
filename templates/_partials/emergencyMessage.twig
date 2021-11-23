@@ -11,3 +11,28 @@
  #    Optional 
  #      eMsgLink: Link Field, If not empty, the message will be a link to location
  #}
+
+{% set message_query = craft.entries().section('emergencyMessage' %}
+
+{% if message_query.exists() %}
+<div 
+    class="w-full relative grid"
+    x-data="{
+        currentMessage : 1,
+        maxMessage: 1,
+    }"
+>
+    {% for message in message_query.all() %}  
+    <div
+        class="p-4 row-start-1 col-span-full"
+        x-data="{mynumber:{{loop.index}}}"
+        x-bind:class="mynumber == currentMessage ? 'eMsgEnter' : 'eMsgExit'"
+        x-cloak
+
+    >
+        {{message.eMsgMessage}}
+
+    </div>
+    {% endfor %}
+</div>
+{% endif %}

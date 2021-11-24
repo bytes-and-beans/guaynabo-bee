@@ -12,7 +12,7 @@
  #      displayTime: integer; The time, in milliseconds, to display the 
  #}
 {% set displayTime = 7 * 1000 %}
-{% set message_query = craft.entries().section('emergencyMessage') %}
+{% set message_query = craft.entries().section('emergencyMessage').cache() %}
 
 
 {% if message_query.exists() %}

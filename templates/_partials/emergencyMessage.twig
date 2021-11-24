@@ -14,14 +14,14 @@
  #    Note: This file also uses some custom animations defined in app.pcss
  #
  #}
-{% set displayTime = 7 * 1000 %}
+{% set displayTime = 15 * 1000 %}
 {% set message_query = craft.entries().section('emergencyMessage').cache() %}
 
 
 {% if message_query.exists() %}
 
 <div 
-    class="w-full relative grid relative"
+    class="w-full relative grid relative overflow-hidden"
     x-data="{
         currentMessage : 1,
         maxMessage: 1,
@@ -35,10 +35,11 @@
             {{displayTime}}
         );
     "
+    style="--barTime:{{displayTime}}ms"
 >
     {% for message in message_query.all() %}  
     <div
-        class = "p-4 row-start-1 col-span-full relative flex items-center {{ not loop.first ? "invisible" }}"
+        class = "p-4 row-start-1 col-span-full relative flex items-center {{ not loop.first ? "invisible" }} overflow-hidden"
         x-data = "{mynumber:{{loop.index}}}"
         {# can't use x-show here, we don't want this div changing size when the
          # message being displayed changes.

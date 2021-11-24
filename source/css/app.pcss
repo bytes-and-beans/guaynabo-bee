@@ -125,4 +125,19 @@
 .eMsgExit {
   animation: eMsgExit 1s ease-in-out both;
 }
-
+@keyframes eMsgProgressBar {
+  from {right: 100%}
+  to {right: 0%}
+}
+.eMsgEnter::after {
+  content: "";
+  position: absolute;
+  left: 0%;
+  right: 100%;
+  bottom: 0%;
+  height: 3px;
+  background: white;
+  opacity: 35%;
+  animation: eMsgProgressBar ease-out both;
+  animation-duration: var(--barTime, 1000000s);
+}

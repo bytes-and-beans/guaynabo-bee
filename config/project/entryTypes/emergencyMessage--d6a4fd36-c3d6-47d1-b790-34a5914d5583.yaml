@@ -36,15 +36,6 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 71f0a525-e28f-47a6-bc56-db74d303221b # Emergency Message Time
-            instructions: ''
-            label: 'Display Time'
-            required: '1'
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 100
-          -
             fieldUid: ebd55252-3c0e-45e1-8b76-aad26cad65b6 # Emergency Message Link
             instructions: ''
             label: Link

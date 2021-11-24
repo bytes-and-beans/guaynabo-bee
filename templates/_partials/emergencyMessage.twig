@@ -35,14 +35,17 @@
 >
     {% for message in message_query.all() %}  
     <div
-        class = "p-4 row-start-1 col-span-full relative flex items-center"
+        class = "p-4 row-start-1 col-span-full relative flex items-center {{ not loop.first ? "invisible" }}"
         x-data = "{mynumber:{{loop.index}}}"
         {# can't use x-show here, we don't want this div changing size when the
          # message being displayed changes.
          #}
         x-bind:class = "mynumber == currentMessage ? 'eMsgEnter' : 'eMsgExit'"
         x-cloak
-        {% if loop.last %} x-init = "maxMessage = {{loop.index}}" {% endif %}
+        x-init = "
+        setTimeout(()=>$el.classList.remove('invisible'),1001);
+        {{ loop.last ? "maxMessage = #{loop.index};" }}
+        "
     >
         <div class=""> {{message.eMsgMessage}} </div>
     </div>

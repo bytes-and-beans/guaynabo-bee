@@ -35,7 +35,7 @@
             {{displayTime}}
         );
     "
-    style="--barTime:{{displayTime}}ms"
+    {% if message_query.count() > 1 %} style="--barTime:{{displayTime}}ms" {% endif %}
 >
     {% for message in message_query.all() %}  
     <div

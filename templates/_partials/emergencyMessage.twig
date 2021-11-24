@@ -6,17 +6,19 @@
  #    
  #    Required Entry Fields
  #      eMsgMessage: Plain Text, multi-line, the message to display.
- #      eMsgTime: Number, the number of seconds the message should remain
- #          on screen.
  #    Optional 
  #      eMsgLink: Link Field, If not empty, the message will be a link to location
+ #    Options
+ #      displayTime: integer; The time, in milliseconds, to display the 
  #}
-
+{% set displayTime = 7 * 1000 %}
 {% set message_query = craft.entries().section('emergencyMessage') %}
 
+
 {% if message_query.exists() %}
+
 <div 
-    class="w-full relative grid"
+    class="w-full relative grid relative"
     x-data="{
         currentMessage : 1,
         maxMessage: 1,
@@ -24,11 +26,14 @@
 >
     {% for message in message_query.all() %}  
     <div
-        class="p-4 row-start-1 col-span-full"
-        x-data="{mynumber:{{loop.index}}}"
-        x-bind:class="mynumber == currentMessage ? 'eMsgEnter' : 'eMsgExit'"
+        class = "p-4 row-start-1 col-span-full relative"
+        x-data = "{mynumber:{{loop.index}}}"
+        {# can't use x-show here, we don't want this div changing size when the
+         # message being displayed changes.
+         #}
+        x-bind:class = "mynumber == currentMessage ? 'eMsgEnter' : 'eMsgExit'"
         x-cloak
-
+        {% if loop.last %} x-init = "maxMessage = {{loop.index}}" {% endif %}
     >
         {{message.eMsgMessage}}
 

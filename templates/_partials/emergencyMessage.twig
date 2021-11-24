@@ -10,6 +10,9 @@
  #      eMsgLink: Link Field, If not empty, the message will be a link to location
  #    Options
  #      displayTime: integer; The time, in milliseconds, to display the 
+ #
+ #    Note: This file also uses some custom animations defined in app.pcss
+ #
  #}
 {% set displayTime = 7 * 1000 %}
 {% set message_query = craft.entries().section('emergencyMessage').cache() %}

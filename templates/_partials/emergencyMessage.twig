@@ -11,7 +11,7 @@
  #    Options
  #      displayTime: integer; The time, in milliseconds, to display the 
  #}
-{% set displayTime = 7 * 1000 %}
+{% set displayTime = 4 * 1000 %}
 {% set message_query = craft.entries().section('emergencyMessage') %}
 
 
@@ -23,6 +23,15 @@
         currentMessage : 1,
         maxMessage: 1,
     }"
+    x-init="
+        setInterval(
+            () => {
+                if(currentMessage >= maxMessage) currentMessage = 1;
+                else currentMessage += 1;
+            },
+            {{displayTime}}
+        );
+    "
 >
     {% for message in message_query.all() %}  
     <div

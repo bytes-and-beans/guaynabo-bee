@@ -17,7 +17,6 @@
 {% set displayTime = 15 * 1000 %}
 {% set message_query = craft.entries().section('emergencyMessage').cache() %}
 
-
 {% if message_query.exists() %}
 
 <div 
@@ -37,13 +36,15 @@
     "
     {% if message_query.count() > 1 %} style="--barTime:{{displayTime}}ms" {% endif %}
 >
-    {% for message in message_query.all() %}  
+    {# The individual messages #}
+    {% for message in message_query.all() %} 
     <div
         class = "p-4 row-start-1 col-span-full relative flex items-center {{ not loop.first ? "invisible" }} overflow-hidden"
         x-data = "{mynumber:{{loop.index}}}"
-        {# can't use x-show here, we don't want this div changing size when the
-         # message being displayed changes.
+        {# can't use x-show here, we don't want the containing div changing size 
+         # when the message being displayed changes.
          #}
+        {# eMsgEnter and eMsgExit defined in app.pcss #}
         x-bind:class = "mynumber == currentMessage ? 'eMsgEnter' : 'eMsgExit'"
         x-cloak
         x-init = "
@@ -51,6 +52,7 @@
         {{ loop.last ? "maxMessage = #{loop.index};" }}
         "
     >
+        {# container to center the text #}
         <div class=""> {{message.eMsgMessage}} </div>
     </div>
     {% endfor %}

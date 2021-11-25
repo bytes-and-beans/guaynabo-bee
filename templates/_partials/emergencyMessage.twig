@@ -38,23 +38,32 @@
 >
     {# The individual messages #}
     {% for message in message_query.all() %} 
-    <div
-        class = "p-4 row-start-1 col-span-full relative flex items-center {{ not loop.first ? "invisible" }} overflow-hidden"
-        x-data = "{mynumber:{{loop.index}}}"
-        {# can't use x-show here, we don't want the containing div changing size 
-         # when the message being displayed changes.
-         #}
-        {# eMsgEnter and eMsgExit defined in app.pcss #}
-        x-bind:class = "mynumber == currentMessage ? 'eMsgEnter' : 'eMsgExit'"
-        x-cloak
-        x-init = "
-        setTimeout(()=>$el.classList.remove('invisible'),1001);
-        {{ loop.last ? "maxMessage = #{loop.index};" }}
-        "
-    >
-        {# container to center the text #}
-        <div class=""> {{message.eMsgMessage}} </div>
-    </div>
+        {% set messageTag = message.eMsgLink.empty() ? "div" : "a" %}
+        <{{messageTag}}
+            {% if not message.eMsgLink.empty() %}
+                href={{message.eMsgLink.getUrl()}}
+                target="{{message.eMsgLink.getTarget()}}"
+            {% endif %}
+            class = "relative items-center overflow-hidden row-start-1 col-span-full
+                    flex p-4 text-white {{ not message.eMsgLink.empty() ? "underline"}}
+                    {# prevent other messages from appearing at start, removed by x-init #}
+                    {{ not loop.first ? "invisible" }} 
+            "
+            x-data = "{mynumber:{{loop.index}}}"
+            {# can't use x-show here, we don't want the containing div changing size 
+            # when the message being displayed changes.
+            #}
+            {# eMsgEnter and eMsgExit defined in app.pcss #}
+            x-bind:class = "mynumber == currentMessage ? 'eMsgEnter' : 'eMsgExit'"
+            x-cloak
+            x-init = "
+            setTimeout(()=>$el.classList.remove('invisible'),1001);
+            {{ loop.last ? "maxMessage = #{loop.index};" }}
+            "
+        >
+            {# container to center the text #}
+            <div class=""> {{message.eMsgMessage}} </div>
+        </{{messageTag}}>
     {% endfor %}
 </div>
 {% endif %}

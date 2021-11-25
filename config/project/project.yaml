@@ -1,4 +1,4 @@
-dateModified: 1636997602
+dateModified: 1637775839
 email:
   fromEmail: wesley@bytesandbeans.com
   fromName: Guaynabo
@@ -17,10 +17,8 @@ meta:
     0d856a69-1d2b-4450-ab4f-500e5d361407: 'Direct Link' # Direct Link
     0d3881fc-62d2-40e1-b1c3-f2f9e9403a37: 'Mini Gallery' # Mini Gallery
     0f5f6cf1-061d-43ab-9cd6-69bcd5ec3f8c: Link # Link
-    01bf0912-44d2-4323-a4ac-88295f2b0cdb: 'Message Matrix' # Message Matrix
     1c251faa-ce32-45eb-8313-a00acf3fd1be: 'Start Date' # Start Date
     1d09fcb8-0b06-41bd-af28-1fc612862060: Comments # Comments
-    1d2135f7-595c-468a-be14-09ae0e9834c8: 'Emergency Message' # Emergency Message
     2b2ddc31-5f8b-4410-a191-b0044255456a: Header # Header
     2b4f04a0-9ec2-42f6-9d25-9801e2d1a3dd: 'Event Calendar Fields' # Event Calendar Fields
     02ee3f82-d903-4873-9106-030bc6823445: 'Content Sidebar' # Content Sidebar
@@ -49,6 +47,7 @@ meta:
     7b3320a2-8f40-4206-8bde-b183bdf4c6cd: Volume # Volume
     7c9b6118-cd72-41b6-9ba6-c4e529aa2772: Guaynabo # Guaynabo
     7dbb92d0-96b5-440f-aa78-2ceadcf5f062: 'Gradiente de Color' # Gradiente de Color
+    8a604221-50cb-4b74-b3f1-d383801f852e: 'Emergency Message' # Emergency Message
     08b0d12c-3ba1-4c87-b2ea-1dc549f6e90a: 'button Color' # button Color
     9ac61f25-debd-473c-a7c2-aaa0e6c470a3: 'Not on the list' # Not on the list
     9b6c361a-0640-4ed7-bdbb-7671caee668c: Transperencia # Transperencia
@@ -79,6 +78,7 @@ meta:
     62b06634-9290-4c9a-b4c4-aca9fc247651: 'Column 3' # Column 3
     63dcf512-4f46-4ec5-a7f1-fa3e65deaabd: 'Ordenanzas y Resoluciones' # Ordenanzas y Resoluciones
     067e9094-a186-4708-b60f-a04cc8bd71ab: 'Hero Image' # Hero Image
+    71f0a525-e28f-47a6-bc56-db74d303221b: 'Emergency Message Time' # Emergency Message Time
     73bd6b11-d4ba-402d-9f55-3d4f39d8fa4a: 'Selected Timeline' # Selected Timeline
     73ca8bf2-5c8b-4c80-9aba-ef2f7c7b6906: 'Photo Gallery' # Photo Gallery
     74fbe651-9c76-41b9-a3bd-0b5d59b0472a: 'List Children' # List Children
@@ -134,10 +134,8 @@ meta:
     ac22cbb8-ce15-498b-acbe-2a2095c88ff7: 'Event Tags' # Event Tags
     acdcf6ba-c408-485c-a0b7-4272857cee5a: tableData # tableData
     ad84678b-0e92-4a82-bab1-cbfd291810c8: Address # Address
-    adf30507-9677-4baa-bce4-f12b2b7ed478: Message # Message
     ae766d7f-81cb-47fd-8911-362a19bd9485: 'Embedded Video' # Embedded Video
     aea3bdd1-38cd-4517-ba8f-51ecea59c64d: Default # Default
-    aecf681d-35f7-4c12-97d9-ad30519dbffd: Show # Show
     b0c5da96-b662-4e9a-bb42-0296a52e658c: siteUrl # siteUrl
     b4b4a385-0957-4c06-9940-9012f1f6ffd4: 'Mayor Name' # Mayor Name
     b8be571c-6b78-43b1-9f84-236fb53e4b8b: 'button color' # button color
@@ -146,6 +144,7 @@ meta:
     b905df78-0e1b-4ffe-b679-4e397b4e86a0: 'Mayor''s Office' # Mayor's Office
     b60202a4-048b-42a5-b583-cbd8e8953fed: News # News
     b317180f-95ec-4778-a9f4-8b88ba5b0ba0: News # News
+    b642378a-26e5-4a37-a328-651b94240364: 'Emergency Message' # Emergency Message
     ba1b0045-efcc-4c10-bbc5-9a83a9cf8fb1: 'End Date' # End Date
     bd0a400e-1c4c-41b3-9831-57c901799316: 'Mayor Photo' # Mayor Photo
     bd9914c0-b6b6-4ff5-9403-816eec1654db: 'News Categories' # News Categories
@@ -162,6 +161,7 @@ meta:
     ce81df7e-4c52-471b-8a39-d574f7362812: 'Header Fields' # Header Fields
     ce557d65-4022-43ac-84af-b25c12301041: 'Message Text' # Message Text
     cfcc3c3f-c3fc-4326-beb6-0f6a3e13f833: 'End Month' # End Month
+    d6a4fd36-c3d6-47d1-b790-34a5914d5583: 'Emergency Message' # Emergency Message
     d6b4a5dd-963f-4aee-bf03-ec731a6eea05: Video # Video
     d8cbceab-6a16-43a2-8034-79fdce9293b2: '3 Column' # 3 Column
     d31a8857-a89d-4964-be5f-ddebabb23427: 'Error Pages' # Error Pages
@@ -182,6 +182,7 @@ meta:
     e823d103-105b-4636-a457-64e56bcbf12b: Gobierno # Gobierno
     e88537d5-65c8-49d9-87f1-f891f3fb2aa2: 'Selected Timeline' # Selected Timeline
     e740828c-6609-45a1-aa23-c531c1876a47: Image # Image
+    ebd55252-3c0e-45e1-8b76-aad26cad65b6: 'Emergency Message Link' # Emergency Message Link
     ed995c29-9e87-49a6-aa47-d2638d854d06: '350 px wide' # 350 px wide
     f0c99bc9-55dd-4831-b8a3-e717dbed4e39: 'Seal of Guaynabo' # Seal of Guaynabo
     f1c5eef1-20f5-4812-9192-28cd53eb4b17: 'Multiple Images' # Multiple Images

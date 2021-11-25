@@ -20,19 +20,21 @@
    I haven't been able to combine them into a single file. I would like to, but... yea. First make
    it work, then make is elegant.
  #}
-{% cache globally %}
+<header>
+    <div class="w-full bg-gradient-to-tr from-guaynabo-orange-start to-guaynabo-orange-end text-white">
+        {% include "_partials/emergencyMessage.twig" %}
+    </div>
+    {% cache globally %}
+    <div class="relative flex justify-center px-4 sm:justify-between">
+        {% include "/_partials/navMenu_mobile.twig" %}
 
-<header class="relative flex justify-center px-4 sm:justify-between">
+        {# logo #}
+        <a href="/" class="w-8/12 max-w-[300px]">
+            <img src={{header.logoFull.one().url}} alt="Guyanabo">
+        </a>
 
-    {% include "/_partials/navMenu_mobile.twig" %}
+        {% include "/_partials/navMenu.twig" %}
+    </div>
 
-    {# logo #}
-    <a href="/" class="w-8/12 max-w-[300px]">
-        <img src={{header.logoFull.one().url}} alt="Guyanabo">
-    </a>
-
-    {% include "/_partials/navMenu.twig" %}
-
+    {% endcache %}
 </header>
-
-{% endcache %}

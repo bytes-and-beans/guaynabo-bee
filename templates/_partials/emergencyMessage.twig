@@ -1,0 +1,69 @@
+{# A scrolling emergency message that appears at the top of every page.
+ #
+ #    Required Section: 'emergencyMessages'
+ #      Any current, active entries in this section will be included in the 
+ #      scrolling block of messages.
+ #    
+ #    Required Entry Fields
+ #      eMsgMessage: Plain Text, multi-line, the message to display.
+ #    Optional 
+ #      eMsgLink: Link Field, If not empty, the message will be a link to location
+ #    Options
+ #      displayTime: integer; The time, in milliseconds, to display the 
+ #
+ #    Note: This file also uses some custom animations defined in app.pcss
+ #
+ #}
+{% set displayTime = 15 * 1000 %}
+{% set message_query = craft.entries().section('emergencyMessage').cache() %}
+
+{% if message_query.exists() %}
+
+<div 
+    class="w-full relative grid relative overflow-hidden"
+    x-data="{
+        currentMessage : 1,
+        maxMessage: 1,
+    }"
+    x-init="
+        setInterval(
+            () => {
+                if(currentMessage >= maxMessage) currentMessage = 1;
+                else currentMessage += 1;
+            },
+            {{displayTime}}
+        );
+    "
+    {% if message_query.count() > 1 %} style="--barTime:{{displayTime}}ms" {% endif %}
+>
+    {# The individual messages #}
+    {% for message in message_query.all() %} 
+        {% set messageTag = message.eMsgLink.empty() ? "div" : "a" %}
+        <{{messageTag}}
+            {% if not message.eMsgLink.empty() %}
+                href={{message.eMsgLink.getUrl()}}
+                target="{{message.eMsgLink.getTarget()}}"
+            {% endif %}
+            class = "relative items-center overflow-hidden row-start-1 col-span-full
+                    flex p-4 text-white {{ not message.eMsgLink.empty() ? "underline"}}
+                    {# prevent other messages from appearing at start, removed by x-init #}
+                    {{ not loop.first ? "invisible" }} 
+            "
+            x-data = "{mynumber:{{loop.index}}}"
+            {# can't use x-show here, we don't want the containing div changing size 
+            # when the message being displayed changes.
+            #}
+            {# eMsgEnter and eMsgExit defined in app.pcss #}
+            x-bind:class = "mynumber == currentMessage ? 'eMsgEnter' : 'eMsgExit'"
+            x-cloak
+            x-init = "
+            setTimeout(()=>$el.classList.remove('invisible'),1001);
+            {{ loop.last ? "maxMessage = #{loop.index};" }}
+            "
+        >
+            {# container to center the text #}
+            <div class=""> {{message.eMsgMessage}} </div>
+        </{{messageTag}}>
+    {% endfor %}
+</div>
+{% endif %}

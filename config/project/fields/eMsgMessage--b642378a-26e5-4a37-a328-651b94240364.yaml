@@ -1,0 +1,19 @@
+columnSuffix: bcgcdyno
+contentColumnType: string(800)
+fieldGroup: fd1b751a-76d8-4482-944d-35a1911aefe0 # Emergency message Fields
+handle: eMsgMessage
+instructions: 'The message to include at the top of the screen. No more than 200 characters. No more than 3 line breaks.'
+name: 'Emergency Message'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: 200
+  code: ''
+  columnType: null
+  initialRows: '3'
+  multiline: '1'
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

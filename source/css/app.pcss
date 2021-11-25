@@ -107,3 +107,37 @@
      */
     display: none !important;
 }
+
+/**
+* Used by the animations for the emergeny messages.
+*/
+@keyframes eMsgEnter {
+  from { top: 100%; }
+  to { top: 0%; }
+}
+.eMsgEnter {
+  animation: eMsgEnter 1s ease-in-out both;
+}
+@keyframes eMsgExit {
+  from { top: 0%; }
+  to { top: -100%; }
+}
+.eMsgExit {
+  animation: eMsgExit 1s ease-in-out both;
+}
+@keyframes eMsgProgressBar {
+  from {right: 100%}
+  to {right: 0%}
+}
+.eMsgEnter::after {
+  content: "";
+  position: absolute;
+  left: 0%;
+  right: 100%;
+  bottom: 0%;
+  height: 3px;
+  background: white;
+  opacity: 35%;
+  animation: eMsgProgressBar ease-out both;
+  animation-duration: var(--barTime, 1000000s);
+}

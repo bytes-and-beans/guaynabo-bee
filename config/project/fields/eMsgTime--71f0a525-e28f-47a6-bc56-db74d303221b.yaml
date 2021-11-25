@@ -1,0 +1,20 @@
+columnSuffix: yyiubbew
+contentColumnType: smallint(2)
+fieldGroup: fd1b751a-76d8-4482-944d-35a1911aefe0 # Emergency message Fields
+handle: eMsgTime
+instructions: 'How long, in seconds, should the message be on screen?'
+name: 'Emergency Message Time'
+searchable: false
+settings:
+  decimals: 0
+  defaultValue: '7'
+  max: '60'
+  min: '1'
+  prefix: null
+  previewCurrency: ''
+  previewFormat: decimal
+  size: null
+  suffix: Seconds
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Number

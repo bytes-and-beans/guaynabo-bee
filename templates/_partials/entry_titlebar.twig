@@ -6,7 +6,7 @@
         entry.titleBare: asset, image, one(); Image that should be used for the titlebar
 #}
 {# Set the color gradient #}
-{% switch entry.colorGradient %}
+{% switch entry.colorGradient ?? null %}
     {% case "blue" %}
         {% set titlebar_bg_gradient_start = "from-guaynabo-blue-start" %}
         {% set titlebar_bg_gradient_end   =   "to-guaynabo-blue-end" %}
@@ -25,7 +25,7 @@
 {% endswitch %}
 
 <div
-    {% if entry.titleBar.exists() %}
+    {% if entry.titleBar.exists() ?? false %}
         style="background-image:url({{entry.titleBar.one().url}})"
         class= " h-[140px] w-full"
     {% else %}
@@ -35,9 +35,9 @@
         " 
     {% endif %}
 >
-    {% if not entry.titleBar.exists() %}
+    {% if not entry.titleBar.exists() ?? false %}
         <h1 class="text-white ">
-            {{entry.title}}
+            {{entry.title ?? '&nbsp;' }}
         </h1> 
     {% endif %}
     

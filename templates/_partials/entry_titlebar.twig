@@ -24,13 +24,13 @@
         {% set titlebar_bg_gradient_end   =   "to-guaynabo-blue-end" %}
 {% endswitch %}
 
-<div 
+<div
     {% if entry.titleBar.exists() %}
         style="background-image:url({{entry.titleBar.one().url}})"
         class= " h-[140px] w-full"
     {% else %}
         class="bg-gradient-to-tr {{titlebar_bg_gradient_start}} {{titlebar_bg_gradient_end}} 
-            h-[140px] w-full text-center flex justify-center items-center 
+            py-4 w-full text-center flex justify-center items-center 
             md:justify-start md:px-24
         " 
     {% endif %}

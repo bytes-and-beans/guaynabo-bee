@@ -45,7 +45,7 @@
                 target="{{message.eMsgLink.getTarget()}}"
             {% endif %}
             class = "relative items-center overflow-hidden row-start-1 col-span-full
-                    flex p-4 text-white {{ not message.eMsgLink.empty() ? "underline"}}
+                    flex p-2 text-white {{ not message.eMsgLink.empty() ? "underline"}}
                     {# prevent other messages from appearing at start, removed by x-init #}
                     {{ not loop.first ? "invisible" }} 
             "

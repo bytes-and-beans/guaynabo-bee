@@ -1,7 +1,7 @@
 {#  Page that handles searches and presents the search results
  #}
 
-{% set query = craft.app.request.getQueryParam('q') ?? null %}
+{% set urlQueryText = craft.app.request.getQueryParam('q') ?? null %}
 
 
 {% extends "_layouts/3-base" %}
@@ -11,8 +11,9 @@
 {% endblock %}
 
 {% block base_content %}
-    {% if query %}
-        There was a query: {{query}}
+    {% if urlQueryText %}
+        set
+        There was a urlQueryText: {{urlQueryText}}
     {% else %}
         <p>No se proporcionó ninguna consulta de búsqueda.</p>
     {% endif %}

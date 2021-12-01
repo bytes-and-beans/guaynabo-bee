@@ -3,7 +3,6 @@
 
 {% set urlQueryText = craft.app.request.getQueryParam('q') ?? null %}
 
-
 {% extends "_layouts/3-base" %}
 
 {% block base_supercontent %}
@@ -12,8 +11,14 @@
 
 {% block base_content %}
     {% if urlQueryText %}
-        set
-        There was a urlQueryText: {{urlQueryText}}
+
+        {% set query = craft.entries()
+            .section('not ordenanzasYResolutiones')
+            .search(urlQueryText) 
+        %}
+
+        There was a urlQueryText: {{urlQueryText}} 
+        {{query.count() ?? 'nope'}}
     {% else %}
         <p>No se proporcionó ninguna consulta de búsqueda.</p>
     {% endif %}

@@ -1,6 +1,8 @@
 {#  The titlebar that appears at the top of most content pages in the site.
 
+
     optional vars: 
+        title: optional override for the title text. Defaults to entry.title then '&nbsp;'
         entry.colorGradient: dropdown, which color gradient we should use.
             values: blue, purple, green, orange
         entry.titleBare: asset, image, one(); Image that should be used for the titlebar
@@ -24,6 +26,8 @@
         {% set titlebar_bg_gradient_end   =   "to-guaynabo-blue-end" %}
 {% endswitch %}
 
+{% set title_text  = title ?? entry.title ?? '&nbsp;' %}
+
 <div
     {% if entry.titleBar.exists() ?? false %}
         style="background-image:url({{entry.titleBar.one().url}})"
@@ -37,7 +41,7 @@
 >
     {% if not entry.titleBar.exists() ?? false %}
         <h1 class="text-white ">
-            {{entry.title ?? '&nbsp;' }}
+            {{ title_text }}
         </h1> 
     {% endif %}
     

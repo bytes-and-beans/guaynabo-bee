@@ -1,14 +1,20 @@
 {#  Page that handles searches and presents the search results
  #}
 
+{% set query = craft.app.request.getQueryParam('q') ?? null %}
 
 
+{% extends "_layouts/3-base" %}
 
- {% extends "_layouts/3-base" %}
-
- {% block base_supercontent %}
+{% block base_supercontent %}
     {% include "_partials/entry_titlebar" with {title : "Sus búsquedas"} %}
- {% endblock %}
- {% block base_content %}
-    
- {% endblock %}
+{% endblock %}
+
+{% block base_content %}
+    {% if query %}
+        There was a query: {{query}}
+    {% else %}
+        <p>No se proporcionó ninguna consulta de búsqueda.</p>
+    {% endif %}
+{% endblock %}
+

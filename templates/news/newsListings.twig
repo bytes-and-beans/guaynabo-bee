@@ -1,0 +1,66 @@
+{#  A paginated list of news entries
+ #  
+ #  Required section
+ #      news: a section with the news articles in it.
+ #  
+ #  Required news entry fields
+ #      title: plaintext, single line
+ #      featureImage: image asset, single
+ #      summary: plaintext, multiline
+ #}
+
+{% extends "_layouts/3-base" %}
+
+{% block base_supercontent %}
+    {% include "_partials/entry_titlebar.twig" with {title: "Noticias"} %}
+{% endblock %}
+
+{% set newsQuery = craft.entries().section('news').limit(10).cache() %}
+
+{% block base_content %}
+    {% if newsQuery.exists() %}
+        {% paginate newsQuery as pageInfo, pageEntries %}
+
+        
+        {% for result in pageEntries %}
+            <a class="flex mb-4 pb-2 border-b" href="{{result.url}}">
+                <div class="max-w-[25%] mr-4 hidden sm:block">{# featureImage #}
+                    {% set thumbTransform = {
+                        mode: 'fit',
+                        width: 200,
+                        height: 200,
+                        quality: 75,
+                    } %}
+                    <img 
+                        class=""
+                        src="{{result.featureImage.one().getUrl(thumbTransform)}}" 
+                        alt=""
+                    >
+                </div>
+                <div class=""> {# details container #}
+                    <div class="font-advantage text-2xl text-guaynabo-blue">{{ result.title }}</div>
+                    <div class="text-sm text-guaynabo-blue-dark"> {# Breadcrumbs #}
+                        {{result.section}}
+                        {% set ancestors = result.getAncestors %}
+                        {% if ancestors | length > 0 %}
+                        >> {{ ancestors | map(a=>"#{a.title}") | join(" >> ") }}
+                        {% endif %}
+                        >> {{result.title}}
+                    </div>
+                    <div class=" text-guaynabo-blue-dark">{{ result.summary}}</div>
+                </div>
+            </a>
+        {% endfor %}
+        
+        {# pagination #}
+        <div class="flex justify-between mt-4 mx-auto max-w-md">
+            {% if pageInfo.prevUrl %}<a href="{{ pageInfo.prevUrl }}">Siguiente</a> {% else %} <div class="w-px h-px">&nbsp;</div> {% endif %}
+            <div class=""> {{pageInfo.first}} a {{pageInfo.last}} de {{pageInfo.total}} resultados </div>
+            {% if pageInfo.nextUrl %}<a href="{{ pageInfo.nextUrl }}">Previo</a> {% else %} <div class="w-px h-px">&nbsp;</div> {% endif %}
+        </div>
+    {% else %}
+        {# There are no news articles #}
+        <p>No hay artículos de noticias en este momento.</p>
+    {% endif %}
+{% endblock %}
+

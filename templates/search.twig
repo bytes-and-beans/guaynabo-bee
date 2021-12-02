@@ -13,12 +13,27 @@
     {% if urlQueryText %}
 
         {% set query = craft.entries()
-            .section('not ordenanzasYResolutiones')
             .search(urlQueryText) 
+            .section('not ordenanzasYResolutiones') 
         %}
+            {# 
+            #}
         {% if query.exists %}
             {% for result in query.all() %}
-                <div>{{result.getLink}}</div>
+                <a
+                    href="{{result.url}}"
+                    class="mb-4"
+                >
+                    <div class="font-advantage text-2xl">
+                        {{result.title}}
+                    </div>
+                    {{result.section}}
+                    {% set ancestors = result.getAncestors %}
+                    {% if ancestors | length > 0 %}
+                      >> {{ ancestors | map(a=>"#{a.title}") | join(" >> ") }}
+                    {% endif %}
+                    >> {{result.title}}
+                </a>
             {% endfor %}
         {% else %}
             <p>No se encontraron resultados de búsqueda.</p>

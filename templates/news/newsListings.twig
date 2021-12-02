@@ -37,9 +37,9 @@
                         alt=""
                     >
                 </div>
-                <div class=" text-guaynabo-blue"> {# details container #}
-                    <div class="font-advantage text-2xl">{{ result.title }}</div>
-                    <div class=""> {# Breadcrumbs #}
+                <div class=""> {# details container #}
+                    <div class="font-advantage text-2xl text-guaynabo-blue">{{ result.title }}</div>
+                    <div class="text-sm text-guaynabo-blue-dark"> {# Breadcrumbs #}
                         {{result.section}}
                         {% set ancestors = result.getAncestors %}
                         {% if ancestors | length > 0 %}
@@ -47,7 +47,7 @@
                         {% endif %}
                         >> {{result.title}}
                     </div>
-                    <div class="">{{ result.summary}}</div>
+                    <div class=" text-guaynabo-blue-dark">{{ result.summary}}</div>
                 </div>
             </a>
         {% endfor %}

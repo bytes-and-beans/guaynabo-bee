@@ -40,11 +40,15 @@ module.exports = {
           },
         },
       },
+      outline: {
+        darken: '2px solid #00000050',
+      },
     },
   },
   variants: {
     extend: {
       backgroundImage: ['hover', 'focus'],
+      outline: ['focus'],
     },
   },
   plugins: [

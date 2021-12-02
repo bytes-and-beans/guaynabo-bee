@@ -23,8 +23,8 @@
 
         
         {% for result in pageEntries %}
-            <div class="">
-                <div class="">{# featureImage #}
+            <div class="flex">
+                <div class="max-w-[25%] mr-4">{# featureImage #}
                     {% set thumbTransform = {
                         mode: 'fit',
                         width: 200,
@@ -37,11 +37,13 @@
                         alt=""
                     >
                 </div>
-                <div class="">{{ result.title }}</div>
-                <div class=""> {# Breadcrumbs #}
+                <div class=""> {# details container #}
+                    <div class="font-advantage text-2xl text-guaynabo-blue">{{ result.title }}</div>
+                    <div class=""> {# Breadcrumbs #}
 
+                    </div>
+                    <div class="">{{ result.summary}}</div>
                 </div>
-                <div class="">{{ result.summary}}</div>
             </div>
         {% endfor %}
         

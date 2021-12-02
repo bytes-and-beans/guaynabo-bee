@@ -11,7 +11,20 @@
  #}
 
 {% extends "_layouts/3-base" %}
+{% set featureImageTransform = {
+    mode: 'fit',
+    height: 400,
+    width: 400, 
+    quality: 75,
+} %}
 
 {% block base_supercontent %}
     {% include "_partials/entry_titlebar.twig" with {title: entry.title} %}
+{% endblock %}
+
+{% block base_content %}
+    {# feature image #}
+    <img src="{{entry.featureImage.one().getUrl(featureImageTransform)}}" alt="">
+    {# article body #}
+    {# tags and categories #}
 {% endblock %}

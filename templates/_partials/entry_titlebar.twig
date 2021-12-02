@@ -52,12 +52,20 @@
     <div class="p-1
                 bg-gradient-to-tr from-guaynabo-green-start to-guaynabo-green-end
          "
+         x-data="{query: ''}"
     >
         <input 
             type="text" 
             class="h-full bg-white bg-opacity-80 px-2 focus:outline-darken"
+            x-on:input="query=$el.value"
+            x-on:enter="utils.execute_search(query)"
         >
-        <button class="h-[35] w-[25px]"><i class="fas fa-search text-white"></i></button>
+        <button 
+            class="h-[35] w-[25px]"
+            x-on:click="if(query != '') utils.execute_search(query)"
+        >
+            <i class="fas fa-search text-white"></i>
+        </button>
     </div>
     
 </div>

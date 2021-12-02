@@ -38,7 +38,7 @@
     <div class="flex flex-col">
         {# Search bar #}
         <div 
-            class="p-1 flex
+            class="p-1 flex items-center
                    bg-gradient-to-tr from-guaynabo-green-start to-guaynabo-green-end
             "
             x-data="{query: ''}"
@@ -46,19 +46,19 @@
             <input 
                 type="text" 
                 placeholder="busco..."
-                class="h-full px-2 bg-white bg-opacity-80 focus:outline-darken flex-grow"
+                class="h-full px-2 h-[55px] text-xl bg-white bg-opacity-80 focus:outline-darken flex-grow"
                 x-on:input="query=$el.value"
                 x-on:keyup.enter="utils.execute_search(query)"
             >
             <button 
-                class="h-[35] w-[25px]"
+                class="h-[55px] w-[50px]"
                 x-on:click="utils.execute_search(query)"
             >
-                <i class="fas fa-search text-white"></i>
+                <i class="text-2xl fas fa-search text-white"></i>
             </button>
         </div>
         {# Weclome Text #}
-        <h1 class="text-4xl lg:text-5xl font-bold text-center text-guaynabo-blue-dark text-shadow-pop-light">Bienvenido a Guaynabo</h1>
+        <h1 class="text-4xl pt-4 lg:text-5xl font-bold text-center text-guaynabo-blue-dark text-shadow-pop-light">Bienvenido a Guaynabo</h1>
     </div>
 </section>
 

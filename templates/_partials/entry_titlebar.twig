@@ -58,11 +58,11 @@
             type="text" 
             class="h-full bg-white bg-opacity-80 px-2 focus:outline-darken"
             x-on:input="query=$el.value"
-            x-on:enter="utils.execute_search(query)"
+            x-on:keyup.enter="utils.execute_search(query)"
         >
         <button 
             class="h-[35] w-[25px]"
-            x-on:click="if(query != '') utils.execute_search(query)"
+            x-on:click="utils.execute_search(query)"
         >
             <i class="fas fa-search text-white"></i>
         </button>

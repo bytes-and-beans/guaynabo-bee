@@ -23,7 +23,7 @@
 {% endblock %}
 
 {% block base_content %}
-<div class=" grid auto-cols-auto gap-x-4
+<div class=" grid grid-cols-1 md:grid-cols-30-auto gap-x-4
              
            "
 >
@@ -37,7 +37,7 @@
 
     {# article body #}
     <div class="md:col-start-2 md:row-span-2">
-        <div class="text-sm">
+        <div class="text-sm py-4">
             {{ entry.summary | nl2br }}
         </div>
         <div class="">

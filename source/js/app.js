@@ -3,9 +3,10 @@
  */
 
  /** Helper Functions for Alpine */
-
+window.utils = {};
  /** Send user to the search page for a given search term.
   */
- function execute_search(query='') {
-     console.log('called with query ',query);
- }
+window.utils.execute_search = (query='') => {
+    console.log('called with query ',query);
+}
+

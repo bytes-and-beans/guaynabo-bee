@@ -23,7 +23,7 @@
 
         
         {% for result in pageEntries %}
-            <div class="flex">
+            <a class="flex mb-4 pb-2 border-b" href="{{result.url}}">
                 <div class="max-w-[25%] mr-4">{# featureImage #}
                     {% set thumbTransform = {
                         mode: 'fit',
@@ -49,7 +49,7 @@
                     </div>
                     <div class="">{{ result.summary}}</div>
                 </div>
-            </div>
+            </a>
         {% endfor %}
         
         {# pagination #}

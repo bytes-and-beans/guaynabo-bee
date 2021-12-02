@@ -24,7 +24,7 @@
         
         {% for result in pageEntries %}
             <a class="flex mb-4 pb-2 border-b" href="{{result.url}}">
-                <div class="max-w-[25%] mr-4">{# featureImage #}
+                <div class="max-w-[25%] mr-4 hidden sm:block">{# featureImage #}
                     {% set thumbTransform = {
                         mode: 'fit',
                         width: 200,

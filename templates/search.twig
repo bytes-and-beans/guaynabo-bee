@@ -1,7 +1,6 @@
 {#  Page that handles searches and presents the search results
  #}
 
-{% set urlQueryText = craft.app.request.getQueryParam('q') ?? null %}
 
 {% extends "_layouts/3-base" %}
 
@@ -10,16 +9,20 @@
 {% endblock %}
 
 {% block base_content %}
-    {% if urlQueryText %}
 
+    {% set urlQueryText = craft.app.request.getQueryParam('q') ?? null %}
+    {% if urlQueryText %}
+        {# getting our results #}
         {% set query = craft.entries()
             .search(urlQueryText) 
             .section('not ordenanzasYResolutiones') 
+            .limit(10)
         %}
-            {# 
-            #}
         {% if query.exists %}
-            {% for result in query.all() %}
+            {% paginate query as pageInfo, pageEntries %}
+            
+            {# The individual listings #}
+            {% for result in pageEntries %}
                 <a
                     href="{{result.url}}"
                     class="mb-4"
@@ -35,10 +38,19 @@
                     >> {{result.title}}
                 </a>
             {% endfor %}
+
+            {# pagination #}
+            <div class="flex justify-between mt-4 mx-auto max-w-md">
+                {% if pageInfo.prevUrl %}<a href="{{ pageInfo.prevUrl }}">Siguiente</a> {% else %} <div class="w-px h-px">&nbsp;</div> {% endif %}
+                <div class=""> {{pageInfo.first}} a {{pageInfo.last}} de {{pageInfo.total}} resultados </div>
+                {% if pageInfo.nextUrl %}<a href="{{ pageInfo.nextUrl }}">Previo</a> {% else %} <div class="w-px h-px">&nbsp;</div> {% endif %}
+            </div>
         {% else %}
+            {# No results were found. #}
             <p>No se encontraron resultados de búsqueda.</p>
         {% endif %}
     {% else %}
+        {# No search query given #}
         <p>No se proporcionó ninguna consulta de búsqueda.</p>
     {% endif %}
 {% endblock %}

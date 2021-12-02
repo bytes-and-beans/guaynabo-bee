@@ -7,6 +7,6 @@ window.utils = {};
  /** Send user to the search page for a given search term.
   */
 window.utils.execute_search = (query='') => {
-    console.log('called with query ',query);
+    if(query != '') window.location.href = `/search?q=${query}`;
 }
 

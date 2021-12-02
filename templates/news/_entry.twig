@@ -53,10 +53,11 @@
         "
     >
         {# classes that will be used in a component below #}
+        {% set pillBottleClasses = 'flex wrap gap-2' %}
         {% set pillClasses = '' %}
         <div class="">
             <h2 class="text-white">Categorias</h2>
-            <div class="flex wrap">
+            <div class="{{pillBottleClasses}}">
                 {% for category in entry.categories.all() %}
                     <div class="{{pillClasses}}">{{category.title}}</div>
                 {% endfor %}
@@ -64,7 +65,7 @@
         </div>
         <div class="">
             <h2 class="text-white">Tags</h2>
-            <div class="flex wrap">
+            <div class="{{pillBottleClasses}}">
                 {% for tag in entry.tags.all() %}
                     <div class="{{pillClasses}}">{{tag.title}}</div>
                 {% endfor %}

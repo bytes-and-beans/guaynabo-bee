@@ -15,7 +15,14 @@
     {% include "_partials/entry_titlebar.twig" with {title: "Noticias"} %}
 {% endblock %}
 
+{% set newsQuery = craft.entries().section('news').limit(10).cache() %}
+
 {% block base_content %}
-    <p>testing</p>
+    {% if newsQuery.exists() %}
+        <p>there are news articles</p>
+    {% else %}
+    {# There are no news articles #}
+        <p>No hay artículos de noticias en este momento.</p>
+    {% endif %}
 {% endblock %}
 

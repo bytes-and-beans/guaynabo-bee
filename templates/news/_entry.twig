@@ -23,17 +23,19 @@
 {% endblock %}
 
 {% block base_content %}
-<div class=" grid grid-cols-1 md:grid-cols-30-auto gap-x-4
-             
+<div class=" grid grid-cols-1 md:grid-cols-30-auto grid-rows-news 
+             gap-x-4 items-start
            "
 >
 
     {# feature image #}
+    <div>
     <img 
         class="col-start-1"
         src="{{entry.featureImage.one().getUrl(featureImageTransform)}}" 
         alt=""
     >
+    </div>
 
     {# article body #}
     <div class="md:col-start-2 md:row-span-2">

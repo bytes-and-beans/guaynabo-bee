@@ -8,3 +8,14 @@
  #      featureImage: image asset, single
  #      summary: plaintext, multiline
  #}
+
+{% extends "_layouts/3-base" %}
+
+{% block base_supercontent %}
+    {% include "_partials/entry_titlebar.twig" with {title: "Noticias"} %}
+{% endblock %}
+
+{% block base_content %}
+    <p>testing</p>
+{% endblock %}
+

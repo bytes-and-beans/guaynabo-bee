@@ -35,14 +35,29 @@
     {% else %}
         class="bg-gradient-to-tr {{titlebar_bg_gradient_start}} {{titlebar_bg_gradient_end}} 
             py-4 w-full text-center flex justify-center items-center 
-            md:justify-start md:px-24
+            md:justify-between md:px-24
         " 
     {% endif %}
 >
+    {# Title text #}
     {% if not entry.titleBar.exists() ?? false %}
         <h1 class="text-white ">
             {{ title_text }}
         </h1> 
+    {% else %}
+        <div class="h-px w-px">&nbsp;</div>
     {% endif %}
+
+    {# Search bar #}
+    <div class="p-1
+                bg-gradient-to-tr from-guaynabo-green-start to-guaynabo-green-end
+         "
+    >
+        <input type="text" 
+            class="h-full bg-white bg-opacity-80
+                   focuss:borderColor-black
+            ">
+        <button class="h-[35] w-[25px]"><i class="fas fa-search text-white"></i></button>
+    </div>
     
 </div>

@@ -23,8 +23,37 @@
 {% endblock %}
 
 {% block base_content %}
+<div class=" grid auto-cols-auto
+             
+           "
+>
+
     {# feature image #}
-    <img src="{{entry.featureImage.one().getUrl(featureImageTransform)}}" alt="">
+    <img 
+        class="col-start-1"
+        src="{{entry.featureImage.one().getUrl(featureImageTransform)}}" 
+        alt=""
+    >
+
     {# article body #}
+    <div class="md:col-start-2 md:row-span-full">
+        <div class="text-sm">
+            {{ entry.summary | nl2br }}
+        </div>
+        <div class="">
+            {% include "_partials/superContent" with {superField: entry.superContent} %}
+        </div>
+        <div class=""></div>
+    </div>
+
     {# tags and categories #}
+    <div 
+        class=" col-start-1
+                bg-gradient-to-tr from-guaynabo-blue-start to-guaynabo-blue-end
+        "
+    >
+        Placeholder
+    </div>
+
+</div>
 {% endblock %}

@@ -30,13 +30,13 @@
 
     {# feature image #}
     <img 
-        class="col-start-1"
+        class="col-start-1 w-full"
         src="{{entry.featureImage.one().getUrl(featureImageTransform)}}" 
         alt=""
     >
 
     {# article body #}
-    <div class="md:col-start-2 md:row-span-2">
+    <div class="md:col-start-2 md:row-span-2 mb-4">
         <div class="text-sm py-4">
             {{ entry.summary | nl2br }}
         </div>

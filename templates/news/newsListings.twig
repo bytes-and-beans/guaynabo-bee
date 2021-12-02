@@ -19,9 +19,40 @@
 
 {% block base_content %}
     {% if newsQuery.exists() %}
-        <p>there are news articles</p>
+        {% paginate newsQuery as pageInfo, pageEntries %}
+
+        
+        {% for result in pageEntries %}
+            <div class="">
+                <div class="">{# featureImage #}
+                    {% set thumbTransform = {
+                        mode: 'fit',
+                        width: 100,
+                        height: 100,
+                        quality: 75,
+                    } %}
+                    <img 
+                        class=""
+                        src="{{result.featureImage.one().getUrl(thumbTransform)}}" 
+                        alt=""
+                    >
+                </div>
+                <div class="">{{ result.title }}</div>
+                <div class=""> {# Breadcrumbs #}
+
+                </div>
+                <div class="">{{ result.summary}}</div>
+            </div>
+        {% endfor %}
+        
+        {# pagination #}
+        <div class="flex justify-between mt-4 mx-auto max-w-md">
+            {% if pageInfo.prevUrl %}<a href="{{ pageInfo.prevUrl }}">Siguiente</a> {% else %} <div class="w-px h-px">&nbsp;</div> {% endif %}
+            <div class=""> {{pageInfo.first}} a {{pageInfo.last}} de {{pageInfo.total}} resultados </div>
+            {% if pageInfo.nextUrl %}<a href="{{ pageInfo.nextUrl }}">Previo</a> {% else %} <div class="w-px h-px">&nbsp;</div> {% endif %}
+        </div>
     {% else %}
-    {# There are no news articles #}
+        {# There are no news articles #}
         <p>No hay artículos de noticias en este momento.</p>
     {% endif %}
 {% endblock %}

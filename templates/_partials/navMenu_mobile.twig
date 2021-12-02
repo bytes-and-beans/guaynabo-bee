@@ -32,6 +32,27 @@
         x-show="open"
     >
 
+    {# Search bar #}
+    <div class="p-1 block self-center
+                bg-gradient-to-tr from-guaynabo-green-start to-guaynabo-green-end
+         "
+         x-data="{query: ''}"
+    >
+        <input 
+            type="text" 
+            placeholder="busco..."
+            class="h-full bg-white bg-opacity-80 px-2 focus:outline-darken"
+            x-on:input="query=$el.value"
+            x-on:keyup.enter="utils.execute_search(query)"
+        >
+        <button 
+            class="h-[35] w-[25px]"
+            x-on:click="utils.execute_search(query)"
+        >
+            <i class="fas fa-search text-white"></i>
+        </button>
+    </div>
+
     {# settign some classes that will apper in multiple places below #}
     {% set sectionTitleClasses = "text-xl font-bold text-guaynabo-blue" %}
     {% set detailsClasses = "" %}

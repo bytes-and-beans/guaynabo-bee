@@ -40,7 +40,12 @@
                 <div class=""> {# details container #}
                     <div class="font-advantage text-2xl text-guaynabo-blue">{{ result.title }}</div>
                     <div class=""> {# Breadcrumbs #}
-
+                        {{result.section}}
+                        {% set ancestors = result.getAncestors %}
+                        {% if ancestors | length > 0 %}
+                        >> {{ ancestors | map(a=>"#{a.title}") | join(" >> ") }}
+                        {% endif %}
+                        >> {{result.title}}
                     </div>
                     <div class="">{{ result.summary}}</div>
                 </div>

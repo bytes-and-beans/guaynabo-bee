@@ -11,3 +11,7 @@
  #}
 
 {% extends "_layouts/3-base" %}
+
+{% block base_supercontent %}
+    {% include "_partials/entry_titlebar.twig" with {title: entry.title} %}
+{% endblock %}

@@ -48,11 +48,24 @@
 
     {# tags and categories #}
     <div 
-        class=" col-start-1
+        class=" col-start-1 p-4
                 bg-gradient-to-tr from-guaynabo-blue-start to-guaynabo-blue-end
         "
     >
-        Placeholder
+        {# classes that will be used in a component below #}
+        {% set pillClasses = '' %}
+        <div class="">
+            <h2 class="text-white">Categories</h2>
+            {% for category in entry.categories.all() %}
+                <div class="{{pillClasses}}">{{category.title}}</div>
+            {% endfor %}
+        </div>
+        <div class="">
+            <h2 class="text-white">Tags</h2>
+            {% for tag in entry.tags.all() %}
+                <div class="{{pillClasses}}">{{tag.title}}</div>
+            {% endfor %}
+        </div>
     </div>
 
 </div>

@@ -1,0 +1,89 @@
+{#  Template that renders a news article
+ #  
+ #  Entry Fields
+ #      title: plaintext, single line
+ #      featureImage: image asset, single,
+ #      summary: plaintext, multiline, short summary of article
+ #      superContent: superContent matrix, Article itself
+ #           see supercontent in _partials
+ #      categories: Categories field,
+ #      tags: Tags Field,
+ #}
+
+{% extends "_layouts/3-base" %}
+{% set featureImageTransform = {
+    mode: 'fit',
+    height: 400,
+    width: 400, 
+    quality: 75,
+} %}
+
+{% block base_supercontent %}
+    {% include "_partials/entry_titlebar.twig" with {title: entry.title} %}
+{% endblock %}
+
+{% block base_content %}
+<div class=" grid grid-cols-1 md:grid-cols-30-auto grid-rows-news 
+             gap-x-4 items-start
+           "
+>
+
+    {# feature image #}
+    <img 
+        class="col-start-1 w-full"
+        src="{{entry.featureImage.one().getUrl(featureImageTransform)}}" 
+        alt=""
+    >
+
+    {# article body #}
+    <div class="md:col-start-2 md:row-span-2 mb-4">
+        <div class="text-sm py-4">
+            {{ entry.summary | nl2br }}
+        </div>
+        <div class="">
+            {% include "_partials/superContent" with {superField: entry.superContent} %}
+        </div>
+        <div class=""></div>
+    </div>
+
+    {# tags and categories #}
+    <div 
+        class=" col-start-1 p-4
+                bg-gradient-to-tr from-guaynabo-blue-start to-guaynabo-blue-end
+        "
+    >
+        {# classes that will be used in a component below #}
+        {% set pillBottleClasses = 'flex wrap gap-2' %}
+        {% set pillClasses = 'rounded-full bg-white px-2' %}
+
+        <div class=""> {# categories #}
+            <h2 class="text-white">Categorias</h2>
+            <div class="{{pillBottleClasses}}">
+                {% for item in entry.categories.all() %}
+                    <a
+                        href="/search?cat={{item.title}}" 
+                        class="{{pillClasses}}"
+                    >
+                        {{item.title}}
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class=""> {# tags #}
+            <h2 class="text-white">Tags</h2>
+            <div class="{{pillBottleClasses}}">
+                {% for item in entry.tags.all() %}
+                    <a
+                        href="/search?tag={{item.title}}" 
+                        class="{{pillClasses}}"
+                    >
+                        {{item.title}}
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

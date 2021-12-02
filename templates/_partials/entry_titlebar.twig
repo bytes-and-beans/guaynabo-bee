@@ -56,6 +56,7 @@
     >
         <input 
             type="text" 
+            placeholder="busco..."
             class="h-full bg-white bg-opacity-80 px-2 focus:outline-darken"
             x-on:input="query=$el.value"
             x-on:keyup.enter="utils.execute_search(query)"

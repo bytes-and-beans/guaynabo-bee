@@ -56,15 +56,19 @@
         {% set pillClasses = '' %}
         <div class="">
             <h2 class="text-white">Categorias</h2>
-            {% for category in entry.categories.all() %}
-                <div class="{{pillClasses}}">{{category.title}}</div>
-            {% endfor %}
+            <div class="flex wrap">
+                {% for category in entry.categories.all() %}
+                    <div class="{{pillClasses}}">{{category.title}}</div>
+                {% endfor %}
+            </div>
         </div>
         <div class="">
             <h2 class="text-white">Tags</h2>
-            {% for tag in entry.tags.all() %}
-                <div class="{{pillClasses}}">{{tag.title}}</div>
-            {% endfor %}
+            <div class="flex wrap">
+                {% for tag in entry.tags.all() %}
+                    <div class="{{pillClasses}}">{{tag.title}}</div>
+                {% endfor %}
+            </div>
         </div>
     </div>
 

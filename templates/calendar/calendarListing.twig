@@ -25,11 +25,11 @@
 
     {% set monthquery = craft.entries()
         .section('eventsCalendar')
-        .startTime([
-            'and',"> #{thisYear}-#{number}-01","< #{nextYear}-#{nextMonth}-01"
-        ])
+        .startTime(">= #{thisYear}-#{number}")
+        .endTime("< #{nextYear}-#{nextMonth}")
         .cache() 
     %}
+
     <div class="">
         Macro for {{name}}<br>
         {{number}},

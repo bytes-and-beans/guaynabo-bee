@@ -14,7 +14,49 @@
 
  {% set thisYear = thisYear ?? craft.app.request.getQueryParam('year') ?? now | date('Y') %}
 
-
 {% block base_supercontent %}
     {% include "_partials/entry_titlebar" with {title : "Calendario de Eventos: #{thisYear}"} %}
 {% endblock %}
+
+{# Macro defining the months #}
+{% macro month(name, number) %}
+    <div class="">
+        Macro for {{name}}
+    </div>
+{% endmacro %}
+
+{% block base_content %}
+    {# annual pagination #}
+
+    {# The year calendar #}
+    <div class="">
+        {{ _self.month('enero',1) }}
+        {{ _self.month('febrero',2) }}
+        {{ _self.month('marzo',3) }}
+        {{ _self.month('abril',4) }}
+        {{ _self.month('mayo',5) }}
+        {{ _self.month('junio',6) }}
+        {{ _self.month('julio',7) }}
+        {{ _self.month('agosto',8) }}
+        {{ _self.month('septiembre',9) }}
+        {{ _self.month('octubre',10) }}
+        {{ _self.month('noviembre',11) }}
+        {{ _self.month('diciembre',12) }}
+    </div>
+
+    {# annual pagination #}
+{% endblock %}
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    

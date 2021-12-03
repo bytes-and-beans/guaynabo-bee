@@ -18,6 +18,11 @@
     {% include "_partials/entry_titlebar" with {title : "Calendario de Eventos: #{thisYear}"} %}
 {% endblock %}
 
+{# macro defining the days #}
+{% macro day(title, startTime, endTime, simpleUrl, simpleContent, eventTags) %}
+    <div class="">{{title}}</div>
+{% endmacro %}
+
 {# Macro defining the months #}
 {% macro month(name, number, thisYear) %}
     {% set nextMonth = "#{thisYear}-#{number}" | date_modify('+1 month') | date('m') %}
@@ -31,13 +36,8 @@
     %}
 
     <div class="">
-        Macro for {{name}}<br>
-        {{number}},
-        {{nextMonth}},
-        {{thisYear}},
-        {{nextYear}},
         {% for event in monthquery.all() %}
-            {{event}}
+            {{ _self.day(event.title, event.startTime, event.endTime, event.simpleUrl, event.simpleContent, event.eventTags) }}
         {% endfor %}
     </div>
 {% endmacro %}

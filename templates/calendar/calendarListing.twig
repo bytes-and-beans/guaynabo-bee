@@ -20,8 +20,8 @@
 
 {# Macro defining the months #}
 {% macro month(name, number, thisYear) %}
-    {% set nextMonth = now | date_modify('+1 month') | date('m') %}
-    {% set nextYear = now | date_modify('+1 month') | date('Y') %}
+    {% set nextMonth = "#{thisYear}-#{number}" | date_modify('+1 month') | date('m') %}
+    {% set nextYear  = "#{thisYear}-#{number}" | date_modify('+1 month') | date('Y') %}
 
     {% set monthquery = craft.entries()
         .section('eventsCalendar')

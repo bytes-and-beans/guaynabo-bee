@@ -12,7 +12,8 @@
 
  {% extends "_layouts/3-base.twig" %}
 
- {% set thisYear = thisYear ?? now | date('Y') %}
+ {% set thisYear = thisYear ?? craft.app.request.getQueryParam('year') ?? now | date('Y') %}
+
 
 {% block base_supercontent %}
     {% include "_partials/entry_titlebar" with {title : "Calendario de Eventos: #{thisYear}"} %}

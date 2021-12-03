@@ -13,34 +13,22 @@
  {% extends "_layouts/3-base.twig" %}
 
  {% set thisYear = thisYear ?? craft.app.request.getQueryParam('year') ?? now | date('Y') %}
+ {% set isLeapYear =  thisYear | date('L') %}
 
 {% block base_supercontent %}
     {% include "_partials/entry_titlebar" with {title : "Calendario de Eventos: #{thisYear}"} %}
 {% endblock %}
 
 {# macro defining the days #}
-{% macro day(title, startTime, endTime, simpleUrl, simpleContent, eventTags) %}
-    <div class="">{{title}}</div>
+{% macro day() %}
+    <div class="">
+    </div>
 {% endmacro %}
 
 {# Macro defining the months #}
-{% macro month(name, number, thisYear) %}
-    {% set nextMonth = "#{thisYear}-#{number}" | date_modify('+1 month') | date('m') %}
-    {% set nextYear  = "#{thisYear}-#{number}" | date_modify('+1 month') | date('Y') %}
-
-    {% set monthquery = craft.entries()
-        .section('eventsCalendar')
-        .startTime(">= #{thisYear}-#{number}")
-        .endTime("< #{nextYear}-#{nextMonth}")
-        .cache() 
-    %}
-
+{% macro month(monthNumber, year, daysInMonth) %}
     <div class="">
-        {% for event in monthquery.all() %}
-            {{ _self.day(event.title, event.startTime, event.endTime, event.simpleUrl, event.simpleContent, event.eventTags) }}
-        {% else %}
-            <p>No hay eventos este mes.</p>
-        {% endfor %}
+
     </div>
 {% endmacro %}
 
@@ -48,24 +36,23 @@
     {# annual pagination #}
     {# The year calendar #}
     <div class="">
-        {{ _self.month('enero',      1, thisYear) }}
-        {{ _self.month('febrero',    2, thisYear) }}
-        {{ _self.month('marzo',      3, thisYear) }}
-        {{ _self.month('abril',      4, thisYear) }}
-        {{ _self.month('mayo',       5, thisYear) }}
-        {{ _self.month('junio',      6, thisYear) }}
-        {{ _self.month('julio',      7, thisYear) }}
-        {{ _self.month('agosto',     8, thisYear) }}
-        {{ _self.month('septiembre', 9, thisYear) }}
-        {{ _self.month('octubre',   10, thisYear) }}
-        {{ _self.month('noviembre', 11, thisYear) }}
-        {{ _self.month('diciembre', 12, thisYear) }}
+        {{ _self.month( 1, thisYear, 31) }}
+        {{ _self.month( 2, thisYear, isLeapYear ? 29 : 28 ) }}
+        {{ _self.month( 3, thisYear, 31) }}
+        {{ _self.month( 4, thisYear, 30) }}
+        {{ _self.month( 5, thisYear, 31) }}
+        {{ _self.month( 6, thisYear, 30) }}
+        {{ _self.month( 7, thisYear, 31) }}
+        {{ _self.month( 8, thisYear, 31) }}
+        {{ _self.month( 9, thisYear, 30) }}
+        {{ _self.month(10, thisYear, 31) }}
+        {{ _self.month(11, thisYear, 30) }}
+        {{ _self.month(12, thisYear, 31) }}
     </div>
-
-    {# annual pagination #}
 {% endblock %}
 
-
+    
+    
     
     
     

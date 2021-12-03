@@ -38,6 +38,8 @@
     <div class="">
         {% for event in monthquery.all() %}
             {{ _self.day(event.title, event.startTime, event.endTime, event.simpleUrl, event.simpleContent, event.eventTags) }}
+        {% else %}
+            <p>No hay eventos este mes.</p>
         {% endfor %}
     </div>
 {% endmacro %}

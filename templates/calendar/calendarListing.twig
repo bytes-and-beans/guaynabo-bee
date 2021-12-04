@@ -21,14 +21,14 @@
 
 {# macro defining the days #}
 {% macro day(year, month, date) %}
-    {% set startTime  = "#{year}-#{month}-#{date}" | date('Y-n-d') %}
-    {% set endTime    = "#{year}-#{month}-#{date}" | date_modify('+1 day') | date('Y-n-d') %}
+    {% set startDay  = "#{year}-#{month}-#{date}" | atom %}
+    {% set endDay    = "#{year}-#{month}-#{date}" | date_modify('+1 day') | atom %}
     {% set dayQuery = craft.entries()
         .section('eventsCalendar')
-        .startTime("<= #{startTime}") 
-        .endTime("> #{endTime}")
+        .startTime("<= #{startDay}") 
         .cache()
     %}
+        {# .endTime("< #{endDay}") #}
 
     <div class="">
         {# The date and day #}
@@ -38,8 +38,12 @@
         </div>
         {# The events themselves #}
         <div class="">
-            {{startTime}}<br>
-            {{endTime}}<br>
+            {{startDay}} : startDay<br>
+            {{endDay}} : endDay<br>
+            {% for event in dayQuery.all() %}
+                {{event.startTime.atom()}} : startTime<br>
+                {{event.endTime.atom()}} : endTime<br>
+            {% endfor %}
             the count: {{dayQuery.count()}}
         </div>
     </div>

@@ -20,8 +20,13 @@
 {% endblock %}
 
 {# macro defining the days #}
-{% macro day() %}
+{% macro day(year, month, date) %}
+    
     <div class="">
+        <div class="border-r">
+            <h3 class=""> {{ "%02d"|format(date) }} </h3>
+            {{"#{year}-#{month}-#{date}" | date('l')}}
+        </div>
     </div>
 {% endmacro %}
 
@@ -29,7 +34,11 @@
 {% macro month(monthNumber, year, daysInMonth) %}
     <div class="">
         <h2 class="text-3xl font-advantage">{{ "#{year}-#{monthNumber}" | date('F')}}</h2>
-
+        <div class="ml-4">
+            {% for day in 1..daysInMonth %}
+                {{ _self.day(year, monthNumber, day) }}
+            {% endfor %}
+        </div>
     </div>
 {% endmacro %}
 

@@ -21,15 +21,23 @@
 
 {# macro defining the days #}
 {% macro day(year, month, date) %}
+    {% set nextDay  = "#{year}-#{month}-#{date}" | date_modify('+1 day') | date('Y-n-d')%}
+    {% set dayQuery = craft.entries()
+        .section('eventsCalendar')
+        .startTime('>= "#{year}-#{month}-#{date}"')
+        .endTime("< #{nextDay}")
+        .cache()
+    %}
 
     <div class="text-center">
         {# The date and day #}
-        <div class="border-r w-16 inline-block">
+        <div class="border-r w-16">
             <h3 class="text-center text-4xl"> {{ "%02d"|format(date) }} </h3>
             {{"#{year}-#{month}-#{date}" | date('l')}}
         </div>
         {# The events themselves #}
-        <div class=""></div>
+        <div class="">
+        </div>
     </div>
 {% endmacro %}
 

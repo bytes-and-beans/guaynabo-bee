@@ -21,13 +21,14 @@
 
 {# macro defining the days #}
 {% macro day(year, month, date) %}
-    {% set nextDay  = "#{year}-#{month}-#{date}" | date_modify('+1 day') | date('Y-n-d')%}
+    {% set startTime  = "#{year}-#{month}-#{date}" | atom %}
+    {% set endTime    = "#{year}-#{month}-#{date}" | date_modify('+1 day') | atom %}
     {% set dayQuery = craft.entries()
         .section('eventsCalendar')
-        .startTime('>= "#{year}-#{month}-#{date}"')
-        .endTime("< #{nextDay}")
         .cache()
     %}
+        {# .startTime('>= "#{startTime}"') #}
+        {# .endTime("< #{endTime}") #}
 
     <div class="text-center">
         {# The date and day #}
@@ -37,6 +38,7 @@
         </div>
         {# The events themselves #}
         <div class="">
+            the count: {{dayQuery.count()}}
         </div>
     </div>
 {% endmacro %}
@@ -46,7 +48,7 @@
     <div class="">
         <h2 class="text-3xl font-advantage">{{ "#{year}-#{monthNumber}" | date('F')}}</h2>
         <div class="ml-4">
-            {% for day in 1..daysInMonth %}
+            {% for day in 20..daysInMonth %}
                 {{ _self.day(year, monthNumber, day) }}
             {% endfor %}
         </div>
@@ -57,17 +59,17 @@
     {# annual pagination #}
     {# The year calendar #}
     <div class="">
-        {{ _self.month( 1, thisYear, 31) }}
-        {{ _self.month( 2, thisYear, isLeapYear ? 29 : 28 ) }}
-        {{ _self.month( 3, thisYear, 31) }}
-        {{ _self.month( 4, thisYear, 30) }}
-        {{ _self.month( 5, thisYear, 31) }}
-        {{ _self.month( 6, thisYear, 30) }}
-        {{ _self.month( 7, thisYear, 31) }}
-        {{ _self.month( 8, thisYear, 31) }}
-        {{ _self.month( 9, thisYear, 30) }}
-        {{ _self.month(10, thisYear, 31) }}
-        {{ _self.month(11, thisYear, 30) }}
+        {# {{ _self.month( 1, thisYear, 31) }} #}
+        {# {{ _self.month( 2, thisYear, isLeapYear ? 29 : 28 ) }} #}
+        {# {{ _self.month( 3, thisYear, 31) }} #}
+        {# {{ _self.month( 4, thisYear, 30) }} #}
+        {# {{ _self.month( 5, thisYear, 31) }} #}
+        {# {{ _self.month( 6, thisYear, 30) }} #}
+        {# {{ _self.month( 7, thisYear, 31) }} #}
+        {# {{ _self.month( 8, thisYear, 31) }} #}
+        {# {{ _self.month( 9, thisYear, 30) }} #}
+        {# {{ _self.month(10, thisYear, 31) }} #}
+        {# {{ _self.month(11, thisYear, 30) }} #}
         {{ _self.month(12, thisYear, 31) }}
     </div>
 {% endblock %}

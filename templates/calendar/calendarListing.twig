@@ -58,7 +58,7 @@
         <h2 class="text-3xl font-advantage">{{ "#{year}-#{monthNumber}" | date('F')}}</h2>
         <div class="ml-4">
             {# {% for day in 20..daysInMonth %} #}
-            {% for day in 1..5 %}
+            {% for day in 1..7 %}
                 {{ _self.day(year, monthNumber, day) }}
             {% endfor %}
         </div>

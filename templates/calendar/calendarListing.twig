@@ -39,10 +39,12 @@
         {# The events themselves #}
         <div class="">
             {% for event in dayQuery.all() %}
-            <details>
-                <summary class=".hide-expand-if-alone">{{event.title}}</summary>
-                <div class="flex">{{event.startTime | date('g:H a')}} {{event.endTime | date('g:H a')}}</div>
-                <p>{{event.simpleContent }}</p>
+            <details class="">
+                <summary class="">{{event.title}}</summary>
+                <div class="pl-4">
+                    <div class="flex">{{event.startTime | date('g:H a')}} {{event.endTime | date('g:H a')}}</div>
+                    <p>{{event.simpleContent }}</p>
+                </div>
             </details>
             {% endfor %}
         </div>

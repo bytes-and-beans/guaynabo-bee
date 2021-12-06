@@ -41,11 +41,9 @@
             {% for event in dayQuery.all() %}
             <details>
                 <summary class=".hide-expand-if-alone">{{event.title}}</summary>
-                <p>{{event.summary | nl2br }}</p>
+                <div class="flex">{{event.startTime | date('g:H a')}} {{event.endTime | date('g:H a')}}</div>
+                <p>{{event.simpleContent }}</p>
             </details>
-            
-            <div class="flex">{{event.startTime | date('g:H a')}} {{event.endTime | date('g:H a')}}</div>
-
             {% endfor %}
         </div>
     </div>

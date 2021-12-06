@@ -32,9 +32,10 @@
 
     <div class="flex border-2 border-b-0 last:border-b-2">
         {# The date and day #}
-        <div class="border-r w-16 text-center">
+        <div class=" w-20 text-center relative">
             <h3 class="text-center text-4xl"> {{ "%02d"|format(date) }} </h3>
             {{"#{year}-#{month}-#{date}" | date('l')}}
+            <div class="absolute right-0 top-2 bottom-2 w-2 border-r-2">&nbsp;</div>
         </div>
         {# The events themselves #}
         <div class="">

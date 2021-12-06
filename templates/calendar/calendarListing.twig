@@ -15,6 +15,11 @@
  {% set thisYear = thisYear ?? craft.app.request.getQueryParam('year') ?? now | date('Y') %}
  {% set isLeapYear =  thisYear | date('L') %}
 
+ {% set trueYear  = now | date('Y') %}
+ {% set trueMonth = now | date('n') %}
+ {% set trueDate  = now | date('j') %}
+
+
 {% block base_supercontent %}
     {% include "_partials/entry_titlebar" with {title : "Calendario de Eventos: #{thisYear}"} %}
 {% endblock %}

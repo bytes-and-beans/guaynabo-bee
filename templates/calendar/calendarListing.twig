@@ -30,7 +30,7 @@
         .cache()
     %}
 
-    <div class="">
+    <div class="flex">
         {# The date and day #}
         <div class="border-r w-16 text-center">
             <h3 class="text-center text-4xl"> {{ "%02d"|format(date) }} </h3>
@@ -39,16 +39,14 @@
         {# The events themselves #}
         <div class="">
             {% for event in dayQuery.all() %}
-                {{startDay}} : startDay<br>
-                {{event.startTime.atom()}} : startTime<br>
-                ----------<br>
-                {{endDay}} : endDay<br>
-                {{event.endTime.atom()}} : endTime<br>
+            <details>
+                <summary class=".hide-expand-if-alone">{{event.title}}</summary>
+                <p>{{event.summary | nl2br }}</p>
+            </details>
+            
+            <div class="flex">{{event.startTime | date('g:H a')}} {{event.endTime | date('g:H a')}}</div>
+
             {% endfor %}
-            ----------<br>
-            {{startDay}} : startDay<br>
-            {{endDay}} : endDay<br>
-            the count: {{dayQuery.count()}}
         </div>
     </div>
 {% endmacro %}

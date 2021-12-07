@@ -52,7 +52,14 @@
         <div class="ml-2">
             {% for event in dayQuery.all() %}
             <details class="">
-                <summary class="">{{event.title}}</summary>
+                <summary class="">
+                    {% if not event.simpleUrl.isEmpty() %}
+                        <a href="">{{event.title}}</a>
+                    {% else %}
+                        {{event.title}}
+                    {% endif %}
+                    
+                </summary>
                 <div class="pl-4">
                     <div class="flex">{{event.startTime | date('g:H a')}} {{event.endTime | date('g:H a')}}</div>
                     <p>{{event.simpleContent }}</p>

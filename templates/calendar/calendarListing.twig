@@ -87,6 +87,8 @@
 {% block base_content %}
     {# annual pagination #}
     {# The year calendar #}
+
+    {% cache %}
     <div 
         class=""
         x-data="{
@@ -106,6 +108,7 @@
         {{ _self.month(11, thisYear, 30, trueYear, trueMonth, trueDate) }}
         {{ _self.month(12, thisYear, 31, trueYear, trueMonth, trueDate) }}
     </div>
+    {% endcache %}
 {% endblock %}
 
     

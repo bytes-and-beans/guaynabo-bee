@@ -25,7 +25,7 @@
 {% endblock %}
 
 {# macro defining the days #}
-{% macro day(year, month, date) %}
+{% macro day(year, month, date, trueYear, trueMonth, trueDate) %}
     {% set startDay  = "#{year}-#{month}-#{date}" | atom %}
     {% set endDay    = "#{year}-#{month}-#{date}" | date_modify('+1 day') | date_modify('-1 second') | atom %}
     {% set dayQuery = craft.entries()
@@ -34,10 +34,10 @@
         .endTime(">= #{startDay}")
         .cache()
     %}
-
+    {% set thisDateClass = year == trueYear and month == trueMonth and date == trueDate? "text-guaynabo-blue" : "" %}
     <div class="flex border-2 border-b-0 last:border-b-2">
         {# The date and day #}
-        <div class=" w-20 text-center relative">
+        <div class=" w-20 text-center relative {{thisDateClass}}">
             <h3 class="text-center text-4xl"> {{ "%02d"|format(date) }} </h3>
             {{"#{year}-#{month}-#{date}" | date('l')}}
             <div class="absolute right-0 top-2 bottom-2 w-2 border-r-2">&nbsp;</div>
@@ -65,7 +65,7 @@
         <div class="ml-4">
             {# {% for day in 20..daysInMonth %} #}
             {% for day in 1..7 %}
-                {{ _self.day(year, monthNumber, day) }}
+                {{ _self.day(year, monthNumber, day, trueYear, trueMonth, trueDate) }}
             {% endfor %}
         </div>
     </div>

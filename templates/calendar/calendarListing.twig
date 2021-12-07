@@ -34,10 +34,16 @@
         .endTime(">= #{startDay}")
         .cache()
     %}
-    {% set thisDateClass = year == trueYear and month == trueMonth and date == trueDate? "text-guaynabo-blue" : "" %}
-    <div class="flex border-2 border-b-0 last:border-b-2">
+    <div  class="flex border-2 border-b-0 last:border-b-2">
         {# The date and day #}
-        <div class=" w-20 text-center relative {{thisDateClass}}">
+        <div 
+            class=" w-20 text-center relative"
+            x-data='{
+                calendarDate: "{{year ~ '-' ~ "%02d"|format(month)  ~ '-' ~ "%02d"|format(date) }}",
+                trueDate : new Date().toISOString().split("T")[0],
+            }'
+            x-bind:class="calendarDate == trueDate ? 'text-guaynabo-blue' : ''"
+        >
             <h3 class="text-center text-4xl"> {{ "%02d"|format(date) }} </h3>
             {{"#{year}-#{month}-#{date}" | date('l')}}
             <div class="absolute right-0 top-2 bottom-2 w-2 border-r-2">&nbsp;</div>

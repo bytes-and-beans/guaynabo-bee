@@ -40,7 +40,6 @@
             class=" w-20 text-center relative"
             x-data='{
                 calendarDate: "{{year ~ '-' ~ "%02d"|format(month)  ~ '-' ~ "%02d"|format(date) }}",
-                trueDate : new Date().toISOString().split("T")[0],
             }'
             x-bind:class="calendarDate == trueDate ? 'text-guaynabo-blue' : ''"
         >
@@ -80,7 +79,12 @@
 {% block base_content %}
     {# annual pagination #}
     {# The year calendar #}
-    <div class="">
+    <div 
+        class=""
+        x-data="{
+            trueDate : new Date().toISOString().split('T')[0],
+        }"
+    >
         {# {{ _self.month( 1, thisYear, 31, trueYear, trueMonth, trueDate) }} #}
         {# {{ _self.month( 2, thisYear, isLeapYear ? 29 : 28 , trueYear, trueMonth, trueDate) }} #}
         {# {{ _self.month( 3, thisYear, 31, trueYear, trueMonth, trueDate) }} #}

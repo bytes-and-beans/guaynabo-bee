@@ -22,6 +22,11 @@
 
 {% block base_supercontent %}
     {% include "_partials/entry_titlebar" with {title : "Calendario de Eventos: #{thisYear}"} %}
+    <div class="flex justify-between">
+        <a href="/calendar?year={{thisYear - 1}}">{{thisYear - 1}}</a>
+        <div>{{thisYear}}</div>
+        <a href="/calendar?year={{thisYear + 1}}">{{thisYear + 1}}</a>
+    </div>
 {% endblock %}
 
 {# macro defining the days #}

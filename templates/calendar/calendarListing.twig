@@ -34,6 +34,7 @@
         .endTime(">= #{startDay}")
         .cache()
     %}
+    {% if dayQuery.exists() %}
     <div  class="flex border-2 border-b-0 last:border-b-2">
         {# The date and day #}
         <div 
@@ -60,6 +61,7 @@
             {% endfor %}
         </div>
     </div>
+    {% endif %} {# dayQuery.exists() #}
 {% endmacro %}
 
 {# Macro defining the months #}

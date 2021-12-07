@@ -1,0 +1,133 @@
+{#  Presents a listing of the calendar events for a given year
+ #  
+ #  Required Section: calendar
+ #  calendar entry fields
+ #      title, plaintext
+ #      startTime
+ #      endTime
+ #      simpleUrl
+ #      simpleContent
+ #      eventTags
+ #}
+
+ {% extends "_layouts/3-base.twig" %}
+
+ {% set thisYear = thisYear ?? craft.app.request.getQueryParam('year') ?? now | date('Y') %}
+ {% set isLeapYear =  thisYear | date('L') %}
+
+ {% set trueYear  = now | date('Y') %}
+ {% set trueMonth = now | date('n') %}
+ {% set trueDate  = now | date('j') %}
+
+
+{% block base_supercontent %}
+    {% include "_partials/entry_titlebar" with {title : "Calendario de Eventos: #{thisYear}"} %}
+    <div class="flex justify-between text-lg mx-6 mt-4">
+        <a href="/calendar?year={{thisYear - 1}}"><i class="fas fa-chevron-left"></i><i class="fas fa-chevron-left"></i> {{thisYear - 1}}</a>
+        <div>{{thisYear}}</div>
+        <a href="/calendar?year={{thisYear + 1}}">{{thisYear + 1}} <i class="fas fa-chevron-right"></i><i class="fas fa-chevron-right"></i></a>
+    </div>
+{% endblock %}
+
+{# macro defining the days #}
+{% macro day(year, month, date, trueYear, trueMonth, trueDate) %}
+    {% set startDay  = "#{year}-#{month}-#{date}" | atom %}
+    {% set endDay    = "#{year}-#{month}-#{date}" | date_modify('+1 day') | date_modify('-1 second') | atom %}
+    {% set dayQuery = craft.entries()
+        .section('eventsCalendar')
+        .startTime("<= #{endDay}") 
+        .endTime(">= #{startDay}")
+        .cache()
+    %}
+    {% if dayQuery.exists() %}
+    <div  class="flex border-2 border-b-0 last:border-b-2">
+        {# The date and day #}
+        <div 
+            class=" w-20 text-center relative"
+            x-data='{
+                calendarDate: "{{year ~ '-' ~ "%02d"|format(month)  ~ '-' ~ "%02d"|format(date) }}",
+            }'
+            x-bind:class="calendarDate == trueDate ? 'text-guaynabo-blue' : ''"
+        >
+            <h3 class="text-center text-4xl"> {{ "%02d"|format(date) }} </h3>
+            {{"#{year}-#{month}-#{date}" | date('l')}}
+            <div class="absolute right-0 top-2 bottom-2 w-2 border-r-2">&nbsp;</div>
+        </div>
+        {# The events themselves #}
+        <div class="ml-2">
+            {% for event in dayQuery.all() %}
+            <details class="">
+                <summary class="">
+                    {% if not event.simpleUrl.isEmpty() %}
+                        <a href="">{{event.title}}</a>
+                    {% else %}
+                        {{event.title}}
+                    {% endif %}
+                    
+                </summary>
+                <div class="pl-4">
+                    <div class="flex">{{event.startTime | date('g:H a')}} {{event.endTime | date('g:H a')}}</div>
+                    <p>{{event.simpleContent }}</p>
+                </div>
+            </details>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %} {# dayQuery.exists() #}
+{% endmacro %}
+
+{# Macro defining the months #}
+{% macro month(monthNumber, year, daysInMonth, trueYear, trueMonth, trueDate) %}
+    {% set thisMonthClass = monthNumber == trueMonth and year == trueYear ? "text-guaynabo-blue" : "" %}
+    <div class="">
+        <h2 class="text-3xl font-advantage {{thisMonthClass}}">{{ "#{year}-#{monthNumber}" | date('F')}}</h2>
+        <div class="ml-4">
+            <div class="ml-6 hide-if-not-alone">No hay eventos este mes.</div>
+            {% for day in 1..daysInMonth %}
+                {{ _self.day(year, monthNumber, day, trueYear, trueMonth, trueDate) }}
+            {% endfor %}
+        </div>
+    </div>
+{% endmacro %}
+
+{% block base_content %}
+    {# annual pagination #}
+    {# The year calendar #}
+
+    {% cache %}
+    <div 
+        class=""
+        x-data="{
+            trueDate : new Date().toISOString().split('T')[0],
+        }"
+    >
+        {{ _self.month( 1, thisYear, 31, trueYear, trueMonth, trueDate) }}
+        {{ _self.month( 2, thisYear, isLeapYear ? 29 : 28 , trueYear, trueMonth, trueDate) }}
+        {{ _self.month( 3, thisYear, 31, trueYear, trueMonth, trueDate) }}
+        {{ _self.month( 4, thisYear, 30, trueYear, trueMonth, trueDate) }}
+        {{ _self.month( 5, thisYear, 31, trueYear, trueMonth, trueDate) }}
+        {{ _self.month( 6, thisYear, 30, trueYear, trueMonth, trueDate) }}
+        {{ _self.month( 7, thisYear, 31, trueYear, trueMonth, trueDate) }}
+        {{ _self.month( 8, thisYear, 31, trueYear, trueMonth, trueDate) }}
+        {{ _self.month( 9, thisYear, 30, trueYear, trueMonth, trueDate) }}
+        {{ _self.month(10, thisYear, 31, trueYear, trueMonth, trueDate) }}
+        {{ _self.month(11, thisYear, 30, trueYear, trueMonth, trueDate) }}
+        {{ _self.month(12, thisYear, 31, trueYear, trueMonth, trueDate) }}
+    </div>
+    {% endcache %}
+{% endblock %}
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    

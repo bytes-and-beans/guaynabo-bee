@@ -22,10 +22,10 @@
 
 {% block base_supercontent %}
     {% include "_partials/entry_titlebar" with {title : "Calendario de Eventos: #{thisYear}"} %}
-    <div class="flex justify-between">
-        <a href="/calendar?year={{thisYear - 1}}">{{thisYear - 1}}</a>
+    <div class="flex justify-between text-lg mx-6 mt-4">
+        <a href="/calendar?year={{thisYear - 1}}"><i class="fas fa-chevron-left"></i><i class="fas fa-chevron-left"></i> {{thisYear - 1}}</a>
         <div>{{thisYear}}</div>
-        <a href="/calendar?year={{thisYear + 1}}">{{thisYear + 1}}</a>
+        <a href="/calendar?year={{thisYear + 1}}">{{thisYear + 1}} <i class="fas fa-chevron-right"></i><i class="fas fa-chevron-right"></i></a>
     </div>
 {% endblock %}
 

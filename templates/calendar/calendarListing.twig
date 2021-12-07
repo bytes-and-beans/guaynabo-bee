@@ -82,6 +82,7 @@
     <div class="">
         <h2 class="text-3xl font-advantage {{thisMonthClass}}">{{ "#{year}-#{monthNumber}" | date('F')}}</h2>
         <div class="ml-4">
+            <div class="ml-6 hide-if-not-alone">No hay eventos este mes.</div>
             {% for day in 1..daysInMonth %}
                 {{ _self.day(year, monthNumber, day, trueYear, trueMonth, trueDate) }}
             {% endfor %}

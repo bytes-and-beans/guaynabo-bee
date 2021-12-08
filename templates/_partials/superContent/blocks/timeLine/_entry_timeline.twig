@@ -1,0 +1,40 @@
+{#  Returns JSON data representing a timeline in the 'timelines' section
+ #  
+ #  Returning JSON from a twig template like this is technicaly and antipattern,
+ #  but it works, for now. Don't be suprised if a Craft update breaks this in
+ #  the future. It work /very well/ actualy. It's not a bug, it's a 'bonus feature'.
+ #  
+ #  
+ #}
+{
+    {# "title": {
+        "text":{
+            "headline": "{{entry.title}}"
+        }
+    }, #}
+    "events": [
+        {% for slide in entry.timeline %}
+            {
+                "start_date": {
+                    "year": {{slide.startYear}},
+                    "month": {{slide.startMonth != "0" ? slide.startMonth : 'null'}},
+                    "day": {{slide.startDate ? slide.startDate : 'null'}}
+                },{% if slide.endYear %}
+                "end_date": {
+                    "year": {{slide.endYear}},
+                    "month": {{slide.endMonth != "0" ? slide.endMonth : 'null'}},
+                    "day": {{slide.endDate ? slide.endDate : 'null'}}
+                },
+                {% endif %}
+                "text": {
+                    "headline": "{{slide.headline}}",
+                    "text": "{{slide.text}}"
+                }{% if slide.media is not empty %}, {% set media = slide.media.one() %}
+                "media": {
+                    "url": "{{media.getUrl()}}"
+                }
+                {% endif %}
+            }{{ not loop.last ? ',' }}
+        {% endfor %}
+    ]
+}

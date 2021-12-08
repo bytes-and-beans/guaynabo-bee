@@ -1,0 +1,40 @@
+{#  This component will create a timeline using TimelineJS; from KnightLab.
+    It is currently set up to only use JSON stored on the site
+    It currently pulls the javascript from the TimelineJS cdn
+#}
+
+{% do view.registerJsFile("https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js",{
+    position: POS_BEGIN
+}) %}
+{% do view.registerCssFile("https://cdn.knightlab.com/libs/timeline3/latest/css/timeline.css",{
+    title: 'timeline-styles'
+}) %}
+
+<div class="timeline__container">
+    <div id={{block.selectedTimeline}} class="timeline__target" style="height:475px;width:100%"></div>
+    <script>
+        (()=>{
+            function uid() {
+                return 'xxxxxxxx'.replace(/[xy]/g, function(c) {
+                    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+                    return v.toString(16);
+                });
+            }
+            const target = document.currentScript.parentNode.querySelector('.timeline__target');
+            const id = target.id + uid();
+            target.id = id;
+            // The TL.Timeline constructor takes at least two arguments:
+            // the id of the Timeline container (no '#'), and
+            // the URL to your JSON data file or Google spreadsheet.
+            // the id must refer to an element "above" this code,
+            // and the element must have CSS styling to give it width and height
+            // optionally, a third argument with configuration options can be passed.
+            // See more about options at https://timeline.knightlab.com/docs/instantiate-a-timeline.html
+            timeline = new TL.Timeline(
+                id, 
+                '{{"/timelines/#{block.selectedTimeline}"}}'
+            );
+        })()
+        
+    </script>
+</div>

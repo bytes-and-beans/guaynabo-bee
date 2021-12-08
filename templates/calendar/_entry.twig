@@ -21,7 +21,8 @@
 {% endblock %}
 
 {% block base_content %}
-    <div class="sm:ml-4 mb-6">
+    <div class="mb-6  ">
+        test
         {% if not entry.simpleUrl.empty() %}
             {{entry.simpleUrl.getLink({
                 class: 'block my-4',
@@ -36,7 +37,7 @@
 {% block base_sidebar %}
     <div 
         class="bg-gradient-to-tr from-guaynabo-purple-start to-guaynabo-purple-end 
-            text-white px-4 py-2
+            text-white px-4 py-2 sm:mr-4 sm-mb-4
             flex flex-wrap justify-around sm:block
         "
     >

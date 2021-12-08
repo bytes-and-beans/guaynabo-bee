@@ -20,6 +20,9 @@
         base_sidebar: Any 'sidebar' content. By default this will appear to the right of content and subcontent
 
     Optional Vars
+        base_sidebarLeft: bool, if true the base_sidebar block will float on the
+            left rather than the right
+            Defaults to False
         base_primarySectionElement: string, the <tagname> of the primary content element.
             Defaults' to 'div'. Primaryly used to change this to 'article', or section
         base_sidebarSectionElement: the <tagname> of the sidebar element.
@@ -32,6 +35,7 @@
 
 {% extends "_layouts/2-hmf" %}
 
+{% set base_sidebarLeft = base_sidebarLeft ?? false %}
 {% set base_primarySectionElement = base_primarySectionElement ?? 'div' %}
 {% set base_sidebarSectionElement = base_sidebarSectionElement ?? 'div' %}
 {% set base_supercontentSectionElement = base_supercontentSectionElement ?? 'div' %}
@@ -50,8 +54,9 @@
 
         {# for sidebars and suchlike #}
         {% if block('base_sidebar') is not empty %}
+        {% set sidebarFloatClass = base_sidebarLeft ? "sm:float-left" : "sm:float-right" %}
         <{{base_sidebarSectionElement}} id="base_sidebar" 
-            class=" w-full sm:float-right sm:max-w-[26%] 
+            class=" w-full {{sidebarFloatClass}} sm:max-w-[26%] 
                 sm:mr-0 sm:mt-0 sm:ml-[13px] sm:mb-[13px]
                 order-last sm:order-first
             "

@@ -94,7 +94,7 @@
     {# annual pagination #}
     {# The year calendar #}
 
-    {% cache %}
+    {% cache globally using key craft.request.queryString %}
     <div 
         class=""
         x-data="{

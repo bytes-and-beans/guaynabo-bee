@@ -3,12 +3,13 @@
 
     optional vars: 
         title: optional override for the title text. Defaults to entry.title then '&nbsp;'
-        entry.colorGradient: dropdown, which color gradient we should use.
+        colorGradient: dropdown, which color gradient we should use.
             values: blue, purple, green, orange
+            Defaults to entry.colorGradient then null (blue)
         entry.titleBare: asset, image, one(); Image that should be used for the titlebar
 #}
 {# Set the color gradient #}
-{% switch entry.colorGradient ?? null %}
+{% switch colorGradient ?? entry.colorGradient ?? null %}
     {% case "blue" %}
         {% set titlebar_bg_gradient_start = "from-guaynabo-blue-start" %}
         {% set titlebar_bg_gradient_end   =   "to-guaynabo-blue-end" %}

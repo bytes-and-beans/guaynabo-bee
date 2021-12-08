@@ -1,0 +1,61 @@
+{#  Displays the information about an individual event calendar event.
+ #  
+ #  Entry fields
+ #      required
+ #          title, plaintext
+ #          startTime, date-time
+ #          endTime, date-time
+ #      optional
+ #          simpleUrl, Link field, url for more information bout the event. Used as an
+ #              alternative to the event's _entry page.
+ #          simpleContent, redactor, Short description of the event
+ #          eventTags, tags, Tags relating this event to stuff.
+ #  
+ #}
+
+ {% extends "_layouts/3-base" %}
+ {% set base_sidebarLeft = true %}
+
+{% block base_supercontent %}
+    {% include "_partials/entry_titlebar" with {colorGradient: "purple"} %}
+{% endblock %}
+
+{% block base_content %}
+    <div class="mb-6  ">
+        test
+        {% if not entry.simpleUrl.empty() %}
+            {{entry.simpleUrl.getLink({
+                class: 'block my-4',
+                text: 'Haga clic aquí para más información.',
+            })}}
+        {% endif %}
+        
+        <div>{{entry.simpleContent}}</div>
+    </div>
+{% endblock %}
+
+{% block base_sidebar %}
+    <div 
+        class="bg-gradient-to-tr from-guaynabo-purple-start to-guaynabo-purple-end 
+            text-white px-4 py-2 sm:mr-4 sm-mb-4
+            flex flex-wrap justify-around sm:block
+        "
+    >
+        <div>
+            <h2>Desde:</h2>
+            <div class="ml-4 nobreak whitespace-nowrap">
+                <span class="capitalize">{{entry.startTime | date("l") }}</span><br>
+                <span class="capitalize">{{entry.startTime | date("F") }}</span>
+                {{entry.startTime | date("n, Y") }}
+            </div>
+        </div>
+        <div>
+            <h2>Hasta:</h2>
+            <div class="ml-4 nobreak whitespace-nowrap">
+                <span class="capitalize">{{entry.endTime | date("l") }}</span><br>
+                <span class="capitalize">{{entry.endTime | date("F") }}</span>
+                {{entry.endTime | date("n, Y") }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

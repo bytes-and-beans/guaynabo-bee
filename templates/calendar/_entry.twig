@@ -36,12 +36,13 @@
 {% block base_sidebar %}
     <div 
         class="bg-gradient-to-tr from-guaynabo-purple-start to-guaynabo-purple-end 
-            text-white flex wrap justify-around sm:block
+            text-white px-4 py-2
+            flex flex-wrap justify-around sm:block
         "
     >
         <div>
             <h2>Desde:</h2>
-            <div class="ml-4">
+            <div class="ml-4 nobreak whitespace-nowrap">
                 <span class="capitalize">{{entry.startTime | date("l") }}</span><br>
                 <span class="capitalize">{{entry.startTime | date("F") }}</span>
                 {{entry.startTime | date("n, Y") }}
@@ -49,7 +50,7 @@
         </div>
         <div>
             <h2>Hasta:</h2>
-            <div class="ml-4">
+            <div class="ml-4 nobreak whitespace-nowrap">
                 <span class="capitalize">{{entry.endTime | date("l") }}</span><br>
                 <span class="capitalize">{{entry.endTime | date("F") }}</span>
                 {{entry.endTime | date("n, Y") }}

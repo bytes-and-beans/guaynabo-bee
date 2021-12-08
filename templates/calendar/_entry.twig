@@ -9,5 +9,18 @@
  #}
 
  {% extends "_layouts/3-base" %}
+ {% set base_sidebarLeft = true %}
 
-{% block name %}{% endblock %}
+{% block base_supercontent %}
+    {% include "_partials/entry_titlebar" with {colorGradient: "purple"} %}
+{% endblock %}
+
+{% block base_content %}
+    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis laudantium odit nulla obcaecati quas commodi aliquid explicabo! Quidem, in! Impedit laudantium aliquam nostrum quae, deleniti assumenda exercitationem voluptates mollitia fugit.
+{% endblock %}
+
+{% block base_sidebar %}
+    <div class="text-white bg-gradient-to-tr from-guaynabo-purple-start to-guaynabo-purple-end">
+        Placeholder content
+    </div>
+{% endblock %}

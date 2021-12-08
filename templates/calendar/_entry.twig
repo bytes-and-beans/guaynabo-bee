@@ -21,10 +21,10 @@
 {% endblock %}
 
 {% block base_content %}
-    <div class="sm:ml-4">
+    <div class="sm:ml-4 mb-6">
         {% if not entry.simpleUrl.empty() %}
             {{entry.simpleUrl.getLink({
-                class: 'block my-6',
+                class: 'block my-4',
                 text: 'Haga clic aquí para más información.',
             })}}
         {% endif %}

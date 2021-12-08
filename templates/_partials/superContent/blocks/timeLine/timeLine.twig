@@ -1,8 +1,12 @@
 {#  This component will create a timeline using TimelineJS; from KnightLab.
     It is currently set up to only use JSON stored on the site
     It currently pulls the javascript from the TimelineJS cdn
+
+    timeline block fields
+        selectedTimeline: dropdown, value is the url to the timeline's JSON
 #}
 
+{# pull TimelineJS files from the CDN #}
 {% do view.registerJsFile("https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js",{
     position: POS_BEGIN
 }) %}
@@ -14,6 +18,8 @@
     <div id={{block.selectedTimeline}} class="timeline__target" style="height:475px;width:100%"></div>
     <script>
         (()=>{
+            // This whole song and dance is so we can have multiple timelines in the same page.
+            //Generate a unique id for this timeline
             function uid() {
                 return 'xxxxxxxx'.replace(/[xy]/g, function(c) {
                     var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
@@ -30,6 +36,7 @@
             // and the element must have CSS styling to give it width and height
             // optionally, a third argument with configuration options can be passed.
             // See more about options at https://timeline.knightlab.com/docs/instantiate-a-timeline.html
+            
             timeline = new TL.Timeline(
                 id, 
                 '{{"/timelines/#{block.selectedTimeline}"}}'

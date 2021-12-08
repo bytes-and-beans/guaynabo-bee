@@ -21,7 +21,16 @@
 {% endblock %}
 
 {% block base_content %}
-    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veritatis laudantium odit nulla obcaecati quas commodi aliquid explicabo! Quidem, in! Impedit laudantium aliquam nostrum quae, deleniti assumenda exercitationem voluptates mollitia fugit.
+    <div class="sm:ml-4">
+        {% if not entry.simpleUrl.empty() %}
+            {{entry.simpleUrl.getLink({
+                class: 'block my-6',
+                text: 'Haga clic aquí para más información.',
+            })}}
+        {% endif %}
+        
+        <div>{{entry.simpleContent}}</div>
+    </div>
 {% endblock %}
 
 {% block base_sidebar %}

@@ -27,19 +27,44 @@ fieldLayouts:
 fields:
   4f995c30-7417-498f-b1c9-e6dee87b8d17: # Text
     columnSuffix: null
-    contentColumnType: string
+    contentColumnType: text
     fieldGroup: null
     handle: redactorText
     instructions: 'Put your text here.'
     name: Text
     searchable: false
     settings:
-      errorMessage: 'Unable to find component class ''craft\redactor\Field''.'
-      expectedType: craft\redactor\Field
-      settings: '{"availableTransforms":["c909e108-dbba-45be-b6f3-1ab01fb9dfa4","ed995c29-9e87-49a6-aa47-d2638d854d06","03a84b54-1534-4d28-ada1-8da3aac4ffc8","42cc13c0-be07-41ef-85fc-893f9676f8ce"],"availableVolumes":["c1080c91-c3dc-4737-bbf9-c9a13b373e0d","13ef6cd4-27fa-4993-9c41-b09fd0e788d0","9b6c361a-0640-4ed7-bdbb-7671caee668c","817fdbb8-816c-4180-8a96-d0ad7808dec9","6b7c1600-5730-4260-9603-b5718fc754ec","e823d103-105b-4636-a457-64e56bcbf12b","41dea3d8-588b-4e96-82b2-82157cf3f818"],"cleanupHtml":true,"columnType":"text","configSelectionMode":"choose","defaultTransform":"","manualConfig":"","purifierConfig":"","purifyHtml":"1","redactorConfig":"3column.json","removeEmptyTags":"1","removeInlineStyles":"1","removeNbsp":"1","showHtmlButtonForNonAdmins":"","showUnpermittedFiles":false,"showUnpermittedVolumes":false,"uiMode":"enlarged"}' # 700 px wide # News # Transperencia # Comunidad # Servicios # News Photo # Common Images # 230 px wide # Ordenanzas y Resoluciones # Gobierno # 350 px wide
+      availableTransforms:
+        - c909e108-dbba-45be-b6f3-1ab01fb9dfa4 # 230 px wide
+        - ed995c29-9e87-49a6-aa47-d2638d854d06 # 350 px wide
+        - 03a84b54-1534-4d28-ada1-8da3aac4ffc8 # 700 px wide
+        - 42cc13c0-be07-41ef-85fc-893f9676f8ce # News Photo
+      availableVolumes:
+        - c1080c91-c3dc-4737-bbf9-c9a13b373e0d # Ordenanzas y Resoluciones
+        - 13ef6cd4-27fa-4993-9c41-b09fd0e788d0 # Comunidad
+        - 9b6c361a-0640-4ed7-bdbb-7671caee668c # Transperencia
+        - 817fdbb8-816c-4180-8a96-d0ad7808dec9 # Common Images
+        - 6b7c1600-5730-4260-9603-b5718fc754ec # News
+        - e823d103-105b-4636-a457-64e56bcbf12b # Gobierno
+        - 41dea3d8-588b-4e96-82b2-82157cf3f818 # Servicios
+      cleanupHtml: true
+      columnType: text
+      configSelectionMode: choose
+      defaultTransform: ''
+      manualConfig: ''
+      purifierConfig: ''
+      purifyHtml: '1'
+      redactorConfig: ''
+      removeEmptyTags: '1'
+      removeInlineStyles: '1'
+      removeNbsp: '1'
+      showHtmlButtonForNonAdmins: ''
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      uiMode: enlarged
     translationKeyFormat: null
     translationMethod: none
-    type: craft\fields\MissingField
+    type: craft\redactor\Field
   119cb18e-13d4-4af8-8454-939c36202c93: # images
     columnSuffix: null
     contentColumnType: string

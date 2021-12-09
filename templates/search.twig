@@ -10,8 +10,8 @@
 {# getting the tags, if any #}
 {% set urlQuery_tags = craft.app.request.getQueryParam('t') ?? null %}
 {% if urlQuery_tags %}
-    {# {% set tags = urlQuery_tags | map( t => craft.tags().title(t) ) %} #}
-    {% set tags = null %}
+    {% set tags = urlQuery_tags | split('n') | map( t => craft.tags().title(t).all ) %}
+    {# {% set tags = null %} #}
 {% else %}
     {% set tags = null %}
 {% endif %}

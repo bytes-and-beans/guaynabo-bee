@@ -1,0 +1,16 @@
+{#  Handler for the 'table' block type of a superContent Matrix
+    
+    Displayes the contents of a Redactor field.
+
+    required vars
+        superBlock.table: The redactor field to display
+#}
+
+{# pull tabulator files from the CDN #}
+{% do view.registerJsFile("https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js",{
+    position: POS_BEGIN
+}) %}
+{% do view.registerCssFile("https://unpkg.com/tabulator-tables@4.9.3/dist/css/tabulator.min.css",{
+    title: 'tabulator-styles'
+}) %}
+{{superblock.table}}

@@ -18,40 +18,115 @@ fieldLayouts:
 fields:
   e88537d5-65c8-49d9-87f1-f891f3fb2aa2: # Selected Timeline
     columnSuffix: null
-    contentColumnType: string
+    contentColumnType: text
     fieldGroup: null
     handle: selectedTimeline
     instructions: "Please select a timeline from the list below.\r\n"
     name: 'Selected Timeline'
     searchable: false
     settings:
-      optgroups: true
-      options:
-        -
-          __assoc__:
+      allowCustomText: ''
+      allowTarget: ''
+      allowedLinkNames:
+        3: entry
+      autoNoReferrer: ''
+      defaultLinkName: entry
+      defaultText: ''
+      enableAriaLabel: ''
+      enableTitle: ''
+      typeSettings:
+        __assoc__:
+          -
+            - asset
             -
-              - label
-              - 'Línea De Tiempo'
+              __assoc__:
+                -
+                  - sources
+                  - '*'
+                -
+                  - allowCustomQuery
+                  - ''
+          -
+            - category
             -
-              - value
-              - linea-de-tiempo
+              __assoc__:
+                -
+                  - sources
+                  - '*'
+                -
+                  - allowCustomQuery
+                  - ''
+          -
+            - entry
             -
-              - default
-              - ''
-        -
-          __assoc__:
+              __assoc__:
+                -
+                  - sources
+                  -
+                    - 'section:5fe64dc7-0407-425d-bda1-cba3696644f8' # TimeLines
+                -
+                  - allowCustomQuery
+                  - ''
+          -
+            - site
             -
-              - label
-              - 'Alcaldes de Guaynabo'
+              __assoc__:
+                -
+                  - sites
+                  - '*'
+          -
+            - user
             -
-              - value
-              - alcaldes-de-guaynabo
+              __assoc__:
+                -
+                  - sources
+                  - '*'
+                -
+                  - allowCustomQuery
+                  - ''
+          -
+            - custom
             -
-              - default
-              - ''
+              __assoc__:
+                -
+                  - disableValidation
+                  - ''
+                -
+                  - allowAliases
+                  - ''
+          -
+            - email
+            -
+              __assoc__:
+                -
+                  - disableValidation
+                  - ''
+                -
+                  - allowAliases
+                  - ''
+          -
+            - tel
+            -
+              __assoc__:
+                -
+                  - disableValidation
+                  - ''
+                -
+                  - allowAliases
+                  - ''
+          -
+            - url
+            -
+              __assoc__:
+                -
+                  - disableValidation
+                  - ''
+                -
+                  - allowAliases
+                  - ''
     translationKeyFormat: null
     translationMethod: none
-    type: craft\fields\Dropdown
+    type: typedlinkfield\fields\LinkField
 handle: timeline
 name: Timeline
 sortOrder: 7

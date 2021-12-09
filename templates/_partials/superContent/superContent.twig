@@ -80,8 +80,8 @@
             {% include "_partials/superContent/blocks/listVolumeContents" %}
         {% case "embedPdf" %}
             {% include "_partials/superContent/blocks/embedPdf" %}
-        {# {% case "timeLine" %} #}
-            {# {% include "_partials/superContent/blocks/timeLine" %} #}
+        {% case "timeline" %}
+            {% include "_partials/superContent/blocks/timeLine" with {block: superblock} %}
         {% case "special" %}
             {% include "_partials/superContent/blocks/special/special.twig" %}
         {% default %}

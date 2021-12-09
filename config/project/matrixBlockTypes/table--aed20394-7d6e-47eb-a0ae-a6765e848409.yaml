@@ -1,0 +1,50 @@
+field: 1305ee6d-61f8-4a68-89f1-41e1eca3d8ec # Super Content
+fieldLayouts:
+  a3291a5a-8bcd-438b-94f7-c1807578ad00:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: c7e008d5-d160-4ea0-9966-80f56d154e92 # Table
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  c7e008d5-d160-4ea0-9966-80f56d154e92: # Table
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: table
+    instructions: "A table with Javascript to make it adjust to the screen size in a smart manner.\r\nNote: You must add a header to the table with the 'add head' button for this to work properly."
+    name: Table
+    searchable: true
+    settings:
+      availableTransforms: '*'
+      availableVolumes: '*'
+      cleanupHtml: true
+      columnType: text
+      configSelectionMode: manual
+      defaultTransform: ''
+      manualConfig: "{\r\n  \"buttons\": [\"bold\", \"italic\",\"table\"],\r\n  \"plugins\": [\"table\"],\r\n  \"toolbarFixed\": true\r\n}"
+      purifierConfig: ''
+      purifyHtml: '1'
+      redactorConfig: ''
+      removeEmptyTags: '1'
+      removeInlineStyles: '1'
+      removeNbsp: '1'
+      showHtmlButtonForNonAdmins: ''
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      uiMode: enlarged
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\redactor\Field
+handle: table
+name: Table
+sortOrder: 9

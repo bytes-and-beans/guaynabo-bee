@@ -82,6 +82,8 @@
             {% include "_partials/superContent/blocks/embedPdf" %}
         {% case "timeline" %}
             {% include "_partials/superContent/blocks/timeLine" with {block: superblock} %}
+        {% case "table" %}
+            {% include "_partials/superContent/blocks/redactorContent" %}
         {% case "special" %}
             {% include "_partials/superContent/blocks/special/special.twig" %}
         {% default %}

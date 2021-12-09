@@ -1,4 +1,4 @@
-dateModified: 1639008022
+dateModified: 1639011473
 email:
   fromEmail: wesley@bytesandbeans.com
   fromName: Guaynabo
@@ -136,6 +136,7 @@ meta:
     ad84678b-0e92-4a82-bab1-cbfd291810c8: Address # Address
     ae766d7f-81cb-47fd-8911-362a19bd9485: 'Embedded Video' # Embedded Video
     aea3bdd1-38cd-4517-ba8f-51ecea59c64d: Default # Default
+    aed20394-7d6e-47eb-a0ae-a6765e848409: Table # Table
     b0c5da96-b662-4e9a-bb42-0296a52e658c: siteUrl # siteUrl
     b4b4a385-0957-4c06-9940-9012f1f6ffd4: 'Mayor Name' # Mayor Name
     b8be571c-6b78-43b1-9f84-236fb53e4b8b: 'button color' # button color
@@ -153,6 +154,7 @@ meta:
     c6a4038c-8b47-4fa5-9b7c-47d8cdc37723: Header # Header
     c6d268b3-749c-4a40-9b00-67bb4ba932ea: Descripción # Descripción
     c6e719d1-7f5c-4f7d-bc06-b425217616c5: 'Hero Images' # Hero Images
+    c7e008d5-d160-4ea0-9966-80f56d154e92: Table # Table
     c909e108-dbba-45be-b6f3-1ab01fb9dfa4: '230 px wide' # 230 px wide
     c1080c91-c3dc-4737-bbf9-c9a13b373e0d: 'Ordenanzas y Resoluciones' # Ordenanzas y Resoluciones
     c89911ff-91ee-4214-952f-1fb86a9f4205: 'Mayor''s Office Post Fields' # Mayor's Office Post Fields

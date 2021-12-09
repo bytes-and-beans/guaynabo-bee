@@ -67,4 +67,4 @@ fields:
     type: craft\fields\PlainText
 handle: tabulator
 name: Tabulator
-sortOrder: 9
+sortOrder: 10

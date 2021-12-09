@@ -17,7 +17,7 @@
     {{superblock.table}}
     <script defer>
         function uid() {
-            return 'xxxxxxxx'.replace(/[xy]/g, function(c) {
+            return 'TABLExxxxxxxx'.replace(/[xy]/g, function(c) {
                 var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
                 return v.toString(16);
             });
@@ -30,7 +30,7 @@
             table.id = id;
         }
         for(let uid of uidList) {
-            const table = new Tabulator("#example-table", {});
+            const table = new Tabulator("#"+uid, {});
         }
     </script>
 </div>

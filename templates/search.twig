@@ -1,8 +1,13 @@
 {#  Page that handles searches and presents the search results
+    
+    Query Params
  #}
 
 
 {% extends "_layouts/3-base" %}
+
+{% set urlQuery_text = craft.app.request.getQueryParam('q') ?? null %}
+
 
 {% block base_supercontent %}
     {% include "_partials/entry_titlebar" with {title : "Sus búsquedas"} %}
@@ -10,11 +15,10 @@
 
 {% block base_content %}
 
-    {% set urlQueryText = craft.app.request.getQueryParam('q') ?? null %}
-    {% if urlQueryText %}
+    {% if urlQuery_text %}
         {# getting our results #}
         {% set query = craft.entries()
-            .search(urlQueryText) 
+            .search(urlQuery_text) 
             .section('not ordenanzasYResolutiones') 
             .limit(10)
         %}

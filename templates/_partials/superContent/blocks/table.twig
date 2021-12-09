@@ -13,6 +13,24 @@
 {% do view.registerCssFile("https://unpkg.com/tabulator-tables@4.9.3/dist/css/tabulator.min.css",{
     title: 'tabulator-styles'
 }) %}
+{% css %}
+    .tabulator,
+    .tabulator .tabulator-header .tabulator-col,
+    .tabulator .tabulator-header,
+    .tabulator-row.tabulator-row-even {
+        background: transparent;
+        border: none;
+    }
+    .tabulator-row,
+    .tabulator-row.tabulator-row-odd,
+    .tabulator-row.tabulator-row-even {
+        border-top: solid 1px #ddd;
+    }
+    .tabulator-row .tabulator-cell {
+        border-right: none;
+    }
+{% endcss %}
+
 <div class="w-full">
     {{superblock.table}}
     <script defer>
@@ -30,7 +48,10 @@
             table.id = id;
         }
         for(let uid of uidList) {
-            const table = new Tabulator("#"+uid, {});
+            const table = new Tabulator("#"+uid, {
+                responsiveLayout:"collapse",
+                headerSort:false,
+            });
         }
     </script>
 </div>

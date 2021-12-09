@@ -5,7 +5,7 @@
     required vars:
         block: the supercontent matrix block being handled.
     timeline block fields
-        selectedTimeline: dropdown, value is the url to the timeline's JSON
+        selectedTimeline: link field, limited to only entries in the Timelines section
 #}
 
 {# pull TimelineJS files from the CDN #}
@@ -17,7 +17,7 @@
 }) %}
 
 <div class="timeline__container">
-    <div id={{block.selectedTimeline}} class="timeline__target" style="height:475px;width:100%"></div>
+    <div id={{block.selectedTimeline.url}} class="timeline__target" style="height:475px;width:100%"></div>
     <script>
         (()=>{
             // This whole song and dance is so we can have multiple timelines in the same page.
@@ -41,7 +41,7 @@
             
             timeline = new TL.Timeline(
                 id, 
-                '{{"/timelines/#{block.selectedTimeline}"}}'
+                '{{"/timelines/#{block.selectedTimeline.url}"}}'
             );
         })()
         

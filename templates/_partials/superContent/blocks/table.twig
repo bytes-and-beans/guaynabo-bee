@@ -10,7 +10,27 @@
 {% do view.registerJsFile("https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js",{
     position: POS_BEGIN
 }) %}
-{% do view.registerCssFile("https://unpkg.com/tabulator-tables@4.9.3/dist/css/tabulator.min.css",{
+{% do view.registerCssFile("https://unpkg.com/tabulator-tables@4.9.3/dist/js/tabulator.min.js",{
     title: 'tabulator-styles'
 }) %}
-{{superblock.table}}
+<div class="w-full">
+    {{superblock.table}}
+    <script defer>
+        function uid() {
+            return 'xxxxxxxx'.replace(/[xy]/g, function(c) {
+                var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+                return v.toString(16);
+            });
+        }
+        const theTables = document.currentScript.parentNode.getElementsByTagName('table');
+        const uidList = [];
+        for(let table of theTables) {
+            const id = uid();
+            uidList.push(id);
+            table.id = id;
+        }
+        for(let uid of uidList) {
+            const table = new Tabulator("#example-table", {});
+        }
+    </script>
+</div>

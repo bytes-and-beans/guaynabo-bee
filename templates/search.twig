@@ -7,7 +7,22 @@
 {% extends "_layouts/3-base" %}
 
 {% set urlQuery_text = craft.app.request.getQueryParam('q') ?? null %}
+{# getting the tags, if any #}
+{% set urlQuery_tags = craft.app.request.getQueryParam('t') ?? null %}
+{% if urlQuery_tags %}
+    {# {% set tags = urlQuery_tags | map( t => craft.tags().title(t) ) %} #}
+    {% set tags = null %}
+{% else %}
+    {% set tags = null %}
+{% endif %}
 
+{# getting our results #}
+{% set query = craft.entries()
+    .search(urlQuery_text) 
+    .section('not ordenanzasYResolutiones')
+    .relatedTo(tags)
+    .limit(10)
+%}
 
 {% block base_supercontent %}
     {% include "_partials/entry_titlebar" with {title : "Sus búsquedas"} %}
@@ -15,47 +30,37 @@
 
 {% block base_content %}
 
-    {% if urlQuery_text %}
-        {# getting our results #}
-        {% set query = craft.entries()
-            .search(urlQuery_text) 
-            .section('not ordenanzasYResolutiones') 
-            .limit(10)
-        %}
-        {% if query.exists %}
-            {% paginate query as pageInfo, pageEntries %}
-            
-            {# The individual listings #}
-            {% for result in pageEntries %}
-                <a
-                    href="{{result.url}}"
-                    class="mb-4 py-2 border-b block"
-                >
-                    <div class="font-advantage text-2xl">
-                        {{result.title}}
-                    </div>
-                    {{result.section}}
-                    {% set ancestors = result.getAncestors %}
-                    {% if ancestors | length > 0 %}
-                      >> {{ ancestors | map(a=>"#{a.title}") | join(" >> ") }}
-                    {% endif %}
-                    >> {{result.title}}
-                </a>
-            {% endfor %}
+    {% if query.exists %}
+        {% paginate query as pageInfo, pageEntries %}
+        
+        {# The individual listings #}
+        {% for result in pageEntries %}
+            <a
+                href="{{result.url}}"
+                class="mb-4 py-2 border-b block"
+            >
+                <div class="font-advantage text-2xl">
+                    {{result.title}}
+                </div>
+                {{result.section}}
+                {% set ancestors = result.getAncestors %}
+                {% if ancestors | length > 0 %}
+                    >> {{ ancestors | map(a=>"#{a.title}") | join(" >> ") }}
+                {% endif %}
+                >> {{result.title}}
+            </a>
+        {% endfor %}
 
-            {# pagination #}
-            <div class="flex justify-between mt-4 mx-auto max-w-md">
-                {% if pageInfo.prevUrl %}<a href="{{ pageInfo.prevUrl }}">Siguiente</a> {% else %} <div class="w-px h-px">&nbsp;</div> {% endif %}
-                <div class=""> {{pageInfo.first}} a {{pageInfo.last}} de {{pageInfo.total}} resultados </div>
-                {% if pageInfo.nextUrl %}<a href="{{ pageInfo.nextUrl }}">Previo</a> {% else %} <div class="w-px h-px">&nbsp;</div> {% endif %}
-            </div>
-        {% else %}
-            {# No results were found. #}
-            <p>No se encontraron resultados de búsqueda.</p>
-        {% endif %}
+        {# pagination #}
+        <div class="flex justify-between mt-4 mx-auto max-w-md">
+            {% if pageInfo.prevUrl %}<a href="{{ pageInfo.prevUrl }}">Siguiente</a> {% else %} <div class="w-px h-px">&nbsp;</div> {% endif %}
+            <div class=""> {{pageInfo.first}} a {{pageInfo.last}} de {{pageInfo.total}} resultados </div>
+            {% if pageInfo.nextUrl %}<a href="{{ pageInfo.nextUrl }}">Previo</a> {% else %} <div class="w-px h-px">&nbsp;</div> {% endif %}
+        </div>
     {% else %}
-        {# No search query given #}
-        <p>No se proporcionó ninguna consulta de búsqueda.</p>
+        {# No results were found. #}
+        <p>No se encontraron resultados de búsqueda.</p>
     {% endif %}
+
 {% endblock %}
 

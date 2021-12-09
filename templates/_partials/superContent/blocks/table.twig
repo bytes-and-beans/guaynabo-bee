@@ -7,10 +7,10 @@
 #}
 
 {# pull tabulator files from the CDN #}
-{% do view.registerJsFile("https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js",{
+{% do view.registerJsFile("https://unpkg.com/tabulator-tables@4.9.3/dist/js/tabulator.min.js",{
     position: POS_BEGIN
 }) %}
-{% do view.registerCssFile("https://unpkg.com/tabulator-tables@4.9.3/dist/js/tabulator.min.js",{
+{% do view.registerCssFile("https://unpkg.com/tabulator-tables@4.9.3/dist/css/tabulator.min.css",{
     title: 'tabulator-styles'
 }) %}
 <div class="w-full">

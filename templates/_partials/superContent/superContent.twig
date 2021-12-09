@@ -86,8 +86,11 @@
             {% include "_partials/superContent/blocks/table" %}
         {% case "special" %}
             {% include "_partials/superContent/blocks/special/special.twig" %}
+        {% case "tabulator" %}
+            {% deprecated 'SuperBlock type "tabulator" is deprecated, use "table" instead.' %}
+            <!-- Block type "tabulator" deprecated -->
         {% default %}
-            <div>Block type "{{superblock.type}}" not yet supported.</div>
+            <!-- Block type "{{superblock.type}}" not yet supported -->
     {% endswitch %}
     
 {% endfor %}

@@ -24,7 +24,7 @@
             </div>
         </div>
         {# cards container #}
-        <div class="w-full">
+        <div class="w-full flex gap-6 overflow-hidden ">
             {% for article in newsQuery.all() %}
                 {% include "_partials/newsCards/card.twig" %}
             {% endfor %}

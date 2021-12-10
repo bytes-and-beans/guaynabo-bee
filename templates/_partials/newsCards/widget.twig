@@ -1,4 +1,10 @@
 {# Displayes recent news headlines as a seriese of cards.
  #}
 
- <!-- placeholder -->
+{% set newsQuery = craft.entries().section('news').orderBy('postDate DESC') %}
+
+{% if newsQuery.exists %}
+    <div>There were active news articles to display</div>
+{% else %}
+    <!-- There are no active news articles to display -->
+{% endif %}

@@ -10,19 +10,27 @@
 {# getting the tags, if any #}
 {% set urlQuery_tags = craft.app.request.getQueryParam('t') ?? null %}
 {% if urlQuery_tags %}
-    {% set tags = urlQuery_tags | split('n') | map( t => craft.tags().title(t).all ) %}
-    {# {% set tags = null %} #}
+    {% set tags = urlQuery_tags | split(',') | map( t => craft.tags().title(t).all() ) %}
 {% else %}
     {% set tags = null %}
+{% endif %}
+{# same as the tags, but for categories #}
+{% set urlQuery_cats = craft.app.request.getQueryParam('c') ?? null %}
+{% if urlQuery_cats %}
+    {% set cat_txt = urlQuery_cats | split(',') | first %}
+    {% set cat = craft.categories().title(cat_txt).one() %}
+{% else %}
+    {% set cats = null %}
 {% endif %}
 
 {# getting our results #}
 {% set query = craft.entries()
     .search(urlQuery_text) 
     .section('not ordenanzasYResolutiones')
-    .relatedTo(tags)
+    .relatedTo(cat)
     .limit(10)
 %}
+    {# .relatedTo(tags) #}
 
 {% block base_supercontent %}
     {% include "_partials/entry_titlebar" with {title : "Sus búsquedas"} %}

@@ -19,7 +19,7 @@
     quality: 75,
 } %}
 
-<div class="w-[256px] sm:w-[355px]">
+<div class="w-[256px] sm:w-[355px] bg-white">
     {% set fimg = featureImage ?? article.featureImage ?? entry.featureImage %}
     <img class="w-full" src="{{fimg.one().getUrl(fimgTransform)}}" alt="">
 

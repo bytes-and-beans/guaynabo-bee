@@ -12,8 +12,16 @@
 
 #}
 
+{% set fimgTransform = {
+    mode: "cover",
+    width: 355,
+    height: 235,
+    quality: 75,
+} %}
+
 <div class="">
-    <img src="" alt="">
+    {% set fimg = featureImage ?? article.featureImage ?? entry.featureImage %}
+    <img class="" src="{{fimg.one().getUrl(fimgTransform)}}" alt="">
     <div>{{ title ?? article.title ?? entry.title ?? "Article Title" }}</div>
-    <div class="">{{ title ?? article.title ?? entry.title ?? "Article Title" }} </div>
+    <div class="">{{ summary ?? article.summary ?? entry.summary ?? "Article Title" }} </div>
 </div>

@@ -19,9 +19,10 @@
     quality: 75,
 } %}
 
-<div class="">
+<div class="w-[256px] sm:w-[355px]">
     {% set fimg = featureImage ?? article.featureImage ?? entry.featureImage %}
-    <img class="" src="{{fimg.one().getUrl(fimgTransform)}}" alt="">
+    <img class="w-full" src="{{fimg.one().getUrl(fimgTransform)}}" alt="">
+
     <div>{{ title ?? article.title ?? entry.title ?? "Article Title" }}</div>
     <div class="">{{ summary ?? article.summary ?? entry.summary ?? "Article Title" }} </div>
 </div>

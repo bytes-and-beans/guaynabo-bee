@@ -26,7 +26,7 @@
         {# cards container #}
         <div class="w-full">
             {% for article in newsQuery.all() %}
-                
+                {% include "_partials/newsCards/card.twig" %}
             {% endfor %}
         </div>
         {# news listings link #}

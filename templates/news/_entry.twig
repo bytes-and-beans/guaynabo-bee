@@ -61,7 +61,7 @@
             <div class="{{pillBottleClasses}}">
                 {% for item in entry.categories.all() %}
                     <a
-                        href="/search?cat={{item.title}}" 
+                        href="/search?c={{item.title}}" 
                         class="{{pillClasses}}"
                     >
                         {{item.title}}
@@ -75,7 +75,7 @@
             <div class="{{pillBottleClasses}}">
                 {% for item in entry.tags.all() %}
                     <a
-                        href="/search?tag={{item.title}}" 
+                        href="/search?t={{item.title}}" 
                         class="{{pillClasses}}"
                     >
                         {{item.title}}

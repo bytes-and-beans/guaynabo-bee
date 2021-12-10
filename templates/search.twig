@@ -20,7 +20,7 @@
     {% set cat_txt = urlQuery_cats | split(',') | first %}
     {% set cat = craft.categories().title(cat_txt).one() %}
 {% else %}
-    {% set cats = null %}
+    {% set cat = null %}
 {% endif %}
 
 {# getting our results #}

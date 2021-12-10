@@ -1,10 +1,37 @@
 {# Displayes recent news headlines as a seriese of cards.
  #}
 
-{% set newsQuery = craft.entries().section('news').orderBy('postDate DESC') %}
+{% set newsQuery = craft.entries().section('news').orderBy('postDate DESC').limit(10) %}
 
 {% if newsQuery.exists %}
-    <div>There were active news articles to display</div>
+    <div 
+        class="bg-gradient-to-tr from-guaynabo-blue-start to-guaynabo-blue-end 
+            w-full text-white 
+        "
+    >
+        {# title and pagination #}
+        <div class="w-full sm:px-8 py-4 sm:py-8 flex justify-between text-2xl">
+            {# title #}
+            <div>Noticias</div>
+            {# pagination #}
+            <div class="flex">
+                <div class="mx-2">
+                    <i class="fas fa-chevron-left"></i>
+                </div>
+                <div class="mx-2">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+        </div>
+        {# cards container #}
+        <div class="w-full">
+            {% for article in newsQuery.all() %}
+                
+            {% endfor %}
+        </div>
+        {# news listings link #}
+        <a href="/news" class="block w-full text-white text-xl text-center sm:px-8 py-4 sm:py-8 flex ">Ver todas las noticias</a>
+    </div>
 {% else %}
     <!-- There are no active news articles to display -->
 {% endif %}

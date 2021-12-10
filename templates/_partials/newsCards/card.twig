@@ -20,7 +20,10 @@
 } %}
 
 <a 
-    class="block w-[256px] sm:w-[355px] bg-white text-guaynabo-blue-dark"
+    class="
+        block w-[256px] sm:w-[355px] first:ml-8
+        bg-white text-guaynabo-blue-dark
+    "
     href="{{url ?? article.url ?? entry.url ?? '/'}}"
 >
     {% set fimg = featureImage ?? article.featureImage ?? entry.featureImage %}

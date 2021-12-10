@@ -27,10 +27,10 @@
 {% set query = craft.entries()
     .search(urlQuery_text) 
     .section('not ordenanzasYResolutiones')
+    .relatedTo(tags)
     .relatedTo(cat)
     .limit(10)
 %}
-    {# .relatedTo(tags) #}
 
 {% block base_supercontent %}
     {% include "_partials/entry_titlebar" with {title : "Sus búsquedas"} %}

@@ -26,10 +26,10 @@
             <div>Noticias</div>
             {# pagination #}
             <div class="flex">
-                <div class="mx-2" @click="$dispatch('news-scroll-left')" >
+                <div class="mx-2 cursor-pointer" @click="$dispatch('news-scroll-left')" >
                     <i class="fas fa-chevron-left"></i>
                 </div>
-                <div class="mx-2" @click="$dispatch('news-scroll-right')" >
+                <div class="mx-2 cursor-pointer" @click="$dispatch('news-scroll-right')" >
                     <i class="fas fa-chevron-right"></i>
                 </div>
             </div>
@@ -37,9 +37,7 @@
         {# cards container #}
         <div 
             class="w-full flex gap-6 overflow-hidden "  
-            @news-scroll-left.window="
-
-            "
+            @news-scroll-left.window=""
         >
             {% for article in newsQuery.all() %}
                 {% include "_partials/newsCards/card.twig" %}

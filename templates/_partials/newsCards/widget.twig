@@ -11,6 +11,7 @@
         "
         x-data="{
             allStoriesLoaded: {{allStoriesLoaded ? 'true' : 'false'}},
+            loading: false,
         }"
     >
         {# title and pagination #}
@@ -19,10 +20,10 @@
             <div>Noticias</div>
             {# pagination #}
             <div class="flex">
-                <div class="mx-2">
+                <div class="mx-2" @click="$dispatch('news-scroll-left')">
                     <i class="fas fa-chevron-left"></i>
                 </div>
-                <div class="mx-2">
+                <div class="mx-2" @click="$dispatch('news-scroll-right')">
                     <i class="fas fa-chevron-right"></i>
                 </div>
             </div>

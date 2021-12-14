@@ -9,9 +9,15 @@
         class="bg-gradient-to-tr from-guaynabo-blue-start to-guaynabo-blue-end 
             w-full text-white 
         "
+        @newsScrollLeftMaxReached.window="scrollLeftMax = true;"
+        @newsScrollLeftMaxOff.window="scrollLeftMax = false;"
+        @newsScrollRightMaxReached.window="scrollRightMax = true;"
+        @newsScrollRightMaxOff.window="scrollRightMax = false;"
         x-data="{
             allStoriesLoaded: {{allStoriesLoaded ? 'true' : 'false'}},
             loading: false,
+            scrollLeftMax: true,
+            scrollRightMax: false,
         }"
     >
         {# title and pagination #}
@@ -31,7 +37,9 @@
         {# cards container #}
         <div 
             class="w-full flex gap-6 overflow-hidden "  
-            @news-scroll-left.window="alert('foo')"
+            @news-scroll-left.window="
+
+            "
         >
             {% for article in newsQuery.all() %}
                 {% include "_partials/newsCards/card.twig" %}

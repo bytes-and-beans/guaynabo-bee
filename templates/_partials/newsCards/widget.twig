@@ -52,6 +52,7 @@
         <div 
             class="w-full flex gap-6 overflow-hidden "  
             @news-scroll-left.window=""
+            @news-scroll-right.window=""
         >
             {% for article in newsQuery.all() %}
                 {% include "_partials/newsCards/card.twig" %}

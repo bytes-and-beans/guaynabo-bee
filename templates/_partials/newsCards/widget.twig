@@ -50,7 +50,7 @@
         </div>
         {# cards container #}
         <div 
-            class="w-full flex gap-6 overflow-hidden "  
+            class="w-full flex gap-6 overflow-x-hidden "  
             @news-scroll-right.window="
                 if(($el.scrollLeft + $el.clientWidth) > 0) scrollLeftMax = false;
                 if(($el.scrollLeft + $el.clientWidth) >= $el.scrollLeftMax) scrollRightMax = true;

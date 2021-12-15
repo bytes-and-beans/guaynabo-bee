@@ -61,6 +61,8 @@
                     });
                 "
             @news-scroll-left.window="
+                if(($el.scrollLeft - $el.clientWidth) <= 0) scrollLeftMax = true;
+                if(($el.scrollLeft - $el.clientWidth) < $el.scrollLeftMax) scrollRightMax = false;
                 $el.scrollTo({
                     top: 0,
                     left: $el.scrollLeft - $el.clientWidth,

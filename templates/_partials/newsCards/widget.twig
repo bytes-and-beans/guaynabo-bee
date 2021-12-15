@@ -52,7 +52,7 @@
         <div 
             class="w-full flex gap-6 overflow-hidden "  
             @news-scroll-right.window="
-                $el.scrollTo({
+                await $el.scrollTo({
                     top: 0,
                     left: $el.scrollLeft + $el.clientWidth,
                     behavior: 'smooth',
@@ -60,7 +60,7 @@
                     if($el.scrollLeft > 0) scrollLeftMax = false;
                 "
             @news-scroll-left.window="
-                $el.scrollTo({
+                await $el.scrollTo({
                     top: 0,
                     left: $el.scrollLeft - $el.clientWidth,
                     behavior: 'smooth',

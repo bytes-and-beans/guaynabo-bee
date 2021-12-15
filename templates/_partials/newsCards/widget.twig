@@ -31,6 +31,8 @@
                     x-bind:class="{
                         'opacity-0': scrollLeftMax,
                         'opacity-100': ! scrollLeftMax,
+                        'cursor-default': scrollLeftMax,
+                        'cursor-pointer': ! scrollLeftMax,
                     }"
                     @click="$dispatch('news-scroll-left')" 
                 >
@@ -41,6 +43,8 @@
                     x-bind:class="{
                         'opacity-0': scrollRightMax,
                         'opacity-100': ! scrollRightMax,
+                        'cursor-default': scrollRightMax,
+                        'cursor-pointer': ! scrollRightMax,
                     }"
                     @click="$dispatch('news-scroll-right')" 
                 >

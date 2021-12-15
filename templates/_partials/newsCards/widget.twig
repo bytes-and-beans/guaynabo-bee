@@ -51,8 +51,22 @@
         {# cards container #}
         <div 
             class="w-full flex gap-6 overflow-hidden "  
-            @news-scroll-left.window=""
-            @news-scroll-right.window=""
+            @news-scroll-right.window="
+                console.log('1');
+                $el.scrollTo({
+                    top: 0,
+                    left: $el.scrollLeft + $el.clientWidth,
+                    behavior: 'smooth',
+                    });
+                "
+            @news-scroll-left.window="
+                console.log('2');
+                $el.scrollTo({
+                    top: 0,
+                    left: $el.scrollLeft - $el.clientWidth,
+                    behavior: 'smooth',
+                    });
+                "
         >
             {% for article in newsQuery.all() %}
                 {% include "_partials/newsCards/card.twig" %}

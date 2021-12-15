@@ -52,20 +52,20 @@
         <div 
             class="w-full flex gap-6 overflow-hidden "  
             @news-scroll-right.window="
-                await $el.scrollTo({
+                $el.scrollTo({
                     top: 0,
                     left: $el.scrollLeft + $el.clientWidth,
                     behavior: 'smooth',
                     });
-                    if($el.scrollLeft > 0) scrollLeftMax = false;
+                if($el.scrollLeft > 0) scrollLeftMax = false;
                 "
             @news-scroll-left.window="
-                await $el.scrollTo({
+                $el.scrollTo({
                     top: 0,
                     left: $el.scrollLeft - $el.clientWidth,
                     behavior: 'smooth',
                     });
-                    if($el.scrollLeft == $el.scrollLeftMax) scrollLeftMax = true;
+                if($el.scrollLeft == $el.scrollLeftMax) scrollLeftMax = true;
                 "
         >
             {% for article in newsQuery.all() %}

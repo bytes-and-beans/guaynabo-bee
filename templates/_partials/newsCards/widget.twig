@@ -112,6 +112,7 @@
         {# news card template #}
         <template id="news-card-template">
             <a 
+                id="nct-anchor"
                 class="
                     block w-[256px] sm:w-[355px] flex-none
                     first:ml-8 last:mr-8
@@ -119,10 +120,10 @@
                 "
                 href=""
             >
-                <img class="w-full" src="FeatureImageSource" alt="">
+                <img class="w-full" src="FeatureImageSource" alt="" id="nct-img">
                 <div class="p-4">
-                    <div class="font-advantage text-xl">Article Title</div>
-                    <div class="mt-4">Article Summary</div>
+                    <div class="font-advantage text-xl" id="nct-title">Article Title</div>
+                    <div class="mt-4" id="nct-summary">Article Summary</div>
                 </div>
             </a>
         </template>

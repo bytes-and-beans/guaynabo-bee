@@ -9,10 +9,6 @@
         class="bg-gradient-to-tr from-guaynabo-blue-start to-guaynabo-blue-end 
             w-full text-white 
         "
-        @newsScrollLeftMaxReached.window="scrollLeftMax = true;"
-        @newsScrollLeftMaxOff.window="scrollLeftMax = false;"
-        @newsScrollRightMaxReached.window="scrollRightMax = true;"
-        @newsScrollRightMaxOff.window="scrollRightMax = false;"
         x-data="{
             allStoriesLoaded: {{allStoriesLoaded ? 'true' : 'false'}},
             loading: false,

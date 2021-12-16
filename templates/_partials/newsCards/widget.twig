@@ -82,13 +82,18 @@
                 "
             @news-reached-end.window="
                 if(!allStoriesLoaded){
-                    {# fetch cards from api #}
-                    {# strip cards from response #}
-                    {# add cards to this element #}
+                    loadMoreStories();
                 }
-                else {}
                 "
         >
+            <script>
+                async function loadMoreStories() {
+                    // fetch cards from api
+                    const json = await fetch('/news/api').then(r => r.json());
+                    // strip cards from response
+                    // add cards to this element
+                }
+            </script>
             {% for article in newsQuery.all() %}
                 <a 
                     class="

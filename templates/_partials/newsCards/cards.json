@@ -1,0 +1,16 @@
+{% set offset = craft.app().getUrlParam('offset') ?? null %}
+{% set number = craft.app().getUrlParam('number') ?? 1 %}
+{% set query = craft.entries().section('news').offset(offset).limit(number) %}
+{% if not query.exists %} {% exit 204 %} {% endif %}
+{
+    "noMoreArticles": {{ query.count() - number <= 0 }},
+    "articles": [
+        {% for article in query.all() %}
+            {
+                "title": "{{}}",
+                "summary": "{{}}",
+                "fimage": "{{}}"
+            }{{ not loop.last ? ',' :''}}
+        {% endfor %}
+    ]
+}

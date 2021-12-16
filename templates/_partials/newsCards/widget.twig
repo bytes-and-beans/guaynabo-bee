@@ -82,16 +82,20 @@
                 "
             @news-reached-end.window="
                 if(!allStoriesLoaded){
-                    loadMoreStories();
+                    loadMoreStories($el);
                 }
                 "
         >
             <script>
-                async function loadMoreStories() {
+                async function loadMoreStories(el) {
                     // fetch cards from api
                     const json = await fetch('/news/api').then(r => r.json());
-                    // strip cards from response
+                    // handle case of there being no more cards to download
+                    if(json.noMoreArticles) el.dispatchEvent(new Event('news-no-more-articles'));
                     // add cards to this element
+                    for (const article of json.articles) {
+                        
+                    }
                 }
             </script>
             {% for article in newsQuery.all() %}

@@ -72,7 +72,12 @@
                     behavior: 'smooth',
                     });
                 "
-            @news-reached-end.window=""
+            @news-reached-end.window="
+                if(!allStoriesLoaded){
+
+                }
+                else {}
+                "
         >
             {% for article in newsQuery.all() %}
                 {% include "_partials/newsCards/card.twig" %}

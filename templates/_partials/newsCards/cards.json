@@ -2,6 +2,12 @@
 {% set number = craft.app().getUrlParam('number') ?? 1 %}
 {% set query = craft.entries().section('news').offset(offset).limit(number) %}
 {# {% if not query.exists %} {% exit 204 %} {% endif %} #}
+{% set fimgTransform = {
+    mode: "cover",
+    width: 355,
+    height: 235,
+    quality: 75,
+} %}
 {
     "noMoreArticles": {{ ((craft.entries().section('news').count() - (offset + number) ) <= 0) ? 'true' : 'false' }},
     "articles": [
@@ -9,7 +15,8 @@
             {
                 "title": "{{ article.title }}",
                 "summary": "{{ article.summary | replace({"\n": "", "\r": "", "\t": ""}) }}",
-                "fimage": "{{ article.featureImage.one().url }}"
+                "fimage": "{{ article.featureImage.one().getUrl(fimgTransform) }}",
+                "link": "{{article.url}}"
             }{{ not loop.last ? ',' :''}}
         {% endfor %}
     ]

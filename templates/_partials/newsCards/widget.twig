@@ -83,19 +83,24 @@
                 "
             @news-reached-end.window="
                 if(!allStoriesLoaded){
-                    loadMoreStories($el);
+                    loadMoreStories($el, cardTemplate);
                 }
                 "
         >
             <script>
-                async function loadMoreStories(el) {
+                async function loadMoreStories(el, template) {
                     // fetch cards from api
                     const json = await fetch('/news/api').then(r => r.json());
                     // handle case of there being no more cards to download
                     if(json.noMoreArticles) el.dispatchEvent(new Event('news-no-more-articles'));
                     // add cards to this element
                     for (const article of json.articles) {
-                        
+                        const newCard = template.content.cloneNode(true);
+                        newCard.querySelector('#nct-title').textContent = article.title;
+                        newCard.querySelector('#nct-summary').textContent = article.summary;
+                        newCard.querySelector('#nct-img').src = article.fimage;
+                        newCard.querySelector('#nct-link').href = article.link;
+                        el.appendChild(newCard);
                     }
                 }
             </script>
@@ -122,7 +127,7 @@
         {# news card template #}
         <template id="news-card-template">
             <a 
-                id="nct-anchor"
+                id="nct-link"
                 class="
                     block w-[256px] sm:w-[355px] flex-none
                     first:ml-8 last:mr-8

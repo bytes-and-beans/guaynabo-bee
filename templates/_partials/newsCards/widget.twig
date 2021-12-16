@@ -4,6 +4,13 @@
 {% set newsQuery = craft.entries().section('news').orderBy('postDate DESC').limit(10) %}
 {% set allStoriesLoaded = newsQuery.count() <= 10 %}
 
+{% set fimgTransform = {
+    mode: "cover",
+    width: 355,
+    height: 235,
+    quality: 75,
+} %}
+
 {% if newsQuery.exists %}
     <div 
         class="bg-gradient-to-tr from-guaynabo-blue-start to-guaynabo-blue-end 
@@ -14,6 +21,7 @@
             loading: false,
             scrollLeftMax: true,
             scrollRightMax: false,
+            cardTemplate: $el.querySelector('#news-card-template'),
         }"
     >
         {# title and pagination #}
@@ -82,11 +90,43 @@
                 "
         >
             {% for article in newsQuery.all() %}
-                {% include "_partials/newsCards/card.twig" %}
+                <a 
+                    class="
+                        block w-[256px] sm:w-[355px] flex-none
+                        first:ml-8 last:mr-8
+                        bg-white text-guaynabo-blue-dark
+                    "
+                    href="{{url ?? article.url ?? entry.url ?? '/'}}"
+                >
+                    {% set fimg = featureImage ?? article.featureImage ?? entry.featureImage %}
+                    <img class="w-full" src="{{fimg.one().getUrl(fimgTransform)}}" alt="">
+                    <div class="p-4">
+                        <div class="font-advantage text-xl">{{ title ?? article.title ?? entry.title ?? "Article Title" }}</div>
+                        <div class="mt-4">{{ summary ?? article.summary ?? entry.summary ?? "Article Title" }} </div>
+                    </div>
+                </a>
             {% endfor %}
         </div>
         {# news listings link #}
         <a href="/news" class="block w-full text-white text-xl text-center sm:px-8 py-4 sm:py-8 ">Ver todas las noticias</a>
+        {# news card template #}
+        <template id="news-card-template">
+            <a 
+                class="
+                    block w-[256px] sm:w-[355px] flex-none
+                    first:ml-8 last:mr-8
+                    bg-white text-guaynabo-blue-dark
+                "
+                href=""
+            >
+                <img class="w-full" src="FeatureImageSource" alt="">
+                <div class="p-4">
+                    <div class="font-advantage text-xl">Article Title</div>
+                    <div class="mt-4">Article Summary</div>
+                </div>
+            </a>
+        </template>
+        
     </div>
 {% else %}
     <!-- There are no active news articles to display -->

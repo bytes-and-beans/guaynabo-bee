@@ -124,8 +124,8 @@
                 // fetch cards from api
                 const limit = 10;
                 const offset = el.children.length;
-                window.dispatchEvent(new CustomEvent(`news-loading?number=${limit}&offset=${offset}`));
-                const json = await fetch('/news/api').then(r => r.json());
+                window.dispatchEvent(new CustomEvent(`news-loading`));
+                const json = await fetch(`/news/api?number=${limit}&offset=${offset}`).then(r => r.json());
                 window.dispatchEvent(new CustomEvent('news-loading-finished'));
                 // handle case of there being no more cards to download
                 if(json.noMoreArticles) window.dispatchEvent(new CustomEvent('news-no-more-articles'));

@@ -1,0 +1,168 @@
+{# Displayes recent news headlines as a seriese of cards.
+ #}
+
+{% set newsQuery = craft.entries().section('news').orderBy('postDate DESC').limit(10) %}
+{% set allStoriesLoaded = newsQuery.count() <= 10 %}
+
+{% set fimgTransform = {
+    mode: "cover",
+    width: 355,
+    height: 235,
+    quality: 75,
+} %}
+
+{% if newsQuery.exists %}
+    <div 
+        class="bg-gradient-to-tr from-guaynabo-blue-start to-guaynabo-blue-end 
+            w-full text-white 
+        "
+        @news-no-more-articles.window="allStoriesLoaded = true;"
+        @news-loading.window="loading = true;"
+        @news-loading-finished.window="loading = false;"
+        @news-card-added.window="scrollRightMax = false;"
+        x-data="{
+            allStoriesLoaded: {{allStoriesLoaded ? 'true' : 'false'}},
+            loading: false,
+            scrollLeftMax: true,
+            scrollRightMax: false,
+            cardTemplate: $el.querySelector('#news-card-template'),
+        }"
+    >
+        {# title and pagination #}
+        <div class="w-full sm:px-8 py-4 sm:py-8 flex justify-between text-2xl">
+            {# title #}
+            <div>Noticias</div>
+            {# pagination #}
+            <div class="flex">
+                 {# left button #}
+                <div 
+                    class="mx-2 cursor-pointer transition" 
+                    x-bind:class="{
+                        'opacity-0': scrollLeftMax,
+                        'opacity-100': ! scrollLeftMax,
+                        'cursor-default': scrollLeftMax,
+                        'cursor-pointer': ! scrollLeftMax,
+                    }"
+                    @click="$dispatch('news-scroll-left')" 
+                >
+                    <i class="fas fa-chevron-left"></i>
+                </div>
+                <div
+                    class="mx-2 transition"
+                    x-bind:class="{
+                        'opacity-0':  !loading,
+                        'opacity-100': loading,
+                    }"
+                >
+                    <i class="fas fa-sync animate-spin" style="animation-duration: 2s;"></i>
+                </div>
+                {# right button #}
+                <div 
+                    class="mx-2 cursor-pointer transition" 
+                    x-bind:class="{
+                        'opacity-0': scrollRightMax,
+                        'opacity-100': ! scrollRightMax,
+                        'cursor-default': scrollRightMax,
+                        'cursor-pointer': ! scrollRightMax,
+                    }"
+                    @click="$dispatch('news-scroll-right')" 
+                >
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+        </div>
+        {# cards container #}
+        <div 
+            class="w-full flex gap-6 overflow-x-hidden "  
+            @news-scroll-right.window="
+                if(($el.scrollLeft + $el.clientWidth) > 0) scrollLeftMax = false;
+                if(($el.scrollLeft + $el.clientWidth) >= $el.scrollLeftMax) {
+                    scrollRightMax = true;
+                    $dispatch('news-reached-end');
+                    }
+                $el.scrollTo({
+                    top: 0,
+                    left: $el.scrollLeft + $el.clientWidth,
+                    behavior: 'smooth',
+                    });
+                "
+            @news-scroll-left.window="
+                if(($el.scrollLeft - $el.clientWidth) <= 0) scrollLeftMax = true;
+                if(($el.scrollLeft - $el.clientWidth) < $el.scrollLeftMax) scrollRightMax = false;
+                $el.scrollTo({
+                    top: 0,
+                    left: $el.scrollLeft - $el.clientWidth,
+                    behavior: 'smooth',
+                    });
+                "
+            @news-reached-end.window="
+                if(!allStoriesLoaded){
+                    loadMoreStories($el, cardTemplate);
+                }
+                "
+        >
+            {% for article in newsQuery.all() %}
+                <a 
+                    class="
+                        block w-[256px] sm:w-[355px] flex-none
+                        first:ml-8 last:mr-8
+                        bg-white text-guaynabo-blue-dark
+                    "
+                    href="{{url ?? article.url ?? entry.url ?? '/'}}"
+                >
+                    {% set fimg = featureImage ?? article.featureImage ?? entry.featureImage %}
+                    <img class="w-full" src="{{fimg.one().getUrl(fimgTransform)}}" alt="">
+                    <div class="p-4">
+                        <div class="font-advantage text-xl">{{ title ?? article.title ?? entry.title ?? "Article Title" }}</div>
+                        <div class="mt-4">{{ summary ?? article.summary ?? entry.summary ?? "Article Title" }} </div>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+        <script>
+            async function loadMoreStories(el, template) {
+                // fetch cards from api
+                const limit = 10;
+                const offset = el.children.length;
+                window.dispatchEvent(new CustomEvent(`news-loading`));
+                const json = await fetch(`/news/api?number=${limit}&offset=${offset}`).then(r => r.json());
+                window.dispatchEvent(new CustomEvent('news-loading-finished'));
+                // handle case of there being no more cards to download
+                if(json.noMoreArticles) window.dispatchEvent(new CustomEvent('news-no-more-articles'));
+                // add cards to this element
+                if(json.articles.length > 0) window.dispatchEvent(new CustomEvent('news-card-added'));
+                for (const article of json.articles) {
+                    const newCard = template.content.cloneNode(true);
+                    newCard.querySelector('#nct-title').textContent = article.title;
+                    newCard.querySelector('#nct-summary').textContent = article.summary;
+                    newCard.querySelector('#nct-img').src = article.fimage;
+                    newCard.querySelector('#nct-link').href = article.link;
+                    el.appendChild(newCard);
+                }
+            }
+        </script>
+        {# news listings link #}
+        <a href="/news" class="block w-full text-white text-xl text-center sm:px-8 py-4 sm:py-8 ">Ver todas las noticias</a>
+        {# news card template #}
+        <template id="news-card-template">
+            <a 
+                id="nct-link"
+                class="
+                    block w-[256px] sm:w-[355px] flex-none
+                    first:ml-8 last:mr-8
+                    bg-white text-guaynabo-blue-dark
+                "
+                href=""
+            >
+                <img class="w-full" src="FeatureImageSource" alt="" id="nct-img">
+                <div class="p-4">
+                    <div class="font-advantage text-xl" id="nct-title">Article Title</div>
+                    <div class="mt-4" id="nct-summary">Article Summary</div>
+                </div>
+            </a>
+        </template>
+        
+    </div>
+{% else %}
+    <!-- There are no active news articles to display -->
+{% endif %}

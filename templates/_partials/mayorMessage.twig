@@ -23,19 +23,21 @@
     } %}
     <div class="flex">
         {# The Flower #}
-        <div class="hidden md:block">
+        <div class="hidden md:block w-full">
             {# <img src="{{}}" alt=""> #}
         </div>
         {# The message #}
-        <div class="">
+        <div class=" w-full">
             <div class="">{{msg.mayorName}}</div>
             <div class="">{{msg.mayorQuote}}</div>
-            <div class="">
-                <img src="{{msg.mayorSignature.one().getUrl(signatureTransform)}}" alt="{{msg.mayorName}}'s signature.">
-            </div>
+            <img 
+                class="max-h-12 ml-auto"
+                src="{{msg.mayorSignature.one().getUrl(signatureTransform)}}" 
+                alt="{{msg.mayorName}}'s signature."
+            >
         </div>
         {# The Mayor's photo #}
-        <div class="hidden sm:block">
+        <div class="hidden sm:block w-full">
             <img src="{{msg.mayorPhoto.one().getUrl(photoTransform)}}" alt="{{msg.mayorName}}">
         </div>
     </div>

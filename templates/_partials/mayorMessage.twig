@@ -23,7 +23,7 @@
     } %}
     <div class="flex">
         {# The Flower #}
-        <div class="hide md:block">
+        <div class="hidden md:block">
             {# <img src="{{}}" alt=""> #}
         </div>
         {# The message #}
@@ -35,7 +35,7 @@
             </div>
         </div>
         {# The Mayor's photo #}
-        <div class="hide sm:block">
+        <div class="hidden sm:block">
             <img src="{{msg.mayorPhoto.one().getUrl(photoTransform)}}" alt="{{msg.mayorName}}">
         </div>
     </div>

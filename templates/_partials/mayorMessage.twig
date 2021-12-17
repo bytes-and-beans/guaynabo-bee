@@ -8,3 +8,35 @@
         mayorSignature: image asset, single
 
  #}
+
+ {% set query = craft.entries.section('mayorsOffice').limit(1).cache() %}
+ {% if query.exists() %}
+ {% set msg = query.one() %}
+    {% set signatureTransform = {
+        mode: fit,
+        height: 100,
+    } %}
+    {% set photoTransform = {
+        mode: cover,
+        width: 400,
+        height 400,
+    } %}
+    <div class="">
+        {# The Flower #}
+
+        {# The message #}
+        <div class="">
+            <div class="">{{msg.mayorName}}</div>
+            <div class="">{{msg.mayorQuote}}</div>
+            <div class="">
+                <img src="{{msg.mayorSignature.one().getUrl(signatureTransform)}}" alt="{{msg.mayorName}}'s signature.">
+            </div>
+        </div>
+        {# The Mayor's photo #}
+        <div class="">
+            <img src="{{msg.mayorPhoto.one().getUrl(photoTransform)}}" alt="{{msg.mayorName}}">
+        </div>
+    </div>
+{% else %}
+    <!-- There are no active entries in the mayorsOffice section -->
+ {% endif %}

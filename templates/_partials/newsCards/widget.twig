@@ -17,6 +17,7 @@
             w-full text-white 
         "
         @news-no-more-articles="allStoriesLoaded = true;"
+
         x-data="{
             allStoriesLoaded: {{allStoriesLoaded ? 'true' : 'false'}},
             loading: false,
@@ -108,7 +109,9 @@
         <script>
             async function loadMoreStories(el, template) {
                 // fetch cards from api
+                if(json.noMoreArticles) el.dispatchEvent(new Event('news-loading'));
                 const json = await fetch('/news/api').then(r => r.json());
+                if(json.noMoreArticles) el.dispatchEvent(new Event('news-loading-finished'));
                 // handle case of there being no more cards to download
                 if(json.noMoreArticles) el.dispatchEvent(new Event('news-no-more-articles'));
                 // add cards to this element

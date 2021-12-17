@@ -122,7 +122,9 @@
         <script>
             async function loadMoreStories(el, template) {
                 // fetch cards from api
-                window.dispatchEvent(new CustomEvent('news-loading'));
+                const limit = 10;
+                const offset = el.children.length;
+                window.dispatchEvent(new CustomEvent(`news-loading?number=${limit}&offset=${offset}`));
                 const json = await fetch('/news/api').then(r => r.json());
                 window.dispatchEvent(new CustomEvent('news-loading-finished'));
                 // handle case of there being no more cards to download

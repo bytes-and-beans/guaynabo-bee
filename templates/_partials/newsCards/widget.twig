@@ -16,8 +16,9 @@
         class="bg-gradient-to-tr from-guaynabo-blue-start to-guaynabo-blue-end 
             w-full text-white 
         "
-        @news-no-more-articles="allStoriesLoaded = true;"
-
+        @news-no-more-articles.window="allStoriesLoaded = true;"
+        @news-loading.window="loading = true"
+        @news-no-more-articles.window="loading = false"
         x-data="{
             allStoriesLoaded: {{allStoriesLoaded ? 'true' : 'false'}},
             loading: false,

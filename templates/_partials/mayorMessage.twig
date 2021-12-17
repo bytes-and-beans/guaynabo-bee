@@ -13,17 +13,19 @@
  {% if query.exists() %}
  {% set msg = query.one() %}
     {% set signatureTransform = {
-        mode: fit,
+        mode: "fit",
         height: 100,
     } %}
     {% set photoTransform = {
-        mode: cover,
+        mode: "cover",
         width: 400,
-        height 400,
+        height: 400,
     } %}
-    <div class="">
+    <div class="flex">
         {# The Flower #}
-
+        <div class="hide md:block">
+            {# <img src="{{}}" alt=""> #}
+        </div>
         {# The message #}
         <div class="">
             <div class="">{{msg.mayorName}}</div>
@@ -33,7 +35,7 @@
             </div>
         </div>
         {# The Mayor's photo #}
-        <div class="">
+        <div class="hide sm:block">
             <img src="{{msg.mayorPhoto.one().getUrl(photoTransform)}}" alt="{{msg.mayorName}}">
         </div>
     </div>

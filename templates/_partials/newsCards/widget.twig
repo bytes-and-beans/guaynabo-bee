@@ -17,8 +17,9 @@
             w-full text-white 
         "
         @news-no-more-articles.window="allStoriesLoaded = true;"
-        @news-loading.window="loading = true"
-        @news-no-more-articles.window="loading = false"
+        @news-loading.window="loading = true;"
+        @news-loading-finished.window="loading = false;"
+        @news-card-added.window="scrollRightMax = false;"
         x-data="{
             allStoriesLoaded: {{allStoriesLoaded ? 'true' : 'false'}},
             loading: false,
@@ -33,6 +34,7 @@
             <div>Noticias</div>
             {# pagination #}
             <div class="flex">
+                 {# left button #}
                 <div 
                     class="mx-2 cursor-pointer transition" 
                     x-bind:class="{
@@ -45,6 +47,13 @@
                 >
                     <i class="fas fa-chevron-left"></i>
                 </div>
+                <div
+                    class="mx-2"
+                    x-show="loading"
+                >
+                    <i class="fas fa-sync animate-spin" style="animation-duration: 3s;"></i>
+                </div>
+                {# right button #}
                 <div 
                     class="mx-2 cursor-pointer transition" 
                     x-bind:class="{
@@ -110,12 +119,13 @@
         <script>
             async function loadMoreStories(el, template) {
                 // fetch cards from api
-                el.dispatchEvent(new Event('news-loading'));
+                window.dispatchEvent(new CustomEvent('news-loading'));
                 const json = await fetch('/news/api').then(r => r.json());
-                if(json.noMoreArticles) el.dispatchEvent(new Event('news-loading-finished'));
+                window.dispatchEvent(new CustomEvent('news-loading-finished'));
                 // handle case of there being no more cards to download
-                el.dispatchEvent(new Event('news-no-more-articles'));
+                if(json.noMoreArticles) window.dispatchEvent(new CustomEvent('news-no-more-articles'));
                 // add cards to this element
+                if(json.articles.length > 0) window.dispatchEvent(new CustomEvent('news-card-added'));
                 for (const article of json.articles) {
                     const newCard = template.content.cloneNode(true);
                     newCard.querySelector('#nct-title').textContent = article.title;

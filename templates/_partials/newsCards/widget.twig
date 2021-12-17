@@ -48,10 +48,13 @@
                     <i class="fas fa-chevron-left"></i>
                 </div>
                 <div
-                    class="mx-2"
-                    x-show="loading"
+                    class="mx-2 transition"
+                    x-bind:class="{
+                        'opacity-0':  !loading,
+                        'opacity-100': loading,
+                    }"
                 >
-                    <i class="fas fa-sync animate-spin" style="animation-duration: 3s;"></i>
+                    <i class="fas fa-sync animate-spin" style="animation-duration: 2s;"></i>
                 </div>
                 {# right button #}
                 <div 

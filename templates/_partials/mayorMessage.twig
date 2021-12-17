@@ -1,0 +1,46 @@
+{#  A widget that displays the most recent entry in the 'mayorsOffice' section.
+
+    Entry Fields
+        title: plain text
+        mayorName: plain text
+        mayorPhoto: image asset, single
+        mayorQuote: plaintext multiline
+        mayorSignature: image asset, single
+
+ #}
+
+ {% set query = craft.entries.section('mayorsOffice').limit(1).cache() %}
+ {% if query.exists() %}
+ {% set msg = query.one() %}
+    {% set signatureTransform = {
+        mode: "fit",
+        height: 100,
+    } %}
+    {% set photoTransform = {
+        mode: "cover",
+        width: 400,
+        height: 400,
+    } %}
+    <div class="flex gap-4 py-8">
+        {# The Flower #}
+        <div class="hidden md:block w-full">
+            <img src="{{common.giantFlower.one().getUrl(photoTransform)}}" alt="">
+        </div>
+        {# The message #}
+        <div class="w-full flex flex-col justify-between gap-4">
+            <div class="">{{msg.mayorName}}</div>
+            <div class="">{{msg.mayorQuote}}</div>
+            <img 
+                class="max-h-12 ml-auto"
+                src="{{msg.mayorSignature.one().getUrl(signatureTransform)}}" 
+                alt="{{msg.mayorName}}'s signature."
+            >
+        </div>
+        {# The Mayor's photo #}
+        <div class="hidden sm:block w-full">
+            <img src="{{msg.mayorPhoto.one().getUrl(photoTransform)}}" alt="{{msg.mayorName}}">
+        </div>
+    </div>
+{% else %}
+    <!-- There are no active entries in the mayorsOffice section -->
+ {% endif %}

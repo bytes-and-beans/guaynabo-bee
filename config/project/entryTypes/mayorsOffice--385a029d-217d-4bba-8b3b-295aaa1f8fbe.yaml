@@ -62,15 +62,6 @@ fieldLayouts:
             type: craft\fieldlayoutelements\CustomField
             warning: null
             width: 100
-          -
-            fieldUid: ae766d7f-81cb-47fd-8911-362a19bd9485 # Embedded Video
-            instructions: null
-            label: null
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            warning: null
-            width: 100
         name: 'Mayor''s Message Post'
         sortOrder: 1
 handle: mayorsOffice

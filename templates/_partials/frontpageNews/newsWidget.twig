@@ -18,12 +18,12 @@
     {% set endOfDay =  startOfDay | date_modify('+1 day') | date_modify('-1 second') %}
     {% set dayQuery = craft.entries()
         .section('eventsCalendar')
-        .startTime("<= #{endOfDay | date('r')}") 
-        .endTime(">= #{startOfDay | date('r')}")
+        .startTime("<= #{ endOfDay | atom }") 
+        .endTime(">= #{ startOfDay | atom }")
         .cache()
     %}
     
-    <div>{{year}} {{month}} {{date}} </div>
+    <div>{{year}} {{month}} {{date}}, {{dayQuery.count()}} events today </div>
 {% endmacro %}
 
 {% set today = now | date_modify('today') %}

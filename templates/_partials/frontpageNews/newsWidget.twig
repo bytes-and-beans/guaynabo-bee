@@ -19,7 +19,12 @@
         .cache()
     %}
     {# day container #}
-    <div class="flex border border-guaynabo-gray border-t-0 first:border-t">
+    <div 
+        class="flex sm:flex-col 
+            border border-guaynabo-gray border-t-0 first:border-t
+            sm:border-t sm:border-l-0 sm:first:border-l
+        "
+    >
         {# day/date box #}
         <div 
             class="flex-grow-0 w-[4.5rem] mr-2

@@ -20,8 +20,9 @@
     %}
     <div class="">
         {# day/date box #}
-        <div class="">
-
+        <div class=" {{isToday ? 'text-guaynabo-blue' :''}}">
+            <h3 class="text-center text-3xl">{{ startOfDay | date('d') }}</h3>
+            <div class="">{{startOfDay | date('l') | lower }}</div>
         </div>
         {# events listing #}
         <div class="">

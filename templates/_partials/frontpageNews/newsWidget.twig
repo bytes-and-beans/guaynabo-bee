@@ -53,7 +53,7 @@
 {# this week's calendar #}
 <div class="w-full">
     <h2 class="text-center">Próximamente</h2>
-    <div class="w-full">
+    <div class="w-full flex flex-col sm:flex-row">
         {# The individual days #}
         {% for number in 0..6 %}
             {% set thisDay =  today | date_modify("+#{number} day") %}

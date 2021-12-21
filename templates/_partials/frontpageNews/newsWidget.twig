@@ -14,10 +14,11 @@
     {% set year = atomDate | date('Y') %}
     {% set month = atomDate | date('m') %}
     {% set date = atomDate | date('d') %}
-    <div>I am {{year}} {{month}} {{date}}{{ isToday ? ' today' : '' }}</div>
+
+    <div>{{year}} {{month}} {{date}} </div>
 {% endmacro %}
 
-{% set today = now | atom %}
+{% set today = now | date_modify('today') %}
 
 {# this week's calendar #}
 <div class="w-full">

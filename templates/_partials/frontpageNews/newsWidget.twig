@@ -34,7 +34,10 @@
         <div class="">
             {% if dayQuery.exists %}
             {% for event in dayQuery.all() %}
-                <a href="" class="">
+                <a 
+                    href="{{ event.simpleUrl.isEmpty() ? event.url : event.simpleUrl.url }}" 
+                    class="block"
+                >
                     {{ event.title }}
                 </a>
             {% endfor %}

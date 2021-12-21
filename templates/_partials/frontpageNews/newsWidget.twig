@@ -33,9 +33,11 @@
         {# events listing #}
         <div class="">
             {% if dayQuery.exists %}
-                <div class="">
-                    {{dayQuery.count()}} eventos este diá.
-                </div>
+            {% for event in dayQuery.all() %}
+                <a href="" class="">
+                    {{ event.title }}
+                </a>
+            {% endfor %}
             {% else %}
                 <div class="">No hay eventos este diá</div>
             {% endif %}

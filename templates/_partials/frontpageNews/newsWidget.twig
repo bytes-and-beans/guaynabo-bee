@@ -10,11 +10,19 @@
  #}
 
 {# macro defining the days #}
-{% macro day(atomDate, isToday) %}
-    {% set year = atomDate | date('Y') %}
-    {% set month = atomDate | date('m') %}
-    {% set date = atomDate | date('d') %}
+{% macro day(startOfDay, isToday) %}
+    {% set year = startOfDay | date('Y') %}
+    {% set month = startOfDay | date('m') %}
+    {% set date = startOfDay | date('d') %}
 
+    {% set endOfDay =  startOfDay | date_modify('+1 day') | date_modify('-1 second') %}
+    {% set dayQuery = craft.entries()
+        .section('eventsCalendar')
+        .startTime("<= #{endOfDay | date('r')}") 
+        .endTime(">= #{startOfDay | date('r')}")
+        .cache()
+    %}
+    
     <div>{{year}} {{month}} {{date}} </div>
 {% endmacro %}
 

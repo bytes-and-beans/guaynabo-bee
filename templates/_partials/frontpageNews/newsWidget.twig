@@ -11,10 +11,6 @@
 
 {# macro defining the days #}
 {% macro day(startOfDay, isToday) %}
-    {% set year = startOfDay | date('Y') %}
-    {% set month = startOfDay | date('m') %}
-    {% set date = startOfDay | date('d') %}
-
     {% set endOfDay =  startOfDay | date_modify('+1 day') | date_modify('-1 second') %}
     {% set dayQuery = craft.entries()
         .section('eventsCalendar')
@@ -22,17 +18,27 @@
         .endTime(">= #{ startOfDay | atom }")
         .cache()
     %}
-    
-    <div>{{year}} {{month}} {{date}}, {{dayQuery.count()}} events today </div>
+    <div class="">
+        {# day/date box #}
+        <div class="">
+
+        </div>
+        {# events listing #}
+        <div class="">
+        </div>
+    </div>
 {% endmacro %}
 
 {% set today = now | date_modify('today') %}
 
 {# this week's calendar #}
 <div class="w-full">
-    {# The individual days #}
-    {% for number in 0..6 %}
-        {% set thisDay =  today | date_modify("+#{number} day") %}
-        {{ _self.day(thisDay, loop.first) }}
-    {% endfor %}
+    <h2 class="text-center">Próximamente</h2>
+    <div class="w-full">
+        {# The individual days #}
+        {% for number in 0..6 %}
+            {% set thisDay =  today | date_modify("+#{number} day") %}
+            {{ _self.day(thisDay, loop.first) }}
+        {% endfor %}
+</div>
 </div>

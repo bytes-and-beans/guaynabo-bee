@@ -14,7 +14,7 @@
     {% set year = atomDate | date('Y') %}
     {% set month = atomDate | date('m') %}
     {% set date = atomDate | date('d') %}
-    <div>I am {{year}} {{month}} {{date}}</div>
+    <div>I am {{year}} {{month}} {{date}}{{ isToday ? ' today' : '' }}</div>
 {% endmacro %}
 
 {% set today = now | atom %}
@@ -24,6 +24,6 @@
     {# The individual days #}
     {% for number in 0..6 %}
         {% set thisDay =  today | date_modify("+#{number} day") %}
-        {{ _self.day(thisDay) }}
+        {{ _self.day(thisDay, loop.first) }}
     {% endfor %}
 </div>

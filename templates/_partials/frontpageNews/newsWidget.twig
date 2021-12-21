@@ -18,14 +18,22 @@
         .endTime(">= #{ startOfDay | atom }")
         .cache()
     %}
-    <div class="">
+    {# day container #}
+    <div class="flex">
         {# day/date box #}
-        <div class=" {{isToday ? 'text-guaynabo-blue' :''}}">
+        <div class="flex-grow-0 w-[4.5rem] {{isToday ? 'text-guaynabo-blue' :''}}">
             <h3 class="text-center text-3xl">{{ startOfDay | date('d') }}</h3>
-            <div class="">{{startOfDay | date('l') | lower }}</div>
+            <div class="text-center">{{startOfDay | date('l') | lower }}</div>
         </div>
         {# events listing #}
         <div class="">
+            {% if dayQuery.exists %}
+                <div class="">
+                    {{dayQuery.count()}} eventos este diá.
+                </div>
+            {% else %}
+                <div class="">No hay eventos este diá</div>
+            {% endif %}
         </div>
     </div>
 {% endmacro %}

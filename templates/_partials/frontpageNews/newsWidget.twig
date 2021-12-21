@@ -42,7 +42,7 @@
             >&nbsp;</div>
         </div>
         {# events listing #}
-        <div class="">
+        <div class="flex flex-col gap-2 px-2">
             {% if dayQuery.exists %}
             {% for event in dayQuery.all() %}
                 <a 

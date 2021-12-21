@@ -1,5 +1,5 @@
 {#  Displays the current weeks events.  
-    Events are pulled from the 'eventsCalendar' section.
+    Events are pulled from the '' section.
 
     entry fields
         startTime
@@ -9,4 +9,21 @@
         eventTags
  #}
 
- 
+{# macro defining the days #}
+{% macro day(atomDate, isToday) %}
+    {% set year = atomDate | date('Y') %}
+    {% set month = atomDate | date('m') %}
+    {% set date = atomDate | date('d') %}
+    <div>I am {{year}} {{month}} {{date}}</div>
+{% endmacro %}
+
+{% set today = now | atom %}
+
+{# this week's calendar #}
+<div class="w-full">
+    {# The individual days #}
+    {% for number in 0..6 %}
+        {% set thisDay =  today | date_modify("+#{number} day") %}
+        {{ _self.day(thisDay) }}
+    {% endfor %}
+</div>

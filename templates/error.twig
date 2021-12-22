@@ -1,0 +1,24 @@
+{# Hanldler for error messages
+
+    When an error is thrown, this will look for matching entries in the 
+    errorPages section.
+ #}
+
+{% extends "_layouts/content-no-sidebar.twig" %}
+
+{% set err = craft.app.request.getQueryParam('e') ?? statusCode %}
+
+{% set subStatusCode = (err  | first ) ~ '00'%}
+
+{% if craft.entries().section('errorPages').title(err).exists() %}
+    {% set article = craft.entries().section('errorPages').title(err).one() %}
+    {% set title = article.title %}
+{% elseif craft.entries().section('errorPages').title(subStatusCode).exists()%}
+    {% set article = craft.entries().section('errorPages').title(subStatusCode).one() %}
+    {% set title = article.title %}
+{% else %}
+    {% set article = craft.entries().section('errorPages').title("Defaul").one() %}
+    {% set title = "Error" %}
+{% endif %}
+
+{% set entry = article %}

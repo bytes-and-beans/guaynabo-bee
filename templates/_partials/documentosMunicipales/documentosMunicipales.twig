@@ -11,14 +11,13 @@
 
 {# Get the PDFs #}
 {% set entry_query = craft.entries({
-    section: 'ordenanzasYResolutiones',
-    tipo: search_tipo,
-    numero: search_numero,
-    serieDropdown: search_serie,
+    section: 'documentosMunicipales',
   })
-  .search(search_descripcion)
-  .orderBy('serie desc, numero desc')
 %}
+{# Macro for the individual documents found #}
+{% macro docMacro(document) %}
+    <div class="">{{document.title}}</div>
+{% endmacro %}
 
 {# Get the color gradient #}
 {% switch entry.colorGradient ?? 'default' %}
@@ -55,7 +54,9 @@
 
     {# The results listings #}
     <div class="">
-
+        {% for document in entry_query.all() %}
+            {{_self.docMacro(document)}}
+        {% endfor %}
     </div>
     
  </section>

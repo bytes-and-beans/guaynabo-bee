@@ -1,7 +1,7 @@
 defaultPlacement: end
 enableVersioning: true
-handle: documentosMunipales
-name: 'Documentos Munipales'
+handle: documentosMunicipales
+name: 'Documentos Municipales'
 previewTargets:
   -
     __assoc__:

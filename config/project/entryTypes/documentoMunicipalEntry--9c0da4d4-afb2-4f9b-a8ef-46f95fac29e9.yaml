@@ -58,7 +58,7 @@ fieldLayouts:
 handle: documentoMunicipalEntry
 hasTitleField: true
 name: 'Documento Municipal'
-section: 0b486790-7dc2-497a-865b-659c48a2ba78 # Documentos Munipales
+section: 0b486790-7dc2-497a-865b-659c48a2ba78 # Documentos Municipales
 sortOrder: 1
 titleFormat: null
 titleTranslationKeyFormat: null

@@ -1,4 +1,4 @@
-dateModified: 1647553164
+dateModified: 1647553673
 email:
   fromEmail: wesley@bytesandbeans.com
   fromName: Guaynabo
@@ -11,7 +11,7 @@ meta:
   __names__:
     0b4b3bbd-215c-4b25-8179-dfc630a5ee1a: 'Tipo de Documento' # Tipo de Documento
     0b6a421d-d1be-4564-8982-c3f10cba5f3f: 'Footer Fields' # Footer Fields
-    0b486790-7dc2-497a-865b-659c48a2ba78: 'Documentos Munipales' # Documentos Munipales
+    0b486790-7dc2-497a-865b-659c48a2ba78: 'Documentos Municipales' # Documentos Municipales
     0c001730-8dd2-44e9-9133-99126ac5c4c9: TitleBar # TitleBar
     0c778942-0dda-485d-af46-b201116b1148: 'End Year' # End Year
     0d82f687-abc2-41c1-abd0-4f60322a3b36: 'Direct Link' # Direct Link

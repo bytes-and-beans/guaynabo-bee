@@ -15,8 +15,16 @@
   })
 %}
 {# Macro for the individual documents found #}
-{% macro docMacro(document) %}
-    <div class="">{{document.title}}</div>
+{% macro docMacro(title,year,category,link = null) %}
+    <div class="col-span-full h-[2px] bg-guaynabo-gray">&nbsp;</div>
+    <div class="">{{title}}</div>
+    <div class="">{{year}}</div>
+    <div class="">{{category}}</div>
+    {% if link %}
+        <a href="{{link}}" class="text-guaynabo-blue underline">Descargar</a>
+    {% else %}
+        <div class="">{{"&nbsp" | raw}}</div>
+    {% endif %}
 {% endmacro %}
 
 {# Get the color gradient #}
@@ -53,9 +61,22 @@
     </div>
 
     {# The results listings #}
-    <div class="">
+    <div 
+        class="grid grid-cols-4"
+    >
+        {# The table header #}
+        {{_self.docMacro(
+            'Titulo',
+            'Año',
+            'Categoría',
+        )}}
         {% for document in entry_query.all() %}
-            {{_self.docMacro(document)}}
+            {{_self.docMacro(
+                document.title,
+                document.documentosMunicipalesAno,
+                (document.documentosMunicipalesCategoria.title ?? ''),
+                document.documentosMunicipalesPdf.one().url,
+            )}}
         {% endfor %}
     </div>
     

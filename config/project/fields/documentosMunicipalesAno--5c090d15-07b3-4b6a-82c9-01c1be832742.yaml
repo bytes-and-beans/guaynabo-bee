@@ -1,0 +1,24 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: da0ca5ff-3ad9-4565-8564-049eefca43ae # DocumentosMunicipales
+handle: documentosMunicipalesAno
+instructions: 'Seleccion un año por esta documento'
+name: Año
+searchable: true
+settings:
+  allowLimit: false
+  allowMultipleSources: false
+  allowSelfRelations: false
+  branchLimit: '1'
+  limit: null
+  localizeRelations: false
+  selectionLabel: 'Seleccion un año'
+  showSiteMenu: false
+  source: 'group:eca2970f-09ab-4655-ad22-a79ab662b28e' # Documentos Municipales Años
+  sources: '*'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Categories

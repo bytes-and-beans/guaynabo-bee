@@ -1,0 +1,24 @@
+columnSuffix: ucorqjbn
+contentColumnType: string
+fieldGroup: da0ca5ff-3ad9-4565-8564-049eefca43ae # DocumentosMunicipales
+handle: documentosMunicipalesCategoria
+instructions: 'Seleccione una categoría para este documento.'
+name: Categoría
+searchable: true
+settings:
+  allowLimit: false
+  allowMultipleSources: false
+  allowSelfRelations: false
+  branchLimit: '1'
+  limit: null
+  localizeRelations: false
+  selectionLabel: 'Seleccion una categoría'
+  showSiteMenu: true
+  source: 'group:b8ec90fd-4782-47af-a90c-31ee8374b82a' # Documentos Municpales Categorias
+  sources: '*'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Categories

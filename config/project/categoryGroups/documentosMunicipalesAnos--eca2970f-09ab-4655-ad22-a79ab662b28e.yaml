@@ -1,0 +1,41 @@
+defaultPlacement: beginning
+fieldLayouts:
+  12c3a657-9f24-4ea6-b9ec-49d20443a673:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\TitleField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+handle: documentosMunicipalesAnos
+name: 'Documentos Municipales Años'
+siteSettings:
+  7c9b6118-cd72-41b6-9ba6-c4e529aa2772: # Guaynabo
+    hasUrls: true
+    template: null
+    uriFormat: 'documentos-municipales-anos/{slug}'
+structure:
+  maxLevels: 1
+  uid: 2a26d753-3254-4dc9-82e2-986863a58dc6

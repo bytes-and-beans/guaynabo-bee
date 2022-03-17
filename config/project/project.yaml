@@ -1,4 +1,4 @@
-dateModified: 1647546463
+dateModified: 1647547597
 email:
   fromEmail: wesley@bytesandbeans.com
   fromName: Guaynabo
@@ -36,6 +36,7 @@ meta:
     5a4a07e5-5944-48ad-983b-90e9745e182e: Image # Image
     5b03960f-6b1d-4f18-a545-2fe57993259d: giantFlower # giantFlower
     5b91c76d-3f61-4b81-8124-e8cf26b431e1: 'Under Development' # Under Development
+    5c090d15-07b3-4b6a-82c9-01c1be832742: Año # Año
     5d669300-a32c-45b5-ad03-db0fbda39bfe: TimeLine # TimeLine
     5ef7e1b2-0b62-48f5-b7c4-3bbbfccb1d8f: 'Header Menu' # Header Menu
     5fe64dc7-0407-425d-bda1-cba3696644f8: TimeLines # TimeLines
@@ -142,7 +143,9 @@ meta:
     b0c5da96-b662-4e9a-bb42-0296a52e658c: siteUrl # siteUrl
     b4b4a385-0957-4c06-9940-9012f1f6ffd4: 'Mayor Name' # Mayor Name
     b8be571c-6b78-43b1-9f84-236fb53e4b8b: 'button color' # button color
+    b8ec90fd-4782-47af-a90c-31ee8374b82a: 'Documentos Municpales Categorias' # Documentos Municpales Categorias
     b72acb41-8d3c-4d1b-b458-c3c770e2b3da: 'Map Transform' # Map Transform
+    b99b361d-e1c8-415a-9ec7-6481d6996842: Categoría # Categoría
     b230f1b4-36f1-4d87-af42-faba93578d29: Common # Common
     b905df78-0e1b-4ffe-b679-4e397b4e86a0: 'Mayor''s Office' # Mayor's Office
     b60202a4-048b-42a5-b583-cbd8e8953fed: News # News
@@ -189,6 +192,7 @@ meta:
     e88537d5-65c8-49d9-87f1-f891f3fb2aa2: 'Selected Timeline' # Selected Timeline
     e740828c-6609-45a1-aa23-c531c1876a47: Image # Image
     ebd55252-3c0e-45e1-8b76-aad26cad65b6: 'Emergency Message Link' # Emergency Message Link
+    eca2970f-09ab-4655-ad22-a79ab662b28e: 'Documentos Municipales Años' # Documentos Municipales Años
     ed995c29-9e87-49a6-aa47-d2638d854d06: '350 px wide' # 350 px wide
     f0c99bc9-55dd-4831-b8a3-e717dbed4e39: 'Seal of Guaynabo' # Seal of Guaynabo
     f1c5eef1-20f5-4812-9192-28cd53eb4b17: 'Multiple Images' # Multiple Images
@@ -196,6 +200,7 @@ meta:
     f4a18913-5edc-4251-8ba0-e110e6e7734f: Comunidad # Comunidad
     f5e0557c-8c7e-42c3-ab0a-cd00c86c6fa6: 'Social Buttons Matrix' # Social Buttons Matrix
     f8bda247-58f5-4bc5-8765-581ad9c42f7d: media # media
+    f96bae1e-3fe3-4cf4-a959-8a64779d1bf4: 'Documento PDF' # Documento PDF
     f4326f2a-1789-4851-866b-c8b296d5b7df: 'No Sidebar' # No Sidebar
     fa143c3e-3c06-429f-b1d5-92d0be21cb35: 'Simple Content' # Simple Content
     fd1b751a-76d8-4482-944d-35a1911aefe0: 'Emergency message Fields' # Emergency message Fields

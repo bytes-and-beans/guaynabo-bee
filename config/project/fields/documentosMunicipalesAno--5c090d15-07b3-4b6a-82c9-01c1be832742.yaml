@@ -6,19 +6,19 @@ instructions: 'Seleccion un año por esta documento'
 name: Año
 searchable: true
 settings:
-  optgroups: true
-  options:
-    -
-      __assoc__:
-        -
-          - label
-          - '2022'
-        -
-          - value
-          - '2022'
-        -
-          - default
-          - '1'
+  allowLimit: false
+  allowMultipleSources: false
+  allowSelfRelations: false
+  branchLimit: '1'
+  limit: null
+  localizeRelations: false
+  selectionLabel: 'Seleccion un año'
+  showSiteMenu: false
+  source: 'group:eca2970f-09ab-4655-ad22-a79ab662b28e' # Documentos Municipales Años
+  sources: '*'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
 translationKeyFormat: null
-translationMethod: none
-type: craft\fields\Dropdown
+translationMethod: site
+type: craft\fields\Categories

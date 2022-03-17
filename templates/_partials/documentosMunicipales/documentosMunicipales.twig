@@ -10,4 +10,42 @@
  #}
 
 
- 
+{# Get the color gradient #}
+{% switch entry.colorGradient ?? 'default' %}
+    {% case "blue" %}
+        {% set selectors_bg_gradient_start = "from-guaynabo-blue-start" %}
+        {% set selectors_bg_gradient_end   =   "to-guaynabo-blue-end" %}
+    {% case "purple" %}
+        {% set selectors_bg_gradient_start = "from-guaynabo-purple-start" %}
+        {% set selectors_bg_gradient_end   =   "to-guaynabo-purple-end" %}
+    {% case "green" %}
+        {% set selectors_bg_gradient_start = "from-guaynabo-green-start" %}
+        {% set selectors_bg_gradient_end   =   "to-guaynabo-green-end" %}
+    {% case "orange" %}
+        {% set selectors_bg_gradient_start = "from-guaynabo-orange-start" %}
+        {% set selectors_bg_gradient_end   =   "to-guaynabo-orange-end" %}
+    {% default %}
+        {% set selectors_bg_gradient_start = "from-guaynabo-blue-start" %}
+        {% set selectors_bg_gradient_end   =   "to-guaynabo-blue-end" %}
+{% endswitch %}
+
+ <section
+    class=""
+    {# x-data="{working: false}" #}
+ >
+    {# The search box #}
+    <div 
+        class=" 
+            px-8 py-6
+            bg-gradient-to-tr {{selectors_bg_gradient_start}} {{selectors_bg_gradient_end}}
+        "
+    >
+        search thngs here
+    </div>
+
+    {# The results listings #}
+    <div class="">
+        RESULTS WILL GOE HEre
+    </div>
+    
+ </section>

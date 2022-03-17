@@ -9,6 +9,16 @@
         documentosMunicipalesCategoria: Category, single, the document's category
  #}
 
+{# Get the PDFs #}
+{% set entry_query = craft.entries({
+    section: 'ordenanzasYResolutiones',
+    tipo: search_tipo,
+    numero: search_numero,
+    serieDropdown: search_serie,
+  })
+  .search(search_descripcion)
+  .orderBy('serie desc, numero desc')
+%}
 
 {# Get the color gradient #}
 {% switch entry.colorGradient ?? 'default' %}
@@ -45,7 +55,7 @@
 
     {# The results listings #}
     <div class="">
-        RESULTS WILL GOE HEre
+
     </div>
     
  </section>

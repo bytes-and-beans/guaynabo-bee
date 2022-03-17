@@ -1,4 +1,4 @@
-dateModified: 1647498747
+dateModified: 1647546463
 email:
   fromEmail: wesley@bytesandbeans.com
   fromName: Guaynabo
@@ -11,6 +11,7 @@ meta:
   __names__:
     0b4b3bbd-215c-4b25-8179-dfc630a5ee1a: 'Tipo de Documento' # Tipo de Documento
     0b6a421d-d1be-4564-8982-c3f10cba5f3f: 'Footer Fields' # Footer Fields
+    0b486790-7dc2-497a-865b-659c48a2ba78: 'Documentos Munipales' # Documentos Munipales
     0c001730-8dd2-44e9-9133-99126ac5c4c9: TitleBar # TitleBar
     0c778942-0dda-485d-af46-b201116b1148: 'End Year' # End Year
     0d82f687-abc2-41c1-abd0-4f60322a3b36: 'Direct Link' # Direct Link
@@ -52,6 +53,7 @@ meta:
     9ac61f25-debd-473c-a7c2-aaa0e6c470a3: 'Not on the list' # Not on the list
     9b6c361a-0640-4ed7-bdbb-7671caee668c: Transperencia # Transperencia
     9b66bf3b-99ef-4f61-b95b-487c92ef5c71: 'Simple Fields' # Simple Fields
+    9c0da4d4-afb2-4f9b-a8ef-46f95fac29e9: Default # Default
     9d774323-2d6e-4345-bfb9-2aa88066296c: events # events
     9f73be75-86b2-4548-8163-22f52ebfdb21: Footer # Footer
     13ef6cd4-27fa-4993-9c41-b09fd0e788d0: Comunidad # Comunidad
@@ -146,6 +148,7 @@ meta:
     b60202a4-048b-42a5-b583-cbd8e8953fed: News # News
     b317180f-95ec-4778-a9f4-8b88ba5b0ba0: News # News
     b642378a-26e5-4a37-a328-651b94240364: 'Emergency Message' # Emergency Message
+    b6050152-0896-4da0-acc4-aebaa0f67c61: 'Documentos Munipales' # Documentos Munipales
     ba1b0045-efcc-4c10-bbc5-9a83a9cf8fb1: 'End Date' # End Date
     bd0a400e-1c4c-41b3-9831-57c901799316: 'Mayor Photo' # Mayor Photo
     bd9914c0-b6b6-4ff5-9403-816eec1654db: 'News Categories' # News Categories
@@ -170,6 +173,7 @@ meta:
     d44b5772-9ec4-4cb2-b53d-677e327b2073: 'Content and Sidebar' # Content and Sidebar
     d372ccf3-a023-4eb6-9e41-6ac4bc318eed: 'No Sidebar' # No Sidebar
     d2056181-b4e6-4131-88e9-38f4a3823376: 'Header Only' # Header Only
+    da0ca5ff-3ad9-4565-8564-049eefca43ae: DocumentosMunicipales # DocumentosMunicipales
     da13f404-928f-4505-afd8-23ef4c00b71c: News # News
     da359c23-2092-4bbd-8eac-96b43b9c81e6: 'Title Bars' # Title Bars
     db1ea912-a5b6-4b74-a87b-a77e495825bc: 'Logo - Giant' # Logo - Giant

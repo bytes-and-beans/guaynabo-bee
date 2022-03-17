@@ -17,11 +17,11 @@
 {# Macro for the individual documents found #}
 {% macro docMacro(title,year,category,link = null) %}
     <div class="col-span-full h-[2px] bg-guaynabo-gray">&nbsp;</div>
-    <div class="">{{title}}</div>
+    <div class="ml-4">{{title}}</div>
     <div class="">{{year}}</div>
     <div class="">{{category}}</div>
     {% if link %}
-        <a href="{{link}}" class="text-guaynabo-blue underline">Descargar</a>
+        <a href="{{link}}" class="text-guaynabo-blue underline mr-4">Descargar</a>
     {% else %}
         <div class="">{{"&nbsp" | raw}}</div>
     {% endif %}
@@ -62,7 +62,7 @@
 
     {# The results listings #}
     <div 
-        class="my-8 grid grid-cols-4 gap-y-4"
+        class="my-8 grid grid-cols-[repeat(4,auto)] gap-y-4 gap-x-4 justify-around"
     >
         {# The table header #}
         {{_self.docMacro(

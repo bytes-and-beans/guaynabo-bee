@@ -1,0 +1,14 @@
+columnSuffix: eclsforl
+contentColumnType: boolean
+fieldGroup: ce81df7e-4c52-471b-8a39-d574f7362812 # Header Fields
+handle: headerDisableHeader
+instructions: 'Elimina el encabezado y el menú de navegación del sitio.'
+name: 'deshabilitar encabezado'
+searchable: false
+settings:
+  default: false
+  offLabel: 'habilitar encabezado'
+  onLabel: 'deshabilitar encabezado'
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch

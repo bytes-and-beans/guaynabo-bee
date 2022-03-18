@@ -1,4 +1,4 @@
-dateModified: 1647553673
+dateModified: 1647634450
 email:
   fromEmail: wesley@bytesandbeans.com
   fromName: Guaynabo
@@ -189,10 +189,10 @@ meta:
     e2ef7e37-8d69-4683-840b-08f1d4622e70: 'start date' # start date
     e20f17dc-2ec6-4575-9e9d-0df07e38e61a: 'Sidebar Logo' # Sidebar Logo
     e823d103-105b-4636-a457-64e56bcbf12b: Gobierno # Gobierno
+    e853c5f9-f641-4a60-ac29-977a836f8562: 'deshabilitar encabezado' # deshabilitar encabezado
     e88537d5-65c8-49d9-87f1-f891f3fb2aa2: 'Selected Timeline' # Selected Timeline
     e740828c-6609-45a1-aa23-c531c1876a47: Image # Image
     ebd55252-3c0e-45e1-8b76-aad26cad65b6: 'Emergency Message Link' # Emergency Message Link
-    eca2970f-09ab-4655-ad22-a79ab662b28e: 'Documentos Municipales Años' # Documentos Municipales Años
     ed995c29-9e87-49a6-aa47-d2638d854d06: '350 px wide' # 350 px wide
     f0c99bc9-55dd-4831-b8a3-e717dbed4e39: 'Seal of Guaynabo' # Seal of Guaynabo
     f1c5eef1-20f5-4812-9192-28cd53eb4b17: 'Multiple Images' # Multiple Images

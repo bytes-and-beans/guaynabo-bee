@@ -14,10 +14,20 @@
 {% set search_title = craft.app.request.getParam('title') %}
 {% set search_year = craft.app.request.getParam('year') %}
 {% set search_category = craft.app.request.getParam('category') %}
-
+{# We need the entry ID of the category#}
+{% if search_category is not empty %}
+    {% set search_category_entry_id = craft.categories().group('documentosMunicpalesCategorias').title(search_category).one().id %}
+{% else %}
+    {% set search_category_entry_id = null %}
+{% endif %}
+<div>
+    <div>search_category {{search_category}}</div>
+    <div>cat ID {{search_category_entry_id}}</div>
+</div>
 {# Get the PDFs #}
 {% set entry_query = craft.entries({
     section: 'documentosMunicipales',
+    relatedTo: search_category_entry_id,
   })
   .search(search_title)
 %}

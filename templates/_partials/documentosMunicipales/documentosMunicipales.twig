@@ -54,7 +54,6 @@
  >
     {# The search box #}
     {# get values for year dropdown #}
-    {% set year_options = craft.app.fields.getFieldByHandle('documentosMunicipalesAno').options | map(option => option.value)%} 
     <div 
         class="
             flex flex-wrap justify-center gap-x-8 px-8 py-6
@@ -74,6 +73,7 @@
         </input>
 
         {# Year Selecton #}
+        {% set year_options = craft.app.fields.getFieldByHandle('documentosMunicipalesAno').options | map(option => option.value)%} 
         <select 
             name="ano" 
             id="ano" 
@@ -86,9 +86,12 @@
         </select>
 
         {# Category Selection #}
+        {% set category_options = craft.categories().group('documentosMunicpalesCategorias').cache().all() %}
         <select name="categoria" id="categoria" class=" {{inputClasses}}">
             <option value="any">Categoría</option>
-            {# add the category options here #}
+            {% for cat in category_options %}
+                <option value="{{cat.title}}">{{cat.title}}</option>
+            {% endfor %}
         </select>
     </div>
 

@@ -49,8 +49,8 @@
 {% endswitch %}
 
  <section
-    class=""
-    {# x-data="{working: false}" #}
+    class="relative"
+    x-data="{working: false}"
  >
     {# The search box #}
     <div 
@@ -98,4 +98,22 @@
         {% endfor %}
     </div>
     
+    {# Overlay for when the page is 'working' #}
+    <div 
+        x-show="working"
+        class="absolute inset-0 overflow-hidden
+        bg-white bg-opacity-80
+        "
+    >
+        {# The message container #}
+        <div class="fixed top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2
+            flex justify-center items-center rounded-md p-6
+            bg-guaynabo-blue-dark bg-opacity-50
+        "
+        >
+        <i class="fas fa-spinner text-guaynabo-blue mr-4 animate-spin"></i>
+        <div class="text-xl text-guaynabo-blue font-advantage">Buscando</div>
+        </div>
+    </div> {# end overlay div #}
+
  </section>

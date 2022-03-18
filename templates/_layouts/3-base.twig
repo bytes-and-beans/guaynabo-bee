@@ -50,7 +50,7 @@
     
     {# primary content of the thing #}
     {% if block('base_content') is not empty or block('base_sidebar') is not empty %}
-    <{{base_primarySectionElement}} id="base_content" class="flex flex-col sm:block mx-[5%] my-16">
+    <{{base_primarySectionElement}} id="base_content" class="flex flex-col sm:block mx-[5%] my-16 {{header.headerDisableHeader ? 'mt-2' : ''}}">
 
         {# for sidebars and suchlike #}
         {% if block('base_sidebar') is not empty %}

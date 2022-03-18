@@ -7,7 +7,13 @@
         documentosMunicipalesPdf: asset, single, PDF only. The pdf this entry references
     Optional entry fields
         documentosMunicipalesCategoria: Category, single, the document's category
- #}
+#}
+
+
+{# Getting search params #}
+{% set search_title = craft.app.request.getParam('title') %}
+{% set search_year = craft.app.request.getParam('year') %}
+{% set search_category = craft.app.request.getParam('category') %}
 
 {# Get the PDFs #}
 {% set entry_query = craft.entries({
@@ -67,6 +73,7 @@
             placeholder="buscar titulos"
             name="title"
             id="input_title"
+            value="{{search_title}}"
             x-on:change="working = true"
         >
         </input>
@@ -79,9 +86,11 @@
             class="{{inputClasses}} min-w-[8ch]"
             x-on:change="working = true"
         >
-            <option value="any">&nbsp;</option>
+            <option value="">&nbsp;</option>
             {% for year in year_options %}
-                <option value="{{year}}">{{year}}</option>
+                <option value="{{year}}" {{search_year == year ? "selected"}} >
+                    {{year}}
+                </option>
             {% endfor %}
         </select>
 

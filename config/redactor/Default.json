@@ -4,6 +4,7 @@
     "formatting",
     "bold",
     "italic",
+    "alignment",
     "unorderedlist",
     "orderedlist",
     "link",
@@ -12,7 +13,8 @@
   ],
   "plugins": [
     "fullscreen",
-    "video"
+    "video",
+    "alignment"
   ],
   "linkNewTab": true,
   "toolbarFixed": true

@@ -25,7 +25,9 @@
 {% endblock %}
     {# The header #}
     {% block hmf_header %}
-        {% include "_partials/header" %}
+        {% if not header.headerDisableHeader %}
+            {% include "_partials/header" %}
+        {% endif %}
     {% endblock %}
     
     {# Main block #}

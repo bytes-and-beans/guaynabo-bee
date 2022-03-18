@@ -1,0 +1,31 @@
+{#  This script handles sending people to search results when they change
+    the search parameters in the search box
+
+    Pretty straightforward, it just pulls the relevant information from the
+    selector elements and puts the requests into the correct URL paramaters.
+#}
+
+<script>
+  (function(){
+    const thisThing = document.currentScript.parentElement;
+    const title_element = thisThing.querySelector('#input_title');
+    const year_element = thisThing.querySelector('#input_year');
+    const category_element = thisThing.querySelector('#input_category');
+
+    title_element.addEventListener('change', search);
+    year_element.addEventListener('change', search);
+    category_element.addEventListener('change', search);
+
+    function goPage(title, year, category) {
+      const goto_href = `/{{entry.uri}}?title=${title}&year=${year}&category=${category}`;
+      window.location.href = goto_href;
+    }
+    function search(event){
+      const title = title_element.value;
+      const year = year_element.value;
+      const category = category_element.value;
+
+      goPage(title,year,category);
+    }
+  })()
+</script>

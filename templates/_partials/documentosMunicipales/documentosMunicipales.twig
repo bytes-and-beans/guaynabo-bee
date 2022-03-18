@@ -68,15 +68,16 @@
             "
             type="text"
             placeholder="buscar titulos"
-            name="titulo"
+            name="title"
+            id="input_title"
         >
         </input>
 
         {# Year Selecton #}
         {% set year_options = craft.app.fields.getFieldByHandle('documentosMunicipalesAno').options | map(option => option.value)%} 
         <select 
-            name="ano" 
-            id="ano" 
+            name="year" 
+            id="input_year" 
             class="{{inputClasses}} min-w-[8ch]"
         >
             <option value="any">&nbsp;</option>
@@ -87,7 +88,7 @@
 
         {# Category Selection #}
         {% set category_options = craft.categories().group('documentosMunicpalesCategorias').cache().all() %}
-        <select name="categoria" id="categoria" class=" {{inputClasses}}">
+        <select name="category" id="input_category" class=" {{inputClasses}}">
             <option value="any">Categoría</option>
             {% for cat in category_options %}
                 <option value="{{cat.title}}">{{cat.title}}</option>
@@ -132,5 +133,5 @@
         <div class="text-xl text-guaynabo-blue font-advantage">Buscando</div>
         </div>
     </div> {# end overlay div #}
-
+    {% include "_partials/documentosMunicipales/script.twig" %}
  </section>

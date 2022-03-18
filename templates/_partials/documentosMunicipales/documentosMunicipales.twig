@@ -9,9 +9,6 @@
         documentosMunicipalesCategoria: Category, single, the document's category
  #}
 
-{# TODO: add category options, for now just hide the categories dropdown #}
-{# TODO: add years to the año selection programaticaly #}
-
 {# Get the PDFs #}
 {% set entry_query = craft.entries({
     section: 'documentosMunicipales',
@@ -70,6 +67,7 @@
             placeholder="buscar titulos"
             name="title"
             id="input_title"
+            x-on:change="working = true"
         >
         </input>
 
@@ -79,6 +77,7 @@
             name="year" 
             id="input_year" 
             class="{{inputClasses}} min-w-[8ch]"
+            x-on:change="working = true"
         >
             <option value="any">&nbsp;</option>
             {% for year in year_options %}
@@ -88,7 +87,12 @@
 
         {# Category Selection #}
         {% set category_options = craft.categories().group('documentosMunicpalesCategorias').cache().all() %}
-        <select name="category" id="input_category" class=" {{inputClasses}}">
+        <select 
+            name="category" 
+            id="input_category" 
+            class=" {{inputClasses}}"
+            x-on:change="working = true"
+        >
             <option value="any">Categoría</option>
             {% for cat in category_options %}
                 <option value="{{cat.title}}">{{cat.title}}</option>

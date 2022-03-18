@@ -13,7 +13,7 @@ fieldLayouts:
             warning: null
             width: 100
           -
-            fieldUid: 5ef7e1b2-0b62-48f5-b7c4-3bbbfccb1d8f # Header Menu
+            fieldUid: e853c5f9-f641-4a60-ac29-977a836f8562 # deshabilitar encabezado
             instructions: null
             label: null
             required: false
@@ -23,6 +23,19 @@ fieldLayouts:
             width: 100
         name: 'Header Fields'
         sortOrder: 1
+      -
+        elements:
+          -
+            fieldUid: 5ef7e1b2-0b62-48f5-b7c4-3bbbfccb1d8f # Header Menu
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: 'Menú de Navegación'
+        sortOrder: 2
 handle: header
 name: Header
 sortOrder: 5

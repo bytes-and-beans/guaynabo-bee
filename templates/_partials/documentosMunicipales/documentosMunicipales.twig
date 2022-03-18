@@ -59,9 +59,11 @@
             bg-gradient-to-tr {{selectors_bg_gradient_start}} {{selectors_bg_gradient_end}}
         "
     >
-        {% set inputClasses = " bg-white bg-opacity-50 text-guaynabo-blue" %}
+        {% set inputClasses = " bg-white bg-opacity-50 text-guaynabo-blue border-0 " %}
         <input 
-            class="{{inputClasses}} px-4 flex-grow max-w-[60ch] min-w-[20ch]"
+            class="
+                {{inputClasses}} px-4 flex-grow max-w-[60ch] min-w-[20ch]
+            "
             type="text"
             placeholder="buscar titulos"
             name="titulo"

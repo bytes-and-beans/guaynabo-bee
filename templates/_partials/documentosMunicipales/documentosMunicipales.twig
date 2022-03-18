@@ -102,9 +102,11 @@
             class=" {{inputClasses}}"
             x-on:change="working = true"
         >
-            <option value="any">Categoría</option>
+            <option value="">Categoría</option>
             {% for cat in category_options %}
-                <option value="{{cat.title}}">{{cat.title}}</option>
+                <option value="{{cat.title}}" {{search_category == cat ? "selected"}}>
+                    {{cat.title}}
+                </option>
             {% endfor %}
         </select>
     </div>

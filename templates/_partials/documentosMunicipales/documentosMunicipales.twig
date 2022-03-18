@@ -19,6 +19,7 @@
 {% set entry_query = craft.entries({
     section: 'documentosMunicipales',
   })
+  .search(search_title)
 %}
 {# Macro for the individual documents found #}
 {% macro docMacro(title,year,category,link = null) %}

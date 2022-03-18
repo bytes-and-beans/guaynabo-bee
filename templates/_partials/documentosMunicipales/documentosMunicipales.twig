@@ -94,7 +94,7 @@
             class="{{inputClasses}} min-w-[8ch]"
             x-on:change="working = true"
         >
-            <option value="">&nbsp;</option>
+            <option value="">Año</option>
             {% for year in year_options %}
                 <option value="{{year}}" {{search_year == year ? "selected"}} >
                     {{year}}

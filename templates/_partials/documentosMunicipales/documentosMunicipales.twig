@@ -1,0 +1,100 @@
+{# This supercontent block renders a search-page and listings of the municiple documents
+
+    Required section: documentosMunipales
+    Required entry fields: 
+        title: plaintext
+        documentosMunicipalesAno: dropdown, the year of the document
+        documentosMunicipalesPdf: asset, single, PDF only. The pdf this entry references
+    Optional entry fields
+        documentosMunicipalesCategoria: Category, single, the document's category
+ #}
+
+{# TODO: add category options, for now just hide the categories dropdown #}
+{# TODO: add years to the año selection programaticaly #}
+
+{# Get the PDFs #}
+{% set entry_query = craft.entries({
+    section: 'documentosMunicipales',
+  })
+%}
+{# Macro for the individual documents found #}
+{% macro docMacro(title,year,category,link = null) %}
+    <div class="col-span-full h-[2px] bg-guaynabo-gray">&nbsp;</div>
+    <div class="ml-4">{{title}}</div>
+    <div class="">{{year}}</div>
+    <div class="">{{category}}</div>
+    {% if link %}
+        <a href="{{link}}" class="text-guaynabo-blue underline mr-4">Descargar</a>
+    {% else %}
+        <div class="">{{"&nbsp" | raw}}</div>
+    {% endif %}
+{% endmacro %}
+
+{# Get the color gradient #}
+{% switch entry.colorGradient ?? 'default' %}
+    {% case "blue" %}
+        {% set selectors_bg_gradient_start = "from-guaynabo-blue-start" %}
+        {% set selectors_bg_gradient_end   =   "to-guaynabo-blue-end" %}
+    {% case "purple" %}
+        {% set selectors_bg_gradient_start = "from-guaynabo-purple-start" %}
+        {% set selectors_bg_gradient_end   =   "to-guaynabo-purple-end" %}
+    {% case "green" %}
+        {% set selectors_bg_gradient_start = "from-guaynabo-green-start" %}
+        {% set selectors_bg_gradient_end   =   "to-guaynabo-green-end" %}
+    {% case "orange" %}
+        {% set selectors_bg_gradient_start = "from-guaynabo-orange-start" %}
+        {% set selectors_bg_gradient_end   =   "to-guaynabo-orange-end" %}
+    {% default %}
+        {% set selectors_bg_gradient_start = "from-guaynabo-blue-start" %}
+        {% set selectors_bg_gradient_end   =   "to-guaynabo-blue-end" %}
+{% endswitch %}
+
+ <section
+    class=""
+    {# x-data="{working: false}" #}
+ >
+    {# The search box #}
+    <div 
+        class=" hidden
+            flex flex-wrap justify-center gap-x-8 px-8 py-6
+            bg-gradient-to-tr {{selectors_bg_gradient_start}} {{selectors_bg_gradient_end}}
+        "
+    >
+        {% set inputClasses = " bg-white bg-opacity-50 text-guaynabo-blue" %}
+        <input 
+            class="{{inputClasses}} px-4 flex-grow max-w-[60ch] min-w-[20ch]"
+            type="text"
+            placeholder="buscar titulos"
+            name="titulo"
+        >
+        </input>
+        <select name="ano" id="ano" class="{{inputClasses}}">
+            <option value="2022">2022</option>
+        </select>
+        <select name="categoria" id="categoria" class=" {{inputClasses}}">
+            <option value="any">Categoría</option>
+            {# add the category options here #}
+        </select>
+    </div>
+
+    {# The results listings #}
+    <div 
+        class="my-8 grid grid-cols-[repeat(4,auto)] gap-y-4 gap-x-4 justify-around"
+    >
+        {# The table header #}
+        {{_self.docMacro(
+            'Titulo',
+            'Año',
+            'Categoría',
+        )}}
+        {% for document in entry_query.all() %}
+            {{_self.docMacro(
+                document.title,
+                document.documentosMunicipalesAno,
+                (document.documentosMunicipalesCategoria.title ?? ''),
+                document.documentosMunicipalesPdf.one().url,
+            )}}
+        {% endfor %}
+    </div>
+    
+ </section>

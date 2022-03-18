@@ -1,0 +1,27 @@
+defaultPlacement: end
+enableVersioning: true
+handle: documentosMunicipales
+name: 'Documentos Municipales'
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  7c9b6118-cd72-41b6-9ba6-c4e529aa2772: # Guaynabo
+    enabledByDefault: true
+    hasUrls: true
+    template: documentos-munipales/_entry
+    uriFormat: 'documentos-munipales/{slug}'
+structure:
+  maxLevels: 1
+  uid: 6cf3c21c-fb11-4f8b-89ad-b9a149bba330
+type: structure

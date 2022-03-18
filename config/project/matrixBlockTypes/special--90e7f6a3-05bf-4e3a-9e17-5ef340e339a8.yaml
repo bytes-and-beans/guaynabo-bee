@@ -21,7 +21,7 @@ fields:
     contentColumnType: string
     fieldGroup: null
     handle: specialSelection
-    instructions: "The Special Block handles a number of functions that are useful, but not used so often that they deserve their own block type.\r\n\r\n- List Children : If this page has any child entries under it. This will make an unordered list of those child entries. If there are none, nothing will be added to the page.\r\n- Sibling Links: If this page is a child of another page, and has at least one brother/sister page; This will create a link to the 'next' and 'previous' sibling pages.\r\n- Ordenanzas y Resoluciones: This includes the search page for the Ordenanzas Y Resolutions"
+    instructions: "The Special Block handles a number of functions that are useful, but not used so often that they deserve their own block type.\r\n\r\n- List Children : If this page has any child entries under it. This will make an unordered list of those child entries. If there are none, nothing will be added to the page.\r\n- Sibling Links: If this page is a child of another page, and has at least one brother/sister page; This will create a link to the 'next' and 'previous' sibling pages.\r\n- Ordenanzas y Resoluciones: This includes the search page for the Ordenanzas Y Resolutions\r\n- Documentos Municipales: This includes the search page for Documentos Municipales"
     name: Selection
     searchable: false
     settings:
@@ -57,6 +57,17 @@ fields:
             -
               - value
               - ordenanzasYResolutiones
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - 'Documentos Municipales'
+            -
+              - value
+              - documentosMunicipales
             -
               - default
               - ''

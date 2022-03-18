@@ -1,0 +1,41 @@
+defaultPlacement: end
+fieldLayouts:
+  270c31cd-bc3d-44ea-89c5-f93b1d0b7a88:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\TitleField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+handle: documentosMunicpalesCategorias
+name: 'Documentos Municpales Categorias'
+siteSettings:
+  7c9b6118-cd72-41b6-9ba6-c4e529aa2772: # Guaynabo
+    hasUrls: true
+    template: null
+    uriFormat: 'documentos-municpales-categorias/{slug}'
+structure:
+  maxLevels: 1
+  uid: 0031da76-2da9-4151-8b75-0150a8bd606a

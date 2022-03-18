@@ -1,0 +1,24 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: da0ca5ff-3ad9-4565-8564-049eefca43ae # DocumentosMunicipales
+handle: documentosMunicipalesAno
+instructions: 'Seleccion un año por esta documento'
+name: Año
+searchable: true
+settings:
+  optgroups: true
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - '2022'
+        -
+          - value
+          - '2022'
+        -
+          - default
+          - '1'
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

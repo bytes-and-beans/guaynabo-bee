@@ -1,4 +1,4 @@
-dateModified: 1639779321
+dateModified: 1647553673
 email:
   fromEmail: wesley@bytesandbeans.com
   fromName: Guaynabo
@@ -11,6 +11,7 @@ meta:
   __names__:
     0b4b3bbd-215c-4b25-8179-dfc630a5ee1a: 'Tipo de Documento' # Tipo de Documento
     0b6a421d-d1be-4564-8982-c3f10cba5f3f: 'Footer Fields' # Footer Fields
+    0b486790-7dc2-497a-865b-659c48a2ba78: 'Documentos Municipales' # Documentos Municipales
     0c001730-8dd2-44e9-9133-99126ac5c4c9: TitleBar # TitleBar
     0c778942-0dda-485d-af46-b201116b1148: 'End Year' # End Year
     0d82f687-abc2-41c1-abd0-4f60322a3b36: 'Direct Link' # Direct Link
@@ -29,12 +30,13 @@ meta:
     4d86a291-4418-4b00-9dcf-337ac94faabe: Carousel # Carousel
     4d61664d-dd61-416f-8874-11495d698bea: Headline # Headline
     4e90f3bd-e5b4-40ad-bc5b-d376fdf64bdf: 'End Time' # End Time
-    4eab5d72-cdf7-4030-accd-c2b53c6791c4: linkText # linkText
     4ec2e6a3-95e7-4312-b35e-5ae98f13d5ff: 'Title Bar' # Title Bar
     4f5f5abe-ded9-4608-96d6-9d61da3d7b6f: 'Logo Full' # Logo Full
     4f995c30-7417-498f-b1c9-e6dee87b8d17: Text # Text
+    5a4a07e5-5944-48ad-983b-90e9745e182e: Image # Image
     5b03960f-6b1d-4f18-a545-2fe57993259d: giantFlower # giantFlower
     5b91c76d-3f61-4b81-8124-e8cf26b431e1: 'Under Development' # Under Development
+    5c090d15-07b3-4b6a-82c9-01c1be832742: Año # Año
     5d669300-a32c-45b5-ad03-db0fbda39bfe: TimeLine # TimeLine
     5ef7e1b2-0b62-48f5-b7c4-3bbbfccb1d8f: 'Header Menu' # Header Menu
     5fe64dc7-0407-425d-bda1-cba3696644f8: TimeLines # TimeLines
@@ -52,6 +54,7 @@ meta:
     9ac61f25-debd-473c-a7c2-aaa0e6c470a3: 'Not on the list' # Not on the list
     9b6c361a-0640-4ed7-bdbb-7671caee668c: Transperencia # Transperencia
     9b66bf3b-99ef-4f61-b95b-487c92ef5c71: 'Simple Fields' # Simple Fields
+    9c0da4d4-afb2-4f9b-a8ef-46f95fac29e9: 'Documento Municipal' # Documento Municipal
     9d774323-2d6e-4345-bfb9-2aa88066296c: events # events
     9f73be75-86b2-4548-8163-22f52ebfdb21: Footer # Footer
     13ef6cd4-27fa-4993-9c41-b09fd0e788d0: Comunidad # Comunidad
@@ -92,7 +95,6 @@ meta:
     98fa04c0-b771-4956-b275-ba02d0f95594: 'Start Time' # Start Time
     119cb18e-13d4-4af8-8454-939c36202c93: images # images
     152d572e-0cb0-4442-b348-94bdfb341fba: legislatura # legislatura
-    302ce92a-52e6-40fd-b6e1-034beaf73113: 'Link Url' # Link Url
     385a029d-217d-4bba-8b3b-295aaa1f8fbe: 'Mayor''s Office' # Mayor's Office
     440da69d-2ad5-4af6-a6c8-db29f1aac763: Text # Text
     478d984b-1e00-421b-b261-1e09893573d3: Links # Links
@@ -120,6 +122,7 @@ meta:
     9625cd2a-f553-4677-a2c1-5f90d04581d0: columns # columns
     13194ad1-9fa0-4c83-8e0f-ee49b19abba7: 'Column 2' # Column 2
     17844c2e-1456-4840-aed4-b72de4a7b62a: 'time to display' # time to display
+    50244de9-3e65-45ab-b73c-05498d18345e: Text # Text
     905040c6-3c99-4312-8262-9ac0ed535dcf: Timelines # Timelines
     2147547a-eb6e-4100-843c-cd44969a694b: 'Mayor Videos' # Mayor Videos
     9461960f-553b-4018-a4cb-b9046751d7ac: Dependencias # Dependencias
@@ -140,12 +143,15 @@ meta:
     b0c5da96-b662-4e9a-bb42-0296a52e658c: siteUrl # siteUrl
     b4b4a385-0957-4c06-9940-9012f1f6ffd4: 'Mayor Name' # Mayor Name
     b8be571c-6b78-43b1-9f84-236fb53e4b8b: 'button color' # button color
+    b8ec90fd-4782-47af-a90c-31ee8374b82a: 'Documentos Municpales Categorias' # Documentos Municpales Categorias
     b72acb41-8d3c-4d1b-b458-c3c770e2b3da: 'Map Transform' # Map Transform
+    b99b361d-e1c8-415a-9ec7-6481d6996842: Categoría # Categoría
     b230f1b4-36f1-4d87-af42-faba93578d29: Common # Common
     b905df78-0e1b-4ffe-b679-4e397b4e86a0: 'Mayor''s Office' # Mayor's Office
     b60202a4-048b-42a5-b583-cbd8e8953fed: News # News
     b317180f-95ec-4778-a9f4-8b88ba5b0ba0: News # News
     b642378a-26e5-4a37-a328-651b94240364: 'Emergency Message' # Emergency Message
+    b6050152-0896-4da0-acc4-aebaa0f67c61: 'Documentos Munipales' # Documentos Munipales
     ba1b0045-efcc-4c10-bbc5-9a83a9cf8fb1: 'End Date' # End Date
     bd0a400e-1c4c-41b3-9831-57c901799316: 'Mayor Photo' # Mayor Photo
     bd9914c0-b6b6-4ff5-9403-816eec1654db: 'News Categories' # News Categories
@@ -170,6 +176,7 @@ meta:
     d44b5772-9ec4-4cb2-b53d-677e327b2073: 'Content and Sidebar' # Content and Sidebar
     d372ccf3-a023-4eb6-9e41-6ac4bc318eed: 'No Sidebar' # No Sidebar
     d2056181-b4e6-4131-88e9-38f4a3823376: 'Header Only' # Header Only
+    da0ca5ff-3ad9-4565-8564-049eefca43ae: DocumentosMunicipales # DocumentosMunicipales
     da13f404-928f-4505-afd8-23ef4c00b71c: News # News
     da359c23-2092-4bbd-8eac-96b43b9c81e6: 'Title Bars' # Title Bars
     db1ea912-a5b6-4b74-a87b-a77e495825bc: 'Logo - Giant' # Logo - Giant
@@ -185,6 +192,7 @@ meta:
     e88537d5-65c8-49d9-87f1-f891f3fb2aa2: 'Selected Timeline' # Selected Timeline
     e740828c-6609-45a1-aa23-c531c1876a47: Image # Image
     ebd55252-3c0e-45e1-8b76-aad26cad65b6: 'Emergency Message Link' # Emergency Message Link
+    eca2970f-09ab-4655-ad22-a79ab662b28e: 'Documentos Municipales Años' # Documentos Municipales Años
     ed995c29-9e87-49a6-aa47-d2638d854d06: '350 px wide' # 350 px wide
     f0c99bc9-55dd-4831-b8a3-e717dbed4e39: 'Seal of Guaynabo' # Seal of Guaynabo
     f1c5eef1-20f5-4812-9192-28cd53eb4b17: 'Multiple Images' # Multiple Images
@@ -192,9 +200,9 @@ meta:
     f4a18913-5edc-4251-8ba0-e110e6e7734f: Comunidad # Comunidad
     f5e0557c-8c7e-42c3-ab0a-cd00c86c6fa6: 'Social Buttons Matrix' # Social Buttons Matrix
     f8bda247-58f5-4bc5-8765-581ad9c42f7d: media # media
+    f96bae1e-3fe3-4cf4-a959-8a64779d1bf4: 'Documento PDF' # Documento PDF
     f4326f2a-1789-4851-866b-c8b296d5b7df: 'No Sidebar' # No Sidebar
     fa143c3e-3c06-429f-b1d5-92d0be21cb35: 'Simple Content' # Simple Content
-    fce351f4-e339-44f7-b207-2e398af6231c: 'Font Awesome Code' # Font Awesome Code
     fd1b751a-76d8-4482-944d-35a1911aefe0: 'Emergency message Fields' # Emergency message Fields
     fd1257a1-7aaf-497e-9a2c-cd50b211ba31: 'pdf asset' # pdf asset
 plugins:

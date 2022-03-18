@@ -1,0 +1,65 @@
+fieldLayouts:
+  45bc140f-8066-4d9e-b51c-1d6065c03589:
+    tabs:
+      -
+        elements:
+          -
+            autocapitalize: true
+            autocomplete: false
+            autocorrect: true
+            class: null
+            disabled: false
+            id: null
+            instructions: null
+            label: null
+            max: null
+            min: null
+            name: null
+            orientation: null
+            placeholder: null
+            readonly: false
+            requirable: false
+            size: null
+            step: null
+            tip: null
+            title: null
+            type: craft\fieldlayoutelements\EntryTitleField
+            warning: null
+            width: 100
+          -
+            fieldUid: f96bae1e-3fe3-4cf4-a959-8a64779d1bf4 # Documento PDF
+            instructions: ''
+            label: ''
+            required: '1'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 5c090d15-07b3-4b6a-82c9-01c1be832742 # Año
+            instructions: ''
+            label: ''
+            required: '1'
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: b99b361d-e1c8-415a-9ec7-6481d6996842 # Categoría
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+        name: Content
+        sortOrder: 1
+handle: documentoMunicipalEntry
+hasTitleField: true
+name: 'Documento Municipal'
+section: 0b486790-7dc2-497a-865b-659c48a2ba78 # Documentos Municipales
+sortOrder: 1
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

@@ -27,6 +27,7 @@
     relatedTo: search_category_entry_id,
   })
   .search(search_title)
+  .limit(15)
 %}
 {# Macro for the individual documents found #}
 {% macro docMacro(title,year,category,link,catexist) %}
@@ -63,64 +64,95 @@
         {% set selectors_bg_gradient_end   =   "to-guaynabo-blue-end" %}
 {% endswitch %}
 
+{# Paginate the results #}
+{% paginate entry_query as pageInfo, pageEntries %}
+
+{% if pageInfo.prevUrl %}<a href="{{ pageInfo.prevUrl }}">Previous Page</a>{% endif %}
+{% if pageInfo.nextUrl %}<a href="{{ pageInfo.nextUrl }}">Next Page</a>{% endif %}
+
  <section
     class="relative"
     x-data="{working: false}"
  >
-    {# The search box #}
-    {# get values for year dropdown #}
-    <div 
-        class="
-            flex flex-wrap justify-center gap-x-8 px-8 py-6
-            bg-gradient-to-tr {{selectors_bg_gradient_start}} {{selectors_bg_gradient_end}}
-        "
-    >
-        {% set inputClasses = " bg-white bg-opacity-50 text-guaynabo-blue border-0 " %}
-        {# The Title Search #}
-        <input 
+    <div class="bg-gradient-to-tr {{selectors_bg_gradient_start}} {{selectors_bg_gradient_end}}">
+        {# The search box #}
+        {# get values for year dropdown #}
+        <div 
             class="
-                {{inputClasses}} px-4 flex-grow max-w-[60ch] min-w-[20ch]
+                flex flex-wrap justify-center gap-x-8 px-8 py-6
+                
             "
-            type="text"
-            placeholder="buscar titulos"
-            name="title"
-            id="input_title"
-            value="{{search_title}}"
-            x-on:change="working = true"
         >
-        </input>
+            {% set inputClasses = " bg-white bg-opacity-50 text-guaynabo-blue border-0 " %}
+            {# The Title Search #}
+            <input 
+                class="
+                    {{inputClasses}} px-4 flex-grow max-w-[60ch] min-w-[20ch]
+                "
+                type="text"
+                placeholder="buscar titulos"
+                name="title"
+                id="input_title"
+                value="{{search_title}}"
+                x-on:change="working = true"
+            >
+            </input>
 
-        {# Year Selecton #}
-        {% set year_options = craft.app.fields.getFieldByHandle('documentosMunicipalesAno').options | map(option => option.value)%} 
-        <select 
-            name="year" 
-            id="input_year" 
-            class="{{inputClasses}} min-w-[8ch]"
-            x-on:change="working = true"
-        >
-            <option value="">Año</option>
-            {% for year in year_options %}
-                <option value="{{year}}" {{search_year == year ? "selected"}} >
-                    {{year}}
-                </option>
-            {% endfor %}
-        </select>
+            {# Year Selecton #}
+            {% set year_options = craft.app.fields.getFieldByHandle('documentosMunicipalesAno').options | map(option => option.value)%} 
+            <select 
+                name="year" 
+                id="input_year" 
+                class="{{inputClasses}} min-w-[8ch]"
+                x-on:change="working = true"
+            >
+                <option value="">Año</option>
+                {% for year in year_options %}
+                    <option value="{{year}}" {{search_year == year ? "selected"}} >
+                        {{year}}
+                    </option>
+                {% endfor %}
+            </select>
 
-        {# Category Selection #}
-        {% set category_options = craft.categories().group('documentosMunicpalesCategorias').cache().all() %}
-        <select 
-            name="category" 
-            id="input_category" 
-            class="{{catexist ? inputClasses : 'hidden'}}"
-            x-on:change="working = true"
-        >
-            <option value="">Categoría</option>
-            {% for cat in category_options %}
-                <option value="{{cat.title}}" {{search_category == cat ? "selected"}}>
-                    {{cat.title}}
-                </option>
-            {% endfor %}
-        </select>
+            {# Category Selection #}
+            {% set category_options = craft.categories().group('documentosMunicpalesCategorias').cache().all() %}
+            <select 
+                name="category" 
+                id="input_category" 
+                class="{{catexist ? inputClasses : 'hidden'}}"
+                x-on:change="working = true"
+            >
+                <option value="">Categoría</option>
+                {% for cat in category_options %}
+                    <option value="{{cat.title}}" {{search_category == cat ? "selected"}}>
+                        {{cat.title}}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+
+        {# Pagination #}
+        {# styles used for both chevrons below #}
+        {% set pagination_chevron_styles = "text-white text-opacity-80" %}
+        <div class="flex justify-center items center pb-4">
+            {% if pageInfo.prevUrl %}
+                <a 
+                class="{{pagination_chevron_styles}}" 
+                href="{{ pageInfo.prevUrl }}"
+                >
+                <i class="fas fa-chevron-left"></i>
+                </a>
+            {% endif %}
+                <span class="text-white mx-4">página {{pageInfo.currentPage}} de {{pageInfo.totalPages}}</span>
+            {% if pageInfo.nextUrl %}
+                <a 
+                class="{{pagination_chevron_styles}}" 
+                href="{{ pageInfo.nextUrl }}"
+                >
+                <i class="fas fa-chevron-right"></i>
+                </a>
+            {% endif %}
+        </div>
     </div>
 
     {# The results listings #}
@@ -136,7 +168,7 @@
             false,
             catexist
         )}}
-        {% for document in entry_query.all() %}
+        {% for document in pageEntries %}
             {{_self.docMacro(
                 document.title,
                 document.documentosMunicipalesAno,

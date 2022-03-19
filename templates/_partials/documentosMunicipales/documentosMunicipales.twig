@@ -40,6 +40,9 @@
     {% endif %}
 {% endmacro %}
 
+{# Do any categories exist? #}
+{% set catexist = craft.categories().group('documentosMunicpalesCategorias').exists() %}
+
 {# Get the color gradient #}
 {% switch entry.colorGradient ?? 'default' %}
     {% case "blue" %}
@@ -103,20 +106,22 @@
         </select>
 
         {# Category Selection #}
-        {% set category_options = craft.categories().group('documentosMunicpalesCategorias').cache().all() %}
-        <select 
-            name="category" 
-            id="input_category" 
-            class="hidden {{inputClasses}}"
-            x-on:change="working = true"
-        >
-            <option value="">Categoría</option>
-            {% for cat in category_options %}
-                <option value="{{cat.title}}" {{search_category == cat ? "selected"}}>
-                    {{cat.title}}
-                </option>
-            {% endfor %}
-        </select>
+        {% if catexist %}
+            {% set category_options = craft.categories().group('documentosMunicpalesCategorias').cache().all() %}
+            <select 
+                name="category" 
+                id="input_category" 
+                class=" {{inputClasses}}"
+                x-on:change="working = true"
+            >
+                <option value="">Categoría</option>
+                {% for cat in category_options %}
+                    <option value="{{cat.title}}" {{search_category == cat ? "selected"}}>
+                        {{cat.title}}
+                    </option>
+                {% endfor %}
+            </select>
+        {% endif %}
     </div>
 
     {# The results listings #}

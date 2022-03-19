@@ -16,7 +16,7 @@
 {% set search_category = craft.app.request.getParam('category') %}
 {# We need the entry ID of the category#}
 {% if search_category is not empty %}
-    {% set search_category_entry_id = craft.categories().group('documentosMunicpalesCategorias').title(search_category).one().id %}
+    {% set search_category_entry_id = craft.categories().group('documentosMunicpalesCategorias').title(search_category).one().id ?? null %}
 {% else %}
     {% set search_category_entry_id = null %}
 {% endif %}

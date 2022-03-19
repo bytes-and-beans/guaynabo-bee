@@ -29,9 +29,10 @@
   .search(search_title)
 %}
 {# Macro for the individual documents found #}
-{% macro docMacro(title,year,category,link = null) %}
+{% macro docMacro(title,year,category,link,catexist) %}
     <div class="col-span-full h-[2px] bg-guaynabo-gray">&nbsp;</div>
     <div class="ml-4">{{title}}</div>
+    {% if catexist %}<div class="">{{category}}</div>{% endif %}
     <div class="">{{year}}</div>
     {% if link %}
         <a href="{{link}}" class="text-guaynabo-blue underline mr-4">Descargar</a>
@@ -125,7 +126,7 @@
     </div>
 
     {# The results listings #}
-    {% set gridcols = catexist ? 'grid-cols-[repeat(3,auto)]' : 'grid-cols-[repeat(3,auto)]' %}
+    {% set gridcols = catexist ? 'grid-cols-[repeat(4,auto)]' : 'grid-cols-[repeat(3,auto)]' %}
     <div 
         class="my-8 grid {{gridcols}} gap-y-4 gap-x-4 justify-around"
     >
@@ -134,6 +135,8 @@
             'Titulo',
             'Año',
             'Categoría',
+            false,
+            catexist
         )}}
         {% for document in entry_query.all() %}
             {{_self.docMacro(
@@ -141,6 +144,7 @@
                 document.documentosMunicipalesAno,
                 (document.documentosMunicipalesCategoria.title ?? ''),
                 document.documentosMunicipalesPdf.one().url,
+                catexist
             )}}
         {% endfor %}
     </div>

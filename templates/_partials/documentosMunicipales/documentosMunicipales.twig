@@ -125,8 +125,9 @@
     </div>
 
     {# The results listings #}
+    {% set gridcols = catexist ? 'grid-cols-[repeat(3,auto)]' : 'grid-cols-[repeat(3,auto)]' %}
     <div 
-        class="my-8 grid grid-cols-[repeat(3,auto)] gap-y-4 gap-x-4 justify-around"
+        class="my-8 grid {{gridcols}} gap-y-4 gap-x-4 justify-around"
     >
         {# The table header #}
         {{_self.docMacro(

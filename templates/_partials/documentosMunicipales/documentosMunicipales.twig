@@ -107,22 +107,20 @@
         </select>
 
         {# Category Selection #}
-        {% if catexist %}
-            {% set category_options = craft.categories().group('documentosMunicpalesCategorias').cache().all() %}
-            <select 
-                name="category" 
-                id="input_category" 
-                class=" {{inputClasses}}"
-                x-on:change="working = true"
-            >
-                <option value="">Categoría</option>
-                {% for cat in category_options %}
-                    <option value="{{cat.title}}" {{search_category == cat ? "selected"}}>
-                        {{cat.title}}
-                    </option>
-                {% endfor %}
-            </select>
-        {% endif %}
+        {% set category_options = craft.categories().group('documentosMunicpalesCategorias').cache().all() %}
+        <select 
+            name="category" 
+            id="input_category" 
+            class="{{catexist ? inputClasses : 'hidden'}}"
+            x-on:change="working = true"
+        >
+            <option value="">Categoría</option>
+            {% for cat in category_options %}
+                <option value="{{cat.title}}" {{search_category == cat ? "selected"}}>
+                    {{cat.title}}
+                </option>
+            {% endfor %}
+        </select>
     </div>
 
     {# The results listings #}

@@ -1,0 +1,12 @@
+currLabel: 'Transición 2022 Docx'
+customIcon: null
+enabled: true
+handle: transicion2022Docx
+icon: section
+layout: b317180f-95ec-4778-a9f4-8b88ba5b0ba0 # News
+newWindow: false
+order: 99
+prevLabel: 'Transición 2022 Docx'
+prevUrl: /admin/entries/documentosMunicipales
+type: manual
+url: /admin/entries/documentosMunicipales

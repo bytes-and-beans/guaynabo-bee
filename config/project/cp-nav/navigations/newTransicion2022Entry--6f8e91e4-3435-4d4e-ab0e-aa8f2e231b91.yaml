@@ -1,0 +1,12 @@
+currLabel: 'New Transición 2022 entry'
+customIcon: null
+enabled: true
+handle: newTransicion2022Entry
+icon: plus
+layout: 152d572e-0cb0-4442-b348-94bdfb341fba # legislatura
+newWindow: false
+order: 99
+prevLabel: 'New Transición 2022 entry'
+prevUrl: '/admin/entries/documentosMunicipales/new?site=default'
+type: manual
+url: '/admin/entries/documentosMunicipales/new?site=default'

@@ -12,7 +12,7 @@ settings:
   branchLimit: '1'
   limit: null
   localizeRelations: false
-  selectionLabel: 'Seleccion una categoría'
+  selectionLabel: 'Seleccione una categoría'
   showSiteMenu: true
   source: 'group:b8ec90fd-4782-47af-a90c-31ee8374b82a' # Documentos Municpales Categorias
   sources: '*'

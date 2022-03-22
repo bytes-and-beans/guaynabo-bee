@@ -4,7 +4,8 @@
   "description": "",
   "main": "tailwind.config.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "php ./craft clear-caches/all; php ./craft db/backup; git pull && npm install && composer install --no-interaction --prefer-dist --optimize-autoloader; php ./craft migrate/all; php ./craft project-config/apply; php ./craft clear-caches/all; npx mix --production;"
   },
   "keywords": [],
   "author": "",

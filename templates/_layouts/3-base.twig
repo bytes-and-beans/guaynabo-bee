@@ -31,7 +31,7 @@
             Defaults' to 'div'.
         base_subcontentSectionElement: the <tagname> of the primary content element.
             Defaults' to 'div'. 
-        base_primarySectionElementMargins: string, overide the margins of the margins.
+        base_primarySectionElementMarginsX: string, overide the margins of the margins.
 #}
 
 {% extends "_layouts/2-hmf" %}
@@ -41,7 +41,7 @@
 {% set base_sidebarSectionElement = base_sidebarSectionElement ?? 'div' %}
 {% set base_supercontentSectionElement = base_supercontentSectionElement ?? 'div' %}
 {% set base_subcontentSectionElement = base_subcontentSectionElement ?? 'div' %}
-{% set base_primarySectionElementMarginsX = base_primarySectionElementMargins ?? 'md:mx-[5%]' %}
+{% set base_primarySectionElementMarginsX = base_primarySectionElementMarginsX ?? 'md:mx-[5%]' %}
 
 {% block hmf_main %}
     {% if block('base_supercontent') is not empty %}
@@ -52,7 +52,7 @@
     
     {# primary content of the thing #}
     {% if block('base_content') is not empty or block('base_sidebar') is not empty %}
-    <{{base_primarySectionElement}} id="base_content" class="flex flex-col sm:block {{base_primarySectionElementMargins}} my-16 {{header.headerDisableHeader ? 'mt-0' : ''}}">
+    <{{base_primarySectionElement}} id="base_content" class="flex flex-col sm:block {{base_primarySectionElementMarginsX}} my-16 {{header.headerDisableHeader ? 'mt-0' : ''}}">
 
         {# for sidebars and suchlike #}
         {% if block('base_sidebar') is not empty %}

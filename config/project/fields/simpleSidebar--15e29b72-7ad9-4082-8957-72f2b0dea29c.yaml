@@ -1,14 +1,27 @@
 columnSuffix: null
-contentColumnType: string
-fieldGroup: 9b66bf3b-99ef-4f61-b95b-487c92ef5c71 # Simple Fields
+contentColumnType: text
+fieldGroup: ccaa1e02-761a-4951-99df-73a306ef75a1 # Common
 handle: simpleSidebar
 instructions: ''
 name: 'Simple Sidebar'
 searchable: false
 settings:
-  errorMessage: 'Unable to find component class ''craft\redactor\Field''.'
-  expectedType: craft\redactor\Field
-  settings: '{"availableTransforms":["42cc13c0-be07-41ef-85fc-893f9676f8ce"],"availableVolumes":"*","cleanupHtml":true,"columnType":"text","configSelectionMode":"choose","defaultTransform":"","manualConfig":"","purifierConfig":"","purifyHtml":"1","redactorConfig":"","removeEmptyTags":"1","removeInlineStyles":"1","removeNbsp":"1","showHtmlButtonForNonAdmins":"","showUnpermittedFiles":false,"showUnpermittedVolumes":false,"uiMode":"enlarged"}' # News Photo
+  availableTransforms: '*'
+  availableVolumes: '*'
+  columnType: text
+  configSelectionMode: choose
+  defaultTransform: ''
+  manualConfig: ''
+  purifierConfig: ''
+  purifyHtml: '1'
+  redactorConfig: ''
+  removeEmptyTags: '1'
+  removeInlineStyles: '1'
+  removeNbsp: '1'
+  showHtmlButtonForNonAdmins: ''
+  showUnpermittedFiles: false
+  showUnpermittedVolumes: false
+  uiMode: enlarged
 translationKeyFormat: null
 translationMethod: none
-type: craft\fields\MissingField
+type: craft\redactor\Field

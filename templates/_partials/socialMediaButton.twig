@@ -30,7 +30,7 @@
             {% default %}
                 {% set iconCode = "<i class=\"far fa-question-circle\"></i>" %}
         {% endswitch %}
-        <a href={{socialBlock.siteUrl.url}}>{{iconCode | raw}}</a>
+        <a class="text-white" href={{socialBlock.siteUrl.url}}>{{iconCode | raw}}</a>
 
     {% case "image" %}
         <a href={{socialBlock.siteUrl.url}} class="h-4">

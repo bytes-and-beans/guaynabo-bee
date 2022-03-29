@@ -1,14 +1,108 @@
 columnSuffix: null
-contentColumnType: string
-fieldGroup: 9b66bf3b-99ef-4f61-b95b-487c92ef5c71 # Simple Fields
+contentColumnType: text
+fieldGroup: ccaa1e02-761a-4951-99df-73a306ef75a1 # Common
 handle: simpleUrl
-instructions: 'A link to any other page.'
+instructions: ''
 name: 'Simple Url'
 searchable: false
 settings:
-  errorMessage: 'Unable to find component class ''typedlinkfield\fields\LinkField''.'
-  expectedType: typedlinkfield\fields\LinkField
-  settings: '{"allowCustomText":"1","allowTarget":"1","allowedLinkNames":"*","autoNoReferrer":"","defaultLinkName":"entry","defaultText":"","enableAriaLabel":"","enableTitle":"","typeSettings":{"asset":{"sources":"*","allowCustomQuery":""},"category":{"sources":"*","allowCustomQuery":""},"entry":{"sources":"*","allowCustomQuery":""},"site":{"sites":"*"},"user":{"sources":"*","allowCustomQuery":""},"custom":{"disableValidation":"","allowAliases":""},"email":{"disableValidation":"","allowAliases":""},"tel":{"disableValidation":"","allowAliases":""},"url":{"disableValidation":"","allowAliases":""}}}'
+  allowCustomText: '1'
+  allowTarget: ''
+  allowedLinkNames: '*'
+  autoNoReferrer: ''
+  defaultLinkName: asset
+  defaultText: ''
+  enableAriaLabel: ''
+  enableTitle: ''
+  typeSettings:
+    __assoc__:
+      -
+        - asset
+        -
+          __assoc__:
+            -
+              - sources
+              - '*'
+            -
+              - allowCustomQuery
+              - ''
+      -
+        - category
+        -
+          __assoc__:
+            -
+              - sources
+              - '*'
+            -
+              - allowCustomQuery
+              - ''
+      -
+        - entry
+        -
+          __assoc__:
+            -
+              - sources
+              - '*'
+            -
+              - allowCustomQuery
+              - ''
+      -
+        - site
+        -
+          __assoc__:
+            -
+              - sites
+              - '*'
+      -
+        - user
+        -
+          __assoc__:
+            -
+              - sources
+              - '*'
+            -
+              - allowCustomQuery
+              - ''
+      -
+        - custom
+        -
+          __assoc__:
+            -
+              - disableValidation
+              - ''
+            -
+              - allowAliases
+              - ''
+      -
+        - email
+        -
+          __assoc__:
+            -
+              - disableValidation
+              - ''
+            -
+              - allowAliases
+              - ''
+      -
+        - tel
+        -
+          __assoc__:
+            -
+              - disableValidation
+              - ''
+            -
+              - allowAliases
+              - ''
+      -
+        - url
+        -
+          __assoc__:
+            -
+              - disableValidation
+              - ''
+            -
+              - allowAliases
+              - ''
 translationKeyFormat: null
 translationMethod: none
-type: craft\fields\MissingField
+type: typedlinkfield\fields\LinkField

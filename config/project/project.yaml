@@ -1,4 +1,4 @@
-dateModified: 1648593447
+dateModified: 1648596185
 email:
   fromEmail: wesley@bytesandbeans.com
   fromName: Guaynabo
@@ -130,7 +130,7 @@ meta:
     72594698-759c-415b-b779-35434559e175: 'News Fields' # News Fields
     95959585-c417-49be-99f2-645ad1acbdd7: 'Site Name' # Site Name
     a0687692-c241-4866-b206-49ee4ae683d8: Formularios # Formularios
-    a9f4f4fc-b13d-4fe6-a675-81e33dec3ff3: 'News Story' # News Story
+    a9f4f4fc-b13d-4fe6-a675-81e33dec3ff3: newsStory # newsStory
     a63c339f-a34a-4ce3-8b75-fc035d0ac18f: 'Menu Title' # Menu Title
     ab5b16dc-ca25-4b41-aaa4-8ee8407ec275: Negocios # Negocios
     ab59bae7-f1a8-4b5d-bbf1-616011f3f0a3: 'Mayor Signature' # Mayor Signature

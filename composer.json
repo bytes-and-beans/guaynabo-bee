@@ -3,7 +3,7 @@
     "craftcms/cms": "3.7.37",
     "craftcms/contact-form": "^2.2",
     "craftcms/contact-form-honeypot": "^1.0",
-    "craftcms/redactor": "^2.8",
+    "craftcms/redactor": "^2.10",
     "doublesecretagency/craft-cpcss": "^2.4",
     "jalendport/craft-sidebarthemes": "^1.1",
     "marionnewlevant/snitch": "3.0.4.1",

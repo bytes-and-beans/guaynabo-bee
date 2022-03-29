@@ -64,7 +64,7 @@
         {# The Div containing a section #}
         <div class="ml-8">
         {% if section.type == "directLink" %}
-            {{section.directLinkLink.getLink({class:sectionTitleClasses})}}
+            {{section.headerDirectLink.getLink({class:sectionTitleClasses})}}
         {% else %} {# It's a submenu #}
             <div class="{{sectionTitleClasses}}">{{section.menuTitle}}</div>
             {# Now put the submenus under it. 

@@ -6,6 +6,7 @@
 
 {% extends "_layouts/3-base" %}
 
+{# Get search query #}
 {% set urlQuery_text = craft.app.request.getQueryParam('q') ?? null %}
 {# getting the tags, if any #}
 {% set urlQuery_tags = craft.app.request.getQueryParam('t') ?? null %}
@@ -26,7 +27,12 @@
 {# getting our results #}
 {% set query = craft.entries()
     .search(urlQuery_text) 
-    .section('not ordenanzasYResolutiones')
+    .section([
+        'and',
+        'not ordenanzasYResolutiones',
+        'not emergencyMessage',
+        'not errorPages',
+    ])
     .relatedTo(tags)
     .relatedTo(cat)
     .limit(10)

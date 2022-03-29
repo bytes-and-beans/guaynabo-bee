@@ -3,6 +3,7 @@
 
 {% extends "_layouts/3-base" %}
 {% set base_primarySectionElement = 'article' %}
+{% set base_primarySectionElementMarginsX = 'mx-0' %}
 
 {% block base_supercontent %}
 {% endblock %} {# end base_supercontent #}
@@ -22,7 +23,7 @@
 {# Mañana #}  {% if bannerHour >= 6  and bannerHour <  12 %} {% set bannerSubfolder = 22 %} {% endif %}
 {# mediodía #}{% if bannerHour >= 12 and bannerHour <  20 %} {% set bannerSubfolder = 23 %} {% endif %}
 
-{% set heroBannerAsset = craft.assets().volume('heroImages').folderId(bannerSubfolder).order('RAND()').one() %}
+{% set heroBannerAsset = craft.assets().volume('heroImages').folderId(bannerSubfolder).orderBy('RAND()').one() %}
 {% set heroBannerUrl = heroBannerAsset.url %}
 
 <section 

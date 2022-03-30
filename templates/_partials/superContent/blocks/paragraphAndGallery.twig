@@ -22,7 +22,7 @@
             {% for image in superblock.images.all() %}
             {# TODO: set these up to also have afull-screen modal to show the full image when clicked. #}
                 <img src="{{image.url}}" alt="{{image.title}}" 
-                    class="object-cover absolute h-full w-full"
+                    class="object-contain absolute h-full w-full"
                     x-data="{myNumber:{{loop.index}}}"
                     x-show="myNumber === currentImage"
                     {% if not loop.first %}x-cloak{% endif %}

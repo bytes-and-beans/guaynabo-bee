@@ -13,7 +13,13 @@
 {% set columnClasses = "flex-shrink-0 flex-grow w-60" %}
 
 {% macro colMacro(column, columnClasses) %}
-    <div class="{{columnClasses}}">{{column}}</div>
+    <div class="{{columnClasses}}">
+        {{column 
+            | retconWrap('figure > iframe', '#retvidwrapper') 
+            | retconAttr('#retvidwrapper', {'style': 'position: relative; padding-top: 70%;'}) 
+            | retconAttr('#retvidwrapper > iframe', {'style': 'position: absolute; top: 0; left: 0; height: 100%; width: 100%;'}) 
+        }}
+    </div>
 {% endmacro %}
 
 

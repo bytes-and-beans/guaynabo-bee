@@ -40,7 +40,13 @@
 {% set superblock = {"pdfAsset" : entry.documentosMunicipalesPdf} %}
 {% block base_content %}
 
-    <div class="mb-8 text-2xl flex flex-wrap justify-between gap-8">
+    <div class="
+            mb-8 text-2xl 
+            flex flex-wrap justify-between gap-8
+            {# Size the div to match width of pdf viewer #}
+             w-[800px] max-w-full
+        "
+    >
         {# The category #}
         {% if entry.documentosMunicipalesCategoria.exists() %}
             <div >Categoría: {{entry.documentosMunicipalesCategoria.one().title}}</div>

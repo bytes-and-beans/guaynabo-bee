@@ -40,13 +40,15 @@
 {% set superblock = {"pdfAsset" : entry.documentosMunicipalesPdf} %}
 {% block base_content %}
 
-    {# The category #}
-    {% if entry.documentosMunicipalesCategoria.exists() %}
-        <div class="mb-8 text-2xl">Categoría: {{entry.documentosMunicipalesCategoria.one().title}}</div>
-    {% endif %}
+    <div class="mb-8 text-2xl flex flex-wrap justify-between gap-8">
+        {# The category #}
+        {% if entry.documentosMunicipalesCategoria.exists() %}
+            <div >Categoría: {{entry.documentosMunicipalesCategoria.one().title}}</div>
+        {% endif %}
 
-    {# Download Link #}
-    <div class="mb-8 text-2xl"><a href="{{entry.documentosMunicipalesPdf.one().url}}">Descargar</a></div>
+        {# Download Link #}
+        <div><a href="{{entry.documentosMunicipalesPdf.one().url}}">Descargar</a></div>
+    </div>
 
     {# The PDF Viewer #}
     {% include "_partials/superContent/blocks/embedPdf.twig" with {"superblock" : superblock} %}

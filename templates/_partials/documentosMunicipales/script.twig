@@ -17,7 +17,7 @@
     category_element.addEventListener('change', search);
 
     function goPage(title, year, category) {
-      const goto_href = `/{{entry.uri}}?title=${title}&year=${year}&category=${category}`;
+      const goto_href = `{{craft.app.request.absoluteUrl}}?title=${title}&year=${year}&category=${category}`;
       window.location.href = goto_href;
     }
     function search(event){

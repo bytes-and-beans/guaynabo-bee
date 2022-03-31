@@ -33,14 +33,20 @@
 {% extends "_layouts/3-base" %}
 
 {% block base_supercontent %}
+    {# The titlebar #}
     {% include "_partials/entry_titlebar" with {'title': (entry.documentosMunicipalesAno ~ ': ' ~ entry.title)} %}
 {% endblock %}
+
 {% set superblock = {"pdfAsset" : entry.documentosMunicipalesPdf} %}
 {% block base_content %}
 
-    {% for cat in entry.documentosMunicipalesCategoria.all() %}
-        {{cat.title}}<br>
-    {% endfor %}
-    
+    {# The category #}
+    {% if entry.documentosMunicipalesCategoria.exists() %}
+        <div class="mb-8 text-2xl">Categoría: {{entry.documentosMunicipalesCategoria.one().title}}</div>
+    {% endif %}
+
+    {# Download Link #}
+    <div class="mb-8 text-2xl"><a href="{{entry.documentosMunicipalesPdf.one().url}}">Descargar</a></div>
+
     {% include "_partials/superContent/blocks/embedPdf.twig" with {"superblock" : superblock} %}
 {% endblock %} {# end base_content #}

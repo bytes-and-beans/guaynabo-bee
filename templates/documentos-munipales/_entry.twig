@@ -33,14 +33,14 @@
 {% extends "_layouts/3-base" %}
 
 {% block base_supercontent %}
-    {% include "_partials/entry_titlebar" %}
-    {{entry.documentosMunicipalesAno}}<br>
-    {% for cat in entry.documentosMunicipalesCategoria.all() %}
-        {{cat.title}}<br>
-    {% endfor %}
+    {% include "_partials/entry_titlebar" with {'title': (entry.documentosMunicipalesAno ~ ': ' ~ entry.title)} %}
 {% endblock %}
 {% set superblock = {"pdfAsset" : entry.documentosMunicipalesPdf} %}
 {% block base_content %}
-    <h1>Testing the template</h1>
+
+    {% for cat in entry.documentosMunicipalesCategoria.all() %}
+        {{cat.title}}<br>
+    {% endfor %}
+    
     {% include "_partials/superContent/blocks/embedPdf.twig" with {"superblock" : superblock} %}
 {% endblock %} {# end base_content #}

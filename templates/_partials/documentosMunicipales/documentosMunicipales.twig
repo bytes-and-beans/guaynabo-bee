@@ -169,7 +169,7 @@
             {{_self.docMacro(
                 document.title,
                 document.documentosMunicipalesAno,
-                (document.documentosMunicipalesCategoria.title ?? ''),
+                (document.documentosMunicipalesCategoria.one().title ?? ''),
                 document.documentosMunicipalesPdf.one().url,
                 catexist
             )}}

@@ -1,15 +1,10 @@
-
-{# Layout used by entries with only main content.
+{# Template for entries related to the 'municipal documents' 
 
     required vars
         title: Plaintext, title of the entry
-        superContent: Matrix, the primary content of the entry
-                    see docs in it's _partials/ entry. Simply put, supercontent 
-                    is an object lesson in feature creep and technical debt.
+        
     optional vars
-        titleBar: asset, imagle, single; Fullpage titlebar for the entry
-        colorGradient: dropdown, which color gradient we should use.
-            values: blue, purple, green, orange
+        
 #}
 
 {# Set the color gradient #}
@@ -36,6 +31,10 @@
 
 {% block base_supercontent %}
     {% include "_partials/entry_titlebar" %}
+    {{entry.documentosMunicipalesAno}}<br>
+    {% for cat in entry.documentosMunicipalesCategoria.all() %}
+        {{cat.title}}<br>
+    {% endfor %}
 {% endblock %}
 
 {% block base_content %}

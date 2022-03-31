@@ -67,9 +67,6 @@
 {# Paginate the results #}
 {% paginate entry_query as pageInfo, pageEntries %}
 
-{% if pageInfo.prevUrl %}<a href="{{ pageInfo.prevUrl }}">Previous Page</a>{% endif %}
-{% if pageInfo.nextUrl %}<a href="{{ pageInfo.nextUrl }}">Next Page</a>{% endif %}
-
  <section
     class="relative"
     x-data="{working: false}"
@@ -172,7 +169,7 @@
             {{_self.docMacro(
                 document.title,
                 document.documentosMunicipalesAno,
-                (document.documentosMunicipalesCategoria.title ?? ''),
+                (document.documentosMunicipalesCategoria.one().title ?? ''),
                 document.documentosMunicipalesPdf.one().url,
                 catexist
             )}}

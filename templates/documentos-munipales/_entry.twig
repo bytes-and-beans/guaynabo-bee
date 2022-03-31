@@ -1,0 +1,61 @@
+{# Template for entries related to the 'municipal documents' 
+
+    required vars
+        title: Plaintext, title of the entry
+        documentosMunicipalesPdf: Asset, single, PDF. The document this entry reffers too.
+        documentosMunicipalesAno: dropdown, year this document was produced
+        
+    optional vars
+        documentosMunicipalesCategoria: Categories, single category the document may belong too.
+        
+#}
+
+{# Set the color gradient #}
+{% switch entry.colorGradient %}
+    {% case "blue" %}
+        {% set sidebar_bg_gradient_start = "from-guaynabo-blue-start" %}
+        {% set sidebar_bg_gradient_end   =   "to-guaynabo-blue-end" %}
+    {% case "purple" %}
+        {% set sidebar_bg_gradient_start = "from-guaynabo-purple-start" %}
+        {% set sidebar_bg_gradient_end   =   "to-guaynabo-purple-end" %}
+    {% case "green" %}
+        {% set sidebar_bg_gradient_start = "from-guaynabo-green-start" %}
+        {% set sidebar_bg_gradient_end   =   "to-guaynabo-green-end" %}
+    {% case "orange" %}
+        {% set sidebar_bg_gradient_start = "from-guaynabo-orange-start" %}
+        {% set sidebar_bg_gradient_end   =   "to-guaynabo-orange-end" %}
+    {% default %}
+        {% set sidebar_bg_gradient_start = "from-guaynabo-blue-start" %}
+        {% set sidebar_bg_gradient_end   =   "to-guaynabo-blue-end" %}
+{% endswitch %}
+
+
+{% extends "_layouts/3-base" %}
+
+{% block base_supercontent %}
+    {# The titlebar #}
+    {% include "_partials/entry_titlebar" with {'title': (entry.documentosMunicipalesAno ~ ': ' ~ entry.title)} %}
+{% endblock %}
+
+{% set superblock = {"pdfAsset" : entry.documentosMunicipalesPdf} %}
+{% block base_content %}
+
+    <div class="
+            mb-8 text-2xl 
+            flex flex-wrap justify-between gap-8
+            {# Size the div to match width of pdf viewer #}
+             w-[800px] max-w-full
+        "
+    >
+        {# The category #}
+        {% if entry.documentosMunicipalesCategoria.exists() %}
+            <div >Categoría: {{entry.documentosMunicipalesCategoria.one().title}}</div>
+        {% endif %}
+
+        {# Download Link #}
+        <div><a href="{{entry.documentosMunicipalesPdf.one().url}}">Descargar</a></div>
+    </div>
+
+    {# The PDF Viewer #}
+    {% include "_partials/superContent/blocks/embedPdf.twig" with {"superblock" : superblock} %}
+{% endblock %} {# end base_content #}

@@ -90,7 +90,7 @@
             {% deprecated 'SuperBlock type "tabulator" is deprecated, use "table" instead.' %}
             <!-- Block type "tabulator" deprecated -->
         {% default %}
-            <!-- Block type "{{superblock.type}}" not yet supported -->
+            {% include "_partials/superContent/blocks/tabulator.twig" %}
     {% endswitch %}
     
 {% endfor %}

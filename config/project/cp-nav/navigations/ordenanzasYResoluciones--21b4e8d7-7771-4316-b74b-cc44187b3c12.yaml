@@ -1,12 +1,12 @@
 currLabel: 'Ordenanzas y Resoluciones'
 customIcon: null
-enabled: true
+enabled: '1'
 handle: ordenanzasYResoluciones
 icon: draft
 layout: 152d572e-0cb0-4442-b348-94bdfb341fba # legislatura
 newWindow: false
-order: 99
+order: '99'
 prevLabel: 'Ordenanzas y Resoluciones'
 prevUrl: /admin/entries/ordenanzasYResolutiones
 type: manual
-url: /admin/entries/ordenanzasYResolutiones
+url: entries/ordenanzasYResolutiones

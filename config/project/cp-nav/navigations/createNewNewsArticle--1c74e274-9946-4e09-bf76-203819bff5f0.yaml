@@ -9,4 +9,4 @@ order: 99
 prevLabel: 'Create New News Article'
 prevUrl: '/admin/entries/news/new?site=default'
 type: manual
-url: '/admin/entries/news/new?site=default'
+url: 'entries/news/new?site=default'

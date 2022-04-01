@@ -1,12 +1,12 @@
 currLabel: 'News Articles'
 customIcon: null
-enabled: true
+enabled: '1'
 handle: newsArticles
 icon: section
 layout: b317180f-95ec-4778-a9f4-8b88ba5b0ba0 # News
 newWindow: false
-order: 99
+order: '99'
 prevLabel: 'News Articles'
 prevUrl: /admin/entries/news
 type: manual
-url: /admin/entries/news
+url: entries/news

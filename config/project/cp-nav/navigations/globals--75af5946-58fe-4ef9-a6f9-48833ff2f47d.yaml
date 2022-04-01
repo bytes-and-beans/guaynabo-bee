@@ -9,4 +9,4 @@ order: '2'
 prevLabel: Globals
 prevUrl: /admin/settings/globals
 type: manual
-url: /admin/globals
+url: globals

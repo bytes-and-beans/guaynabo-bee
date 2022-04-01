@@ -57,17 +57,19 @@
         <img src={{sidebarLogo.url}} alt={{sidebarLogo.title}} class="w-full max-w-full hidden sm:block">
     {% endif %}
     {# Sidebar Content #}
-    <div 
-        class=" w-full bg-gradient-to-tr {{sidebar_bg_gradient_start}} {{sidebar_bg_gradient_end}} 
-            {{sidebar_text_color}} p-2 
-        "
-    >
-        {# set links in sidebar opacity so they take on a little of the background color #}
-        {{ entry.simpleSidebar 
-            | retconAttr('a',{'class': "#{sidebar_text_color} text-opacity-80"}, false)
-            | retconAttr('p,ul,ol,h1,h2,h3,h4,h5,h6', {'class': "mb-4 last:mb-2"}, false)
-            | retconAttr('ul', {"class": "list-disc"}, false)
-            | retconAttr('figure > img', {"class": "max-h-[30rem]"}, false)
-        }}
-    </div>
+    {% if entry.simpleSidebar is not empty %}
+        <div 
+            class=" w-full bg-gradient-to-tr {{sidebar_bg_gradient_start}} {{sidebar_bg_gradient_end}} 
+                {{sidebar_text_color}} p-2 
+            "
+        >
+            {# set links in sidebar opacity so they take on a little of the background color #}
+            {{ entry.simpleSidebar 
+                | retconAttr('a',{'class': "#{sidebar_text_color} text-opacity-80"}, false)
+                | retconAttr('p,ul,ol,h1,h2,h3,h4,h5,h6', {'class': "mb-4 last:mb-2"}, false)
+                | retconAttr('ul', {"class": "list-disc"}, false)
+                | retconAttr('figure > img', {"class": "max-h-[30rem]"}, false)
+            }}
+        </div>
+    {% endif %}
 {% endblock %} {# end base_sidebar #}

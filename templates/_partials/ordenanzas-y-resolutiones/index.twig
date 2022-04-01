@@ -38,7 +38,7 @@
   .orderBy('serie desc, numero desc')
 %}
 
-{% switch entry.colorGradient %}
+{% switch entry.colorGradient ?? null %}
     {% case "blue" %}
         {% set selectors_bg_gradient_start = "from-guaynabo-blue-start" %}
         {% set selectors_bg_gradient_end   =   "to-guaynabo-blue-end" %}

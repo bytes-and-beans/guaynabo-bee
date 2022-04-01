@@ -12,12 +12,27 @@
 {# storing a class that will be repeated below #}
 {% set columnClasses = "flex-shrink-0 flex-grow w-60" %}
 
+{% macro colMacro(column, columnClasses) %}
+    <div class="{{columnClasses}}">
+        {{column 
+            | retconWrap('figure > iframe', '#retvidwrapper') 
+            | retconAttr('#retvidwrapper', {'style': 'position: relative; padding-top: 70%;'}) 
+            | retconAttr('#retvidwrapper > iframe', {'style': 'position: absolute; top: 0; left: 0; height: 100%; width: 100%;'}) 
+            | retconAttr('p,ol,ul', {"class": "mb-6 last:mb-0"}, false)
+            | retconAttr('h1,h2,h3,h4,h5,h6', {"class": "mb-8 last:mb-2"}, false)
+            | retconAttr('ul', {"class": "list-disc"}, false)
+            | retconAttr('figure > img', {"class": "max-h-[30rem]"}, false)
+        }}
+    </div>
+{% endmacro %}
+
+
 <div class="flex flex-wrap gap-4">
-    <div class="{{columnClasses}}">{{superblock.column1}}</div>
+    {{_self.colMacro(superblock.column1, columnClasses)}}
     {% if superblock.column2 is not empty %}
-        <div class="{{columnClasses}}">{{superblock.column2}}</div>
+    {{_self.colMacro(superblock.column2, columnClasses)}}
     {% endif %}
     {% if superblock.column3 is not empty %}
-        <div class="{{columnClasses}}">{{superblock.column3}}</div>
+    {{_self.colMacro(superblock.column3, columnClasses)}}
     {% endif %}
 </div>

@@ -1,0 +1,13 @@
+{# Template for the fallback/default municipal documents page.
+#}
+
+{% extends "_layouts/3-base" %}
+
+{% block base_supercontent %}
+    {# Titlebar #}
+    {% include "_partials/entry_titlebar" with {'title': "Transición 2022"} %}
+{% endblock %}
+
+{% block base_content %}
+    {% include "_partials/documentosMunicipales/index.twig" %}
+{% endblock %}

@@ -59,7 +59,7 @@
             <details class="">
                 <summary class="">
                     {% if not event.simpleUrl.isEmpty() %}
-                        <a href="">{{event.title}}</a>
+                        <a href="{{event.simpleUrl.url}}">{{event.title}}</a>
                     {% else %}
                         {{event.title}}
                     {% endif %}

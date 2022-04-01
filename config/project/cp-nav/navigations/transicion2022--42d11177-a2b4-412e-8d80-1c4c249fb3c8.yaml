@@ -1,12 +1,12 @@
 currLabel: 'Transición 2022'
 customIcon: null
-enabled: true
+enabled: '1'
 handle: transicion2022
 icon: section
 layout: 152d572e-0cb0-4442-b348-94bdfb341fba # legislatura
 newWindow: false
-order: 99
+order: '99'
 prevLabel: 'Transición 2022'
 prevUrl: /admin/entries/documentosMunicipales
 type: manual
-url: /admin/entries/documentosMunicipales
+url: entries/documentosMunicipales

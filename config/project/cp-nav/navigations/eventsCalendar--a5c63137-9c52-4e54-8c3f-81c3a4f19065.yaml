@@ -4,9 +4,9 @@ enabled: '1'
 handle: eventsCalendar
 icon: date
 layout: 48daf189-e7f0-426c-8c8c-eeb4c7b4c755 # Default
-newWindow: '0'
-order: 11
+newWindow: false
+order: '11'
 prevLabel: 'Events Calendar'
 prevUrl: 'http://149.28.248.164/admin/entries/events'
 type: manual
-url: /admin/entries/eventsCalendar
+url: entries/eventsCalendar

@@ -6,7 +6,7 @@
         colorGradient: dropdown, which color gradient we should use.
             values: blue, purple, green, orange
             Defaults to entry.colorGradient then null (blue)
-        entry.titleBare: asset, image, one(); Image that should be used for the titlebar
+        entry.titleBar: asset, image, one(); Image that should be used for the titlebar
 #}
 {# Set the color gradient #}
 {% switch colorGradient ?? entry.colorGradient ?? null %}
@@ -30,13 +30,17 @@
 {% set title_text  = title ?? entry.title ?? '&nbsp;' %}
 
 <div
+    {% set baseStylings = "
+            py-4 w-full text-center flex justify-center items-center 
+            md:justify-between md:px-24 gap-4
+        " 
+    %}
     {% if entry.titleBar.exists() ?? false %}
         style="background-image:url({{entry.titleBar.one().url}})"
-        class= " h-[140px] w-full"
+        class= " h-[140px] w-full {{baseStylings}}"
     {% else %}
         class="bg-gradient-to-tr {{titlebar_bg_gradient_start}} {{titlebar_bg_gradient_end}} 
-            py-4 w-full text-center flex justify-center items-center 
-            md:justify-between md:px-24
+            {{baseStylings}}
         " 
     {% endif %}
 >
@@ -50,7 +54,7 @@
     {% endif %}
 
     {# Search bar #}
-    <div class="p-1 hidden sm:block
+    <div class="p-1 hidden sm:flex
                 bg-gradient-to-tr from-guaynabo-green-start to-guaynabo-green-end
          "
          x-data="{query: ''}"

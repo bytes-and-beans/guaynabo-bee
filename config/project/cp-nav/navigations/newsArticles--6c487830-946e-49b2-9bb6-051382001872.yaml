@@ -4,9 +4,9 @@ enabled: '1'
 handle: newsArticles
 icon: section
 layout: 48daf189-e7f0-426c-8c8c-eeb4c7b4c755 # Default
-newWindow: '0'
-order: 13
+newWindow: false
+order: '13'
 prevLabel: 'News Articles'
 prevUrl: /admin/entries/news
 type: manual
-url: /admin/entries/news
+url: entries/news

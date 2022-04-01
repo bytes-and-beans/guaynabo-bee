@@ -41,7 +41,12 @@
     {% endif %}
 
     {# The redactor text #}
-    {{superblock.redactorText}}
+    {{
+        superblock.redactorText
+        | retconAttr('p,ol,ul', {"class": "mb-6 last:mb-0"}, false)
+        | retconAttr('h1,h2,h3,h4,h5,h6', {"class": "mb-8 last:mb-2"}, false)
+        | retconAttr('ul', {"class": "list-disc"}, false)
+    }}
 </div>
 {# A spacer to float-clear #}
 <div class="clear-both h-px">&nbsp;</div>

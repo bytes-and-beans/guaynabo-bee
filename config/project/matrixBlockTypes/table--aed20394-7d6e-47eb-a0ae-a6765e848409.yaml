@@ -27,11 +27,10 @@ fields:
     settings:
       availableTransforms: '*'
       availableVolumes: '*'
-      cleanupHtml: true
       columnType: text
       configSelectionMode: manual
       defaultTransform: ''
-      manualConfig: "{\r\n  \"buttons\": [\"bold\", \"italic\",\"table\"],\r\n  \"plugins\": [\"table\"],\r\n  \"toolbarFixed\": true\r\n}"
+      manualConfig: "{\r\n  \"buttons\": [\"html\",\"bold\", \"italic\",\"table\"],\r\n  \"plugins\": [\"table\"],\r\n  \"toolbarFixed\": true\r\n}"
       purifierConfig: ''
       purifyHtml: '1'
       redactorConfig: ''

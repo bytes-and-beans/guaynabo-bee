@@ -72,7 +72,7 @@
 
             {% apply spaceless %}
             <li> {{itemMarker | raw }}
-            {% if item.hasUrls %}
+            {% if item.getVolume().hasUrls %}
                 <a href="{{item.url}}" class="">{{item.title}}</a>
             {% else %}
                 {{item.title}}

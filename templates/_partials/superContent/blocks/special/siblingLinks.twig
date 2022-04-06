@@ -18,7 +18,7 @@
         {% if prevSibling %}
             <a href="{{prevSibling.url}}" class=""><i class="fas fa-angle-double-left"></i> {{prevSibling.title}}</a>
         {% else %}
-            {% set lastSibling = entry.siblings.last() %}
+            {% set lastSibling = entry.siblings.inReverse().one() %}
             {% if lastSibling.id != nextSibling.id%}
                 <a href="{{lastSibling.url}}" class=""><i class="fas fa-angle-double-left"></i> {{lastSibling.title}}</a>
             {% endif %}

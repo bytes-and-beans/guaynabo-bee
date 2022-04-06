@@ -5,7 +5,7 @@
         entry: a craft cms entry; Seems obvious, but I figured I should include it
   #}
 
-{% set children = entry.getChildren %}
+{% set children = entry.getChildren.all() %}
 
 <ul class="">
 {% for child in children %}

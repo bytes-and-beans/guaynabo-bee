@@ -47,7 +47,6 @@ fields:
         - 6b7c1600-5730-4260-9603-b5718fc754ec # News
         - e823d103-105b-4636-a457-64e56bcbf12b # Gobierno
         - 41dea3d8-588b-4e96-82b2-82157cf3f818 # Servicios
-      cleanupHtml: true
       columnType: text
       configSelectionMode: choose
       defaultTransform: ''

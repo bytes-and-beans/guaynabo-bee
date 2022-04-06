@@ -59,7 +59,7 @@
                 {{result.section}}
                 {% set ancestors = result.getAncestors %}
                 {% if ancestors | length > 0 %}
-                    >> {{ ancestors | map(a=>"#{a.title}") | join(" >> ") }}
+                    >> {{ ancestors.all() | map(a=>"#{a.title}") | join(" >> ") }}
                 {% endif %}
                 >> {{result.title}}
             </a>

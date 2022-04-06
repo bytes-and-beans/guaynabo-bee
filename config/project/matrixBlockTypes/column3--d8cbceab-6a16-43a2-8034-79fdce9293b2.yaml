@@ -49,7 +49,6 @@ fields:
         - 03a84b54-1534-4d28-ada1-8da3aac4ffc8 # 700 px wide
         - 42cc13c0-be07-41ef-85fc-893f9676f8ce # News Photo
       availableVolumes: '*'
-      cleanupHtml: true
       columnType: text
       configSelectionMode: choose
       defaultTransform: ''
@@ -82,7 +81,6 @@ fields:
         - 03a84b54-1534-4d28-ada1-8da3aac4ffc8 # 700 px wide
         - 42cc13c0-be07-41ef-85fc-893f9676f8ce # News Photo
       availableVolumes: '*'
-      cleanupHtml: true
       columnType: text
       configSelectionMode: choose
       defaultTransform: 42cc13c0-be07-41ef-85fc-893f9676f8ce # News Photo
@@ -115,7 +113,6 @@ fields:
         - 03a84b54-1534-4d28-ada1-8da3aac4ffc8 # 700 px wide
         - 42cc13c0-be07-41ef-85fc-893f9676f8ce # News Photo
       availableVolumes: '*'
-      cleanupHtml: true
       columnType: text
       configSelectionMode: choose
       defaultTransform: ''

@@ -2,6 +2,7 @@
 namespace modules;
 
 use Craft;
+use craft\elements\Entry;
 
 /**
  * Custom module class.
@@ -61,8 +62,14 @@ class CalendarDBReader extends \Twig\Extension\AbstractExtension
             new \Twig_SimpleFunction('calenderEntriesAnnual',[$this, 'calenderEntriesAnnual']),
         ];
     }
-    public function calenderEntriesAnnual() : string
+    public function calenderEntriesAnnual(int $year)
     {
-        return "THIS IS WORKING";
+        $yearStartTime = new \DateTime('first day of January ' . $year);
+        $yearEndTime   = new \DateTime('23:59:59 last day of December' . $year);
+
+        $entryQuery = Entry::find()
+            ->section('eventsCalendar');
+        
+        return "this year is " . $year . "it began at" . $yearStart -> format(\DateTime::W3C) . "and ended at" . $yearEnd -> format(\DateTime::W3C);
     }
 }

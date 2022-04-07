@@ -71,7 +71,24 @@ class CalendarDBReader extends \Twig\Extension\AbstractExtension
             -> section('eventsCalendar')
             -> startTime("<=".$yearEndTime) 
             -> endTime(">=".$yearStartTime);
-        
-        return "this year is " . $year . ".<br>It began at" . $yearStartTime . " and ended at " . $yearEndTime . "<br>There are " . $entryQuery -> count() . " entries in this year's calendar";
+        // Year is an array of months, each month is an array of days, each day an array of events
+        $yearArray = array();
+
+        $dayInterval = new \DateInterval('P1D');
+        foreach ($entryQuery->all() as  $event) {
+            $eventPeriod = new \DatePeriod($event->startTime, $dayInterval, $event->endTime);
+            foreach ($eventPeriod as $day) {
+                $month = $day -> format("n");
+                $date = $day -> format("d");
+                if (! array_key_exists($month, $yearArray)) {
+                    $yearArray[$month] = array();
+                }
+                if (! array_key_exists($month, $yearArray[$month])) {
+                    $yearArray[$month][$date] = array();
+                }
+                array_push($yearArray[$month][$date],$event);
+            }
+        }
+        return $yearArray;
     }
 }

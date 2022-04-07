@@ -39,6 +39,18 @@ class Module extends \yii\base\Module
 
         parent::init();
 
-        // Custom initialization code goes here...
+        if (Craft::$app->request->getIsSiteRequest()) {
+            // Add in our Twig extension
+            $extension = new CalendarDBReader();
+            Craft::$app->view->registerTwigExtension($extension);
+        }
+    }
+}
+
+class CalendarDBReader extends \Twig\Extension\AbstractExtension
+{
+    public function calendarAnnual(int $year = null)
+    {
+        // code!
     }
 }

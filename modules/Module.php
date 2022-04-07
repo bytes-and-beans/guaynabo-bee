@@ -64,12 +64,14 @@ class CalendarDBReader extends \Twig\Extension\AbstractExtension
     }
     public function calenderEntriesAnnual(int $year)
     {
-        $yearStartTime = new \DateTime('first day of January ' . $year);
-        $yearEndTime   = new \DateTime('23:59:59 last day of December' . $year);
+        $yearStartTime = (new \DateTime('first day of January ' . $year)) -> format(\DateTime::ATOM);
+        $yearEndTime   = (new \DateTime('23:59:59 last day of December' . $year)) -> format(\DateTime::ATOM);
 
         $entryQuery = Entry::find()
-            ->section('eventsCalendar');
+            -> section('eventsCalendar')
+            -> startTime("<=".$yearEndTime) 
+            -> endTime(">=".$yearStartTime);
         
-        return "this year is " . $year . "it began at" . $yearStart -> format(\DateTime::W3C) . "and ended at" . $yearEnd -> format(\DateTime::W3C);
+        return "this year is " . $year . ".<br>It began at" . $yearStartTime . " and ended at " . $yearEndTime . "<br>There are " . $entryQuery -> count() . " entries in this year's calendar";
     }
 }

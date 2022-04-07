@@ -30,17 +30,7 @@
 {% endblock %}
 
 {# macro defining the days #}
-{% macro day(year, month, date, trueYear, trueMonth, trueDate) %}
-    {% set startDay  = "#{year}-#{month}-#{date}" | atom %}
-    {% set endDay    = "#{year}-#{month}-#{date}" | date_modify('+1 day') | date_modify('-1 second') | atom %}
-    {# {% set dayQuery = craft.entries()
-        .section('eventsCalendar')
-        .startTime("<= #{endDay}") 
-        .endTime(">= #{startDay}")
-        .cache()
-    %} #}
-    {# {% if dayQuery.exists() %} #}
-    {% if false %}
+{% macro day(year, month, date, eventsArray,trueDate) %}
     <div  class="flex border-2 border-b-0 last:border-b-2">
         {# The date and day #}
         <div 
@@ -56,7 +46,7 @@
         </div>
         {# The events themselves #}
         <div class="ml-2">
-            {% for event in dayQuery.all() %}
+            {% for event in eventsArray %}
             <details class="">
                 <summary class="">
                     {% if not event.simpleUrl.isEmpty() %}
@@ -74,7 +64,6 @@
             {% endfor %}
         </div>
     </div>
-    {% endif %} {# dayQuery.exists() #}
 {% endmacro %}
 
 {# Macro defining the months #}
@@ -84,9 +73,11 @@
         <h2 class="text-3xl font-advantage {{thisMonthClass}}">{{ "#{year}-#{monthNumber}" | date('F')}}</h2>
         <div class="ml-4">
             <div class="ml-6 hide-if-not-alone">No hay eventos este mes.</div>
-            {# {% for day in 1..daysInMonth %}
-                {{ _self.day(year, monthNumber, day, trueYear, trueMonth, trueDate) }}
-            {% endfor %} #}
+            {% if (yearArray[monthNumber] ?? false) %}
+                {% for dateNumber, eventsArray in yearArray[monthNumber] %}
+                    {{_self.day(year, monthNumber, dateNumber, eventsArray,trueDate)}}
+                {% endfor %}
+            {% endif %}
         </div>
     </div>
 {% endmacro %}

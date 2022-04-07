@@ -2,6 +2,7 @@
 namespace modules;
 
 use Craft;
+use craft\elements\Entry;
 
 /**
  * Custom module class.
@@ -39,6 +40,73 @@ class Module extends \yii\base\Module
 
         parent::init();
 
-        // Custom initialization code goes here...
+        if (Craft::$app->request->getIsSiteRequest()) {
+            // Add in our Twig extension
+            $extension = new CalendarDBReader();
+            Craft::$app->view->registerTwigExtension($extension);
+        }
+    }
+}
+
+class CalendarDBReader extends \Twig\Extension\AbstractExtension
+{
+
+    /**
+     * Returns a list of functions to add to the existing list.
+     *
+     * @return \Twig\TwigFunction[]
+     */
+    public function getFunctions()
+    {
+        return [
+            new \Twig_SimpleFunction('calenderEntriesAnnual',[$this, 'calenderEntriesAnnual']),
+        ];
+    }
+    /**
+     * Returns an array of all events in a year.
+     * 
+     * array structure is:  
+     * //The year array
+     *   {
+     *      //the number of this month
+     *      1 => {
+     *          //the number of this day
+     *          16 => {
+     *              event entry
+     *              event entry
+     *              event entry
+     *          }
+     *      }
+     *   } 
+     */
+    public function calenderEntriesAnnual(int $year)
+    {
+        $yearStartTime = (new \DateTime('first day of January ' . $year)) -> format(\DateTime::ATOM);
+        $yearEndTime   = (new \DateTime('23:59:59 last day of December' . $year)) -> format(\DateTime::ATOM);
+
+        $entryQuery = Entry::find()
+            -> section('eventsCalendar')
+            -> startTime("<=".$yearEndTime) 
+            -> endTime(">=".$yearStartTime);
+        // Year is an array of months, each month is an array of days, each day an array of events
+        $yearArray = array();
+
+        $dayInterval = new \DateInterval('P1D');
+        foreach ($entryQuery->all() as  $event) {
+            $ending = $event -> endTime != $event -> startTime ? $event -> endTime : date_modify($event->endTime, '23:59:59');
+            $eventPeriod = new \DatePeriod($event->startTime, $dayInterval, $event->endTime);
+            foreach ($eventPeriod as $day) {
+                $month = $day -> format("n");
+                $date = $day -> format("d");
+                if (! array_key_exists($month, $yearArray)) {
+                    $yearArray[$month] = array();
+                }
+                if (! array_key_exists($month, $yearArray[$month])) {
+                    $yearArray[$month][$date] = array();
+                }
+                array_push($yearArray[$month][$date],$event);
+            }
+        }
+        return $yearArray;
     }
 }

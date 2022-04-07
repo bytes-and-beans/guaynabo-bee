@@ -88,7 +88,6 @@
 
     {% set yearArray = calenderEntriesAnnual(thisYear) %}
 
-    {% cache globally using key craft.app.request.queryString for 1 seconds %}
     <div 
         class=""
         x-data="{
@@ -99,7 +98,6 @@
             {{ _self.month(monthNumber, thisYear, yearArray, trueYear, trueMonth, trueDate) }} 
         {% endfor %}
     </div>
-    {% endcache %}
 {% endblock %}
 
     

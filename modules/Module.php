@@ -62,6 +62,23 @@ class CalendarDBReader extends \Twig\Extension\AbstractExtension
             new \Twig_SimpleFunction('calenderEntriesAnnual',[$this, 'calenderEntriesAnnual']),
         ];
     }
+    /**
+     * Returns an array of all events in a year.
+     * 
+     * array structure is:  
+     * //The year array
+     *   {
+     *      //the number of this month
+     *      1 => {
+     *          //the number of this day
+     *          16 => {
+     *              event entry
+     *              event entry
+     *              event entry
+     *          }
+     *      }
+     *   } 
+     */
     public function calenderEntriesAnnual(int $year)
     {
         $yearStartTime = (new \DateTime('first day of January ' . $year)) -> format(\DateTime::ATOM);

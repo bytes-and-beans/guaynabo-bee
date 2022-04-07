@@ -76,6 +76,7 @@ class CalendarDBReader extends \Twig\Extension\AbstractExtension
 
         $dayInterval = new \DateInterval('P1D');
         foreach ($entryQuery->all() as  $event) {
+            $ending = $event -> endTime != $event -> startTime ? $event -> endTime : date_modify($event->endTime, '23:59:59');
             $eventPeriod = new \DatePeriod($event->startTime, $dayInterval, $event->endTime);
             foreach ($eventPeriod as $day) {
                 $month = $day -> format("n");

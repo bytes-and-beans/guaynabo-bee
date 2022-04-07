@@ -93,7 +93,7 @@
 {% block base_content %}
     {# annual pagination #}
     {# The year calendar #}
-    {{'TESTING' | thinger() }}
+    {{ thinger() }}
     {% cache globally using key craft.app.request.queryString for 1 seconds %}
     <div 
         class=""

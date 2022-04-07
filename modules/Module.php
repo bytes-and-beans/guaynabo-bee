@@ -49,19 +49,16 @@ class Module extends \yii\base\Module
 
 class CalendarDBReader extends \Twig\Extension\AbstractExtension
 {
-    public function calendarAnnual(int $year = null)
-    {
- 
-    }
+
     /**
      * Returns a list of functions to add to the existing list.
      *
      * @return \Twig\TwigFunction[]
      */
-    public function getFilters()
+    public function getFunctions()
     {
         return [
-            new \Twig_SimpleFilter('thinger',[$this, 'calenderEntriesAnnual']),
+            new \Twig_SimpleFunction('calenderEntriesAnnual',[$this, 'calenderEntriesAnnual']),
         ];
     }
     public function calenderEntriesAnnual() : string

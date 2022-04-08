@@ -1,16 +1,16 @@
 {
   "require": {
-    "craftcms/cms": "3.7.37",
+    "craftcms/cms": "3.7.38",
     "craftcms/contact-form": "^2.2",
     "craftcms/contact-form-honeypot": "^1.0",
-    "craftcms/redactor": "^2.10",
+    "craftcms/redactor": "2.10.6",
     "doublesecretagency/craft-cpcss": "^2.4",
     "jalendport/craft-sidebarthemes": "^1.1",
     "marionnewlevant/snitch": "3.0.4.1",
     "mmikkel/retcon": "^2.3",
     "sebastianlenz/linkfield": "^1.0",
     "verbb/cp-nav": "^3.0",
-    "verbb/image-resizer": "^2.1",
+    "verbb/image-resizer": "2.1.1",
     "verbb/knock-knock": "^1.2",
     "vlucas/phpdotenv": "^3.4.0",
     "wbrowar/adminbar": "^3.1"
@@ -27,7 +27,7 @@
     "sort-packages": true,
     "optimize-autoloader": true,
     "platform": {
-      "php": "7.2.5"
+      "php": "8.0.16"
     }
   },
   "scripts": {

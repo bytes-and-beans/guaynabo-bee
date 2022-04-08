@@ -1,0 +1,11 @@
+{#  Handles the rare event that someone finds themselves on the page for a 
+    direct link entry.
+
+    Should just redirect to the appropriat URL
+
+    Entry Fields:
+        title: plaintext, single line
+        simpleUrl: typed link field.
+#}
+
+{% redirect entry.simpleUrl.getUrl() 301 %}

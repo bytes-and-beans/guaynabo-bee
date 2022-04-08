@@ -19,12 +19,26 @@
                 'left-0': open,
                 'w-full': open,
                 'h-full': open,
+                'flex': open,
+                'justify-center': open,
+                'items-center': open,
                 'bg-opacity-80': open,
                 'bg-guaynabo-gray': open,
                 'w-1/4' : !open,
+                'cursor-[zoom-in]' : !open,
+                'cursor-[zoom-out]' : open,
             }"
         >
-            <img src="{{image.url}}" alt="{{image.title}}" class="">
+            <img 
+                class=""
+                src="{{image.url}}" 
+                alt="{{image.title}}" 
+                x-bind:class="{
+                    'w-11/12': open,
+                    'h-[90%]': open,
+                    'object-fit': open,
+                }"
+            >
         </div>
     {% endfor %}
 

@@ -9,7 +9,39 @@
 <div class="flex flex-wrap gap-2">
 
     {% for image in superblock.miniGallery.all() %}
-        <img src="{{image.url}}" alt="{{image.title}}" class="w-1/4 min-w-[250px] flex-grow">
+        <div 
+            class="w-1/4 min-w-[250px] flex-grow"
+            x-data="{open: false}"
+            x-on:click="open = !open;"
+            x-bind:class="{
+                'fixed' : open,
+                'top-0' : open,
+                'left-0': open,
+                'w-full': open,
+                'h-full': open,
+                'flex': open,
+                'z-50': open,
+                'justify-center': open,
+                'items-center': open,
+                'bg-opacity-80': open,
+                'bg-guaynabo-gray': open,
+                'w-1/4' : !open,
+                'cursor-[zoom-in]' : !open,
+                'cursor-[zoom-out]' : open,
+            }"
+        >
+            <img 
+                class=""
+                src="{{image.url}}" 
+                alt="{{image.title}}" 
+                x-bind:class="{
+                    'w-11/12': open,
+                    'h-[90%]': open,
+                    'object-fit': open,
+                }"
+            >
+            <div class="absolute top-[3%] right-[2%] text-lg"  x-show="open">✖</div>
+        </div>
     {% endfor %}
 
 </div>

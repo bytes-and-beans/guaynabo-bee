@@ -48,7 +48,8 @@
                         {% endif %}
                         >> {{result.title}}
                     </div>
-                    <div class=" text-guaynabo-blue-dark">{{ result.summary}}</div>
+                    <div class=" ">{{ result.summary}}</div>
+                    <div class="text-guaynabo-blue-dark text-sm">{{ result.postDate | date('l j F Y') | split(' ') | map(s=>(s|capitalize)) | join(' ') }}</div>
                 </div>
             </a>
         {% endfor %}

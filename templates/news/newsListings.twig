@@ -39,7 +39,8 @@
                 </div>
                 <div class=""> {# details container #}
                     <div class="font-advantage text-2xl text-guaynabo-blue">{{ result.title }}</div>
-                    <div class="text-sm text-guaynabo-blue-dark"> {# Breadcrumbs #}
+                    {# Breadcrumbs #}
+                    <div class="text-sm text-guaynabo-blue-dark"> 
                         {{result.section}}
                         {% set ancestors = result.getAncestors %}
                         {% if ancestors | length > 0 %}
@@ -47,7 +48,8 @@
                         {% endif %}
                         >> {{result.title}}
                     </div>
-                    <div class=" text-guaynabo-blue-dark">{{ result.summary}}</div>
+                    <div class=" ">{{ result.summary}}</div>
+                    <div class="text-guaynabo-blue-dark text-sm">{{ result.postDate | date('l j F Y') | split(' ') | map(s=>(s|capitalize)) | join(' ') }}</div>
                 </div>
             </a>
         {% endfor %}

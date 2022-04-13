@@ -8,7 +8,13 @@
         simpleContent
         eventTags
  #}
-
+ {# !!!!!!!!!!!!! #}
+ {# !!!!!!!!!!!!! #}
+ {# !!!!!!!!!!!!! #}
+{# WE WERE JUST ABOUT TO MODIFY THIS MACRO TO USE THE INFO FROM THE WEEKEVENTS ARRAY #}
+ {# !!!!!!!!!!!!! #}
+ {# !!!!!!!!!!!!! #}
+ {# !!!!!!!!!!!!! #}
 {# macro defining the days #}
 {% macro day(startOfDay, isToday) %}
     {% set endOfDay =  startOfDay | date_modify('+1 day') | date_modify('-1 second') %}

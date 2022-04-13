@@ -139,7 +139,6 @@ class CalendarDBReader extends \Twig\Extension\AbstractExtension
             -> endTime(">=".$weekStartTime);
         // Year is an array of months, each month is an array of days, each day an array of events
         $weekArray = array();
-        new \DateTimeImmutable('24-12-2023');
         $dayInterval = new \DateInterval('P1D');
         foreach ($entryQuery->all() as  $event) {
             $ending = $event -> endTime != $event -> startTime ? $event -> endTime : date_modify($event->endTime, '23:59:59');

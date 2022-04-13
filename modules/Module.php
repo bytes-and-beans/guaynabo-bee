@@ -116,6 +116,15 @@ class CalendarDBReader extends \Twig\Extension\AbstractExtension
      * you may enter an integer that will offset the returned result by a given 
      * number of days either before, or after today.
      * 
+     * array structure
+     * array of days
+     * {
+     *      //Date in dd-mm-yyyy
+     *      01-05-1982: {
+     *          // Array of event entries for this day
+     *      }
+     * }
+     * 
      *  @param int $dayOffset
      */
     public function calenderEntriesWeekly(int $dayOffset=0)
@@ -130,21 +139,17 @@ class CalendarDBReader extends \Twig\Extension\AbstractExtension
             -> endTime(">=".$weekStartTime);
         // Year is an array of months, each month is an array of days, each day an array of events
         $weekArray = array();
-
+        new \DateTimeImmutable('24-12-2023');
         $dayInterval = new \DateInterval('P1D');
         foreach ($entryQuery->all() as  $event) {
             $ending = $event -> endTime != $event -> startTime ? $event -> endTime : date_modify($event->endTime, '23:59:59');
             $eventPeriod = new \DatePeriod($event->startTime, $dayInterval, $event->endTime);
             foreach ($eventPeriod as $day) {
-                $month = $day -> format("n");
-                $date = $day -> format("d");
-                if (! array_key_exists($month, $weekArray)) {
-                    $weekArray[$month] = array();
+                $date = $date -> format("d-m-Y");
+                if (! array_key_exists($date, $weekArray[$date])) {
+                    $weekArray[$date] = array();
                 }
-                if (! array_key_exists($month, $weekArray[$month])) {
-                    $weekArray[$month][$date] = array();
-                }
-                array_push($weekArray[$month][$date],$event);
+                array_push($weekArray[$date],$event);
             }
         }
         return $weekArray;

@@ -17,14 +17,8 @@
  {# !!!!!!!!!!!!! #}
  {# !!!!!!!!!!!!! #}
 {# macro defining the days #}
-{% macro day(startOfDay, isToday) %}
-    {% set endOfDay =  startOfDay | date_modify('+1 day') | date_modify('-1 second') %}
-    {% set dayQuery = craft.entries()
-        .section('eventsCalendar')
-        .startTime("<= #{ endOfDay | atom }") 
-        .endTime(">= #{ startOfDay | atom }")
-        .cache()
-    %}
+{% macro day(dateString, dayArray, isToday) %}
+    {% set today = date(dateString) %}
     {# day container #}
     <div 
         class="flex sm:flex-col  sm:flex-1
@@ -39,8 +33,8 @@
                 {{isToday ? 'text-guaynabo-blue' :''}}
             "
         >
-            <h3 class="text-center text-3xl">{{ startOfDay | date('d') }}</h3>
-            <div class="text-center">{{startOfDay | date('l') | lower }}</div>
+            <h3 class="text-center text-3xl">{{ today | date('d') }}</h3>
+            <div class="text-center">{{ today | date('l') | lower }}</div>
             <div 
                 class="absolute bg-guaynabo-gray 
                     w-px right-0 top-[5%] bottom-[5%]
@@ -50,8 +44,8 @@
         </div>
         {# events listing #}
         <div class="flex flex-col gap-2 px-2">
-            {% if dayQuery.exists %}
-            {% for event in dayQuery.all() %}
+            {% if (dayArray | length) > 0 %}
+            {% for event in dayArray %}
                 <a 
                     href="{{ event.simpleUrl.isEmpty() ? event.url : event.simpleUrl.url }}" 
                     class="block"
@@ -75,9 +69,8 @@
     <h2 class="text-center">Próximamente</h2>
     <div class="w-full flex flex-col sm:flex-row">
         {# The individual days #}
-        {% for number in 0..6 %}
-            {% set thisDay =  today | date_modify("+#{number} day") %}
-            {{ _self.day(thisDay, loop.first) }}
+        {% for dateString, dayArray in weekEventsArray %}
+            {{ _self.day(dateString, dayArray, loop.first) }}
         {% endfor %}
 </div>
 </div>

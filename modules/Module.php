@@ -129,9 +129,9 @@ class CalendarDBReader extends \Twig\Extension\AbstractExtension
      */
     public function calenderEntriesWeekly(int $dayOffset=0)
     {
-        $today = new \DateTimeImmutable();
+        $today = (new \DateTimeImmutable()) -> modify($dayOffset . " days");
         $weekStartTime = $today -> modify('00:00:00') -> format(\DateTime::ATOM);
-        $weekEndTime   = $today -> modify($dayOffset . " days") -> modify("23:59:59")-> format(\DateTime::ATOM);
+        $weekEndTime   = $today -> modify("6 days") -> modify("23:59:59")-> format(\DateTime::ATOM);
 
         $entryQuery = Entry::find()
             -> section('eventsCalendar')
@@ -144,8 +144,8 @@ class CalendarDBReader extends \Twig\Extension\AbstractExtension
             $ending = $event -> endTime != $event -> startTime ? $event -> endTime : date_modify($event->endTime, '23:59:59');
             $eventPeriod = new \DatePeriod($event->startTime, $dayInterval, $event->endTime);
             foreach ($eventPeriod as $day) {
-                $date = $date -> format("d-m-Y");
-                if (! array_key_exists($date, $weekArray[$date])) {
+                $date = $day -> format("d-m-Y");
+                if (! array_key_exists($date, $weekArray)) {
                     $weekArray[$date] = array();
                 }
                 array_push($weekArray[$date],$event);

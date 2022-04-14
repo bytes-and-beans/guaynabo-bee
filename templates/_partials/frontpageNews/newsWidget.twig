@@ -21,7 +21,8 @@
     {% set today = date(dateString) %}
     {# day container #}
     <div 
-        class="flex sm:flex-col  sm:flex-1
+        {# 1/7 ~= 14.28% #}
+        class="flex sm:flex-col  sm:flex-grow-0 sm:flex-shrink-0 sm:w-[14.28%]
             border border-guaynabo-gray border-t-0 first:border-t
             sm:border-t sm:border-l-0 sm:first:border-l
         "
@@ -67,9 +68,9 @@
 {# this week's calendar #}
 <div class="w-full">
     <h2 class="text-center">Próximamente</h2>
-    <div class="w-full flex flex-col sm:flex-row">
+    <div class="w-full flex flex-col sm:flex-row overflow-scroll">
         {# The individual days #}
-        {% for offset in 0..6 %}
+        {% for offset in -7..13 %}
             {% set dateString = "now" | date_modify('+'~ offset ~" days") | date('d-m-Y') %}
             {% set dayArray = weekEventsArray[dateString] ?? {} %}
             {{ _self.day(dateString, dayArray, loop.first) }}

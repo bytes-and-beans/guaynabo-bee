@@ -56,16 +56,28 @@
     </div>
 {% endmacro %}
 
-{% set today = now | date_modify('today') %}
-
-{% set weekEventsArray = calenderEntriesWeekly() %}
-
 {# this week's calendar #}
 <div class="w-full">
     <h2 class="text-center">Próximamente</h2>
-    <div class="w-full flex flex-col sm:flex-row overflow-scroll">
+    <div class="w-full flex flex-col sm:flex-row overflow-hidden">
         {# The individual days #}
-        {% for offset in -7..13 %}
+        {# last week #}
+        {% set weekEventsArray = calenderEntriesWeekly(-7) %}
+        {% for offset in -7..-1 %}
+            {% set dateString = "now" | date_modify('+'~ offset ~" days") | date('d-m-Y') %}
+            {% set dayArray = weekEventsArray[dateString] ?? {} %}
+            {{ _self.day(dateString, dayArray) }}
+        {% endfor %}
+        {# this week #}
+        {% set weekEventsArray = calenderEntriesWeekly(0) %}
+        {% for offset in 0..6 %}
+            {% set dateString = "now" | date_modify('+'~ offset ~" days") | date('d-m-Y') %}
+            {% set dayArray = weekEventsArray[dateString] ?? {} %}
+            {{ _self.day(dateString, dayArray) }}
+        {% endfor %}
+        {# next week #}
+        {% set weekEventsArray = calenderEntriesWeekly(7) %}
+        {% for offset in 7..13 %}
             {% set dateString = "now" | date_modify('+'~ offset ~" days") | date('d-m-Y') %}
             {% set dayArray = weekEventsArray[dateString] ?? {} %}
             {{ _self.day(dateString, dayArray) }}

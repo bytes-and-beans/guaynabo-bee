@@ -8,16 +8,11 @@
         simpleContent
         eventTags
  #}
- {# !!!!!!!!!!!!! #}
- {# !!!!!!!!!!!!! #}
- {# !!!!!!!!!!!!! #}
-{# WE WERE JUST ABOUT TO MODIFY THIS MACRO TO USE THE INFO FROM THE WEEKEVENTS ARRAY #}
- {# !!!!!!!!!!!!! #}
- {# Hey, change this things name to something other than 'frontpage news', template names should reflect what they do. #}
- {# !!!!!!!!!!!!! #}
- {# !!!!!!!!!!!!! #}
+{# Hey, change this things name to something other than 'frontpage news', template names should reflect what they do. #}
 {# macro defining the days #}
-{% macro day(dateString, dayArray, isToday) %}
+{% macro day(dateString, dayArray) %}
+    {# does this day represent this day IRL #}
+    {% set isToday =  ("now" | date('d-m-Y')) == dateString %}
     {% set today = date(dateString) %}
     {# day container #}
     <div 
@@ -73,7 +68,7 @@
         {% for offset in -7..13 %}
             {% set dateString = "now" | date_modify('+'~ offset ~" days") | date('d-m-Y') %}
             {% set dayArray = weekEventsArray[dateString] ?? {} %}
-            {{ _self.day(dateString, dayArray, loop.first) }}
+            {{ _self.day(dateString, dayArray) }}
         {% endfor %}
 </div>
 </div>

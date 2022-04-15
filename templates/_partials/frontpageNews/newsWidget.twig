@@ -22,6 +22,7 @@
             sm:border-t sm:border-l-0 sm:first:border-l
         "
     >
+    {{dateString}}: {{dayArray|length}}
         {# day/date box #}
         <div 
             class="flex-grow-0 w-[4.5rem] sm:w-auto relative
@@ -58,10 +59,22 @@
 
 {# macro defining the weeks #}
 {% macro week(weekoffset) %}
-    <div class="w-full">
-        {% set weekEventsArray = calenderEntriesWeekly(weekoffset * 7 ) %}
+    {% set firstDayOfWeek = "now" | date_modify(weekoffset ~ " weeks")%}
+    {% set weekEventsArray = calenderEntriesWeekly(weekoffset * 7 ) %}
 
-        {{weekEventsArray |length}}
+    <div style="border: 2px dotted magenta">
+        {% for key,item in weekEventsArray %}
+            {{key}} : {{weekEventsArray[key] |length }}<br>
+        {% endfor %}
+    </div>
+
+    <div class="w-full flex flex-col sm:flex-row overflow-hidden">
+        {% for dayOffset in 0..6 %}
+            {% set dateInQuestion = firstDayOfWeek | date_modify(dayOffset ~ " days") %}
+            {% set dateString = dateInQuestion | date('d-m-Y') %}
+            {% set dayArray = weekEventsArray[dateString] ?? {} %}
+            {{ _self.day(dateString, dayArray) }}
+        {% endfor %}
     </div>    
 {% endmacro %}
 

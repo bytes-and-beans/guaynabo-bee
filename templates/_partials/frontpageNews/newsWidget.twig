@@ -57,7 +57,7 @@
 {% endmacro %} {# end day macro #}
 
 {# macro defining the weeks #}
-{% macro week(weekoffset) %}
+{% macro week(weekoffset, showMeOnLoad = false ) %}
     {% set firstDayOfWeek = "now" | date_modify(weekoffset ~ " weeks")%}
     {% set weekEventsArray = calenderEntriesWeekly(weekoffset * 7 ) %}
 

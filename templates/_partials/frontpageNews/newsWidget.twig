@@ -55,18 +55,12 @@
             {% endif %}
         </div>
     </div>
-{% endmacro %}
+{% endmacro %} {# end day macro #}
 
 {# macro defining the weeks #}
 {% macro week(weekoffset) %}
     {% set firstDayOfWeek = "now" | date_modify(weekoffset ~ " weeks")%}
     {% set weekEventsArray = calenderEntriesWeekly(weekoffset * 7 ) %}
-
-    <div style="border: 2px dotted magenta">
-        {% for key,item in weekEventsArray %}
-            {{key}} : {{weekEventsArray[key] |length }}<br>
-        {% endfor %}
-    </div>
 
     <div class="w-full flex flex-col sm:flex-row overflow-hidden">
         {% for dayOffset in 0..6 %}
@@ -76,7 +70,8 @@
             {{ _self.day(dateString, dayArray) }}
         {% endfor %}
     </div>    
-{% endmacro %}
+
+{% endmacro %} {# end week macro #}
 
 {# this week's calendar #}
 <div class="w-full">

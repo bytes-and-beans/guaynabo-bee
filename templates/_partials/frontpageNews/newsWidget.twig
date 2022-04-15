@@ -57,11 +57,15 @@
 {% endmacro %} {# end day macro #}
 
 {# macro defining the weeks #}
-{% macro week(weekoffset, showMeOnLoad = false ) %}
+{% macro week(weekoffset) %}
     {% set firstDayOfWeek = "now" | date_modify(weekoffset ~ " weeks")%}
     {% set weekEventsArray = calenderEntriesWeekly(weekoffset * 7 ) %}
 
-    <div class="w-full flex flex-col sm:flex-row col-start-1 row-start-1">
+    <div 
+        class="w-full flex flex-col sm:flex-row col-start-1 row-start-1"
+        x-data="{myWeek: {{weekoffset}} }"
+        x-show="myWeek == currentWeek"
+    >
         {% for dayOffset in 0..6 %}
             {% set dateInQuestion = firstDayOfWeek | date_modify(dayOffset ~ " days") %}
             {% set dateString = dateInQuestion | date('d-m-Y') %}
@@ -73,8 +77,19 @@
 {% endmacro %} {# end week macro #}
 
 {# this week's calendar #}
-<div class="w-full">
+<div 
+    class="w-full"
+    x-data="{
+        currentWeek: 0,
+    }"
+>
     <h2 class="text-center">Próximamente</h2>
+    {# next/prev buttons #}
+    <div class="flex gap-4">
+        <div class="" x-on:click="currentWeek -= 1" >&#60;</div>
+        <div class="" x-on:click="currentWeek += 1" >&#62;</div>
+    </div>
+    {# container that holds the weeks #}
     <div class="w-full grid overflow-hidden">
         {# The individual days #}
         {# last week #}

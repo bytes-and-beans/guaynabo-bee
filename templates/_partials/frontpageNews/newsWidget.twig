@@ -61,7 +61,7 @@
     {% set firstDayOfWeek = "now" | date_modify(weekoffset ~ " weeks")%}
     {% set weekEventsArray = calenderEntriesWeekly(weekoffset * 7 ) %}
 
-    <div class="w-full flex flex-col sm:flex-row overflow-hidden">
+    <div class="w-full flex flex-col sm:flex-row col-start-1 row-start-1">
         {% for dayOffset in 0..6 %}
             {% set dateInQuestion = firstDayOfWeek | date_modify(dayOffset ~ " days") %}
             {% set dateString = dateInQuestion | date('d-m-Y') %}
@@ -75,14 +75,14 @@
 {# this week's calendar #}
 <div class="w-full">
     <h2 class="text-center">Próximamente</h2>
-    <div class="w-full flex flex-col sm:flex-row overflow-hidden">
+    <div class="w-full grid overflow-hidden">
         {# The individual days #}
         {# last week #}
-        {# {{ _self.week(-1) }} #}
+        {{ _self.week(-1) }}
         {# this week #}
         {{ _self.week(0) }}
         {# next week #}
-        {# {{ _self.week(1) }} #}
+        {{ _self.week(1) }}
         
 </div>
 </div>

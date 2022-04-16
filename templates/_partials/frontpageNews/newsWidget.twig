@@ -84,25 +84,37 @@
         firstWeek: -1,
         finalWeek: 1,
     }"
+    @increment-first-week.window='firstWeek += 1'
+    @increment-final-week.window='finalWeek += 1'
+    @increment-current-week.window="currentWeek += 1"
+    @decrement-current-week.window="currentWeek -= 1"
 >   
     <script>
+        const pxdata = document.currentScript.parentElement.__x;
         // fetch HTML representing a given week,
         // @param offset int number of weeks before or after today to offset results by.
         function fetchWeek(offset=0) {
 
+        }
+        function nextWeek() {
+            window.dispatchEvent(new CustomEvent(`increment-current-week`));
+        }
+        function prevWeek() {
+            window.dispatchEvent(new CustomEvent(`decrement-current-week`));
         }
     </script>
     <h2 class="text-center">Próximamente</h2>
     {# next/prev buttons #}
     <div class="flex gap-4">
         <div class="" 
-            x-on:click="currentWeek -= 1"
+            x-on:click="if(currentWeek != firstWeek ) prevWeek();"
             x-bind:class=" currentWeek == firstWeek ? 'cursor-default' : 'cursor-pointer'"
             x-text="currentWeek == firstWeek ? '&nbsp;' : '&lt;'"
+
         >
         </div>
         <div class="" 
-            x-on:click="currentWeek += 1"
+            x-on:click="if(currentWeek != finalWeek ) nextWeek()"
             x-bind:class=" currentWeek == finalWeek ? 'cursor-default' : 'cursor-pointer'"
             x-text="currentWeek == finalWeek ? '&nbsp;' : '&gt;'"
         >

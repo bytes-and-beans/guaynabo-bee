@@ -66,6 +66,7 @@
         class="w-full flex flex-col sm:flex-row col-start-1 row-start-1"
         x-data="{myWeek: {{weekoffset}} }"
         x-show="myWeek == currentWeek"
+        
     >
         {% for dayOffset in 0..6 %}
             {% set dateInQuestion = firstDayOfWeek | date_modify(dayOffset ~ " days") %}

@@ -125,7 +125,7 @@
             }
             if(newWeek) {
                 const isNewFirstWeek = newVal == firstWeek;
-                await addweek(isNewFirstWeek, newWeek);
+                await addWeek(isNewFirstWeek, newWeek);
                 if(isNewFirstWeek) window.dispatchEvent(new CustomEvent(`increment-first-week`));
                 else window.dispatchEvent(new CustomEvent(`increment-final-week`));
             }

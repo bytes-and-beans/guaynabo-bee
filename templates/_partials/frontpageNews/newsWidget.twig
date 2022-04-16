@@ -90,7 +90,9 @@
 >   
     <script>
         const pxdata = document.currentScript.parentElement.__x;
-        /** fetch HTML representing a given week,
+        /** fetch HTML representing a given week,  
+         *  currently relies on a template at /calendar/api to feed it pre-rendered HTML.
+         * 
          * @param offset int number of weeks before or after today to offset results by.
          * @return mixed Returns a new HTML element for the week in question, Or False if it gets a bad response from the server
          */
@@ -113,7 +115,12 @@
         function addWeek(isFirst, element) {
 
         }
-        /**
+        /** handler for when the current week is changed.  
+         *  Primary function is to fetch the next week in line if the user has reached the end of the currently loaded
+         *  weeks.
+         * @param newVal int the new value for currentWeek, taken from the parent elements x-data
+         * @param firstWeek int the new value for firstWeek, taken from the parent elements x-data
+         * @param finalWeek int the new value for finalWeek, taken from the parent elements x-data
          */
         async function onCurrentWeekChange(newVal,firstWeek, finalWeek) {
             let newWeek = false;

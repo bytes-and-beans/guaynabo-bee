@@ -79,12 +79,18 @@
 {# this week's calendar #}
 <div 
     class="w-full"
+    {# currentWeek  The week that should be currently displayed. 0 would be right now.
+     # firstWeek    The number of weeks in the past we have currently loaded and ready to show. -1 would be last week
+     # finalWeek    The number of weeks in the future we have currently loaded and ready to show. 1 would be next week
+     #}
     x-data="{
         currentWeek: 0,
         firstWeek: -1,
         finalWeek: 1,
     }"
+    {# sets up a watcher for when current week changes #}
     x-init="$watch('currentWeek',(newVal, oldVal) => onCurrentWeekChange(newVal,firstWeek, finalWeek));"
+    {# This is the cleanest way I know to allow the script to edit these values. #}
     @increment-first-week.window='firstWeek += 1'
     @increment-final-week.window='finalWeek += 1'
 >   

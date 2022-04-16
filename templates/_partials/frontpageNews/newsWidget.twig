@@ -101,7 +101,7 @@
     {# Newslink and next/prev buttons #}
     <div class="flex justify-between gap-4">
         {# Previous week button #}
-        <div class="" 
+        <div class="w-[2ch]" 
             x-on:click="if(currentWeek != firstWeek ) currentWeek -= 1;"
             x-bind:class=" currentWeek == firstWeek ? 'cursor-default' : 'cursor-pointer'"
             x-text="currentWeek == firstWeek ? '&nbsp;' : '&lt;'"
@@ -111,7 +111,7 @@
         {# title #}
         <h2 class="text-center">Próximamente</h2>
         {# Next week button #}
-        <div class="" 
+        <div class="w-[2ch]" 
             x-on:click="if(currentWeek != finalWeek ) currentWeek += 1;"
             x-bind:class=" currentWeek == finalWeek ? 'cursor-default' : 'cursor-pointer'"
             x-text="currentWeek == finalWeek ? '&nbsp;' : '&gt;'"

@@ -96,8 +96,11 @@
          */
         async function fetchWeek(offset=0) {
             const response = await fetch('{{currentSite.baseUrl ~ "/calendar/api"}}');
-            if(response.status == 200){
-
+            if( await response.status == 200){
+                const html = await response.text();
+                const container = document.createElement('div');
+                container.innerHTML= html;
+                return container.firstChild;
             }
             else {
                 return false;

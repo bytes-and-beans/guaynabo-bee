@@ -62,6 +62,7 @@
     {% set weekEventsArray = calenderEntriesWeekly(weekoffset * 7 ) %}
 
     <div 
+        id="week{{weekoffset}}"
         class="w-full flex flex-col sm:flex-row col-start-1 row-start-1"
         x-data="{myWeek: {{weekoffset}} }"
         x-show="myWeek == currentWeek"

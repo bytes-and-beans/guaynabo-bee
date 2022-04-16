@@ -92,9 +92,15 @@
     {# sets up a watcher for when current week changes #}
     x-init="$watch('currentWeek',(newVal, oldVal) => onCurrentWeekChange(newVal,firstWeek, finalWeek));"
     {# This is the cleanest way I know to allow the script to edit these values. #}
-    @increment-first-week.window='firstWeek += 1'
+    @decrement-first-week.window='firstWeek -= 1'
     @increment-final-week.window='finalWeek += 1'
 >   
+    {# debugger #}
+    <div>
+        currentWeek <span x-text="currentWeek"></span><br>
+        firstWeek <span x-text="firstWeek"></span><br>
+        finalWeek <span x-text="finalWeek"></span><br>
+    </div>
     <h2 class="text-center">Próximamente</h2>
     {# next/prev buttons #}
     <div class="flex gap-4">
@@ -174,7 +180,7 @@
             if(newWeek) {
                 const isNewFirstWeek = newVal == firstWeek;
                 await addWeek(isNewFirstWeek, newWeek);
-                if(isNewFirstWeek) window.dispatchEvent(new CustomEvent(`increment-first-week`));
+                if(isNewFirstWeek) window.dispatchEvent(new CustomEvent(`decrement-first-week`));
                 else window.dispatchEvent(new CustomEvent(`increment-final-week`));
             }
         }

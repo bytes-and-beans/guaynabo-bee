@@ -1,6 +1,6 @@
 {# returns pre-rendered HTML for a week of the events calendar
  #}
-{% apply spaceless %}
+{% apply spaceless %} {#if it's not spaceless, the firstChild is an empty text node and breaks the javascript#}
 {% from "_partials/frontpageNews/newsWidget.twig" import week %}
 {% set offset = craft.app.request.getParam('offset') ?? 0 %}
 {{week(offset)}}

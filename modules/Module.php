@@ -60,6 +60,7 @@ class CalendarDBReader extends \Twig\Extension\AbstractExtension
     {
         return [
             new \Twig_SimpleFunction('calenderEntriesAnnual',[$this, 'calenderEntriesAnnual']),
+            new \Twig_SimpleFunction('calenderEntriesWeekly',[$this, 'calenderEntriesWeekly']),
         ];
     }
     /**
@@ -109,4 +110,48 @@ class CalendarDBReader extends \Twig\Extension\AbstractExtension
         }
         return $yearArray;
     }
+    /** Returns an array of the events in a given week  
+     * 
+     * The default is for the first day of the week returned to be today,  
+     * you may enter an integer that will offset the returned result by a given 
+     * number of days either before, or after today.
+     * 
+     * array structure
+     * array of days
+     * {
+     *      //Date in dd-mm-yyyy
+     *      01-05-1982: {
+     *          // Array of event entries for this day
+     *      }
+     * }
+     * 
+     *  @param int $dayOffset
+     */
+    public function calenderEntriesWeekly(int $dayOffset=0)
+    {
+        $today = (new \DateTimeImmutable()) -> modify($dayOffset . " days");
+        $weekStartTime = $today -> modify('00:00:00') -> format(\DateTime::ATOM);
+        $weekEndTime   = $today -> modify("6 days") -> modify("23:59:59")-> format(\DateTime::ATOM);
+
+        $entryQuery = Entry::find()
+            -> section('eventsCalendar')
+            -> startTime("<=".$weekEndTime) 
+            -> endTime(">=".$weekStartTime);
+        // Year is an array of months, each month is an array of days, each day an array of events
+        $weekArray = array();
+        $dayInterval = new \DateInterval('P1D');
+        foreach ($entryQuery->all() as  $event) {
+            $ending = $event -> endTime != $event -> startTime ? $event -> endTime : date_modify($event->endTime, '23:59:59');
+            $eventPeriod = new \DatePeriod($event->startTime, $dayInterval, $event->endTime);
+            foreach ($eventPeriod as $day) {
+                $date = $day -> format("d-m-Y");
+                if (! array_key_exists($date, $weekArray)) {
+                    $weekArray[$date] = array();
+                }
+                array_push($weekArray[$date],$event);
+            }
+        }
+        return $weekArray;
+    }
 }
+

@@ -8,19 +8,16 @@
         simpleContent
         eventTags
  #}
-
+{# Hey, change this things name to something other than 'frontpage news', template names should reflect what they do. #}
 {# macro defining the days #}
-{% macro day(startOfDay, isToday) %}
-    {% set endOfDay =  startOfDay | date_modify('+1 day') | date_modify('-1 second') %}
-    {% set dayQuery = craft.entries()
-        .section('eventsCalendar')
-        .startTime("<= #{ endOfDay | atom }") 
-        .endTime(">= #{ startOfDay | atom }")
-        .cache()
-    %}
+{% macro day(dateString, dayArray) %}
+    {# does this day represent this day IRL #}
+    {% set isToday =  ("now" | date('d-m-Y')) == dateString %}
+    {% set today = date(dateString) %}
     {# day container #}
     <div 
-        class="flex sm:flex-col  sm:flex-1
+        {# 1/7 ~= 14.28% #}
+        class="flex sm:flex-col  sm:flex-grow-0 sm:flex-shrink-0 sm:w-[14.28%]
             border border-guaynabo-gray border-t-0 first:border-t
             sm:border-t sm:border-l-0 sm:first:border-l
         "
@@ -32,8 +29,8 @@
                 {{isToday ? 'text-guaynabo-blue' :''}}
             "
         >
-            <h3 class="text-center text-3xl">{{ startOfDay | date('d') }}</h3>
-            <div class="text-center">{{startOfDay | date('l') | lower }}</div>
+            <h3 class="text-center text-3xl">{{ today | date('d') }}</h3>
+            <div class="text-center">{{ today | date('l') | lower }}</div>
             <div 
                 class="absolute bg-guaynabo-gray 
                     w-px right-0 top-[5%] bottom-[5%]
@@ -43,8 +40,8 @@
         </div>
         {# events listing #}
         <div class="flex flex-col gap-2 px-2">
-            {% if dayQuery.exists %}
-            {% for event in dayQuery.all() %}
+            {% if (dayArray | length) > 0 %}
+            {% for event in dayArray %}
                 <a 
                     href="{{ event.simpleUrl.isEmpty() ? event.url : event.simpleUrl.url }}" 
                     class="block"
@@ -57,18 +54,136 @@
             {% endif %}
         </div>
     </div>
-{% endmacro %}
+{% endmacro %} {# end day macro #}
 
-{% set today = now | date_modify('today') %}
+{# macro defining the weeks #}
+{% macro week(weekoffset) %}
+    {% set firstDayOfWeek = "now" | date_modify(weekoffset ~ " weeks")%}
+    {% set weekEventsArray = calenderEntriesWeekly(weekoffset * 7 ) %}
+
+    <div 
+        id="week{{weekoffset}}"
+        class="w-full flex flex-col sm:flex-row col-start-1 row-start-1"
+        x-data="{myWeek: {{weekoffset}} }"
+        x-show="myWeek == currentWeek"
+        x-transition
+        x-transition.duration.500ms
+    >
+        {% for dayOffset in 0..6 %}
+            {% set dateInQuestion = firstDayOfWeek | date_modify(dayOffset ~ " days") %}
+            {% set dateString = dateInQuestion | date('d-m-Y') %}
+            {% set dayArray = weekEventsArray[dateString] ?? {} %}
+            {{ _self.day(dateString, dayArray) }}
+        {% endfor %}
+    </div>    
+
+{% endmacro %} {# end week macro #}
 
 {# this week's calendar #}
-<div class="w-full">
-    <h2 class="text-center">Próximamente</h2>
-    <div class="w-full flex flex-col sm:flex-row">
+<div 
+    class="w-full"
+    {# x-data
+     # currentWeek  The week that should be currently displayed. 0 would be right now.
+     # firstWeek    The number of weeks in the past we have currently loaded and ready to show. -1 would be last week
+     # finalWeek    The number of weeks in the future we have currently loaded and ready to show. 1 would be next week
+     #}
+    x-data="{
+        currentWeek: 0,
+        firstWeek: -1,
+        finalWeek: 1,
+    }"
+    {# sets up a watcher for when current week changes #}
+    x-init="$watch('currentWeek',(newVal, oldVal) => onCurrentWeekChange(newVal,firstWeek, finalWeek));"
+    {# This is the cleanest way I know to allow the script to edit these values. #}
+    @decrement-first-week.window='firstWeek -= 1'
+    @increment-final-week.window='finalWeek += 1'
+>   
+    {# Newslink and next/prev buttons #}
+    <div class="flex justify-between gap-4">
+        {# Previous week button #}
+        <div class="w-[2ch]" 
+            x-on:click="if(currentWeek != firstWeek ) currentWeek -= 1;"
+            x-bind:class=" currentWeek == firstWeek ? 'cursor-default' : 'cursor-pointer'"
+            x-text="currentWeek == firstWeek ? '&nbsp;' : '&lt;'"
+
+        >
+        </div>
+        {# title #}
+        <h2 class="text-center"><a href="/calendar">Próximamente</a></h2>
+        {# Next week button #}
+        <div class="w-[2ch]" 
+            x-on:click="if(currentWeek != finalWeek ) currentWeek += 1;"
+            x-bind:class=" currentWeek == finalWeek ? 'cursor-default' : 'cursor-pointer'"
+            x-text="currentWeek == finalWeek ? '&nbsp;' : '&gt;'"
+        >
+        </div>
+    </div>
+    {# container that holds the weeks #}
+    <div class="w-full grid overflow-hidden" id="weeksContainer">
         {# The individual days #}
-        {% for number in 0..6 %}
-            {% set thisDay =  today | date_modify("+#{number} day") %}
-            {{ _self.day(thisDay, loop.first) }}
-        {% endfor %}
-</div>
+        {# last week #}
+        {{ _self.week(-1) }}
+        {# this week #}
+        {{ _self.week(0) }}
+        {# next week #}
+        {{ _self.week(1) }}
+        
+    </div>
+    {# Another link to the full calendar #}
+    <div class="text-center w-full"><a href="/calendar">calendario anual</a></div>
+    <script>
+        const weeksContainer = document.currentScript.parentElement.querySelector('#weeksContainer');
+        /** fetch HTML representing a given week,  
+         *  currently relies on a template at /calendar/api to feed it pre-rendered HTML.
+         * 
+         * @param offset int number of weeks before or after today to offset results by.
+         * @return mixed Returns a new HTML element for the week in question, Or False if it gets a bad response from the server
+         */
+        async function fetchWeek(offset=0) {
+            const response = await fetch('{{currentSite.baseUrl ~ "/calendar/api?offset="}}'+offset);
+            if( await response.status == 200){
+                const html = await response.text();
+                const container = document.createElement('div');
+                container.innerHTML= html;
+                return container.firstChild;
+            }
+            else {
+                return false;
+            }
+        }
+        /** add a week's html element to the stack of weeks
+         * @param toFront bool Should this be the new 'first week' at the beginning of the stack?
+         * @param element Element The HTML <Element></> to add to the page.
+         */
+        function addWeek(isFirst, element) {
+            if(isFirst) {
+                weeksContainer.prepend(element);
+            }
+            else {
+                weeksContainer.append(element);
+            }
+        }
+        /** handler for when the current week is changed.  
+         *  Primary function is to fetch the next week in line if the user has reached the end of the currently loaded
+         *  weeks.
+         * @param newVal int the new value for currentWeek, taken from the parent elements x-data
+         * @param firstWeek int the new value for firstWeek, taken from the parent elements x-data
+         * @param finalWeek int the new value for finalWeek, taken from the parent elements x-data
+         */
+        async function onCurrentWeekChange(newVal,firstWeek, finalWeek) {
+            let newWeek = false;
+            if(newVal == firstWeek){
+                newWeek = await fetchWeek(firstWeek - 1);
+            }
+            else if (newVal == finalWeek) {
+                newWeek = await fetchWeek(finalWeek + 1);
+            }
+            if(newWeek) {
+                const isNewFirstWeek = newVal == firstWeek;
+                await addWeek(isNewFirstWeek, newWeek);
+                if(isNewFirstWeek) window.dispatchEvent(new CustomEvent(`decrement-first-week`));
+                else window.dispatchEvent(new CustomEvent(`increment-final-week`));
+            }
+        }
+    </script>
 </div>

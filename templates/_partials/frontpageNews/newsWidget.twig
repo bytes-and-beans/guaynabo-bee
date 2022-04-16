@@ -109,7 +109,7 @@
         >
         </div>
         {# title #}
-        <h2 class="text-center">Próximamente</h2>
+        <h2 class="text-center"><a href="/calendar">Próximamente</a></h2>
         {# Next week button #}
         <div class="w-[2ch]" 
             x-on:click="if(currentWeek != finalWeek ) currentWeek += 1;"
@@ -129,7 +129,8 @@
         {{ _self.week(1) }}
         
     </div>
-
+    {# Another link to the full calendar #}
+    <div class="text-center w-full"><a href="/calendar">calendario anual</a></div>
     <script>
         const weeksContainer = document.currentScript.parentElement.querySelector('#weeksContainer');
         /** fetch HTML representing a given week,  

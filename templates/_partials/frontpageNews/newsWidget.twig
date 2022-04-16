@@ -98,9 +98,9 @@
     @decrement-first-week.window='firstWeek -= 1'
     @increment-final-week.window='finalWeek += 1'
 >   
-    <h2 class="text-center">Próximamente</h2>
-    {# next/prev buttons #}
-    <div class="flex gap-4">
+    {# Newslink and next/prev buttons #}
+    <div class="flex justify-between gap-4">
+        {# Previous week button #}
         <div class="" 
             x-on:click="if(currentWeek != firstWeek ) currentWeek -= 1;"
             x-bind:class=" currentWeek == firstWeek ? 'cursor-default' : 'cursor-pointer'"
@@ -108,6 +108,9 @@
 
         >
         </div>
+        {# title #}
+        <h2 class="text-center">Próximamente</h2>
+        {# Next week button #}
         <div class="" 
             x-on:click="if(currentWeek != finalWeek ) currentWeek += 1;"
             x-bind:class=" currentWeek == finalWeek ? 'cursor-default' : 'cursor-pointer'"

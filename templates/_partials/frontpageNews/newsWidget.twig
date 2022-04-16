@@ -149,8 +149,12 @@
          * @param element Element The HTML <Element></> to add to the page.
          */
         function addWeek(isFirst, element) {
-            if(isFirst) console.log('derp');
-            else weeksContainer.appendChild(element);
+            if(isFirst) {
+                weeksContainer.prepend(element);
+            }
+            else {
+                weeksContainer.append(element);
+            }
         }
         /** handler for when the current week is changed.  
          *  Primary function is to fetch the next week in line if the user has reached the end of the currently loaded

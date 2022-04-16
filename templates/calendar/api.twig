@@ -1,3 +1,5 @@
 {# returns pre-rendered HTML for a week of the events calendar
  #}
-<div class="w-full">TODO: calendar/api.twig</div>
+{% from "_partials/frontpageNews/newsWidget.twig" import week %}
+{% set offset = craft.app.request.getParam('offset') ?? 0 %}
+<div class="w-full">TODO: calendar/api.twig, offset is {{offset}}</div>

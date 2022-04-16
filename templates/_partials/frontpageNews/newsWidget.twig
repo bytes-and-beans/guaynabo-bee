@@ -133,7 +133,7 @@
          * @return mixed Returns a new HTML element for the week in question, Or False if it gets a bad response from the server
          */
         async function fetchWeek(offset=0) {
-            const response = await fetch('{{currentSite.baseUrl ~ "/calendar/api"}}');
+            const response = await fetch('{{currentSite.baseUrl ~ "/calendar/api?offset="}}'+offset);
             if( await response.status == 200){
                 const html = await response.text();
                 const container = document.createElement('div');

@@ -94,8 +94,14 @@
          * @param offset int number of weeks before or after today to offset results by.
          * @return mixed Returns a new HTML element for the week in question, Or False if it gets a bad response from the server
          */
-        function fetchWeek(offset=0) {
-            
+        async function fetchWeek(offset=0) {
+            const response = await fetch('{{currentSite.baseUrl ~ "/calendar/api"}}');
+            if(response.status == 200){
+
+            }
+            else {
+                return false;
+            }
         }
         /** add a week's html element to the stack of weeks
          * @param toFront bool Should this be the new 'first week' at the beginning of the stack?

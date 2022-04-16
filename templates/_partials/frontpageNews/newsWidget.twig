@@ -95,7 +95,38 @@
     @increment-first-week.window='firstWeek += 1'
     @increment-final-week.window='finalWeek += 1'
 >   
+    <h2 class="text-center">Próximamente</h2>
+    {# next/prev buttons #}
+    <div class="flex gap-4">
+        <div class="" 
+            x-on:click="if(currentWeek != firstWeek ) currentWeek -= 1;"
+            x-bind:class=" currentWeek == firstWeek ? 'cursor-default' : 'cursor-pointer'"
+            x-text="currentWeek == firstWeek ? '&nbsp;' : '&lt;'"
+
+        >
+        </div>
+        <div class="" 
+            x-on:click="if(currentWeek != finalWeek ) currentWeek += 1;"
+            x-bind:class=" currentWeek == finalWeek ? 'cursor-default' : 'cursor-pointer'"
+            x-text="currentWeek == finalWeek ? '&nbsp;' : '&gt;'"
+        >
+        </div>
+    </div>
+    {# container that holds the weeks #}
+    <div class="w-full grid overflow-hidden" id="weeksContainer">
+        {# The individual days #}
+        {# last week #}
+        {{ _self.week(-1) }}
+        {# this week #}
+        {{ _self.week(0) }}
+        {# next week #}
+        {{ _self.week(1) }}
+        
+    </div>
+    
     <script>
+        const weeksContainer = document.currentScript.parentElement.querySelector('#weeksContainer');
+        console.log({weeksContainer});
         /** fetch HTML representing a given week,  
          *  currently relies on a template at /calendar/api to feed it pre-rendered HTML.
          * 
@@ -119,7 +150,8 @@
          * @param element Element The HTML <Element></> to add to the page.
          */
         function addWeek(isFirst, element) {
-
+            if(isFirst) console.log('derp');
+            else weeksContainer.appendChild(element);
         }
         /** handler for when the current week is changed.  
          *  Primary function is to fetch the next week in line if the user has reached the end of the currently loaded
@@ -144,32 +176,4 @@
             }
         }
     </script>
-    <h2 class="text-center">Próximamente</h2>
-    {# next/prev buttons #}
-    <div class="flex gap-4">
-        <div class="" 
-            x-on:click="if(currentWeek != firstWeek ) currentWeek -= 1;"
-            x-bind:class=" currentWeek == firstWeek ? 'cursor-default' : 'cursor-pointer'"
-            x-text="currentWeek == firstWeek ? '&nbsp;' : '&lt;'"
-
-        >
-        </div>
-        <div class="" 
-            x-on:click="if(currentWeek != finalWeek ) currentWeek += 1;"
-            x-bind:class=" currentWeek == finalWeek ? 'cursor-default' : 'cursor-pointer'"
-            x-text="currentWeek == finalWeek ? '&nbsp;' : '&gt;'"
-        >
-        </div>
-    </div>
-    {# container that holds the weeks #}
-    <div class="w-full grid overflow-hidden">
-        {# The individual days #}
-        {# last week #}
-        {{ _self.week(-1) }}
-        {# this week #}
-        {{ _self.week(0) }}
-        {# next week #}
-        {{ _self.week(1) }}
-        
-</div>
 </div>

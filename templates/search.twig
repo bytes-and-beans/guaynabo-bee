@@ -90,11 +90,11 @@
         {# Tags and categories #}
         <div class="ml-4 flex gap-4">
             {# The tags #}
-            {% for tag in result.tags.all() %}
+            {% for tag in result.tags.all() ?? {} %}
                 <a href="/search?t={{tag}}">{{tag.title}}</a>
             {% endfor %}
             {# The categories #}
-            {% for cat in result.categories.all() %}
+            {% for cat in result.categories.all() ?? {} %}
                 <a href="/search?t={{cat}}">{{cat.title}}</a>
             {% endfor %}
         </div>

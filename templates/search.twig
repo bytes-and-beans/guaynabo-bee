@@ -77,6 +77,9 @@
     {% if query.exists %}
         {% paginate query as pageInfo, pageEntries %}
         
+        {# pagination #}
+        {{ _self.pagination(pageInfo) }}
+
         {# The individual listings #}
         {% for result in pageEntries %}
             {{ _self.searchListing(result) }}
@@ -84,6 +87,7 @@
 
         {# pagination #}
         {{ _self.pagination(pageInfo) }}
+        
     {% else %}
         {# No results were found. #}
         <p>No se encontraron resultados de búsqueda.</p>

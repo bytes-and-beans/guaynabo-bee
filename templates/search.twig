@@ -59,6 +59,7 @@
 {% endmacro %}
 
 {# Macro for the pagination blocks
+    @param pageInfo the pageInfo object created Craft's 'paginate' tag
  #}
 {% macro pagination(pageInfo) %}
     <div class="flex justify-between mt-4 mx-auto max-w-md">
@@ -87,7 +88,7 @@
 
         {# pagination #}
         {{ _self.pagination(pageInfo) }}
-        
+
     {% else %}
         {# No results were found. #}
         <p>No se encontraron resultados de búsqueda.</p>

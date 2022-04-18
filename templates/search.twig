@@ -121,6 +121,7 @@
 
     {# The Search Options #}
     <div 
+         x-data
         {% set search_options_bg_gradient_start = "from-guaynabo-blue-start" %}
         {% set search_options_bg_gradient_end   =   "to-guaynabo-blue-end" %}
         class="
@@ -129,8 +130,36 @@
             text-white
         "
     > 
+        {% set txt_input_stylings = "bg-white bg-opacity-80 text-guaynabo-blue-dark px-2" %}
+        <script>
+            function execute_search() {
+                console.log('woop');
+            }
+        </script>
         <div class="text-center">limitar estos resultados</div>
-        
+        <div class="">
+            <input 
+                name="search_form__query"
+                id="search_form__query"
+                class="{{txt_input_stylings}}" 
+                placeholder="término de búsqueda"
+                value="{{urlQuery_text ?? ''}}" 
+                type="text" 
+                x-on:change='execute_search'
+            >
+            <div class=""> {# published after #}
+                <label for="search_form__date--after">publicado después</label>
+                <input 
+                    name="search_form__date--after"
+                    id="search_form__date--after"
+                    class="{{txt_input_stylings}}" 
+                    placeholder="término de búsqueda"
+                    type="date" 
+                    x-on:change='execute_search'
+                    max="{{now | date('Y-m-d')}}"
+                >
+            </div> 
+        </div>
     </div>
 
     {% if query.exists %}

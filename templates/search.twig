@@ -26,9 +26,32 @@
     {% else %}
         {% set cat = null %}
     {% endif %}
+
+    {# same as tags, but for section #}
+    {% set urlQuery_section = craft.app.request.getQueryParam('s') ?? null %}
+    {% if urlQuery_section %}
+        {% set section = urlQuery_section | split(',') | first %}
+    {% else %}
+        {% set section = null %}
+    {% endif %}
+
+
 {# End Search Query Stuff, (fold code for ADD reasons) #}
 
-{# getting our results #}
+{# getting our results 
+    Ok, so theres a bit going on here and I won't remember it later.  
+    .search(...) Just does a regular Craft search to get our initial list of results
+    .section() 
+        the 'and' sets the boolean tying all these requirements together.
+        first the 'not...' out sections to be omitted from the search results
+        then the "section ? section : 'not NONEXISTANT_SECTION'"...
+            If a section was specified in the search params, only include results
+            in that section
+            If no section was specified, ony include entries that are NOT in a 
+            section that does not exist, thus including all entries.
+    .relatedTo(tags) if a tag is specified, limits to entries with that tag
+    .relatedTo(cats) if a cat is specified, limits to entries with that cat
+ #}
 {% set query = craft.entries()
     .search(urlQuery_text) 
     .section([
@@ -36,6 +59,7 @@
         'not ordenanzasYResolutiones',
         'not emergencyMessage',
         'not errorPages',
+        section ? section : 'not NONEXISTANT_SECTION',
     ])
     .relatedTo(tags)
     .relatedTo(cat)
@@ -53,12 +77,16 @@
         <div class="font-advantage text-2xl">
             {{result.title}}
         </div>
+
         {{result.section}}
-        {% set ancestors = result.getAncestors %}
-        {% if ancestors | length > 0 %}
-            >> {{ ancestors.all() | map(a=>"#{a.title}") | join(" >> ") }}
-        {% endif %}
-        >> {{result.title}}
+
+        {# Making the breadcrumbs #}
+            {% set ancestors = result.getAncestors %}
+            {% if ancestors | length > 0 %}
+                >> {{ ancestors.all() | map(a=>"#{a.title}") | join(" >> ") }}
+            {% endif %}
+            >> {{result.title}}
+        {# End Making the breadcrumbs #}
     </a>
 {% endmacro %}
 

@@ -77,16 +77,20 @@
         <div class="font-advantage text-2xl">
             {{result.title}}
         </div>
-
-
-        {# Making the breadcrumbs #}
+        
+        <div> {# Making the breadcrumbs #}
             <a href="/search?s={{result.section.handle}}">{{result.section}}</a>
             {% set ancestors = result.getAncestors %}
             {% if ancestors | length > 0 %}
                 >> {{ ancestors.all() | map(a=>"#{a.title}") | join(" >> ") }}
             {% endif %}
             >> {{result.title}}
-        {# End Making the breadcrumbs #}
+        </div> {# End Making the breadcrumbs #}
+        
+        {# Tags #}
+        {% if result.tags.exists() ?? false %}
+            result has tags
+        {% endif %}
     </a>
 {% endmacro %}
 

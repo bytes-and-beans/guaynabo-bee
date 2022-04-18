@@ -78,9 +78,9 @@
             {{result.title}}
         </div>
 
-        {{result.section}}
 
         {# Making the breadcrumbs #}
+            <a href="/search?s={{result.section.handle}}">{{result.section}}</a>
             {% set ancestors = result.getAncestors %}
             {% if ancestors | length > 0 %}
                 >> {{ ancestors.all() | map(a=>"#{a.title}") | join(" >> ") }}

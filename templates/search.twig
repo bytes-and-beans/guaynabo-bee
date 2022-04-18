@@ -6,23 +6,27 @@
 
 {% extends "_layouts/3-base" %}
 
-{# Get search query #}
-{% set urlQuery_text = craft.app.request.getQueryParam('q') ?? null %}
-{# getting the tags, if any #}
-{% set urlQuery_tags = craft.app.request.getQueryParam('t') ?? null %}
-{% if urlQuery_tags %}
-    {% set tags = urlQuery_tags | split(',') | map( t => craft.tags().title(t).all() ) %}
-{% else %}
-    {% set tags = null %}
-{% endif %}
-{# same as the tags, but for categories #}
-{% set urlQuery_cats = craft.app.request.getQueryParam('c') ?? null %}
-{% if urlQuery_cats %}
-    {% set cat_txt = urlQuery_cats | split(',') | first %}
-    {% set cat = craft.categories().title(cat_txt).one() %}
-{% else %}
-    {% set cat = null %}
-{% endif %}
+{# Search Query Stuff, (fold code here.) #}
+    {# Get search query #}
+    {% set urlQuery_text = craft.app.request.getQueryParam('q') ?? null %}
+
+    {# getting the tags, if any #}
+    {% set urlQuery_tags = craft.app.request.getQueryParam('t') ?? null %}
+    {% if urlQuery_tags %}
+        {% set tags = urlQuery_tags | split(',') | map( t => craft.tags().title(t).all() ) %}
+    {% else %}
+        {% set tags = null %}
+    {% endif %}
+
+    {# same as the tags, but for categories #}
+    {% set urlQuery_cats = craft.app.request.getQueryParam('c') ?? null %}
+    {% if urlQuery_cats %}
+        {% set cat_txt = urlQuery_cats | split(',') | first %}
+        {% set cat = craft.categories().title(cat_txt).one() %}
+    {% else %}
+        {% set cat = null %}
+    {% endif %}
+{# End Search Query Stuff, (fold code for ADD reasons) #}
 
 {# getting our results #}
 {% set query = craft.entries()

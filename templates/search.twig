@@ -70,28 +70,35 @@
  # @param result entry the entry/document to be described
  #}
 {% macro searchListing(result) %}
-    <a
-        href="{{result.url}}"
+    <div
+        
         class="mb-4 py-2 border-b block"
     >
         <div class="font-advantage text-2xl">
-            {{result.title}}
+            
         </div>
         
-        <div> {# Making the breadcrumbs #}
+        <div class="ml-4 "> {# Making the breadcrumbs #}
             <a href="/search?s={{result.section.handle}}">{{result.section}}</a>
             {% set ancestors = result.getAncestors %}
             {% if ancestors | length > 0 %}
                 >> {{ ancestors.all() | map(a=>"#{a.title}") | join(" >> ") }}
             {% endif %}
-            >> {{result.title}}
+            >> <a href="{{result.url}}">{{result.title}}</a>
         </div> {# End Making the breadcrumbs #}
         
-        {# Tags #}
-        {% if result.tags.exists() ?? false %}
-            result has tags
-        {% endif %}
-    </a>
+        {# Tags and categories #}
+        <div class="ml-4 flex gap-4">
+            {# The tags #}
+            {% for tag in result.tags.all() %}
+                <a href="/search?t={{tag}}">{{tag.title}}</a>
+            {% endfor %}
+            {# The categories #}
+            {% for cat in result.categories.all() %}
+                <a href="/search?t={{cat}}">{{cat.title}}</a>
+            {% endfor %}
+        </div>
+    </div>
 {% endmacro %}
 
 {# Macro for the pagination blocks

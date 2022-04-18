@@ -38,6 +38,26 @@
     .limit(10)
 %}
 
+{# Macro that creates each item in the list of search results  
+ # @param result entry the entry/document to be described
+ #}
+{% macro searchListing(result) %}
+    <a
+        href="{{result.url}}"
+        class="mb-4 py-2 border-b block"
+    >
+        <div class="font-advantage text-2xl">
+            {{result.title}}
+        </div>
+        {{result.section}}
+        {% set ancestors = result.getAncestors %}
+        {% if ancestors | length > 0 %}
+            >> {{ ancestors.all() | map(a=>"#{a.title}") | join(" >> ") }}
+        {% endif %}
+        >> {{result.title}}
+    </a>
+{% endmacro %}
+
 {% block base_supercontent %}
     {% include "_partials/entry_titlebar" with {title : "Sus búsquedas"} %}
 {% endblock %}
@@ -49,20 +69,7 @@
         
         {# The individual listings #}
         {% for result in pageEntries %}
-            <a
-                href="{{result.url}}"
-                class="mb-4 py-2 border-b block"
-            >
-                <div class="font-advantage text-2xl">
-                    {{result.title}}
-                </div>
-                {{result.section}}
-                {% set ancestors = result.getAncestors %}
-                {% if ancestors | length > 0 %}
-                    >> {{ ancestors.all() | map(a=>"#{a.title}") | join(" >> ") }}
-                {% endif %}
-                >> {{result.title}}
-            </a>
+            {{ _self.searchListing(result) }}
         {% endfor %}
 
         {# pagination #}

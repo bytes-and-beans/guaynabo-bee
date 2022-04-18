@@ -58,6 +58,16 @@
     </a>
 {% endmacro %}
 
+{# Macro for the pagination blocks
+ #}
+{% macro pagination(pageInfo) %}
+    <div class="flex justify-between mt-4 mx-auto max-w-md">
+        {% if pageInfo.prevUrl %}<a href="{{ pageInfo.prevUrl }}">Siguiente</a> {% else %} <div class="w-px h-px">&nbsp;</div> {% endif %}
+        <div class=""> {{pageInfo.first}} a {{pageInfo.last}} de {{pageInfo.total}} resultados </div>
+        {% if pageInfo.nextUrl %}<a href="{{ pageInfo.nextUrl }}">Previo</a> {% else %} <div class="w-px h-px">&nbsp;</div> {% endif %}
+    </div>
+{% endmacro %}
+
 {% block base_supercontent %}
     {% include "_partials/entry_titlebar" with {title : "Sus búsquedas"} %}
 {% endblock %}
@@ -73,11 +83,7 @@
         {% endfor %}
 
         {# pagination #}
-        <div class="flex justify-between mt-4 mx-auto max-w-md">
-            {% if pageInfo.prevUrl %}<a href="{{ pageInfo.prevUrl }}">Siguiente</a> {% else %} <div class="w-px h-px">&nbsp;</div> {% endif %}
-            <div class=""> {{pageInfo.first}} a {{pageInfo.last}} de {{pageInfo.total}} resultados </div>
-            {% if pageInfo.nextUrl %}<a href="{{ pageInfo.nextUrl }}">Previo</a> {% else %} <div class="w-px h-px">&nbsp;</div> {% endif %}
-        </div>
+        {{ _self.pagination(pageInfo) }}
     {% else %}
         {# No results were found. #}
         <p>No se encontraron resultados de búsqueda.</p>

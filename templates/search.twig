@@ -159,6 +159,18 @@
                     max="{{now | date('Y-m-d')}}"
                 >
             </div> 
+            <div class=""> {# published before #}
+                <label for="search_form__date--after">publicado antes</label>
+                <input 
+                    name="search_form__date--before"
+                    id="search_form__date--before"
+                    class="{{txt_input_stylings}}" 
+                    placeholder="término de búsqueda"
+                    type="date" 
+                    x-on:change='execute_search'
+                    max="{{now | date('Y-m-d')}}"
+                >
+            </div> 
         </div>
     </div>
 

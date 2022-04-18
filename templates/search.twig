@@ -114,9 +114,24 @@
 
 {% block base_supercontent %}
     {% include "_partials/entry_titlebar" with {title : "Sus búsquedas"} %}
+
 {% endblock %}
 
 {% block base_content %}
+
+    {# The Search Options #}
+    <div 
+        {% set search_options_bg_gradient_start = "from-guaynabo-blue-start" %}
+        {% set search_options_bg_gradient_end   =   "to-guaynabo-blue-end" %}
+        class="
+            bg-gradient-to-tr {{search_options_bg_gradient_start}} {{search_options_bg_gradient_end}}
+            sm:p-4 
+            text-white
+        "
+    > 
+        <div class="text-center">limitar estos resultados</div>
+        
+    </div>
 
     {% if query.exists %}
         {% paginate query as pageInfo, pageEntries %}

@@ -43,8 +43,8 @@
     .search(...) Just does a regular Craft search to get our initial list of results
     .section() 
         the 'and' sets the boolean tying all these requirements together.
-        first the 'not...' out sections to be omitted from the search results
-        then the "section ? section : 'not NONEXISTANT_SECTION'"...
+        First the 'not...' remove sections to be omitted from the search results
+        Then the "section ? section : 'not NONEXISTANT_SECTION'"...
             If a section was specified in the search params, only include results
             in that section
             If no section was specified, ony include entries that are NOT in a 

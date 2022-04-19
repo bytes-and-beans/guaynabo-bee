@@ -126,45 +126,54 @@
         {% set search_options_bg_gradient_end   =   "to-guaynabo-blue-end" %}
         class="
             bg-gradient-to-tr {{search_options_bg_gradient_start}} {{search_options_bg_gradient_end}}
-            sm:p-4 
+            sm:p-4 py-4
             text-white
         "
     > 
-        {% set txt_input_stylings = "bg-white bg-opacity-60 text-guaynabo-blue-dark px-2" %}
+        {% set searchContainerStyles = "
+            grid grid-cols-2 justify-end
+            sm:flex sm:flex-col sm:justify-left sm:gap-1
+            " 
+         %}
+        {% set searchInputStyles = "bg-white bg-opacity-60 text-guaynabo-blue-dark px-2 justify-self-start" %}
+        {% set searchLabelStyles = "text-right mr-2" %}
         <script>
             function execute_search() {
                 console.log('woop');
             }
         </script>
         <div class="text-center">limitar estos resultados</div>
-        <div class="">
-            <input {# query #}
-                name="search_form__query"
-                id="search_form__query"
-                class="{{txt_input_stylings}}" 
-                placeholder="término de búsqueda"
-                value="{{urlQuery_text ?? ''}}" 
-                type="text" 
-                x-on:change='execute_search'
-            >
-            <div class=""> {# published after #}
-                <label for="search_form__date--after">publicado después</label>
+        <div class="flex flex-col sm:flex-row gap-4 flex-wrap justify-around mt-6">
+            <div class="{{searchContainerStyles}}"> {# query #}
+                <label class="{{searchLabelStyles}}" for="search_form__query">búsqueda</label>
+                <input 
+                    name="search_form__query"
+                    id="search_form__query"
+                    class="{{searchInputStyles}}" 
+                    placeholder=""
+                    value="{{urlQuery_text ?? ''}}" 
+                    type="text" 
+                    x-on:change='execute_search'
+                >
+            </div>
+            <div class="{{searchContainerStyles}}"> {# published after #}
+                <label class="{{searchLabelStyles}}" for="search_form__date--after">publicado después</label>
                 <input 
                     name="search_form__date--after"
                     id="search_form__date--after"
-                    class="{{txt_input_stylings}}" 
+                    class="{{searchInputStyles}}" 
                     placeholder="término de búsqueda"
                     type="date" 
                     x-on:change='execute_search'
                     max="{{now | date('Y-m-d')}}"
                 >
             </div> 
-            <div class=""> {# published before #}
-                <label for="search_form__date--after">publicado antes</label>
+            <div class="{{searchContainerStyles}}"> {# published before #}
+                <label class="{{searchLabelStyles}}" for="search_form__date--after">publicado antes</label>
                 <input 
                     name="search_form__date--before"
                     id="search_form__date--before"
-                    class="{{txt_input_stylings}}" 
+                    class="{{searchInputStyles}}" 
                     placeholder="término de búsqueda"
                     type="date" 
                     x-on:change='execute_search'

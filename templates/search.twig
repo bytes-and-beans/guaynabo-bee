@@ -6,25 +6,52 @@
 
 {% extends "_layouts/3-base" %}
 
-{# Get search query #}
-{% set urlQuery_text = craft.app.request.getQueryParam('q') ?? null %}
-{# getting the tags, if any #}
-{% set urlQuery_tags = craft.app.request.getQueryParam('t') ?? null %}
-{% if urlQuery_tags %}
-    {% set tags = urlQuery_tags | split(',') | map( t => craft.tags().title(t).all() ) %}
-{% else %}
-    {% set tags = null %}
-{% endif %}
-{# same as the tags, but for categories #}
-{% set urlQuery_cats = craft.app.request.getQueryParam('c') ?? null %}
-{% if urlQuery_cats %}
-    {% set cat_txt = urlQuery_cats | split(',') | first %}
-    {% set cat = craft.categories().title(cat_txt).one() %}
-{% else %}
-    {% set cat = null %}
-{% endif %}
+{# Search Query Stuff, (fold code here.) #}
+    {# Get search query #}
+    {% set urlQuery_text = craft.app.request.getQueryParam('q') ?? null %}
 
-{# getting our results #}
+    {# getting the tags, if any #}
+    {% set urlQuery_tags = craft.app.request.getQueryParam('t') ?? null %}
+    {% if urlQuery_tags %}
+        {% set tags = urlQuery_tags | split(',') | map( t => craft.tags().title(t).all() ) %}
+    {% else %}
+        {% set tags = null %}
+    {% endif %}
+
+    {# same as the tags, but for categories #}
+    {% set urlQuery_cats = craft.app.request.getQueryParam('c') ?? null %}
+    {% if urlQuery_cats %}
+        {% set cat_txt = urlQuery_cats | split(',') | first %}
+        {% set cat = craft.categories().title(cat_txt).one() %}
+    {% else %}
+        {% set cat = null %}
+    {% endif %}
+
+    {# same as tags, but for section #}
+    {% set urlQuery_section = craft.app.request.getQueryParam('s') ?? null %}
+    {% if urlQuery_section %}
+        {% set section = urlQuery_section | split(',') | first %}
+    {% else %}
+        {% set section = null %}
+    {% endif %}
+
+
+{# End Search Query Stuff, (fold code for ADD reasons) #}
+
+{# getting our results 
+    Ok, so theres a bit going on here and I won't remember it later.  
+    .search(...) Just does a regular Craft search to get our initial list of results
+    .section() 
+        the 'and' sets the boolean tying all these requirements together.
+        First the 'not...' remove sections to be omitted from the search results
+        Then the "section ? section : 'not NONEXISTANT_SECTION'"...
+            If a section was specified in the search params, only include results
+            in that section
+            If no section was specified, ony include entries that are NOT in a 
+            section that does not exist, thus including all entries.
+    .relatedTo(tags) if a tag is specified, limits to entries with that tag
+    .relatedTo(cats) if a cat is specified, limits to entries with that cat
+ #}
 {% set query = craft.entries()
     .search(urlQuery_text) 
     .section([
@@ -32,45 +59,144 @@
         'not ordenanzasYResolutiones',
         'not emergencyMessage',
         'not errorPages',
+        section ? section : 'not NONEXISTANT_SECTION',
     ])
     .relatedTo(tags)
     .relatedTo(cat)
     .limit(10)
 %}
 
+{# Macro that creates each item in the list of search results  
+ # @param result entry the entry/document to be described
+ #}
+{% macro searchListing(result) %}
+    <div
+        
+        class="mb-4 py-2 border-b block"
+    >
+        <div class="font-advantage text-2xl">
+            <a href="{{result.url}}">{{result.title}}</a>
+        </div>
+        
+        <div class="ml-4 "> {# Making the breadcrumbs #}
+            <a href="/search?s={{result.section.handle}}">{{result.section}}</a>
+            {% set ancestors = result.getAncestors %}
+            {% if ancestors | length > 0 %}
+                >> {{ ancestors.all() | map(a=>"#{a.title}") | join(" >> ") }}
+            {% endif %}
+            >> <a href="{{result.url}}">{{result.title}}</a>
+        </div> {# End Making the breadcrumbs #}
+        
+        {# Tags and categories #}
+        <div class="ml-4 flex gap-4">
+            {# The tags #}
+            {% for tag in result.tags.all() ?? {} %}
+                <a href="/search?t={{tag}}">{{tag.title}}</a>
+            {% endfor %}
+            {# The categories #}
+            {% for cat in result.categories.all() ?? {} %}
+                <a href="/search?t={{cat}}">{{cat.title}}</a>
+            {% endfor %}
+        </div>
+    </div>
+{% endmacro %}
+
+{# Macro for the pagination blocks
+    @param pageInfo the pageInfo object created Craft's 'paginate' tag
+ #}
+{% macro pagination(pageInfo) %}
+    <div class="flex justify-between mt-4 mx-auto max-w-md">
+        {% if pageInfo.prevUrl %}<a href="{{ pageInfo.prevUrl }}">Siguiente</a> {% else %} <div class="w-px h-px">&nbsp;</div> {% endif %}
+        <div class=""> {{pageInfo.first}} a {{pageInfo.last}} de {{pageInfo.total}} resultados </div>
+        {% if pageInfo.nextUrl %}<a href="{{ pageInfo.nextUrl }}">Previo</a> {% else %} <div class="w-px h-px">&nbsp;</div> {% endif %}
+    </div>
+{% endmacro %}
+
 {% block base_supercontent %}
     {% include "_partials/entry_titlebar" with {title : "Sus búsquedas"} %}
+
 {% endblock %}
 
 {% block base_content %}
 
+    {# The Search Options #}
+    <div 
+         x-data
+        {% set search_options_bg_gradient_start = "from-guaynabo-blue-start" %}
+        {% set search_options_bg_gradient_end   =   "to-guaynabo-blue-end" %}
+        class="
+            bg-gradient-to-tr {{search_options_bg_gradient_start}} {{search_options_bg_gradient_end}}
+            sm:p-4 py-4
+            text-white
+        "
+    > 
+        {% set searchContainerStyles = "
+            grid grid-cols-2 justify-end
+            sm:flex sm:flex-col sm:justify-left sm:gap-1
+            " 
+         %}
+        {% set searchInputStyles = "bg-white bg-opacity-60 text-guaynabo-blue-dark px-2 justify-self-start" %}
+        {% set searchLabelStyles = "text-right mr-2" %}
+        <script>
+            function execute_search() {
+                console.log('woop');
+            }
+        </script>
+        <div class="text-center">Opciones de búsqueda</div>
+        <div class="flex flex-col sm:flex-row gap-4 flex-wrap justify-around mt-6">
+            <div class="{{searchContainerStyles}}"> {# query #}
+                <label class="{{searchLabelStyles}}" for="search_form__query">búsqueda</label>
+                <input 
+                    name="search_form__query"
+                    id="search_form__query"
+                    class="{{searchInputStyles}}" 
+                    placeholder=""
+                    value="{{urlQuery_text ?? ''}}" 
+                    type="text" 
+                    x-on:change='execute_search'
+                >
+            </div>
+            <div class="{{searchContainerStyles}}"> {# published after #}
+                <label class="{{searchLabelStyles}}" for="search_form__date--after">publicado después</label>
+                <input 
+                    name="search_form__date--after"
+                    id="search_form__date--after"
+                    class="{{searchInputStyles}}" 
+                    placeholder="término de búsqueda"
+                    type="date" 
+                    x-on:change='execute_search'
+                    max="{{now | date('Y-m-d')}}"
+                >
+            </div> 
+            <div class="{{searchContainerStyles}}"> {# published before #}
+                <label class="{{searchLabelStyles}}" for="search_form__date--after">publicado antes</label>
+                <input 
+                    name="search_form__date--before"
+                    id="search_form__date--before"
+                    class="{{searchInputStyles}}" 
+                    placeholder="término de búsqueda"
+                    type="date" 
+                    x-on:change='execute_search'
+                    max="{{now | date('Y-m-d')}}"
+                >
+            </div> 
+        </div>
+    </div>
+
     {% if query.exists %}
         {% paginate query as pageInfo, pageEntries %}
         
+        {# pagination #}
+        {{ _self.pagination(pageInfo) }}
+
         {# The individual listings #}
         {% for result in pageEntries %}
-            <a
-                href="{{result.url}}"
-                class="mb-4 py-2 border-b block"
-            >
-                <div class="font-advantage text-2xl">
-                    {{result.title}}
-                </div>
-                {{result.section}}
-                {% set ancestors = result.getAncestors %}
-                {% if ancestors | length > 0 %}
-                    >> {{ ancestors.all() | map(a=>"#{a.title}") | join(" >> ") }}
-                {% endif %}
-                >> {{result.title}}
-            </a>
+            {{ _self.searchListing(result) }}
         {% endfor %}
 
         {# pagination #}
-        <div class="flex justify-between mt-4 mx-auto max-w-md">
-            {% if pageInfo.prevUrl %}<a href="{{ pageInfo.prevUrl }}">Siguiente</a> {% else %} <div class="w-px h-px">&nbsp;</div> {% endif %}
-            <div class=""> {{pageInfo.first}} a {{pageInfo.last}} de {{pageInfo.total}} resultados </div>
-            {% if pageInfo.nextUrl %}<a href="{{ pageInfo.nextUrl }}">Previo</a> {% else %} <div class="w-px h-px">&nbsp;</div> {% endif %}
-        </div>
+        {{ _self.pagination(pageInfo) }}
+
     {% else %}
         {# No results were found. #}
         <p>No se encontraron resultados de búsqueda.</p>
